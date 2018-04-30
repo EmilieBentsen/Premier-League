@@ -1,31 +1,34 @@
-ID Jersey Name Position Salary/week
-1 1 Loris Karius GK 25000
-2 22 Simon Mignolet GK 60000
-3 52 Danny Ward GK 10000
-4 34 Adam Bogdan GK
-5 2 Nathaniel Clyne DF 70000
-6 6 Dejan Lovren DF 90000
-7 7 James Milner DF 120000
-8 12 Joseph Gomez DF 30000
-9 17 Ragnar Klavan DF 55000
-10 18 Alberto Moreno DF 40000
-11 32 Joel Matip DF 70000
-12 66 Trent Alexander-Arnold DF
-13 26 Andrew Robertson DF 50000
-14 4 Virgil van Dijk DF 150000
-15 63 Conor Masterson DF 
-16 5 Georgino Wijnaldum MF 90000
-17 14 Jordan Henderson MF 100000
-18 19 Sadio Mané MF 90000
-19 20 Adam Lallana MF 65000
-20 23 Emre Can MF 70000
-21 58 Ben Woodburn MF 10000
-22 61 Paulinho MF 
-23 21 Alex Oxlade-Chamberlain MF 90000
-24 48 Curtis Jones MF 
-25 64 Rafael Camacho MF
-26 11 Mohamed Salah FW 120000
-27 29 Dominic Solanke FW 25000
-28 9 Roberto Firmino FW 100000
-29 28 Danny Ings FW 60000
-30 57 Rhian Brewster FW
+ID Jersey Name Position Salary/week CurrentRoster
+01 01 Loris Karius GK 25000 true
+02 22 Simon Mignolet GK 60000 true
+03 52 Danny Ward GK 10000 true
+04 34 Adam Bogdan GK 0 true
+05 02 Nathaniel Clyne DF 70000 true
+06 06 Dejan Lovren DF 90000 true
+07 07 James Milner DF 120000 true
+08 12 Joseph Gomez DF 30000 true
+09 17 Ragnar Klavan DF 55000 true
+10 18 Alberto Moreno DF 40000 true
+11 32 Joel Matip DF 70000 true
+12 66 Trent Alexander-Arnold DF 0 true
+13 26 Andrew Robertson DF 50000 true
+14 04 Virgil van Dijk DF 150000 true
+15 63 Conor Masterson DF 0 true
+16 05 Georgino Wijnaldum MF 90000 true
+17 14 Jordan Henderson MF 100000 true
+18 19 Sadio Mané MF 90000 true
+19 20 Adam Lallana MF 65000 true
+20 23 Emre Can MF 70000 true
+21 58 Ben Woodburn MF 10000 true
+22 61 Paulinho MF 0 true
+23 21 Alex Oxlade-Chamberlain MF 90000 true
+24 48 Curtis Jones MF 0 true
+25 64 Rafael Camacho MF 0 true
+26 11 Mohamed Salah FW 120000 true
+27 29 Dominic Solanke FW 25000 true
+28 09 Roberto Firmino FW 100000 true
+29 28 Danny Ings FW 60000 true
+30 57 Rhian Brewster FW true
+31 15 Daniel Sturridge FW WBA false
+32 10 Coutinho FW BAR false
+33 05 Lewis Dunk DF BHA false
