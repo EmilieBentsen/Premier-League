@@ -32,3 +32,4 @@ ID Jersey Name Position Salary/week CurrentRoster
 31 15 Daniel Sturridge FW WBA false
 32 10 Coutinho FW BAR false
 33 05 Lewis Dunk DF BHA false
+34 03 Eric Bailly DF MAU false
