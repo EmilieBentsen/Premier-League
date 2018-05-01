@@ -18,6 +18,16 @@ public abstract class Footballer
             this.footballerEmployed = footballerEmployed;
       }
       
+      public getFootballer(int footballerID, int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed )
+      {
+            this.footballerID = footballerID;
+            this.footballerJersey = footballerJersey;
+            this.footballerName = footballerName;
+            this.footballerPosition = footballerPosition;
+            this.footballerSalary = footballerSalary;
+            this.footballerEmployed = footballerEmployed;
+      }
+      
       public int getFootballerID()
       {
             return footballerID;
