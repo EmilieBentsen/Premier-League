@@ -1,4 +1,4 @@
-ID Jersey Name Position Salary/week CurrentRoster
+ID Jersey Name Position Salary/week Employed
 01 01 Loris Karius GK 25000 true
 02 22 Simon Mignolet GK 60000 true
 03 52 Danny Ward GK 10000 true
@@ -33,3 +33,4 @@ ID Jersey Name Position Salary/week CurrentRoster
 32 10 Coutinho FW BAR false
 33 05 Lewis Dunk DF BHA false
 34 03 Eric Bailly DF MAU false
+35 00 Jürgen Klopp MN 0 true
