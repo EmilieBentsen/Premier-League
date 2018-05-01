@@ -1,13 +1,13 @@
 ID Name
-01 Arsenal
-02 Bournemouth
-03 Brighton & Hove Albion
-04 Burnley
-05 Chelsea
-06 Crystal Palace
-07 Everton
-08 Huddersfield Town
-09 Leicester City
+1 Arsenal
+2 Bournemouth
+3 Brighton & Hove Albion
+4 Burnley
+5 Chelsea
+6 Crystal Palace
+7 Everton
+8 Huddersfield Town
+9 Leicester City
 10 Liverpool
 11 Manchester City
 12 Manchester United
