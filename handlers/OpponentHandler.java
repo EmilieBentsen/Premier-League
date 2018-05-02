@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class OpponentHandler
 {     
       public static void updateOpponent(Opponent o)
-      {
+      {     
             String content = FileHandler.getFileContent(FileHandler.OPPONENT_TXT);
             Scanner sc = new Scanner(content);
             
@@ -16,9 +16,10 @@ public class OpponentHandler
             
             while (sc.hasNextLine())
             {
-                  
-                  int opponentID = sc.nextInt();
-                  String opponentName = sc.nextLine();
+                  String[] array = sc.nextLine().split(",");
+                  int opponentID = Integer.parseInt(array[0]);
+                  String opponentName = array[1];
+                  boolean opponentActive = Boolean.parseBoolean(array[2]);
                   
                   if (!firstLine) newContent += '\n';
                   else
@@ -28,7 +29,7 @@ public class OpponentHandler
                   
                   if (opponentID != o.getOpponentID())
                   {     
-                        newContent += opponentID + opponentName;
+                        newContent += opponentID +","+ opponentName +","+ opponentActive;
                   }
                   else
                   {

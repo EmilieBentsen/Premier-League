@@ -3,14 +3,14 @@ import java.time.*;
 
 public class Match
 {
-      public int matchID;
-      public LocalDate matchDate;
-      public int matchOpponentID;
-      public char matchHomeOrAway;
-      public int matchHomeGoals;
-      public int matchAwayGoals;
-      public String matchFormation;
-      public String matchLineup;
+      private int matchID;
+      private LocalDate matchDate;
+      private int matchOpponentID;
+      private char matchHomeOrAway;
+      private int matchHomeGoals;
+      private int matchAwayGoals;
+      private String matchFormation;
+      private String matchLineup;
       
       public createMatch(public LocalDate matchDate, public int matchOpponentID, public char matchHomeOrAway, public int matchHomeGoals, public int matchAwayGoals, public String matchFormation, public String matchLineup)
       {

@@ -2,12 +2,12 @@ package models;
 
 public abstract class Footballer
 {
-      public int footballerID; 
-      public int footballerJersey; 
-      public String footballerName; 
-      public String footballerPosition; 
-      public String footballerSalary; 
-      public boolean footballerEmployed;
+      private int footballerID; 
+      private int footballerJersey; 
+      private String footballerName; 
+      private String footballerPosition; 
+      private String footballerSalary; 
+      private boolean footballerEmployed;
       
       public createFootballer(int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
       {

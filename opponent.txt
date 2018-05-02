@@ -1,21 +1,21 @@
-ID Name
-1 Arsenal
-2 Bournemouth
-3 Brighton & Hove Albion
-4 Burnley
-5 Chelsea
-6 Crystal Palace
-7 Everton
-8 Huddersfield Town
-9 Leicester City
-10 Liverpool
-11 Manchester City
-12 Manchester United
-13 Newcastle United
-14 Southampton
-15 Stoke City
-16 Swansea City
-17 Tottenham Hotspur
-18 Watford
-19 West Bromwich Albion
-20 West Ham United
+ID,Name,Active
+1,Arsenal,true
+2,Bournemouth,true
+3,Brighton & Hove Albion,true
+4,Burnley,true
+5,Chelsea,true
+6,Crystal Palace,true
+7,Everton,true
+8,Huddersfield Town,true
+9,Leicester City,true
+10,Liverpool,true
+11,Manchester City,true
+12,Manchester United,true
+13,Newcastle United,true
+14,Southampton,true
+15,Stoke City,true
+16,Swansea City,true
+17,Tottenham Hotspur,true
+18,Watford,true
+19,West Bromwich Albion,true
+20,West Ham United,true

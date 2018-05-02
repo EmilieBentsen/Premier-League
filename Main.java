@@ -8,8 +8,9 @@ public class Main
       {
             //FileHandler fh = new FileHandler();
             //fh.writeFileContent("goal_backup.txt", fh.getFileContent(fh.GOAL_TXT));
-            System.out.println(FileHandler.getFileContent(FileHandler.OPPONENT_TXT));
-/*            Opponent o = new Opponent(01, "Arsenal");
+            //System.out.println(FileHandler.getFileContent(FileHandler.OPPONENT_TXT));
+
+            Opponent o = new Opponent(01, "Arsenal", true);
             OpponentHandler.updateOpponent(o);
-  */    }
+      }
 }

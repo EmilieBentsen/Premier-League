@@ -1,10 +1,10 @@
 public class Goal
 {
-      public int goalID;
-      public int goalScorer;
-      public int goalMinuteScored;
-      public char goalType;
-      public int goalAssistingPlayer;
+      private int goalID;
+      private int goalScorer;
+      private int goalMinuteScored;
+      private char goalType;
+      private int goalAssistingPlayer;
       
       public goal(int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {

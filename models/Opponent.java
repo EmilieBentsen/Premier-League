@@ -2,18 +2,21 @@ package models;
 
 public class Opponent
 {
-      public int opponentID;
-      public String opponentName;
+      private int opponentID;
+      private String opponentName;
+      private boolean opponentActive;
       
-      public Opponent(int opponentID, String opponentName)
+      public Opponent(int opponentID, String opponentName, boolean opponentActive)
       {
             this.opponentID = opponentID;
             this.opponentName = opponentName;
+            this.opponentActive = opponentActive;
       }
       
-      public void createOpponent(String opponentName)
+      public void createOpponent(String opponentName, boolean opponentActive)
       {
             this.opponentName = opponentName;
+            this.opponentActive = opponentActive;
       }
       
       public String getOpponentName()
@@ -26,9 +29,14 @@ public class Opponent
             return opponentID;
       }
       
+      public boolean getOpponentActive()
+      {
+            return opponentActive;
+      }
+      
       public String toString(Opponent o)
       {
-            String details = o.getOpponentID()+ " " + o.getOpponentName();
+            String details = o.getOpponentID()+ "," + o.getOpponentName() + "," + o.getOpponentActive();
             return details;
       }
 }
