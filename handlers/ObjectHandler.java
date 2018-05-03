@@ -9,7 +9,7 @@ public abstract class ObjectHandler<T extends Object> //T kan være enhver type a
       
       public ArrayList<T> getContent() //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer en ArrayList der indeholder objekter T
       {
-            return FileHandler.getContent(getFilePath(), getHandler());
+            return FileHandler.getContent(getFilePath(), getHandler());//Da klassen lover supklasserne har disse to metoder, kan vi kalde dem herfra.
       }
       
       public void save(ArrayList<T> list) //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer ikke noget. Har en ArrayList med objekter af T der hedder "lis" som parameter.
