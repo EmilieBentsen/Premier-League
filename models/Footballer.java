@@ -8,9 +8,13 @@ public abstract class Footballer
       private String footballerPosition; 
       private String footballerSalary; 
       private boolean footballerEmployed;
+      private static int lastID;
       
-      public createFootballer(int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
+      //Mangler metode til at generere ID baseret på filindhold.
+      
+      public Footballer(int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
       {
+            this.footballerID = lastID++;
             this.footballerJersey = footballerJersey;
             this.footballerName = footballerName;
             this.footballerPosition = footballerPosition;
@@ -18,17 +22,9 @@ public abstract class Footballer
             this.footballerEmployed = footballerEmployed;
       }
       
-      public getFootballer(int footballerID, int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed )
-      {
-            this.footballerID = footballerID;
-            this.footballerJersey = footballerJersey;
-            this.footballerName = footballerName;
-            this.footballerPosition = footballerPosition;
-            this.footballerSalary = footballerSalary;
-            this.footballerEmployed = footballerEmployed;
-      }
+      //Mangler constructor der der tager i mod en String.
       
-      public int getFootballerID()
+      public int getID()
       {
             return footballerID;
       }
@@ -38,9 +34,29 @@ public abstract class Footballer
             return footballerJersey;
       }
       
+      public void setFootballerJersey(int footballerJersey)
+      {
+            this.footballerJersey = footballerJersey;
+      }
+      
+      public String getFootballerName()
+      {
+            return footballerName;
+      }
+      
+      public void setFootballerName(String footballerName)
+      {
+            this.footballerName = footballerName;
+      }
+      
       public String getFootballerPosition()
       {
             return footballerPosition;
+      }
+      
+      public void setFootballerPosition(String footballerPosition)
+      {
+            this.footballerPosition = footballerPosition;
       }
       
       public String getFootballerSalary()
@@ -48,8 +64,18 @@ public abstract class Footballer
             return footballerSalary;
       }
       
+      public void setFootballerSalary(String footballerSalary)
+      {
+            this.footballerSalary = footballerSalary;
+      }
+      
       public boolean getFootballerEmployed()
       {
             return footballerEmployed;
+      }
+      
+      public void setFootballerEmployed(boolean footballerEmployed)
+      {
+            this.footballerEmployed = footballerEmployed;
       }
 }

@@ -63,4 +63,39 @@ public class Match
       {
             return matchLineup;
       }
+      
+      public void setMatchDate()
+      {
+            this.matchDate = matchDate;
+      }
+      
+      public void setMatchOpponentID(int matchOpponentID)
+      {
+            this.matchOpponentID = matchOpponentID;
+      }
+      
+      public void setMatchHomeOrAway(char matchHomeOrAway)
+      {
+            this.matchHomeOrAway = matchHomeOrAway;      
+      }
+      
+      public void setMatchHomeGoals(int matchHomeGoals)
+      {
+            this.matchHomeGoals = matchHomeGoals;
+      }
+      
+      public void setMatchAwayGoals(int matchAwayGoals)
+      {
+            this.matchAwayGoals = matchAwayGoals;
+      }
+      
+      public void setMatchFormation(String matchFormation)
+      {
+            this.matchFormation = matchFormation;
+      }
+      
+      public void setMatchLineup(String matchLineup)
+      {
+            this.matchLineup = matchLineup;
+      }      
 }
