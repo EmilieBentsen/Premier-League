@@ -22,6 +22,18 @@ public abstract class Footballer
             this.footballerEmployed = footballerEmployed;
       }
       
+      public Footballer(int id, int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
+      {
+            this.footballerID = id;
+            this.footballerJersey = footballerJersey;
+            this.footballerName = footballerName;
+            this.footballerPosition = footballerPosition;
+            this.footballerSalary = footballerSalary;
+            this.footballerEmployed = footballerEmployed;
+      }
+      
+      
+      
       //Mangler constructor der der tager i mod en String.
       
       public int getID()
