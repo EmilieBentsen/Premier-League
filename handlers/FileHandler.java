@@ -4,7 +4,7 @@ import java.io.*;
 
 public class FileHandler
 {     
-      public static final String FOOTBALLER_TXT = "footballer.txt";
+      public static final String FOOTBALLER_TXT = "footballer.txt"; // Skal disse 4 filer ikke ligge i deres handlers?
       public static final String GOAL_TXT = "goal.txt";
       public static final String OPPONENT_TXT = "opponent.txt";
       public static final String MATCH_TXT = "match.txt";
