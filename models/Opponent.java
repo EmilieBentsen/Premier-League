@@ -5,17 +5,26 @@ public class Opponent
       private int opponentID;
       private String opponentName;
       private boolean opponentActive;
+      private static int lastID;
       
-      public Opponent(int opponentID, String opponentName, boolean opponentActive)
+      //Mangler metode til at generere ID baseret på filindhold.
+      
+      
+      public Opponent(String opponentName, boolean opponentActive)
       {
-            this.opponentID = opponentID;
+            opponentID = lastID++;
             this.opponentName = opponentName;
             this.opponentActive = opponentActive;
       }
+      //Mangler constructor der der tager i mod en String.
       
-      public void createOpponent(String opponentName, boolean opponentActive)
+      public void setOpponentName(String opponentName)
       {
             this.opponentName = opponentName;
+      }
+      
+      public void setOpponentActive(boolean opponentActive)
+      {
             this.opponentActive = opponentActive;
       }
       
@@ -24,7 +33,7 @@ public class Opponent
             return opponentName;
       }
       
-      public int getOpponentID()
+      public int getID()
       {
             return opponentID;
       }
@@ -34,9 +43,9 @@ public class Opponent
             return opponentActive;
       }
       
-      public String toString(Opponent o)
+      public String toString()
       {
-            String details = o.getOpponentID()+ "," + o.getOpponentName() + "," + o.getOpponentActive();
+            String details = this.getID()+ "," + this.getOpponentName() + "," + this.getOpponentActive();
             return details;
       }
 }
