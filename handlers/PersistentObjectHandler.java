@@ -1,3 +1,5 @@
+package handlers;
+
 public interface PersistentObjectHandler<T extends Object> //T kan være enhver type af objekter som extender Object klassen 
 {
       public String lineFrom(T t); //metode der skal implementeres. returnerer en string og tager et objekt ind

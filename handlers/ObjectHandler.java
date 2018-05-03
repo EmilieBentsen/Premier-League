@@ -7,6 +7,19 @@ public abstract class ObjectHandler<T extends Object> //T kan være enhver type a
       public abstract String getFilePath(); //Metode der skal implementeres af klasser som nedarver fra klassen. Denne metode returnerer en String
       public abstract PersistentObjectHandler<T> getHandler(); //metode der skal implemteres af klasser som nedarver fra klassen. Denne medtode returnere et interface
       
+      
+      public void deleteObject(ArrayList<T> list, int id)//Sletter det objekt i arraylisten med det medfølgende id og kalder save med den nye liste
+      {
+            for(Object i : list)
+            {
+                  if (i.getID() == id)
+                  {
+                        list.remove(i);
+                        save(list);
+                  }
+            }
+      }
+      
       public ArrayList<T> getContent() //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer en ArrayList der indeholder objekter T
       {
             return FileHandler.getContent(getFilePath(), getHandler());//Da klassen lover supklasserne har disse to metoder, kan vi kalde dem herfra.
