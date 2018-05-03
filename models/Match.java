@@ -23,8 +23,9 @@ public class Match
             this.matchFormation = matchFormation;
             this.matchLineup = matchLineup;
       }
+      //mangler metode og konstruktor der generere ID baseret på filindhold.
       
-      public int getMatchID()
+      public int getID()
       {
             return matchID;
       }
