@@ -32,10 +32,6 @@ public abstract class Footballer
             this.footballerEmployed = footballerEmployed;
       }
       
-      
-      
-      //Mangler constructor der der tager i mod en String.
-      
       public int getID()
       {
             return footballerID;

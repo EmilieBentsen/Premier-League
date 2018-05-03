@@ -16,7 +16,14 @@ public class Opponent
             this.opponentName = opponentName;
             this.opponentActive = opponentActive;
       }
-      //Mangler constructor der der tager i mod en String.
+      
+      public Opponent(int id, String opponentName, boolean opponentActive)
+      {
+            this.opponentID = id;
+            this.opponentName = opponentName;
+            this.opponentActive = opponentActive;
+      }
+
       
       public void setOpponentName(String opponentName)
       {

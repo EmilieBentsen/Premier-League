@@ -15,8 +15,15 @@ public class Goal
             this.goalType = goalType;
             this.goalAssistingPlayer = goalAssistingPlayer;
       }
-      //Mangler constructor der der tager i mod en String.
       
+      public Goal(int id, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      {
+            this.goalID = id;
+            this.goalScorer = goalScorer;
+            this.goalMinuteScored = goalMinuteScored;
+            this.goalType = goalType;
+            this.goalAssistingPlayer = goalAssistingPlayer;
+      }
       public int getGoalScorer()
       {
             return goalScorer;
@@ -32,7 +39,7 @@ public class Goal
             return goalMinuteScored;
       }
       
-      public int setGoalMinuteScored(int goalMinuteScored)
+      public void setGoalMinuteScored(int goalMinuteScored)
       {
             this.goalMinuteScored = goalMinuteScored;
       }
