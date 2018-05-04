@@ -1,6 +1,6 @@
 package models;
 
-public abstract class Footballer
+public class Footballer
 {
       private int footballerID; 
       private int footballerJersey; 

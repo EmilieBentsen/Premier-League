@@ -6,7 +6,7 @@ import java.util.*;
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
 
-      ArrayList<Footballer> footballers = getContent();
+      public ArrayList<Footballer> footballers = getContent();
       
       public String getFilePath()
       {
