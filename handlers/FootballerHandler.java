@@ -2,7 +2,6 @@ package handlers;
 import models.*;
 import java.util.*;
 
-
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
       private ArrayList<Footballer> footballers = getContent();
@@ -29,27 +28,26 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
                         int jerseyNumber = Integer.parseInt(components[1]);
                         boolean employed = Boolean.parseBoolean(components[5]);
                         
-                        if(components[3].equals("GK"))
+                        if(components[3].equals("GK")) //Ser på spillernes position og opretter dem som et Footballer object af den korrekte type
                         {
-                              return new Goalkeeper(id, jerseyNumber, components[2], components[3], components[4], employed);
+                              return new Goalkeeper(id, jerseyNumber, components[2], components[4], employed);
                         }
                         else if(components[3].equals("DF"))
                         {
-                              return new Defender(id, jerseyNumber, components[2], components[3], components[4], employed);
+                              return new Defender(id, jerseyNumber, components[2], components[4], employed);
                         }
                         else if(components[3].equals("MF"))
                         {
-                              return new Midfielder(id, jerseyNumber, components[2], components[3], components[4], employed);
+                              return new Midfielder(id, jerseyNumber, components[2], components[4], employed);
                         }
                         else if(components[3].equals("FW"))
                         {
-                              return new Forward(id, jerseyNumber, components[2], components[3], components[4], employed);
+                              return new Forward(id, jerseyNumber, components[2], components[4], employed);
                         }
                         else 
                         {
-                              return new Mannager(id, jerseyNumber, components[2], components[3], components[4], employed);
+                              return new Manager(id, jerseyNumber, components[2], components[4], employed);
                         }
-                        //return new Footballer(id, jerseyNumber, components[2], components[3], components[4], employed); //obretter er nyt object af footballer                      
                   }
             };
       }

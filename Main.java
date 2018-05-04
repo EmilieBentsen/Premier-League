@@ -11,6 +11,6 @@ public class Main
             //System.out.println(ileHandler.getFileContent(FileHandler.OPPONENT_TXT));
       
             FootballerHandler fh = new FootballerHandler();
-            System.out.println(fh.footballers);
+            fh.listFootballers();
       }
 }
