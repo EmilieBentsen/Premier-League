@@ -12,7 +12,7 @@ public class Forward extends Footballer
             super(id, footballerJersey, footballerName, footballerSalary, footballerEmployed);
       }
       
-      public String getPosition()
+      public String getFootballerPosition()
       {
             return "FW";
       }

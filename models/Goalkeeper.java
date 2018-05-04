@@ -1,7 +1,7 @@
 package models;
 
 
-public class Goalkeeper extends Footballer implements Model
+public class Goalkeeper extends Footballer 
 {
       public Goalkeeper(int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
       {

@@ -75,5 +75,5 @@ public abstract class Footballer implements Model
             this.footballerEmployed = footballerEmployed;
       }
       
-      public abstract String getPosition();
+      public abstract String getFootballerPosition();
 }
