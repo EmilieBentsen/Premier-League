@@ -3,6 +3,7 @@ package handlers;
 import models.Opponent;
 import handlers.FileHandler;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
@@ -35,6 +36,19 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
                         return new Opponent(id, opponentName, active); //obretter er nyt object af footballer                      
                   }
             };
+      }
+      
+      public void listOpponents()
+      {           
+            for(Opponent i : opponents)
+            {
+                  System.out.println(i.getID() + " " + i.getOpponentName() + " " + i.getOpponentActive());   
+            }
+      }
+      
+      public ArrayList getOpponentArray()
+      {
+            return opponents;
       }
       
       public void updateObject()

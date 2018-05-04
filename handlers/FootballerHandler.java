@@ -26,27 +26,29 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
                         String[] components = line.split(",");
                         int id = Integer.parseInt(components[0]);//laver strings i arraylisten om til int.
                         int jerseyNumber = Integer.parseInt(components[1]);
+                        String name = components[2];
+                        String salary = components[4];
                         boolean employed = Boolean.parseBoolean(components[5]);
                         
                         if(components[3].equals("GK")) //Ser på spillernes position og opretter dem som et Footballer object af den korrekte type
                         {
-                              return new Goalkeeper(id, jerseyNumber, components[2], components[4], employed);
+                              return new Goalkeeper(id, jerseyNumber, name, salary, employed);
                         }
                         else if(components[3].equals("DF"))
                         {
-                              return new Defender(id, jerseyNumber, components[2], components[4], employed);
+                              return new Defender(id, jerseyNumber, name, salary, employed);
                         }
                         else if(components[3].equals("MF"))
                         {
-                              return new Midfielder(id, jerseyNumber, components[2], components[4], employed);
+                              return new Midfielder(id, jerseyNumber, name, salary, employed);
                         }
                         else if(components[3].equals("FW"))
                         {
-                              return new Forward(id, jerseyNumber, components[2], components[4], employed);
+                              return new Forward(id, jerseyNumber, name, salary, employed);
                         }
                         else 
                         {
-                              return new Manager(id, jerseyNumber, components[2], components[4], employed);
+                              return new Manager(id, jerseyNumber, name, salary, employed);
                         }
                   }
             };
