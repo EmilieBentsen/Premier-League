@@ -11,7 +11,8 @@ public abstract class Footballer implements Model
       
       //Mangler metode til at generere ID baseret på filindhold.
       
-      public Footballer(int footballerJersey, String footballerName, String footballerSalary, boolean footballerEmployed)
+      public Footballer(int footballerJersey, String footballerName, String footballerSalary, 
+      boolean footballerEmployed)
       {
             this.footballerID = lastID++;
             this.footballerJersey = footballerJersey;
@@ -20,7 +21,8 @@ public abstract class Footballer implements Model
             this.footballerEmployed = footballerEmployed;
       }
       
-      public Footballer(int id, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
+      public Footballer(int id, int footballerJersey, String footballerName,String footballerSalary, 
+      boolean footballerEmployed)
       {
             this.footballerID = id;
             this.footballerJersey = footballerJersey;
