@@ -1,4 +1,5 @@
-package models;
+package models.footballertypes;
+import models.Footballer;
 
 public class Defender extends Footballer
 {
@@ -18,5 +19,4 @@ public class Defender extends Footballer
       {
             return "DF";
       }
-      
 }

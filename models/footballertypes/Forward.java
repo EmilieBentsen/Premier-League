@@ -1,4 +1,5 @@
-package models;
+package models.footballertypes;
+import models.Footballer;
 
 public class Forward extends Footballer
 {
