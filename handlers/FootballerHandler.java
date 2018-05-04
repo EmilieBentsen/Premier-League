@@ -10,7 +10,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
       
       public String getFilePath()
       {
-            return "footballer.txt";
+            return "footballer.csv";
       }
       
       public PersistentObjectHandler<Footballer> getHandler()//Returnerer en persistentObjectHandler med objectet Hamster

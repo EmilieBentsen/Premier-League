@@ -1,4 +1,6 @@
-public class Goal
+package models;
+
+public class Goal implements Model
 {
       private int goalID;
       private int goalScorer;

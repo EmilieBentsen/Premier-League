@@ -1,8 +1,9 @@
 package models;
 import java.time.*;
 
-public class Match
+public class Match implements Model
 {
+      private int lastID;
       private int matchID;
       private LocalDate matchDate;
       private int matchOpponentID;
@@ -12,7 +13,21 @@ public class Match
       private String matchFormation;
       private String matchLineup;
       
-      public createMatch(public LocalDate matchDate, public int matchOpponentID, public char matchHomeOrAway, public int matchHomeGoals, public int matchAwayGoals, public String matchFormation, public String matchLineup)
+      
+      public Match(LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
+      {
+            matchID = lastID++;
+            this.matchDate = matchDate;
+            this.matchOpponentID = matchOpponentID;
+            this.matchHomeOrAway = matchHomeOrAway;
+            this.matchHomeGoals = matchHomeGoals;
+            this.matchAwayGoals = matchAwayGoals;
+            this.matchFormation = matchFormation;
+            this.matchLineup = matchLineup;
+      }
+      //mangler metode og konstruktor der generere ID baseret på filindhold.
+      
+      public Match(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
             this.matchID = matchID;
             this.matchDate = matchDate;
@@ -23,7 +38,6 @@ public class Match
             this.matchFormation = matchFormation;
             this.matchLineup = matchLineup;
       }
-      //mangler metode og konstruktor der generere ID baseret på filindhold.
       
       public int getID()
       {

@@ -7,7 +7,7 @@ public class GoalHandler
             int count;
             for(goal i : list)
             {
-                   if (i.getID() == id)
+                   if (i.getID() == footballerID)
                   {
                         count++;
                   }

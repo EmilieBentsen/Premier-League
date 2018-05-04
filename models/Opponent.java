@@ -1,6 +1,6 @@
 package models;
 
-public class Opponent
+public class Opponent implements Model
 {
       private int opponentID;
       private String opponentName;
