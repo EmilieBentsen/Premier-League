@@ -1,6 +1,6 @@
 package models;
 
-public interface Model implements Model
+public interface Model
 {
       public int getID();
 }
