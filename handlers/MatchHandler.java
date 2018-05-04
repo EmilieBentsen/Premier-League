@@ -37,21 +37,46 @@ public class MatchHandler extends ObjectHandler<Match>
             };
       }
       
-      public void updateObject(ArrayList<Match> matches, int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineUp)
+      public void updateObject(ArrayList<Match> matches, int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, 
+      int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup) //Metode til at opdatere kampe med id.
       {
             for(Match i : matches)
             {
                   if (i.getID() == matchID)
                   {
-                        matches.remove(i);
-                        matches.add(new Match(matchID, matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, matchAwayGoals, matchFormation, matchLineUp));
+                        i.setMatchDate(matchDate);
+                        i.setMatchOpponentID(matchOpponentID);
+                        i.setMatchHomeOrAway(matchHomeOrAway);
+                        i.setMatchHomeGoals(matchHomeGoals);
+                        i.setMatchAwayGoals(matchAwayGoals);
+                        i.setMatchFormation(matchFormation);
+                        i.setMatchLineup(matchLineup);
                         save(matches);
                   }
             }
       }
       
-      public void createObject()
+      public void createObject(ArrayList<Match> matches, LocalDate matchDate, int matchOpponentID, //metode til at oprette kampe
+      char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
-            
+             matches.add(new Match(matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
+             matchAwayGoals, matchFormation, matchLineup));
+             save(matches);
+             
+      }
+          
+      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe
+      {
+            return matches;
+      }
+      
+      
+            public void listMatches() //metode der printer en liste med objekter
+      {           
+            for(Match i : matches)
+            {
+                  System.out.println(i.getID() + " " + i.getMatchDate() + " " + i.getMatchOpponentID() + " " 
+                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + " " + i.getMatchAwayGoals()+ " " + i.getMatchFormation()+ " " + i.getMatchLineup());   
+            }
       }
 }

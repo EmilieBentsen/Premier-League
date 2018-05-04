@@ -1,6 +1,7 @@
 import models.*;
 import handlers.*;
 import java.util.*;
+import java.time.LocalDate;
 
 public class Main
 {
@@ -10,7 +11,11 @@ public class Main
             //fh.writeFileContent("goal_backup.txt", fh.getFileContent(fh.GOAL_TXT));
             //System.out.println(ileHandler.getFileContent(FileHandler.OPPONENT_TXT));
       
-            FootballerHandler fh = new FootballerHandler();
-            fh.listFootballers();
+            /*FootballerHandler fh = new FootballerHandler();
+            fh.listFootballers();*/
+            
+            MatchHandler mh = new MatchHandler();
+            mh.updateObject(mh.getMatchArray(),01,LocalDate.parse("2018-12-24"), 90, 'H', 3, 9, "6-3-2", "00-00-00-00-00-00-00-00-00-00-00");
+            mh.listMatches();
       }
 }
