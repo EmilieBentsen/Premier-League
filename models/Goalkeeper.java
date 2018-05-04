@@ -8,7 +8,7 @@ public class Goalkeeper extends Footballer
             super(footballerJersey,footballerName,footballerSalary,footballerEmployed);
       }
       
-      public Goalkeeper(int id, int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
+      public Goalkeeper(int id, int footballerJersey, String footballerName, String footballerSalary, boolean footballerEmployed)
       {
             super(id,footballerJersey,footballerName,footballerSalary,footballerEmployed);
       }

@@ -14,7 +14,7 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
       
      
       
-      public void deleteObject(ArrayList<T> list, int id)//Sletter det objekt i arraylisten med det medfølgende id og kalder save med den nye liste
+      public void deleteObject(ArrayList<T> list, int id)//Sletter det objekt der har implementeret interfacet model i arraylisten med det medfølgende id og kalder save med den nye liste
       {
             for(Model i : list)
             {
