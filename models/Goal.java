@@ -65,5 +65,10 @@ public class Goal implements Model
       public void setGoalAssistingPlayer(int goalAssistingPlayer)
       {
       this.goalAssistingPlayer = goalAssistingPlayer;
+      }
+      
+      public int getID()
+      {
+            return goalID;     
       }     
 }
