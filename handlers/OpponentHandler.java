@@ -4,39 +4,46 @@ import models.Opponent;
 import handlers.FileHandler;
 import java.util.Scanner;
 
-public class OpponentHandler
-{     
-      public static void updateOpponent(Opponent o)
-      {     
-            String content = FileHandler.getFileContent(FileHandler.OPPONENT_TXT);
-            Scanner sc = new Scanner(content);
-            
-            String newContent = sc.nextLine() + '\n';
-            boolean firstLine = true;
-            
-            while (sc.hasNextLine())
+public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvilken type objekter vi arbejder med i denne klasse
+{
+
+      public ArrayList<Opponent> opponents = getContent();
+      
+      public String getFilePath()
+      {
+            return "opponent.csv";
+      }
+      
+      public PersistentObjectHandler<Opponent> getHandler()//Returnerer en persistentObjectHandler med objectet Hamster
+      {
+            return new PersistentObjectHandler<Opponent>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
             {
-                  String[] array = sc.nextLine().split(",");
-                  int opponentID = Integer.parseInt(array[0]);
-                  String opponentName = array[1];
-                  boolean opponentActive = Boolean.parseBoolean(array[2]);
-                  
-                  if (!firstLine) newContent += '\n';
-                  else
+                  public String lineFrom(Opponent o)//PersistentObjectHandler kræver vi har denne metode, modtager et objekt og laver om til en String
                   {
-                        firstLine = false;
+                        return o.getID() 
+                        + "," + o.getOpponentName() 
+                        + "," + o.getOpponentActive();
                   }
-                  
-                  if (opponentID != o.getOpponentID())
-                  {     
-                        newContent += opponentID +","+ opponentName +","+ opponentActive;
-                  }
-                  else
+      
+                  public Opponent objectFrom(String line)//PersistentObjectHandler kræver vi har denne metode, modtager en String og laver den om til et objekt og returnerer det
                   {
-                        newContent += o.toString(o);
+                        String[] components = line.split(",");
+                        int id = Integer.parseInt(components[0]); //laver strings i arraylisten om til int.
+                        String opponentName = components[1];
+                        boolean active = Boolean.parseBoolean(components[2]);
+                        
+                        return new Opponent(id, opponentName, active); //obretter er nyt object af footballer                      
                   }
-            }
-            FileHandler.writeFileContent(FileHandler.OPPONENT_TXT, newContent);
-            System.out.println("Opponent #"+o.getOpponentID()+" changed name to "+ o.getOpponentName());
-            }
+            };
+      }
+      
+      public void updateObject()
+      {
+      
+      }
+      
+      public void createObject()
+      {
+            
+      }
 }

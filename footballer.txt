@@ -1,3 +1,4 @@
+ID,Jersey,Name,Position,Salary/week,Employed
 01,01,Loris Karius,GK,25000,true
 02,22,Simon Mignolet,GK,60000,true
 03,52,Danny Ward,GK,10000,true
