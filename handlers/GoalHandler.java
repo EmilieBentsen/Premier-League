@@ -19,6 +19,16 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
             return count;
       }
+      
+      /*public Arraylist listGoalsByPeriod(LocalDate startDate, LocalDate endDate)
+      {
+                 
+      }*/
+      
+      /*public ArrayList listTopThreeGoalScorers(LocalDate startDate, LocalDate endD)
+      {
+            int numberOfCounts = goals.size();
+      }*/
             
       public String getFilePath()
       {

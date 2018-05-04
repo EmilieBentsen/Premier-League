@@ -37,7 +37,7 @@ public class MatchHandler extends ObjectHandler<Match>
             };
       }
       
-      public void updateObject(ArrayList<Match> matches, int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, 
+      public void updateObject(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, 
       int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup) //Metode til at opdatere kampe med id.
       {
             for(Match i : matches)
@@ -71,7 +71,7 @@ public class MatchHandler extends ObjectHandler<Match>
       }
       
       
-            public void listMatches() //metode der printer en liste med objekter
+      public void listMatches() //metode der printer en liste med objekter
       {           
             for(Match i : matches)
             {

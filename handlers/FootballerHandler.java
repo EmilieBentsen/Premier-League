@@ -6,7 +6,7 @@ import java.util.*;
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
       private ArrayList<Footballer> footballers = getContent();
-      
+
       public String getFilePath()
       {
             return "footballer.csv";
@@ -67,6 +67,31 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
                   System.out.println(i.getID() + " " + i.getFootballerJersey() + " " + i.getFootballerName() + " " 
                   + i.getFootballerPosition() + " " + i.getFootballerSalary() + " " + i.getFootballerEmployed());   
             }
+      }
+      
+      public Footballer getFootballer(int id)
+      {
+            for(Footballer i : footballers)
+            {
+                  if(i.getID() == id)
+                  {
+                        return i;
+                  }
+            }
+            return null;
+      }
+      
+      public int getLastID()
+      {
+            int lastID = 0;
+            for(Footballer i : footballers)
+            {
+                  if(lastID < i.getID())
+                  {
+                        lastID = i.getID();
+                  }
+            }
+            return lastID;
       }
       
       public void updateObject()

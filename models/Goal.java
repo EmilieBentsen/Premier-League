@@ -2,15 +2,16 @@ package models;
 
 public class Goal implements Model
 {
-      private int goalID;
-      private int goalMatchID;
-      private int goalScorer;
-      private int goalMinuteScored;
-      private char goalType;
-      private int goalAssistingPlayer;
+      private int goalID; //bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
+      private int goalMatchID; //bruges til at identificere hvilken kamp målet er scoret i (skal vi have et kampobjekt i stedet?)
+      private int goalScorer; //er et spiller id og bruges til at pare målet med en enkel spiller
+      private int goalMinuteScored; 
+      private char goalType; // Er målet scoret på straffe, er det et selvmål eller??
+      private int goalAssistingPlayer; //bruges til at se hvem der har lagt op til målet og er også et spiller id.
       
       //Mangler metode til at generere ID baseret på filindhold.
       
+      // Konstruktor til ny oprettede Goals, hvor der skal autogenereres et goalID
       public Goal(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {
             this.goalScorer = goalScorer;
@@ -20,6 +21,7 @@ public class Goal implements Model
             this.goalAssistingPlayer = goalAssistingPlayer;
       }
       
+      //kontsruktor til at oprette Goals der indlæses fra fil
       public Goal(int id, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {
             this.goalID = id;
@@ -59,7 +61,6 @@ public class Goal implements Model
             this.goalMinuteScored = goalMinuteScored;
       }
       
-      
       public char getGoalType()
       {
             return goalType;
@@ -80,7 +81,7 @@ public class Goal implements Model
       this.goalAssistingPlayer = goalAssistingPlayer;
       }
       
-      public int getID()
+      public int getID()//Krav fra interfacet Model
       {
             return goalID;     
       }     
