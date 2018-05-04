@@ -7,7 +7,12 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
       public abstract String getFilePath(); //Metode der skal implementeres af klasser som nedarver fra klassen. Denne metode returnerer en String
       public abstract PersistentObjectHandler<T> getHandler(); //metode der skal implemteres af klasser som nedarver fra klassen. Denne medtode returnere et interface      
       public abstract void createObject();//laver et nyt object
-      public abstract void updateObject();//opdaterer et object
+      public void updateObject()  //opdaterer et object
+      {
+      
+      }
+      
+     
       
       public void deleteObject(ArrayList<T> list, int id)//Sletter det objekt i arraylisten med det medfølgende id og kalder save med den nye liste
       {
