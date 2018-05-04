@@ -1,8 +1,13 @@
 package handlers;
 import models.*;
+import java.util.*;
+
 
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
+
+      ArrayList<Footballer> footballers = getContent();
+      
       public String getFilePath()
       {
             return "footballer.txt";
@@ -25,9 +30,18 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
                         int jerseyNumber = Integer.parseInt(components[1]);
                         boolean employed = Boolean.parseBoolean(components[5]);
                         
-                        return new Footballer(id, jerseyNumber, components[2], components[3], components[4], employed);                       
+                        return new Footballer(id, jerseyNumber, components[2], components[3], components[4], employed); //obretter er nyt object af footballer                      
                   }
             };
-
+      }
+      
+      public void updateObject()
+      {
+      
+      }
+      
+      public void createObject()
+      {
+            
       }
 }

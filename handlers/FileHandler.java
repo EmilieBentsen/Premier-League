@@ -13,7 +13,11 @@ class FileHandler
             try
             {
                   boolean firstElement = true;
+                  Scanner sc = new Scanner(new File(path));
+                  String header = sc.nextLine();
                   PrintStream output = new PrintStream(new File(path)); 
+                  output.println(header);
+                  
                   for(E element : list)
                   {
                         if(!firstElement) output.print('\n');
@@ -25,16 +29,16 @@ class FileHandler
             {
             
             }
-                
       }
       
       public static <E extends Object> ArrayList<E> getContent(String path, 
-            PersistentObjectHandler<E> handler) //metoden bruger en stirng og klassen PersistentObjectHandler<E> handler, som parameteter og returnerer en arraylist
+            PersistentObjectHandler<E> handler) //metoden bruger en string og klassen PersistentObjectHandler<E> handler, som parameteter og returnerer en arraylist
       {
             ArrayList<E> list = new ArrayList<E>();
             try
             {
                   Scanner sc = new Scanner(new File(path));
+                  sc.nextLine();
                   while(sc.hasNextLine())
                   {
                         E object = handler.objectFrom(sc.nextLine());
