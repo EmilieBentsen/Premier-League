@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
 
-      public ArrayList<Opponent> opponents = getContent();
+      private ArrayList<Opponent> opponents = getContent();
       
       public String getFilePath()
       {

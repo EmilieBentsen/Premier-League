@@ -13,7 +13,11 @@ public class Main
             /*FootballerHandler fh = new FootballerHandler();
             fh.listFootballers();*/
             
-            OpponentHandler oh = new OpponentHandler();
-            oh.listOpponents();
+            /*OpponentHandler oh = new OpponentHandler();
+            oh.listOpponents();*/
+            
+            GoalHandler gh = new GoalHandler();
+            gh.listGoals();
+            System.out.println(gh.GoalsByFootballer(1));
       }
 }
