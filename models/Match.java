@@ -79,7 +79,7 @@ public class Match implements Model
             return matchLineup;
       }
       
-      public void setMatchDate()
+      public void setMatchDate(LocalDate matchDate)
       {
             this.matchDate = matchDate;
       }
