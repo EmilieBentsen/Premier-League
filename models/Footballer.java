@@ -1,37 +1,35 @@
 package models;
 
-public class Footballer
+public abstract class Footballer
 {
       private int footballerID; 
       private int footballerJersey; 
-      private String footballerName; 
-      private String footballerPosition; 
+      private String footballerName;  
       private String footballerSalary; 
       private boolean footballerEmployed;
       private static int lastID;
       
       //Mangler metode til at generere ID baseret på filindhold.
       
-      public Footballer(int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
+      public Footballer(int footballerJersey, String footballerName, String footballerSalary, boolean footballerEmployed)
       {
             this.footballerID = lastID++;
             this.footballerJersey = footballerJersey;
             this.footballerName = footballerName;
-            this.footballerPosition = footballerPosition;
             this.footballerSalary = footballerSalary;
             this.footballerEmployed = footballerEmployed;
       }
       
-      public Footballer(int id, int footballerJersey, String footballerName, String footballerPosition, String footballerSalary, boolean footballerEmployed)
+      public Footballer(int id, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
       {
             this.footballerID = id;
             this.footballerJersey = footballerJersey;
             this.footballerName = footballerName;
-            this.footballerPosition = footballerPosition;
             this.footballerSalary = footballerSalary;
             this.footballerEmployed = footballerEmployed;
       }
       
+            
       public int getID()
       {
             return footballerID;
@@ -56,17 +54,7 @@ public class Footballer
       {
             this.footballerName = footballerName;
       }
-      
-      public String getFootballerPosition()
-      {
-            return footballerPosition;
-      }
-      
-      public void setFootballerPosition(String footballerPosition)
-      {
-            this.footballerPosition = footballerPosition;
-      }
-      
+            
       public String getFootballerSalary()
       {
             return footballerSalary;
@@ -86,4 +74,6 @@ public class Footballer
       {
             this.footballerEmployed = footballerEmployed;
       }
+      
+      public abstract String getPosition();
 }
