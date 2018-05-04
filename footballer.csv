@@ -20,7 +20,7 @@ ID,Jersey,Name,Position,Salary/week,Employed
 19,20,Adam Lallana,MF,65000,true
 20,23,Emre Can,MF,70000,true
 21,58,Ben Woodburn,MF,10000,true
-22,61,Paulinho MF,0,true
+22,61,Paulinho, MF,0,true
 23,21,Alex Oxlade-Chamberlain,MF,90000,true
 24,48,Curtis Jones,MF,0,true
 25,64,Rafael Camacho,MF,0,true
@@ -28,9 +28,9 @@ ID,Jersey,Name,Position,Salary/week,Employed
 27,29,Dominic Solanke,FW,25000,true
 28,09,Roberto Firmino,FW,100000,true
 29,28,Danny Ings,FW,60000,true
-30,57,Rhian Brewster,FW,true
+30,57,Rhian Brewster,FW,0,true
 31,15,Daniel Sturridge,FW,WBA,false
-32,10,Coutinho FW,BAR,false
-33,05,Lewis,Dunk DF,BHA,false
-34,03,Eric,Bailly DF,MAU,false
+32,10,Coutinho,FW,BAR,false
+33,05,Lewis Dunk,DF,BHA,false
+34,03,Eric Bailly,DF,MAU,false
 35,00,Jürgen Klopp,MN,0,true

@@ -5,8 +5,7 @@ import java.util.*;
 
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
-
-      ArrayList<Footballer> footballers = getContent();
+      private ArrayList<Footballer> footballers = getContent();
       
       public String getFilePath()
       {
@@ -30,9 +29,43 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
                         int jerseyNumber = Integer.parseInt(components[1]);
                         boolean employed = Boolean.parseBoolean(components[5]);
                         
-                        return new Footballer(id, jerseyNumber, components[2], components[3], components[4], employed); //obretter er nyt object af footballer                      
+                        if(components[3].equals("GK"))
+                        {
+                              return new Goalkeeper(id, jerseyNumber, components[2], components[3], components[4], employed);
+                        }
+                        else if(components[3].equals("DF"))
+                        {
+                              return new Defender(id, jerseyNumber, components[2], components[3], components[4], employed);
+                        }
+                        else if(components[3].equals("MF"))
+                        {
+                              return new Midfielder(id, jerseyNumber, components[2], components[3], components[4], employed);
+                        }
+                        else if(components[3].equals("FW"))
+                        {
+                              return new Forward(id, jerseyNumber, components[2], components[3], components[4], employed);
+                        }
+                        else 
+                        {
+                              return new Mannager(id, jerseyNumber, components[2], components[3], components[4], employed);
+                        }
+                        //return new Footballer(id, jerseyNumber, components[2], components[3], components[4], employed); //obretter er nyt object af footballer                      
                   }
             };
+      }
+      
+      public ArrayList getFootballerArray()
+      {
+            return footballers;
+      }
+      
+      public void listFootballers()
+      {           
+            for(Footballer i : footballers)
+            {
+                  System.out.println(i.getID() + " " + i.getFootballerJersey() + " " + i.getFootballerName() + " " 
+                  + i.getFootballerPosition() + " " + i.getFootballerSalary() + " " + i.getFootballerEmployed());   
+            }
       }
       
       public void updateObject()
