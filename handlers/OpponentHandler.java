@@ -46,18 +46,37 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             }
       }
       
+      public void deleteOpponent(int id)
+      {
+            deleteObject(opponents, id);
+      }
+      
       public ArrayList getOpponentArray()
       {
             return opponents;
       }
       
-      public void updateObject()
+      public int getNewOpponentID()
       {
-      
+            int newID= getNewID(opponents);
+            return newID;
+      }
+      public void updateObject(int opponentID, String opponentName, boolean opponentActive)
+      {
+            for(Opponent i : opponents)
+            {
+                  if (i.getID() == opponentID)
+                  {
+                        i.setOpponentName(opponentName);
+                        i.setOpponentActive(opponentActive);
+                        save(opponents);
+                  }
+            }
       }
       
-      public void createObject()
+      public void createObject(String opponentName, boolean opponentActive)
       {
-            
-      }
+             opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));
+             save(opponents);
+      }  
 }

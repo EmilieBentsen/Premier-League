@@ -81,26 +81,52 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             return null;
       }
       
-      public int getLastID()
+      public int getNewFootballerID()
       {
-            int lastID = 0;
+            int newID= getNewID(footballers);
+            return newID;
+      }
+      
+      public void deleteFootballer(int id)
+      {
+            deleteObject(footballers, id);
+      }
+      
+      public void updateObject(int footballerID, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
+      {
             for(Footballer i : footballers)
             {
-                  if(lastID < i.getID())
+                  if (i.getID() == footballerID)
                   {
-                        lastID = i.getID();
+                        i.setFootballerJersey(footballerJersey);
+                        i.setFootballerName(footballerName);
+                        i.setFootballerSalary(footballerSalary);
+                        i.setFootballerEmployed(footballerEmployed);
+                        save(footballers);
                   }
             }
-            return lastID;
-      }
+      }   
       
-      public void updateObject()
+      public void createObject(int footballerJersey, String fooballerName, String footballerSalary, boolean footballerEmployed, String position)
       {
-      
-      }
-      
-      public void createObject()
-      {
-            
+             switch(position)
+             {
+             case "GK":
+                        footballers.add(new Goalkeeper(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "FW":
+                        footballers.add(new Forward(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "DF":
+                        footballers.add(new Defender(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "MF":
+                        footballers.add(new Midfielder(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "MN":
+                        footballers.add(new Manager(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             }
+             
       }
 }

@@ -2,31 +2,19 @@ package models;
 
 public class Goal implements Model
 {
-      private int goalID; //bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
+      private int goalID; //Målets id, bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
       private int goalMatchID; //bruges til at identificere hvilken kamp målet er scoret i (skal vi have et kampobjekt i stedet?)
       private int goalScorer; //er et spiller id og bruges til at pare målet med en enkel spiller
       private int goalMinuteScored; 
       private char goalType; // Er målet scoret på straffe, er det et selvmål eller??
       private int goalAssistingPlayer; //bruges til at se hvem der har lagt op til målet og er også et spiller id.
-      
-      //Mangler metode til at generere ID baseret på filindhold.
-      
-      // Konstruktor til ny oprettede Goals, hvor der skal autogenereres et goalID
-      public Goal(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
-      {
-            this.goalScorer = goalScorer;
-            this.goalMatchID = goalMatchID;
-            this.goalMinuteScored = goalMinuteScored;
-            this.goalType = goalType;
-            this.goalAssistingPlayer = goalAssistingPlayer;
-      }
-      
+            
       //kontsruktor til at oprette Goals der indlæses fra fil
-      public Goal(int id, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      public Goal(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {
-            this.goalID = id;
-            this.goalScorer = goalScorer;
+            this.goalID = goalID;
             this.goalMatchID = goalMatchID;
+            this.goalScorer = goalScorer;
             this.goalMinuteScored = goalMinuteScored;
             this.goalType = goalType;
             this.goalAssistingPlayer = goalAssistingPlayer;
@@ -46,7 +34,7 @@ public class Goal implements Model
             return goalMatchID;
       }
       
-      public void setgoalMatchID(int goalMatchID)
+      public void setGoalMatchID(int goalMatchID)
       {
             this.goalMatchID = goalMatchID;      
       }    

@@ -73,14 +73,41 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
       }
       
+      public void deleteGoal(int id)
+      {
+            deleteObject(goals, id);
+      }
+      
       public ArrayList getGoalArray()
       {
             return goals;
       }
       
-      public void createObject()//laver et nyt object
+      public int getNewGoalID()
       {
+            int newID= getNewID(goals);
+            return newID;
+      }
       
-      }      
-
+      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      {
+             goals.add(new Goal(getNewGoalID(), goalMatchID, goalScorer, goalMinuteScored, goalType, goalAssistingPlayer));
+             save(goals);
+      }   
+      
+      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      {
+            for(Goal i : goals)
+            {
+                  if (i.getID() == goalID)
+                  {
+                        i.setGoalMatchID(goalMatchID);
+                        i.setGoalScorer(goalScorer);
+                        i.setGoalMinuteScored(goalMinuteScored);
+                        i.setGoalType(goalType);
+                        i.setGoalAssistingPlayer(goalAssistingPlayer);
+                        save(goals);
+                  }
+            }
+      }   
 }

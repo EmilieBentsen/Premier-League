@@ -7,25 +7,12 @@ public abstract class Footballer implements Model
       private String footballerName;  
       private String footballerSalary; 
       private boolean footballerEmployed;
-      private int lastID;       
-      
-      // Konstruktor til ny oprettede Footballers, hvor der skal autogenereres et FootballerID
-      public Footballer(int footballerJersey, String footballerName, String footballerSalary, 
-      boolean footballerEmployed)
-      {
-            lastID = 
-            this.footballerID = lastID++;
-            this.footballerJersey = footballerJersey;
-            this.footballerName = footballerName;
-            this.footballerSalary = footballerSalary;
-            this.footballerEmployed = footballerEmployed;
-      }
       
       //kontsruktor til Footballers der indlæses fra fil
-      public Footballer(int id, int footballerJersey, String footballerName,String footballerSalary, 
+      public Footballer(int footballerID, int footballerJersey, String footballerName,String footballerSalary, 
       boolean footballerEmployed)
       {
-            this.footballerID = id;
+            this.footballerID = footballerID;
             this.footballerJersey = footballerJersey;
             this.footballerName = footballerName;
             this.footballerSalary = footballerSalary;
