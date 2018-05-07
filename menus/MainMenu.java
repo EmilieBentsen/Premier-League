@@ -4,6 +4,13 @@ public class MainMenu
 {
       Output output = new Output();
       
+      public static void main(String[] args)
+      {
+            MainMenu main = new MainMenu();
+            main.startMenu();
+            
+            main.startMenu();
+      }
       public void startMenu()
       {
             output.startMenu();
