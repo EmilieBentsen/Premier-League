@@ -73,14 +73,27 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
       }
       
+      public void deleteGoal(int id)
+      {
+            deleteObject(goals, id);
+      }
+      
       public ArrayList getGoalArray()
       {
             return goals;
       }
       
-      public void createObject()//laver et nyt object
+      public int getNewGoalID()
       {
+            int newID= getNewID(goals);
+            return newID;
+      }
       
+      public void createObject(int 
+      {
+             matches.add(new Match(getNewMatchID(), matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
+             matchAwayGoals, matchFormation, matchLineup));
+             save(matches);
       }      
 
 }

@@ -81,17 +81,15 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             return null;
       }
       
-      public int getLastID()
+      public int getNewFootballerID()
       {
-            int lastID = 0;
-            for(Footballer i : footballers)
-            {
-                  if(lastID < i.getID())
-                  {
-                        lastID = i.getID();
-                  }
-            }
-            return lastID;
+            int newID= getNewID(footballers);
+            return newID;
+      }
+      
+      public void deleteFootballer(int id)
+      {
+            deleteObject(footballers, id);
       }
       
       public void updateObject()
@@ -99,8 +97,26 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
       
       }
       
-      public void createObject()
+      public void createObject(int footballerJersey, String fooballerName, String footballerSalary, boolean footballerEmployed, String position)
       {
-            
+             switch(position)
+             {
+             case "GK":
+                        footballers.add(new Goalkeeper(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "FW":
+                        footballers.add(new Forward(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "DF":
+                        footballers.add(new Defender(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "MF":
+                        footballers.add(new Midfielder(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             case "MN":
+                        footballers.add(new Manager(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        save(footballers);
+             }
+             
       }
 }

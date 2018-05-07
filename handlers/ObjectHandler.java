@@ -6,6 +6,8 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
 {
       public abstract String getFilePath(); //Metode der skal implementeres af klasser som nedarver fra klassen. Denne metode returnerer en String
       public abstract PersistentObjectHandler<T> getHandler(); //metode der skal implemteres af klasser som nedarver fra klassen. Denne medtode returnere et interface      
+      
+      
       public void createObject()
       {
       
@@ -23,8 +25,23 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
                   {
                         list.remove(i);
                         save(list);
+                        break;
                   }
             }
+      }
+      
+      public int getNewID(ArrayList<T> list)
+      {
+            int lastID = 0;
+            for(Model i : list)
+            {
+                  if(lastID < i.getID())
+                  {
+                        lastID = i.getID();
+                  }
+            }
+            lastID++;
+            return lastID;
       }
       
       public ArrayList<T> getContent() //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer en ArrayList der indeholder objekter T

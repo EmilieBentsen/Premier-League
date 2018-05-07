@@ -11,19 +11,21 @@ public class Main
             //fh.writeFileContent("goal_backup.txt", fh.getFileContent(fh.GOAL_TXT));
             //System.out.println(ileHandler.getFileContent(FileHandler.OPPONENT_TXT));
       
-            FootballerHandler fh = new FootballerHandler();
+            //FootballerHandler fh = new FootballerHandler();
             //fh.listFootballers();
             
 
-            //MatchHandler mh = new MatchHandler();
+            MatchHandler mh = new MatchHandler();
+            mh.deleteMatch(41);
+            //mh.createObject(LocalDate.parse("2018-07-15"), 6, 'H', 0, 0,"4-4-2", "00-00-00-00-00-00-00-00-00-00-00");
             //mh.updateObject(mh.getMatchArray(),01,LocalDate.parse("2018-12-24"), 90, 'H', 3, 9, "6-3-2", "00-00-00-00-00-00-00-00-00-00-00");
             //mh.listMatches();
             /*OpponentHandler oh = new OpponentHandler();
             oh.listOpponents();*/
             
-            GoalHandler gh = new GoalHandler();
+            //GoalHandler gh = new GoalHandler();
             //gh.listGoals();
-            System.out.print(fh.getFootballer(26).toString());
-            System.out.println("Goals scored this season " + gh.GoalsByFootballer(26));
+            /*System.out.print(fh.getFootballer(26).toString());
+            System.out.println("Goals scored this season " + gh.GoalsByFootballer(26));*/
       }
 }

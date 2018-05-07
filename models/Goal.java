@@ -8,25 +8,13 @@ public class Goal implements Model
       private int goalMinuteScored; 
       private char goalType; // Er målet scoret på straffe, er det et selvmål eller??
       private int goalAssistingPlayer; //bruges til at se hvem der har lagt op til målet og er også et spiller id.
-      
-      //Mangler metode til at generere ID baseret på filindhold.
-      
-      // Konstruktor til ny oprettede Goals, hvor der skal autogenereres et goalID
-      public Goal(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
-      {
-            this.goalScorer = goalScorer;
-            this.goalMatchID = goalMatchID;
-            this.goalMinuteScored = goalMinuteScored;
-            this.goalType = goalType;
-            this.goalAssistingPlayer = goalAssistingPlayer;
-      }
-      
+            
       //kontsruktor til at oprette Goals der indlæses fra fil
-      public Goal(int id, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      public Goal(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {
-            this.goalID = id;
-            this.goalScorer = goalScorer;
+            this.goalID = goalID;
             this.goalMatchID = goalMatchID;
+            this.goalScorer = goalScorer;
             this.goalMinuteScored = goalMinuteScored;
             this.goalType = goalType;
             this.goalAssistingPlayer = goalAssistingPlayer;

@@ -46,11 +46,21 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             }
       }
       
+      public void deleteOpponent(int id)
+      {
+            deleteObject(opponents, id);
+      }
+      
       public ArrayList getOpponentArray()
       {
             return opponents;
       }
       
+      public int getNewOpponentID()
+      {
+            int newID= getNewID(opponents);
+            return newID;
+      }
       public void updateObject()
       {
       
