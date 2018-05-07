@@ -79,12 +79,12 @@ public class MatchHandler extends ObjectHandler<Match>
             }
       }
       
-      public void deleteMatch(int id)
+      public void deleteMatch(int id)//Metoden sletter en match. Metoden kalder deleteObject i ObjectHandler med ArrayList matches og et matchID
       {
             deleteObject(matches, id);
       }
       
-      public int getNewMatchID()
+      public int getNewMatchID() //Metode der laver et nyt matchID. Metoden kalder getNewID med ArrayList matches
       {
             int newID= getNewID(matches);
             return newID;
