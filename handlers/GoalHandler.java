@@ -20,6 +20,19 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
       
+      public int AssistsByFootballer (int footballerID)
+      {
+            int count = 0;
+            for (Goal i : goals)
+            {
+                  if (i.getGoalAssistingPlayer() == footballerID)
+                  {
+                        count++;
+                  }
+            }
+            return count;
+      }
+      
       /*public Arraylist listGoalsByPeriod(LocalDate startDate, LocalDate endDate)
       {
                  

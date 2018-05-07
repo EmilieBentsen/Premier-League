@@ -12,6 +12,9 @@ public class Main
             //System.out.println(ileHandler.getFileContent(FileHandler.OPPONENT_TXT));
       
             FootballerHandler fh = new FootballerHandler();
+            MatchHandler mh = new MatchHandler();
+            GoalHandler gh = new GoalHandler();
+            
             //fh.listFootballers();
             
 
@@ -21,9 +24,17 @@ public class Main
             /*OpponentHandler oh = new OpponentHandler();
             oh.listOpponents();*/
             
-            GoalHandler gh = new GoalHandler();
+            
             //gh.listGoals();
-            System.out.print(fh.getFootballer(26).toString());
-            System.out.println("Goals scored this season " + gh.GoalsByFootballer(26));
+            /*System.out.print(fh.getFootballer(26).getFootballerName());
+            System.out.println(" scored " +gh.GoalsByFootballer(26) + " goals this season.");
+            
+            System.out.print(fh.getFootballer(26).getFootballerName());
+            System.out.println(" made " +gh.AssistsByFootballer(26) + " assists this season.");
+            
+            System.out.println(mh.CleanSheetsByFootballer(00-00-00-00-00-00-00-00-00-00-00));
+            */
+            System.out.println(mh.CleanSheetsByClub());
+            System.out.println(mh.CleanSheetsByFootballer("11"));
       }
 }

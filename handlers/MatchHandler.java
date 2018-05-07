@@ -79,4 +79,30 @@ public class MatchHandler extends ObjectHandler<Match>
                   + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + " " + i.getMatchAwayGoals()+ " " + i.getMatchFormation()+ " " + i.getMatchLineup());   
             }
       }
+      
+      public int CleanSheetsByFootballer(String footballerID)
+      {
+            int count = 0;
+            for (Match i : matches)
+            {                  
+                  if (((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0)) && i.getMatchLineup().contains(footballerID))
+                  {
+                        count++;
+                  }
+            }
+            return count;
+      }
+      
+            public int CleanSheetsByClub()
+      {
+            int count = 0;
+            for (Match i : matches)
+            {
+                  if ((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0) && !i.getMatchFormation().equals("0-0-0"))
+                  {
+                        count++;
+                  }
+            }
+            return count;
+      }
 }
