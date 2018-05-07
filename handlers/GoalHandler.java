@@ -77,7 +77,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             };
       }
       
-      public void listGoals()
+      public void listGoals() //metode printer en liste med goals
       {           
             for(Goal i : goals)
             {
@@ -86,29 +86,31 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
       }
       
-      public void deleteGoal(int id)
+      public void deleteGoal(int id)//Metoden sletter et goal. Metoden kalder deleteObject i ObjectHandler med ArrayList goals og et goalID
       {
             deleteObject(goals, id);
       }
       
-      public ArrayList getGoalArray()
+      public ArrayList getGoalArray() //Metode der returnere et ArrayList goals
       {
             return goals;
       }
       
-      public int getNewGoalID()
+      public int getNewGoalID() //Metode der laver et nyt goalID. Metoden kalder getNewID med ArrayList goals
       {
             int newID= getNewID(goals);
             return newID;
       }
       
-      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, //Metode der opretter nyt goal objekt med nyt goalID
+       int goalAssistingPlayer)
       {
              goals.add(new Goal(getNewGoalID(), goalMatchID, goalScorer, goalMinuteScored, goalType, goalAssistingPlayer));
              save(goals);
       }   
       
-      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, //Metode til at opdatere et goal objekt vha. set metoder
+      char goalType, int goalAssistingPlayer)
       {
             for(Goal i : goals)
             {

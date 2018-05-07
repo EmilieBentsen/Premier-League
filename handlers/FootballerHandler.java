@@ -55,12 +55,12 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             };
       }
       
-      public ArrayList getFootballerArray()
+      public ArrayList getFootballerArray() //returnerer ArrayList footballers
       {
             return footballers;
       }
       
-      public void listFootballers()
+      public void listFootballers() //printer liste med footballers
       {           
             for(Footballer i : footballers)
             {
@@ -69,7 +69,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             }
       }
       
-      public Footballer getFootballer(int id)
+      public Footballer getFootballer(int id) //metode tager imod et footballerID og returnerer den spiller med matchende id
       {
             for(Footballer i : footballers)
             {
@@ -81,18 +81,19 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             return null;
       }
       
-      public int getNewFootballerID()
+      public int getNewFootballerID()//Metode til at generere nyt footballerID. Metoden kalder getNewID metode i Objekthandler med Arraylist footballers der returnere nyt ID
       {
             int newID= getNewID(footballers);
             return newID;
       }
       
-      public void deleteFootballer(int id)
+      public void deleteFootballer(int id) //Metode til at slette footballer. Metoden kalder deleteObject med ArrayList footballers og et footballerID. 
       {
             deleteObject(footballers, id);
       }
       
-      public void updateObject(int footballerID, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
+      public void updateObject(int footballerID, int footballerJersey, //Metode der opdatere oplysninger om footballer vha. set metoder
+      String footballerName,String footballerSalary, boolean footballerEmployed)
       {
             for(Footballer i : footballers)
             {
@@ -107,9 +108,10 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             }
       }   
       
-      public void createObject(int footballerJersey, String fooballerName, String footballerSalary, boolean footballerEmployed, String position)
+      public void createObject(int footballerJersey, String fooballerName, String //metode til at oprette nye footballers
+      footballerSalary, boolean footballerEmployed, String position)
       {
-             switch(position)
+             switch(position) //switch case der kigger på position og opretter et nyt objekt 
              {
              case "GK":
                         footballers.add(new Goalkeeper(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));

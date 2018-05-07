@@ -38,7 +38,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             };
       }
       
-      public void listOpponents()
+      public void listOpponents()//metode printer en liste med opponents
       {           
             for(Opponent i : opponents)
             {
@@ -46,22 +46,22 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             }
       }
       
-      public void deleteOpponent(int id)
+      public void deleteOpponent(int id) //Metoden sletter en opponent. Metoden kalder deleteObject i ObjectHandler med ArrayList opponent og et opponentID
       {
             deleteObject(opponents, id);
       }
       
-      public ArrayList getOpponentArray()
+      public ArrayList getOpponentArray()//Metoden der returnerer et ArrayList opponents
       {
             return opponents;
       }
       
-      public int getNewOpponentID()
+      public int getNewOpponentID()//metode til at generere nyt opponentID. Kalder metoden getNewID i ObjectHandler med ArrayList opponents
       {
             int newID= getNewID(opponents);
             return newID;
       }
-      public void updateObject(int opponentID, String opponentName, boolean opponentActive)
+      public void updateObject(int opponentID, String opponentName, boolean opponentActive) //Metode der opdatere en match vha. set metoder.
       {
             for(Opponent i : opponents)
             {
@@ -74,7 +74,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             }
       }
       
-      public void createObject(String opponentName, boolean opponentActive)
+      public void createObject(String opponentName, boolean opponentActive) //Metode til at oprette en ny opponent. Nyt opponentID bliver autogenereret
       {
              opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));
              save(opponents);
