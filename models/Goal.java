@@ -2,7 +2,7 @@ package models;
 
 public class Goal implements Model
 {
-      private int goalID; //bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
+      private int goalID; //Målets id, bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
       private int goalMatchID; //bruges til at identificere hvilken kamp målet er scoret i (skal vi have et kampobjekt i stedet?)
       private int goalScorer; //er et spiller id og bruges til at pare målet med en enkel spiller
       private int goalMinuteScored; 
@@ -34,7 +34,7 @@ public class Goal implements Model
             return goalMatchID;
       }
       
-      public void setgoalMatchID(int goalMatchID)
+      public void setGoalMatchID(int goalMatchID)
       {
             this.goalMatchID = goalMatchID;      
       }    

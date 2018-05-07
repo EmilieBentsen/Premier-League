@@ -9,10 +9,10 @@ public abstract class Footballer implements Model
       private boolean footballerEmployed;
       
       //kontsruktor til Footballers der indlæses fra fil
-      public Footballer(int id, int footballerJersey, String footballerName,String footballerSalary, 
+      public Footballer(int footballerID, int footballerJersey, String footballerName,String footballerSalary, 
       boolean footballerEmployed)
       {
-            this.footballerID = id;
+            this.footballerID = footballerID;
             this.footballerJersey = footballerJersey;
             this.footballerName = footballerName;
             this.footballerSalary = footballerSalary;

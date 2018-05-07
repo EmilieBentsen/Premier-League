@@ -89,11 +89,25 @@ public class GoalHandler extends ObjectHandler<Goal>
             return newID;
       }
       
-      public void createObject(int 
+      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
       {
-             matches.add(new Match(getNewMatchID(), matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
-             matchAwayGoals, matchFormation, matchLineup));
-             save(matches);
-      }      
-
+             goals.add(new Goal(getNewGoalID(), goalMatchID, goalScorer, goalMinuteScored, goalType, goalAssistingPlayer));
+             save(goals);
+      }   
+      
+      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      {
+            for(Goal i : goals)
+            {
+                  if (i.getID() == goalID)
+                  {
+                        i.setGoalMatchID(goalMatchID);
+                        i.setGoalScorer(goalScorer);
+                        i.setGoalMinuteScored(goalMinuteScored);
+                        i.setGoalType(goalType);
+                        i.setGoalAssistingPlayer(goalAssistingPlayer);
+                        save(goals);
+                  }
+            }
+      }   
 }

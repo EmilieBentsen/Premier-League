@@ -92,10 +92,20 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             deleteObject(footballers, id);
       }
       
-      public void updateObject()
+      public void updateObject(int footballerID, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
       {
-      
-      }
+            for(Footballer i : footballers)
+            {
+                  if (i.getID() == footballerID)
+                  {
+                        i.setFootballerJersey(footballerJersey);
+                        i.setFootballerName(footballerName);
+                        i.setFootballerSalary(footballerSalary);
+                        i.setFootballerEmployed(footballerEmployed);
+                        save(footballers);
+                  }
+            }
+      }   
       
       public void createObject(int footballerJersey, String fooballerName, String footballerSalary, boolean footballerEmployed, String position)
       {

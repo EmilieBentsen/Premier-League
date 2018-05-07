@@ -61,13 +61,22 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             int newID= getNewID(opponents);
             return newID;
       }
-      public void updateObject()
+      public void updateObject(int opponentID, String opponentName, boolean opponentActive)
       {
-      
+            for(Opponent i : opponents)
+            {
+                  if (i.getID() == opponentID)
+                  {
+                        i.setOpponentName(opponentName);
+                        i.setOpponentActive(opponentActive);
+                        save(opponents);
+                  }
+            }
       }
       
-      public void createObject()
+      public void createObject(String opponentName, boolean opponentActive)
       {
-            
-      }
+             opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));
+             save(opponents);
+      }  
 }
