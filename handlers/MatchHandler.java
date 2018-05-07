@@ -2,6 +2,8 @@ package handlers;
 import models.*;
 import java.util.*;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class MatchHandler extends ObjectHandler<Match> 
 {
@@ -79,6 +81,45 @@ public class MatchHandler extends ObjectHandler<Match>
             }
       }
       
+      public boolean CheckStringForItem(String source, String subItem){
+         String pattern = "\\b"+subItem+"\\b"; //\\b sørger for du kun får match på 1, og ikke på 15, 16, 17 osv. På samme måde fanger den kun husene og ikke huse, ved indtastning af "husene".
+         Pattern p=Pattern.compile(pattern); //Pattern laver det mønster vi leder efter. I dette tilfælde subItem.
+         Matcher m=p.matcher(source); //Hvis mønsteret vi leder efter findes via Matcher returneres en boolean.
+         return m.find();
+         
+         //En alternativ måde at skrive ovenstående på er Pattern.matches(pattern, source); 
+      }
+      
+      public int CleanSheetsByFootballer(String footballerJersey)
+      {
+            int count = 0;
+            for (Match i : matches)
+            {                  
+                  if (((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0)) && !i.getMatchFormation().equals("0-0-0"))
+                  {                        
+                        if(CheckStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
+                        { 
+                              count++;
+                        }
+                  }
+            }
+            return count;
+      }
+      
+      public int CleanSheetsByClub()
+      {
+            int count = 0;
+            for (Match i : matches)
+            {
+                  if ((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0) && !i.getMatchFormation().equals("0-0-0"))
+                  {
+                        count++;
+                  }
+            }
+            return count;
+            
+      }
+      
       public void deleteMatch(int id)
       {
             deleteObject(matches, id);
@@ -86,7 +127,7 @@ public class MatchHandler extends ObjectHandler<Match>
       
       public int getNewMatchID()
       {
-            int newID= getNewID(matches);
+            int newID = getNewID(matches);
             return newID;
       }
 }

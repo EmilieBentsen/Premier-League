@@ -7,7 +7,7 @@ import java.io.*;
 class FileHandler
 {
       public static <E extends Object> void save(String path, ArrayList<E> list, 
-      PersistentObjectHandler<E> handler)  //E kan være enhver type af objekter som extender Object klassen
+            PersistentObjectHandler<E> handler)  //E kan være enhver type af objekter som extender Object klassen
  //metoden tager en FilePath ind og en Arraylist af objekter E som parameter, og skriver ArrayListen til den fil der har filepathen
       {
             try
@@ -46,6 +46,7 @@ class FileHandler
             }
             catch(FileNotFoundException e)
             {
+            
             }
             return list;
       }
