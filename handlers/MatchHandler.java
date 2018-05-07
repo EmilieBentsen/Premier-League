@@ -56,13 +56,12 @@ public class MatchHandler extends ObjectHandler<Match>
             }
       }
       
-      public void createObject(ArrayList<Match> matches, LocalDate matchDate, int matchOpponentID, //metode til at oprette kampe
+      public void createObject(LocalDate matchDate, int matchOpponentID, //metode til at oprette kampe
       char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
-             matches.add(new Match(matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
+             matches.add(new Match(getNewMatchID(), matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
              matchAwayGoals, matchFormation, matchLineup));
              save(matches);
-             
       }
           
       public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe
@@ -80,6 +79,7 @@ public class MatchHandler extends ObjectHandler<Match>
             }
       }
       
+<<<<<<< HEAD
       public int CleanSheetsByFootballer(String footballerID)
       {
             int count = 0;
@@ -104,5 +104,16 @@ public class MatchHandler extends ObjectHandler<Match>
                   }
             }
             return count;
+=======
+      public void deleteMatch(int id)
+      {
+            deleteObject(matches, id);
+      }
+      
+      public int getNewMatchID()
+      {
+            int newID= getNewID(matches);
+            return newID;
+>>>>>>> 8e3a9ceff3bdab1df960ec7ca498db97034b29ea
       }
 }
