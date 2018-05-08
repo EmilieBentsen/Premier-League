@@ -21,7 +21,7 @@ public class Output
       public void statisticMenu()
       {
             header();
-            buttonMiddle("Statistic Menu", 20);
+            buttonMiddle("Statistic Menu", 21);
             emptyLine(3);
             twoButtons("(1). Top 3 goal scorers", "(3) Club statistics", 31);
             emptyLine(2);
@@ -76,8 +76,8 @@ public class Output
       {
             header();
             emptyLine(1);
-            buttonMiddle(footballer.getFootballerName()+ " Statistics",41);
-            emptyLine(3);
+            buttonMiddle(footballer.getFootballerName()+ " (" + footballer.getFootballerPosition() + ")", 41);
+            emptyLine(1);
             twoButtons("Jersey number: "+footballer.getFootballerJersey(), "Salary: " 
             + footballer.getFootballerSalary(), 31);
             
@@ -89,10 +89,27 @@ public class Output
             {
                   threeButtons("Cleansheets: " + cleansheets,"Goals scored: " + goals, "Goals assisted: " + assists, 31); 
             }
-            
-            emptyLine(5);
+            emptyLine(2);
+            buttonLeft("(3): Matches played in period", 31);
+            emptyLine(2);
             bakEndButton(4,5);   
             line();        
+      }
+      
+      public void footballerMatchesPlayed(Footballer footballer)
+      {
+            header();
+            emptyLine(6);
+            printLine(" Wich period do you want to se the matches played by: " + footballer.getFootballerName());
+            emptyLine(2);
+            printLine(" Enter end date for the period, the format is yyyy-mm-dd: ");
+            bakEndButton(4,5);
+            line();
+      }
+      
+      public void printLine(String text)
+      {
+            System.out.println("*" + text + whiteSpaces(113 - text.length()) + "*");
       }
       
       public void clubStatisticsMenu(int gamesPlayed, int gamesWon, int gamesDraw, int gamesLost, int goalsScored, int goalsConceded, int cleenSheets)

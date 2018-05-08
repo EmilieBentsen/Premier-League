@@ -20,11 +20,12 @@ public class MainMenu
             {
                   case 1:     StatisticsMenu sm = new StatisticsMenu();
                               sm.statisticsMenu();
+                              break;
                               
                   case 2:     //adminMenu();
-                              
+                              break;
                   case 3:     //adminMatchMenu();
-                                
+                              break;  
             }
       }
 }
