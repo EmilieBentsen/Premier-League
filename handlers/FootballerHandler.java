@@ -5,7 +5,23 @@ import java.util.*;
 
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
-      private ArrayList<Footballer> footballers = getContent();
+      private static FootballerHandler instance;
+      private ArrayList<Footballer> footballers;
+      
+      private FootballerHandler()
+      {
+            footballers = getContent();
+      }
+      
+      public static FootballerHandler getFootballerHandler()
+      {
+            if(instance == null)
+            {
+                  FootballerHandler fh = new FootballerHandler();
+                  instance = fh;
+            }
+            return instance;
+      }     
 
       public String getFilePath()
       {
