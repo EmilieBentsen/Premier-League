@@ -5,7 +5,23 @@ import models.*;
 
 public class GoalHandler extends ObjectHandler<Goal>
 {
-      private ArrayList<Goal> goals = getContent();
+      private static GoalHandler instance;
+      private ArrayList<Goal> goals;
+      
+      private GoalHandler()
+      {
+            goals = getContent();
+      }
+      
+      public static GoalHandler getGoalHandler()
+      {
+            if(instance == null)
+            {
+                  GoalHandler gh = new GoalHandler();
+                  instance = gh;
+            }
+            return instance;
+      }
 
       public int GoalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
       {

@@ -10,7 +10,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
       private static OpponentHandler instance;
       private ArrayList<Opponent> opponents; 
       
-      public OpponentHandler()
+      private OpponentHandler()
       {
             opponents = getContent();
       }
