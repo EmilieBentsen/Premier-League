@@ -1,11 +1,14 @@
 package menus;
-
+import models.*;
 import handlers.*;
 import java.time.*;
+import java.util.ArrayList;
 
 public class StatisticsMenu
 {
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      GoalHandler goalHandler = GoalHandler.getGoalHandler();
+      MatchHandler matchHandler = MatchHandler.getMatchHandler();
  
       Output output = new Output();
       Input input = new Input();
@@ -60,14 +63,24 @@ public class StatisticsMenu
       
       public void footballerStatisticsMenu()
       {
-            output.printActiveFootballers(footballerHandler.getActiveFootballersArray());
+            ArrayList<Footballer> activeFootballers = footballerHandler.getActiveFootballersArray();
+            output.printActiveFootballers(activeFootballers);
             output.inputJerseyNumber();            
-            input.getInt(1, 66, "You have to input a Number ","Valid numbers are in the range from ");
+            Footballer chosenFootballer = input.getFootballerByJersey(activeFootballers);
+            
+            int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());
+            int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());
+            String jersey = "" + chosenFootballer.getFootballerJersey();
+            int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);
+            int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey); 
+            
+            output.displayFootballerStatistics(chosenFootballer, goals, assists, cleansheets, matchesPlayed);
+            
             
             
             /* og prnter spiller oplysinger for den valgte spiller (visningaf spiller information kommer til at 
             blive en "spændende" metode)trøjenr, navn, løn, mål, assist, cleansheets, 
-            skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/
+            skal kalde startMenu() hvis den modtager et bestemt input for brugeren.*/
                   
       }
       

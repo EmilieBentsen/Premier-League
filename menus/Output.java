@@ -72,6 +72,29 @@ public class Output
             System.out.println("input the footballers jersey number to choose");
       }
       
+      public void displayFootballerStatistics(Footballer footballer, int goals, int assists, int cleansheets, int matchesPlayed)
+      {
+            header();
+            emptyLine(1);
+            buttonMiddle(footballer.getFootballerName()+ " Statistics",40);
+            emptyLine(2);
+            twoButtons("Jersey number: "+footballer.getFootballerJersey(), "Salary: " 
+            + footballer.getFootballerSalary(), 31);
+            if (footballer instanceof Forward || footballer instanceof Midfielder)
+            {
+                  twoButtons("Goals scored: " + goals, "Goals assisted: " + assists, 31);
+            }
+            else if( footballer instanceof Defender || footballer instanceof Goalkeeper)
+            {
+                  threeButtons("Cleansheets: " + cleansheets,"Goals scored: " + goals, "Goals assisted: " + assists, 31); 
+            }
+            
+            
+            
+            
+            
+      }
+      
       public void header()
       {
             line();
@@ -131,6 +154,22 @@ public class Output
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(textButtonOne, length) + whiteSpaces((113 - 2*length)/ 3)
             + buttonBody(textButtonTwo, length) + whiteSpaces((113 - 2*length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
+      }
+      
+      public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)
+      {
+            System.out.println("*" + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length)
+             + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
+             + buttonHead(length) + whiteSpaces((113 - 3)*length/ 4) + "*");
+             
+            System.out.println("*" + whiteSpaces((113 - 3*length)/ 4) 
+            + buttonBody(textButtonOne, length) + whiteSpaces((113 - 3*length)/ 4)
+            + buttonBody(textButtonTwo, length) + whiteSpaces((113 - 3*length)/ 4)
+            + buttonBody(textButtonThree, length) + whiteSpaces((113 - 3*length)/ 4) + "*");
+            
+            System.out.println("*" + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length)
+             + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
+             + buttonHead(length) + whiteSpaces(113 - 3*length/ 4)+ "*");
       }
       
       public void buttonLeft(String text, int length)

@@ -1,6 +1,7 @@
 package menus;
 import java.util.ArrayList;
 import java.util.Scanner;
+import models.*;
 
 public class Input
 {
@@ -24,6 +25,26 @@ public class Input
             }
             return input.nextInt();
       }      
+      
+      public Footballer getFootballerByJersey(ArrayList<Footballer> footballerList)
+      {
+            int input;
+            while (true)
+            {
+                  input = getInt("You have to input a Number");
+                  for(Footballer i : footballerList)
+                  {
+                        if(input == i.getFootballerJersey())
+                        {
+                              return i;      
+                        }
+                                                
+                  }
+                  System.out.println("That was not one of the listed jersey numbers. Try again!");
+                  //output.printActiveFootballers(footballerList);
+            }
+                  
+      }
       
       public String getDate()
       {

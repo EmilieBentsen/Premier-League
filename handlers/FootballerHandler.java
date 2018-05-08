@@ -1,6 +1,6 @@
 package handlers;
 import models.Footballer;
-import models.footballertypes.*;
+import models.*;
 import java.util.*;
 
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
