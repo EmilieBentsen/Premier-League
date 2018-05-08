@@ -5,23 +5,23 @@ import models.*;
 
 public class Input
 {
-      public int getInt(int min, int max, String typeError, String rangeError)
+      public int getInt(int min, int max)
       {
             while(true)
             {
-                  int value = getInt(typeError);
+                  int value = getInt();
                   if(value >= min && value <= max) return value;
-                  else System.out.println(rangeError + " " + min + " - " + max);
+                  else System.out.println("Valid numbers are in the range from " + " " + min + " - " + max);
             }
       }
       
-      public int getInt(String error)
+      public int getInt()
       {
             Scanner input = new Scanner(System.in);
             while(!input.hasNextInt())
             {
                   input.nextLine();
-                  System.out.println(error);
+                  System.out.println("You have to input a Number ");
             }
             return input.nextInt();
       }      
@@ -31,7 +31,7 @@ public class Input
             int input;
             while (true)
             {
-                  input = getInt("You have to input a Number");
+                  input = getInt();
                   for(Footballer i : footballerList)
                   {
                         if(input == i.getFootballerJersey())

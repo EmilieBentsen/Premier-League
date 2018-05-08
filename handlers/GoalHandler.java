@@ -125,6 +125,16 @@ public class GoalHandler extends ObjectHandler<Goal>
              save(goals);
       }   
       
+      public int getGoalsByClub()
+      {
+            int count = 0;
+            for(Goal i : goals)
+            {
+                  count++;
+            }
+            return count;
+      }
+      
       public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, //Metode til at opdatere et goal objekt vha. set metoder
       char goalType, int goalAssistingPlayer)
       {

@@ -1,4 +1,3 @@
-
 package models;
 
 public abstract class Footballer implements Model

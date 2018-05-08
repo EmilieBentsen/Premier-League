@@ -14,7 +14,7 @@ public class MainMenu
       public void startMenu()
       {
             output.startMenu();
-            int choice = input.getInt(1,3, "You have to input a Number ", "Valid numbers are in the range from ");
+            int choice = input.getInt(1,3);
             
             switch(choice)
             {

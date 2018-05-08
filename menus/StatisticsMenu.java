@@ -14,11 +14,10 @@ public class StatisticsMenu
       Input input = new Input();
       MainMenu mainMenu = new MainMenu();
       
-      //Statisticmenu
       public void statisticsMenu()
       {
             output.statisticMenu();
-            int choice = input.getInt(1,5, "You have to input a Number ", "Valid numbers are in the range from ");
+            int choice = input.getInt(1,5);
             
             switch(choice)
             {
@@ -31,7 +30,6 @@ public class StatisticsMenu
                   case 4:     matchStatisticsMenu();
                   
                   case 5:     mainMenu.startMenu();
-                                          
             }
       }
       
@@ -39,6 +37,7 @@ public class StatisticsMenu
       {
             output.topThreeScorerMenu();
             String start = input.getDate();
+            
             if(start.equals("5")) 
             {
                   mainMenu.startMenu();
@@ -47,9 +46,11 @@ public class StatisticsMenu
             {
                   statisticsMenu();
             }
+            
             LocalDate dateStart = LocalDate.parse(start);
             output.endDateOfPeriod();
             String end = input.getDate();
+            
             if(end.equals("5")) 
             {
                   mainMenu.startMenu();
@@ -75,19 +76,35 @@ public class StatisticsMenu
             int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey); 
             
             output.displayFootballerStatistics(chosenFootballer, goals, assists, cleansheets, matchesPlayed);
-            
-            
-            
-            /* og prnter spiller oplysinger for den valgte spiller (visningaf spiller information kommer til at 
-            blive en "spændende" metode)trøjenr, navn, løn, mål, assist, cleansheets, 
-            skal kalde startMenu() hvis den modtager et bestemt input for brugeren.*/
+            int choice = input.getInt(4,5);
+            switch(choice)
+            {
+                  case 4 : statisticsMenu();
                   
+                  case 5 : mainMenu.startMenu();
+            }                
       }
       
       public void clubStatisticsMenu()
       {
-            /*???(hvilken statistik skal man kunne få om klubben? skal det være for en given periode?
-            Skal den altid vise den samme skærm?).*/
+            FourInt clubMatchStatistics = matchHandler.matchesPlayedWonDrawLostByClub();
+            int matchesPlayed = clubMatchStatistics.getPlayed();
+            int matchesWon = clubMatchStatistics.getWon();
+            int matchesDraw = clubMatchStatistics.getDraw();
+            int matchesLost = clubMatchStatistics.getLost();
+            int goalsScored = goalHandler.getGoalsByClub();
+            int goalsConceded = matchHandler.goalsConcededByClub();
+            int cleenSheets = matchHandler.cleanSheetsByClub();
+            
+            output.clubStatisticsMenu(matchesPlayed, matchesWon, matchesDraw, matchesLost, goalsScored, goalsConceded, cleenSheets);
+            
+            int choice = input.getInt(4,5);
+            switch(choice)
+            {
+                  case 4 : statisticsMenu();
+                  
+                  case 5 : mainMenu.startMenu();
+            } 
       }
       
       public void matchStatisticsMenu()

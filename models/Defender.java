@@ -1,10 +1,7 @@
 package models;
 
-
 public class Defender extends Footballer
-{
-
-      
+{     
       //kontsruktor til at oprette Defenders der indlæses fra fil
       public Defender (int id, int footballerJersey, String footballerName,String footballerSalary, 
       boolean footballerEmployed)

@@ -25,9 +25,6 @@ public class MatchHandler extends ObjectHandler<Match>
             return instance;
       }
       
-      
-      
-      
       public String getFilePath()
       {
             return "match.csv";
@@ -90,7 +87,6 @@ public class MatchHandler extends ObjectHandler<Match>
             return matches;
       }
       
-      
       public void listMatches() //metode der printer en liste med objekter
       {           
             for(Match i : matches)
@@ -125,7 +121,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
-            public int matchesPlayedByFootballer(String footballerJersey)
+      public int matchesPlayedByFootballer(String footballerJersey)
       {
             int count = 0;
             for (Match i : matches)
@@ -139,7 +135,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
-      public int CleanSheetsByClub()
+      public int cleanSheetsByClub()
       {
             int count = 0;
             for (Match i : matches)
@@ -150,7 +146,53 @@ public class MatchHandler extends ObjectHandler<Match>
                   }
             }
             return count;
+      }
+      
+      public int goalsConcededByClub()
+      {
+            int count = 0;
+            for (Match i : matches)
+            {
+                  if(i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() > 0)
+                  {
+                        count += i.getMatchAwayGoals();
+                  }      
+                  else if(i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() > 0)
+                  {
+                        count += i.getMatchHomeGoals();
+                  }
+            }
+            return count;
+      }
+      
+      public FourInt matchesPlayedWonDrawLostByClub()
+      {
+            int countPlayed = 0;
+            int countWon = 0;
+            int countDraw = 0;
+            int countLost = 0;
             
+            for (Match i : matches)
+            {
+                  if(i.getMatchFormation().equals("0-0-0"))
+                  {}
+                  else countPlayed++;
+                  
+                  if(i.getMatchHomeOrAway() == 'H' && i.getMatchHomeGoals() > i.getMatchAwayGoals() || i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() < i.getMatchAwayGoals())
+                  {
+                        countWon++;
+                  }
+                  else if(i.getMatchHomeGoals() == i.getMatchAwayGoals())
+                  {
+                        countDraw++;
+                  }
+                  else if(i.getMatchHomeOrAway() == 'H' && i.getMatchHomeGoals() < i.getMatchAwayGoals() || i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() > i.getMatchAwayGoals())
+                  {
+                        countLost++;
+                  }
+            }
+            FourInt count = new FourInt(countPlayed, countWon, countDraw, countLost);
+            return count;
       }
       
       public void deleteMatch(int id)

@@ -1,6 +1,5 @@
 package models;
 
-
 public class Forward extends Footballer
 {
       //kontsruktor til at oprette Forwards der indlæses fra fil
