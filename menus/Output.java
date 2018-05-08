@@ -1,5 +1,8 @@
 package menus;
 
+import java.util.ArrayList;
+import models.*;
+
 public class Output
 {
       public void startMenu()
@@ -55,6 +58,20 @@ public class Output
             line();
       }
       
+      public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
+      {
+            for(Footballer i : activeFootballers)
+            {
+                  System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
+            }
+      }
+      
+      public void inputJerseyNumber()
+      {
+            System.out.println("Wich footballer do you want to see");
+            System.out.println("input the footballers jersey number to choose");
+      }
+      
       public void header()
       {
             line();
@@ -76,6 +93,7 @@ public class Output
       {
             System.out.println("*" + "  Type your input here; " + range + whiteSpaces(89 - range.length()) + "*");
       }
+      
       public void emptyLine(int number)
       {
             for (int i = 0; i < number; i++)
@@ -146,8 +164,8 @@ public class Output
                   top += "-";
             }
             return top;
-             
       }
+      
       public String whiteSpaces(int number)
       {
             String spaces = "";

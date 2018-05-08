@@ -7,7 +7,26 @@ import java.util.regex.Matcher;
 
 public class MatchHandler extends ObjectHandler<Match> 
 {
-      ArrayList<Match> matches = getContent();
+      private ArrayList<Match> matches;
+      private static MatchHandler instance;
+      
+      private MatchHandler()
+      {
+            matches = getContent();
+      }
+      
+      public static MatchHandler getMatchHandler()
+      {
+            if(instance == null)
+            {
+                  MatchHandler mh = new MatchHandler();
+                  instance = mh;
+            }
+            return instance;
+      }
+      
+      
+      
       
       public String getFilePath()
       {
