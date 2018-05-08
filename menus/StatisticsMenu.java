@@ -66,7 +66,7 @@ public class StatisticsMenu
             
             
             /* og prnter spiller oplysinger for den valgte spiller (visningaf spiller information kommer til at 
-            blive en "spændende" metode)
+            blive en "spændende" metode)trøjenr, navn, løn, mål, assist, cleansheets, 
             skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/
                   
       }
