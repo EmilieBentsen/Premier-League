@@ -1,11 +1,13 @@
 package menus;
 
+import handlers.*;
 import java.time.*;
 
 public class MainMenu
 {
       Output output = new Output();
       Input input = new Input();
+      FootballerHandler footballerHandler = new FootballerHandler();
       
       public static void main(String[] args)
       {
@@ -58,6 +60,10 @@ public class MainMenu
             {
                   startMenu();
             }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
             LocalDate dateStart = LocalDate.parse(start);
             output.endDateOfPeriod();
             String end = input.getDate();
@@ -65,14 +71,19 @@ public class MainMenu
             {
                   startMenu();
             }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
             LocalDate dateEnd = LocalDate.parse(end);
-            //listTopThreeGoalScorers(dateStart, dateEnd);
-            //kør input metode til at få en periode, kald top3scorer() med input som parameter.
       }
       
       public void footballerStatisticsMenu()
       {
-           /* Printer liste af fodboldspilerer, kører input metode om at få et JerseynNumber,
+            footballerHandler.listFootballers();
+            //output.getJerseyNumber();
+            input.getInt(1, 66, "You have to input a Number ","Valid numbers are in the range from ");
+            /*kører input metode om at få et JerseynNumber,
             og prnter spiller oplysinger for den valgte spiller (visningaf spiller information kommer til at 
             blive en "spændende" metode)
             skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/

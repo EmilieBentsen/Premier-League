@@ -34,6 +34,10 @@ public class Input
                   {
                         return "5";
                   } 
+                  else if(line.equals("4"))
+                  {
+                        return "4";
+                  }
                   else if(isLocalDate(line) == true)
                   {
                         return line;
@@ -54,20 +58,22 @@ public class Input
                         {}
                         else return false;
                   }
+                  c = line.charAt(4);
                   if(c == '-')
                   {}
                   else return false;
-                  for(int i = 0; i < 2; i++)
+                  for(int i = 5; i < 7; i++)
                   {
                         c = line.charAt(i);
                         if(Character.isDigit(c))
                         {}
                         else return false;
                   }
+                  c = line.charAt(7);
                   if(c == '-')
                   {}
                   else return false; 
-                  for(int i = 0; i < 2; i++)
+                  for(int i = 8; i < 9; i++)
                   {
                         c = line.charAt(i);
                         if(Character.isDigit(c))
