@@ -6,7 +6,7 @@ public class Output
       {
             header();
             buttonMiddle("Start Menu", 15);
-            emptyLine(6);
+            emptyLine(2);
             buttonLeft("(1). Statistics", 31);
             emptyLine(2);
             twoButtons("(2). Login", "(3). Shedule", 31);
@@ -19,11 +19,11 @@ public class Output
       {
             header();
             buttonMiddle("Statistic Menu", 20);
-            emptyLine(5);
+            emptyLine(3);
             twoButtons("(1). Top 3 goal scorers", "(3) Club statistics", 31);
             emptyLine(2);
             twoButtons("(2). Footballer Statistics", "(4). Match Statistics", 31);
-            emptyLine(4);
+            emptyLine(2);
             endButton(5);
             typeYourInput("1-5");
             line();            
@@ -32,19 +32,26 @@ public class Output
       public void topThreeScorerMenu()
       {
             header();
-            buttonMiddle("Top Three Goal Scorers", 30);
             emptyLine(2);
-            System.out.println("Wich period do you want to se the top three goal scorers for ");
-            System.out.println("Enter start date for the period, the format is yyyy-mm-dd ");
-            emptyLine(2);
-            endButton(5);
+            buttonMiddle("Top Three Goal Scorers", 31);
+            emptyLine(4);
+            System.out.println("*  Wich period do you want to se the top three goal scorers for " + whiteSpaces(50) + "*");
+            emptyLine(1);
+            System.out.println("*  Enter start date for the period, the format is yyyy-mm-dd " + whiteSpaces(53) + "*");
+            emptyLine(5);
+            bakEndButton(4,5);
             line();
       }
       
       public void endDateOfPeriod()
       {
+            header();
+            emptyLine(2);
+            buttonMiddle("Top Three Goal Scorers", 31);
+            emptyLine(4);
             System.out.println("Enter end date for the period, the format is yyyy-mm-dd ");
-            endButton(5);
+            emptyLine(7);
+            bakEndButton(4,5);
             line();
       }
       
@@ -58,6 +65,11 @@ public class Output
             System.out.println("*" + "   |_|\\___/ \\__,_|   \\_/\\_/ |_|_|_| |_| |_|\\___| \\_/ \\___|_|      \\_/\\_/ \\__,_|_|_|\\_\\  \\__,_|_|\\___/|_| |_|\\___|" + "*");           
             emptyLine(1);
             line();
+            System.out.println("*" + whiteSpaces(32) + "  _    _                            _   ___ ___   " + whiteSpaces(31) + "*");
+            System.out.println("*" + whiteSpaces(32) + " | |  (_)_ _____ _ _ _ __  ___  ___| | | __/ __|  " + whiteSpaces(31) + "*");
+            System.out.println("*" + whiteSpaces(32) + " | |__| \\ V / -_) '_| '_ \\/ _ \\/ _ \\ | | _| (__ _ " + whiteSpaces(31) + "*");
+            System.out.println("*" + whiteSpaces(32) + " |____|_|\\_/\\___|_| | .__/\\___/\\___/_| |_(_)___(_)" + whiteSpaces(31) + "*");
+            System.out.println("*" + whiteSpaces(32) + "                    |_|                           " + whiteSpaces(31) + "*");
       }
       
       public void typeYourInput(String range)
@@ -86,6 +98,13 @@ public class Output
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " End Program",19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
+      }
+      
+      public void bakEndButton(int bakNumber, int endNumber)
+      {
+            System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
+            System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " End Program",19) + " *");
+            System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
       }
       
       public void twoButtons(String textButtonOne, String textButtonTwo, int length)
