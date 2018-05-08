@@ -23,7 +23,11 @@ public class AdminMatchMenu
       
       public void updateMatch()
       {
-            /*prompter om man vil ændre dato (Ja/nej), hvis input = Ja: prompt for ny dato.
+            /*
+            Prompter for indtastning af to datoer i date format.
+            Printer liste af kampe spillet inden for de indtastede datoer.
+            Prompter bruger til at vælge en af disse kampe.
+            prompter om man vil ændre dato (Ja/nej), hvis input = Ja: prompt for ny dato.
             prompter om man vil ændre modstander(Ja/Nej), hvis input = Ja: print liste over gyldige modstandere
             og prompt for valg af modstander.
             prompter om man vil ændre ude/hjemme status(Ja/Nej), hvis input = Ja: ændre home til away eller 
@@ -38,7 +42,8 @@ public class AdminMatchMenu
             prompter om der skal ændres i formation (Ja/Nej), Hvis input = Ja: prompt for ny formation.
             prompter for om der skal ændres i lineup(Ja/Nej), Hvis input er = Ja: prompt for nyt line up.
             den valgte match ændres baseret på brugerens indtasninger og gemmes.
-            adminMenu();*/     
+            adminMenu();
+            */     
       }
       
       public void typeInResult()
