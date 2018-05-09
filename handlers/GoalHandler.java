@@ -128,7 +128,7 @@ public class GoalHandler extends ObjectHandler<Goal>
       
       goalScorers = sort(goalScorers);
       
-      occurenceGoalscorers[rows][0] = goalScorers[0];            
+      occurenceGoalscorers[rows][0] = goalScorers[0];
       
       for(int i=1;i<goalScorers.length;i++)
       {
@@ -154,20 +154,19 @@ public class GoalHandler extends ObjectHandler<Goal>
       {     
             for(int i=0;i<topX;i++)
             {
-                        System.out.println(occurenceGoalscorers[i][0] + " " + occurenceGoalscorers[i][1]);                        
+                        System.out.println(occurenceGoalscorers[i][0] + " " + (occurenceGoalscorers[i][1] +1));                        
             }
       }
-   
-   /*public Arraylist listGoalsByPeriod(LocalDate startDate, LocalDate endDate)
-   {
-              
-   }*/
-   
-   /*public ArrayList listTopThreeGoalScorers(LocalDate startDate, LocalDate endD)
-   {
-         int numberOfCounts = goals.size();
-   }*/
-         
+      /*    MatchHandler mh = MatchHandler.getMatchHandler();
+            GoalHandler gh = GoalHandler.getGoalHandler();
+            
+            //System.out.println(mh.CleanSheetsByClub());
+            LocalDate startDate = LocalDate.parse("2017-08-01");
+            LocalDate endDate = LocalDate.parse("2017-12-01");
+            
+            int[][] doubleArray = gh.getArrayWithGoalFrequencies(gh.getGoalscorerByMatchID(mh.getMatchIDInAPeriod(startDate, endDate)));
+            gh.getTopGoalscorers(doubleArray, 3);
+        */ 
    public String getFilePath()
    {
       return "goal.csv";
