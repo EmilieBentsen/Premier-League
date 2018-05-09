@@ -292,5 +292,15 @@ public class Output
                   spaces += " ";
             }
             return spaces;
-      }      
+      }  
+      
+      public void promptUsername()
+      {
+            printLine("Please type in username");      
+      }  
+      
+      public void promptPassword()
+      {
+            printLine("Please type in password");      
+      }  
 }
