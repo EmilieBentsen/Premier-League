@@ -12,7 +12,7 @@ public class AdminMenu
                   
               while(validUser == false)
               {    
-            
+      
               output.promptUsername();
               String username = input.getString();
               if (username.equalsIgnoreCase("exit"))
@@ -21,24 +21,26 @@ public class AdminMenu
                    main.startMenu();
                    
               }
-              output.promptPassword();
-              String password = input.getString();
+                  output.promptPassword();
+                  String password = input.getString();
               if (password.equalsIgnoreCase("exit"))
               {
                    MainMenu main = new MainMenu();
                    main.startMenu();
                    
               }
-              UserHandler uh = UserHandler.getUserHandler();
-              validUser = uh.verifyAdmin(username, password);
-              
-              if(validUser == true)
-              {
+                  UserHandler uh = UserHandler.getUserHandler();
+                  validUser = uh.verifyAdmin(username, password);
+                    
+                    if(validUser == true)
+                    {
                   
-                  adminMenu();
-              }
-              
-              }
+                        adminMenu();
+                    }
+                    
+                    output.invalidUser();
+                    }
+                   
       }
       public void adminMenu()
       {

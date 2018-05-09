@@ -297,12 +297,17 @@ public class Output
       
       public void promptUsername()
       {
-            printLine("Please type in username. Enter exit if you want to return to main menu");      
+            printLine("Please type in username (Enter exit if you want to return to main menu)");      
       }  
       
       public void promptPassword()
       {
-            printLine("Please type in password. Enter exit if you want to return to main menu");      
-      }  
+            printLine("Please type in password (Enter exit if you want to return to main menu)");      
+      } 
+      
+      public void invalidUser()
+      {
+            printLine("Wrong password or username, please try again");
+      } 
       
 }
