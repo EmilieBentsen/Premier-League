@@ -155,16 +155,6 @@ public class StatisticsMenu
             }
             LocalDate dateEnd = LocalDate.parse(end);
             
-<<<<<<< HEAD
             matchHandler.matchesInPeriod(dateStart,dateEnd);           
-=======
-            matchHandler.getMatchesInPeriod(dateStart,dateEnd);
-            
-            
-            /*kør input metode der beder om at få et match id for en af de viste matches.
-            Kald metode der tager imod en Match/MatchID, og viser detaljerede information baseret 
-            om pågældende match.
-            skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/      
->>>>>>> 100cf25238a2b948554f060929ad12b318e675e2
       }      
 }
