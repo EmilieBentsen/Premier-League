@@ -29,7 +29,6 @@ public class MainMenu
                               break;
 
                   case 2:     AdminMenu am = new AdminMenu();
-                              output.promptUsername();
                               am.adminMenu();
                               break;
                               
