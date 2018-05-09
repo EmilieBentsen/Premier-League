@@ -28,7 +28,8 @@ public class MainMenu
                               sm.statisticsMenu();
                               break;
 
-                  case 2:     //adminMenu();
+                  case 2:     AdminMenu am = new AdminMenu();
+                              am.adminMenu();
                               break;
                               
                   case 3:     
