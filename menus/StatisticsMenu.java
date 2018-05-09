@@ -41,10 +41,9 @@ public class StatisticsMenu
       public void topThreeScorerMenu()
       {
             output.topThreeScorerMenu();
-            String start = input.getDate();
-            
+                        
             LocalDate dateStart = LocalDate.parse(getDate());
-            output.endDateOfPeriod();
+            output.endDateOfPeriod("Top Three Goal Scorers");
             LocalDate dateEnd = LocalDate.parse(getDate());
       }
       
@@ -80,7 +79,7 @@ public class StatisticsMenu
             int choice = input.getInt(4,5);
             switch(choice)
             {
-                  case 3 :    footballerMatchesPlayed();
+                  case 3 :    footballerMatchesPlayed(chosenFootballer);
                               break;
             
                   case 4 :    statisticsMenu();
@@ -91,9 +90,14 @@ public class StatisticsMenu
             }                
       }
       
-      public void footballerMatchesPlayed()
+      public void footballerMatchesPlayed(Footballer footballer)
       {
-            output.
+            output.footballerMatchesPlayed(footballer);
+            LocalDate dateStart = LocalDate.parse(getDate());
+            output.endDateOfPeriod("Matches played by footballer: ");
+            LocalDate dateEnd = LocalDate.parse(getDate());
+            ArrayList<Match> matches = MatchHandler.MatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
+            output.printMatchesPlayedInPeriod(matches);           
       }
       
       public void clubStatisticsMenu()
