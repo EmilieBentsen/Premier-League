@@ -127,6 +127,7 @@ public class Output
                   + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }
+            bakEndButton(4,5);            
       }
       
       public void clubStatisticsMenu(int gamesPlayed, int gamesWon, int gamesDraw, int gamesLost, int goalsScored, int goalsConceded, int cleenSheets)
@@ -162,7 +163,7 @@ public class Output
             header();
             emptyLine(2);
             buttonMiddle("Match Statistics", 31);
-            emptyLine(4);
+            emptyLine(5);
             System.out.println("Enter end date for the period, the format is yyyy-mm-dd ");
             emptyLine(7);
             bakEndButton(4,5);
