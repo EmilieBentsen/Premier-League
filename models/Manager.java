@@ -1,14 +1,7 @@
-package models.footballertypes;
-import models.Footballer;
+package models;
 
 public class Manager extends Footballer
 {
-      // Konstruktor til ny oprettede managers, hvor der skal autogenereres et FootballerID
-      public Manager (int footballerJersey, String footballerName, String footballerSalary, 
-      boolean footballerEmployed)
-      {
-            super(footballerJersey, footballerName, footballerSalary, footballerEmployed);
-      }
       
       //kontsruktor til at oprette managers der indlæses fra fil
       public Manager (int id, int footballerJersey, String footballerName,String footballerSalary, 
