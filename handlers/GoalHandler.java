@@ -9,26 +9,10 @@ import models.*;
 
 public class GoalHandler extends ObjectHandler<Goal>
 {
-      private static GoalHandler instance;
-      private ArrayList<Goal> goals;
-      private int rows = 0;
-      
-      private GoalHandler()
-      {
-            goals = getContent();
-      }
-      
-      public static GoalHandler getGoalHandler()
-      {
-            if(instance == null)
-            {
-                  GoalHandler gh = new GoalHandler();
-                  instance = gh;
-            }
-            return instance;
-      }
-
-      public int GoalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
+   private ArrayList<Goal> goals = getContent();
+   private int rows = 0;
+   
+   public int GoalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
    {
       int count = 0;
       for(Goal i : goals)
