@@ -205,4 +205,48 @@ public class MatchHandler extends ObjectHandler<Match>
             int newID = getNewID(matches);
             return newID;
       }
+      
+      public ArrayList getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)
+      {
+            ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>(); 
+            ArrayList<Match> matchesInPeriod = matchesInPeriod(startDate, endDate);
+            for(Match i : matchesInPeriod)
+            {
+                        String[] stringArrayLineup = i.getMatchLineup().split("-");
+                        int[] intArrayLineup = new int[stringArrayLineup.length];
+                        for (int j = 0; j < stringArrayLineup.length; j++) 
+                        {
+                        String numberAsString = stringArrayLineup[j];
+                        intArrayLineup[j] = Integer.parseInt(numberAsString);
+                        }
+                        
+                        for(int k : intArrayLineup)
+                        {
+                              if(k == footballerJersey)
+                              {
+                                   matchesPlayedInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                              }
+                        }
+             } 
+            
+            return matchesPlayedInPeriod;
+       }
+           
+      
+      
+      public ArrayList matchesInPeriod(LocalDate startDate, LocalDate endDate)
+      {
+            ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
+            for(Match i : matches)
+            {
+                  if(i.getMatchDate().isAfter(startDate)|| i.getMatchDate().isEqual(startDate) && i.getMatchDate().isBefore(endDate)|| i.getMatchDate().isEqual(endDate))
+                  {
+                                   matchesInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                  }
+            }
+            return matchesInPeriod;
+      } 
+      
 }
