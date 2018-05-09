@@ -132,6 +132,32 @@ public class Output
             line();
       }
       
+      public void matchStatisticsMenuStartDate()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Match Statistics", 31);
+            emptyLine(4);
+            System.out.println("* Please input the period for which you want matches displayed" + whiteSpaces(52) + "*");
+            emptyLine(1);
+            System.out.println("*  Enter start date for the period, the format is yyyy-mm-dd " + whiteSpaces(53) + "*");
+            emptyLine(5);
+            bakEndButton(4,5);
+            line();
+      }
+      
+      public void matchStatisticsMenuEndDate()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Match Statistics", 31);
+            emptyLine(4);
+            System.out.println("Enter end date for the period, the format is yyyy-mm-dd ");
+            emptyLine(7);
+            bakEndButton(4,5);
+            line();
+      }
+      
       public void printLine(String text)
       {
             System.out.println("*" + text + whiteSpaces(113 - text.length()) + "*");
@@ -255,5 +281,5 @@ public class Output
                   spaces += " ";
             }
             return spaces;
-      }
+      }      
 }

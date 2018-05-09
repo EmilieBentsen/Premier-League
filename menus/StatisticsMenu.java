@@ -9,6 +9,7 @@ public class StatisticsMenu
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       GoalHandler goalHandler = GoalHandler.getGoalHandler();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
+      OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
  
       Output output = new Output();
       Input input = new Input();
@@ -76,7 +77,7 @@ public class StatisticsMenu
             int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey); 
             
             output.displayFootballerStatistics(chosenFootballer, goals, assists, cleansheets, matchesPlayed);
-            int choice = input.getInt(4,5);
+            int choice = input.getInt(3,5);
             switch(choice)
             {
                   case 3 :    footballerMatchesPlayed(chosenFootballer);
@@ -96,8 +97,8 @@ public class StatisticsMenu
             LocalDate dateStart = LocalDate.parse(getDate());
             output.endDateOfPeriod("Matches played by footballer: ");
             LocalDate dateEnd = LocalDate.parse(getDate());
-            ArrayList<Match> matches = MatchHandler.MatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            output.printMatchesPlayedInPeriod(matches);           
+            ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
+            output.printMatchesPlayedInPeriod(matches);
       }
       
       public void clubStatisticsMenu()
@@ -128,10 +129,32 @@ public class StatisticsMenu
       
       public void matchStatisticsMenu()
       {
-            /*(evt. prompt bruger til at indtaste periode) Print liste over kampe brugeren kan vælge 
-            mellem, kør input metode der beder om at få et match id for en af de viste matches.
-            Kald metode der tager imod en Match/MatchID, og viser detaljerede information baseret 
-            om pågældende match.
-            skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/      
+            output.matchStatisticsMenuStartDate();
+            String start = input.getDate();
+            
+            if(start.equals("5")) 
+            {
+                  mainMenu.startMenu();
+            }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
+            
+            LocalDate dateStart = LocalDate.parse(start);
+            output.matchStatisticsMenuEndDate();
+            String end = input.getDate();
+            
+            if(end.equals("5")) 
+            {
+                  mainMenu.startMenu();
+            }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
+            LocalDate dateEnd = LocalDate.parse(end);
+            
+            matchHandler.matchesInPeriod(dateStart,dateEnd);           
       }      
 }

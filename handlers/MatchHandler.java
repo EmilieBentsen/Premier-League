@@ -82,7 +82,7 @@ public class MatchHandler extends ObjectHandler<Match>
              save(matches);
       }
           
-      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe
+      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe. Efter indførsel af singleton løsning virker dette redundant.
       {
             return matches;
       }
