@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class MainMenu
 {
+<<<<<<< HEAD
       Output output = new Output();
       Input input = new Input();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
@@ -47,5 +48,14 @@ public class MainMenu
                               
                               break;  
             }
+=======
+      public void startMenu()
+      {
+            /*skal printe boks med "you'll never walk alone" efterfulgt af boks med "Start/Main menu",
+            og dereftemenu oversigt, hvor der står "1. Statistik, 2. Log In, 3. Schedule". 
+            skal evt. bruge "print.f" for at det kommer til at se lækkert ud. 
+            Derefter skal der printes en prompt om at få et input af typen int i mellem 1
+            og 3. input metode kaldes, og menuen kalder en undermenu baseret på brugerens input.*/
+>>>>>>> 951871f4e3dd9c1ea65dae909780c577f4af8d83
       }
 }

@@ -7,23 +7,8 @@ import java.util.ArrayList;
 
 public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
-      private static OpponentHandler instance;
-      private ArrayList<Opponent> opponents; 
-      
-      private OpponentHandler()
-      {
-            opponents = getContent();
-      }
-      
-      public static OpponentHandler getOpponentHandler()
-      {
-            if(instance == null)
-            {
-                  OpponentHandler oh = new OpponentHandler();
-                  instance = oh;
-            }
-            return instance;
-      }
+
+      private ArrayList<Opponent> opponents = getContent();
       
       public String getFilePath()
       {
