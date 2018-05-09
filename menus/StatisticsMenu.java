@@ -43,9 +43,11 @@ public class StatisticsMenu
       {
             output.topThreeScorerMenu();
                         
-            LocalDate dateStart = LocalDate.parse(getDate());
+            LocalDate startDate = LocalDate.parse(getDate());
             output.endDateOfPeriod("Top Three Goal Scorers");
-            LocalDate dateEnd = LocalDate.parse(getDate());
+            LocalDate endDate = LocalDate.parse(getDate());
+            int[][] doubleArray = goalHandler.getArrayWithGoalFrequencies(goalHandler.getGoalscorerByMatchID(matchHandler.getMatchIDInAPeriod(startDate, endDate)));
+            goalHandler.getTopGoalscorers(doubleArray, 3);
       }
       
       public String getDate()
@@ -98,8 +100,8 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");
             LocalDate dateEnd = LocalDate.parse(getDate());
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            output.printMatchesPlayedInPeriod(matches);//line 130 endbakbutton();
-            int choice = input.getInt(4,5);
+            output.printMatchesPlayedInPeriod(matches);
+            bakEndButtons();
       }
       
       public void clubStatisticsMenu()
@@ -116,16 +118,7 @@ public class StatisticsMenu
             int cleenSheets = matchHandler.cleanSheetsByClub();
             
             output.clubStatisticsMenu(matchesPlayed, matchesWon, matchesDraw, matchesLost, goalsScored, goalsConceded, cleenSheets);
-            
-            int choice = input.getInt(4,5);
-            switch(choice)
-            {
-                  case 4 :    statisticsMenu();
-                              break;
-                              
-                  case 5 :    mainMenu.startMenu();
-                              break;
-            }
+            bakEndButtons();
       }
       
       public void matchStatisticsMenu()
@@ -138,6 +131,19 @@ public class StatisticsMenu
             
             ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
             output.printMatchesPlayedInPeriod(matches);
-            int choice = input.getInt(4,5);         
-      }      
+            bakEndButtons();     
+      }  
+      
+      public void bakEndButtons()
+      {
+            int choice = input.getInt(4,5);
+            switch(choice)
+            {
+                  case 4 :    statisticsMenu();
+                              break;
+                              
+                  case 5 :    mainMenu.startMenu();
+                              break;
+            }
+      }    
 }
