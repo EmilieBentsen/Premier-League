@@ -252,7 +252,7 @@ public class MatchHandler extends ObjectHandler<Match>
             ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
             for(Match i : matches)
             {
-                  if(i.getMatchDate().isAfter(startDate)|| i.getMatchDate().isEqual(startDate) && i.getMatchDate().isBefore(endDate)|| i.getMatchDate().isEqual(endDate))
+                  if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate)|| i.getMatchDate().isEqual(startDate) || i.getMatchDate().isEqual(endDate))
                   {
                                    matchesInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
                                    i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
