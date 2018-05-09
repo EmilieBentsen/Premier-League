@@ -109,8 +109,36 @@ public class StatisticsMenu
       
       public void matchStatisticsMenu()
       {
-            /*(evt. prompt bruger til at indtaste periode) Print liste over kampe brugeren kan vælge 
-            mellem, kør input metode der beder om at få et match id for en af de viste matches.
+            output.matchStatisticsMenuStartDate();
+            String start = input.getDate();
+            
+            if(start.equals("5")) 
+            {
+                  mainMenu.startMenu();
+            }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
+            
+            LocalDate dateStart = LocalDate.parse(start);
+            output.matchStatisticsMenuEndDate();
+            String end = input.getDate();
+            
+            if(end.equals("5")) 
+            {
+                  mainMenu.startMenu();
+            }
+            else if(start.equals("4"))
+            {
+                  statisticsMenu();
+            }
+            LocalDate dateEnd = LocalDate.parse(end);
+            
+            matchHandler.getMatchesInPeriod(dateStart,dateEnd);
+            
+            
+            /*kør input metode der beder om at få et match id for en af de viste matches.
             Kald metode der tager imod en Match/MatchID, og viser detaljerede information baseret 
             om pågældende match.
             skal kalde startMenu() hvis den metoder et bestemt input for brugeren.*/      
