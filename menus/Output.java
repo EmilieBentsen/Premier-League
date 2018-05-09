@@ -122,6 +122,7 @@ public class Output
       {
             for (Match i : matches)
             {
+                  //Opponentname not id, printf. 
                   System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + i.getMatchOpponentID() + " " 
                   + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());

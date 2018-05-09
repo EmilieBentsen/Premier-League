@@ -28,7 +28,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return instance;
       }
 
-      public int GoalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
+      public int goalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
    {
       int count = 0;
       for(Goal i : goals)
@@ -41,7 +41,7 @@ public class GoalHandler extends ObjectHandler<Goal>
       return count;
    }
    
-   public int AssistsByFootballer (int footballerID)
+   public int assistsByFootballer (int footballerID)
    {
       int count = 0;
       for (Goal i : goals)
