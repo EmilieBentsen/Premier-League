@@ -8,16 +8,16 @@ public class Main
       public static void main(String[]args)
       {
 
-<<<<<<< HEAD
+      MatchHandler mh = MatchHandler.getMatchHandler();
+            GoalHandler gh = GoalHandler.getGoalHandler();
             
-            UserHandler uh = UserHandler.getUserHandler();
+            //System.out.println(mh.CleanSheetsByClub());
+            LocalDate startDate = LocalDate.parse("2017-08-01");
+            LocalDate endDate = LocalDate.parse("2017-12-01");
             
-            System.out.print(uh.verifyAdmin("LasseMis", "FlopFlip"));         
+            int[][] doubleArray = gh.getArrayWithGoalFrequencies(gh.getGoalscorerByMatchID(mh.getMatchIDInAPeriod(startDate, endDate)));
+            gh.getTopGoalscorers(doubleArray, 4);
             
-
-=======
-
-            
->>>>>>> ffa5916a193526626da08a56dce80751f62bff15
+      
       }
 }

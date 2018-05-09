@@ -146,12 +146,17 @@ public class GoalHandler extends ObjectHandler<Goal>
             return occurenceGoalscorers;
       }
    
-      public void getTopGoalscorers(int occurenceGoalscorers[][], int topX)
+      public int[][] getTopGoalscorers(int occurenceGoalscorers[][], int topX)
       {     
+            int getTopScorers[][] = new int[topX][2];
+      
             for(int i=0;i<topX;i++)
             {
-                        System.out.println(occurenceGoalscorers[i][0] + " " + (occurenceGoalscorers[i][1] +1));                        
+                        getTopScorers[i][0] = occurenceGoalscorers[i][0];
+                        getTopScorers[i][1] = occurenceGoalscorers[i][1] +1;                        
             }
+            
+      return getTopScorers;
       }
       /*    MatchHandler mh = MatchHandler.getMatchHandler();
             GoalHandler gh = GoalHandler.getGoalHandler();
