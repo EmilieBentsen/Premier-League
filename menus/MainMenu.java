@@ -29,7 +29,7 @@ public class MainMenu
                               break;
 
                   case 2:     AdminMenu am = new AdminMenu();
-                              am.adminMenu();
+                              am.login();
                               break;
                               
                   case 3:     

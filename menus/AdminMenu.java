@@ -8,10 +8,6 @@ public class AdminMenu
       Input input = new Input();
       public void login()
       {
-            /* Printer menu header (You'll never walk alone" box + Menu navn/overskift).
-            Printer menu oversigt(1. Match, 2. Footballer, 3. Opponent).
-            Kør input metode der får int i mellem 1 g 3.
-            Kald undermenu metoder baseret på input.*/
               boolean validUser = false;
                   
               while(validUser == false)
@@ -19,7 +15,7 @@ public class AdminMenu
             
               output.promptUsername();
               String username = input.getString();
-              if (username.equals("exit"))
+              if (username.equalsIgnoreCase("exit"))
               {
                    MainMenu main = new MainMenu();
                    main.startMenu();
@@ -27,7 +23,7 @@ public class AdminMenu
               }
               output.promptPassword();
               String password = input.getString();
-              if (password.equals("exit"))
+              if (password.equalsIgnoreCase("exit"))
               {
                    MainMenu main = new MainMenu();
                    main.startMenu();
@@ -38,6 +34,7 @@ public class AdminMenu
               
               if(validUser == true)
               {
+                  
                   adminMenu();
               }
               
@@ -45,6 +42,10 @@ public class AdminMenu
       }
       public void adminMenu()
       {
-            
+            System.out.print("Tillyke du kom ind i admin menuen");
+          /* Printer menu header (You'll never walk alone" box + Menu navn/overskift).
+            Printer menu oversigt(1. Match, 2. Footballer, 3. Opponent).
+            Kør input metode der får int i mellem 1 g 3.
+            Kald undermenu metoder baseret på input.*/  
       }
 }
