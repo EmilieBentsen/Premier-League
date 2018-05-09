@@ -260,7 +260,22 @@ public class MatchHandler extends ObjectHandler<Match>
             }
             return matchesInPeriod;
       } 
-      
+
+      public ArrayList<Integer> getMatchIDInAPeriod(LocalDate startDate, LocalDate endDate)
+      {     
+            ArrayList<Integer> matchesInAPeriod = new ArrayList<Integer>();
+            
+            for(Match i : matches)
+            {
+                  if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate))
+                  {
+                        matchesInAPeriod.add(i.getID());
+                        //System.out.println(i.getID());
+                  }
+            }
+      return matchesInAPeriod;
+      }
+
       public ArrayList schedule()
       {
             LocalDate now = LocalDate.now();
