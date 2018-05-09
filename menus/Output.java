@@ -66,6 +66,16 @@ public class Output
             }
       }
       
+      public void printSchedule(ArrayList<Match> schedule)
+      {
+           for(Match i : schedule)
+            {
+                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + i.getMatchOpponentID() + " " 
+                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
+                  + " Formation played: " + i.getMatchFormation());
+            }   
+      }
+      
       public void inputJerseyNumber()
       {
             System.out.println("Wich footballer do you want to see");

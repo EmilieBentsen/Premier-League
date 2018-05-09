@@ -1,9 +1,15 @@
 package menus;
+import handlers.*;
+import models.*;
+import handlers.*;
+import java.time.*;
+import java.util.ArrayList;
 
 public class MainMenu
 {
       Output output = new Output();
       Input input = new Input();
+      MatchHandler matchHandler = MatchHandler.getMatchHandler();
             
       public static void main(String[] args)
       {
@@ -25,7 +31,20 @@ public class MainMenu
                   case 2:     //adminMenu();
                               break;
                               
-                  case 3:     //adminMatchMenu();
+                  case 3:     
+                              ArrayList<Match> schedule = matchHandler.schedule();
+                              output.printSchedule(schedule);
+                              output.endButton(4);
+                              int choiceSchedule = input.getInt(4,4);
+                                    
+                                    switch(choiceSchedule)
+                                    {
+                                    case 4: 
+                                                startMenu();
+                                                break;
+                                    }
+                                          
+                              
                               break;  
             }
       }
