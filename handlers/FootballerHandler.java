@@ -128,7 +128,11 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
              case "MN":
                         footballers.add(new Manager(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
                         save(footballers);
-             }
-             
+             }      
+      }
+      
+      public Integer[][] getTop3Goals(ArrayList goalScorers)
+      {
+          goalScorers
       }
 }
