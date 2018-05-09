@@ -9,7 +9,6 @@ import models.*;
 
 public class GoalHandler extends ObjectHandler<Goal>
 {
-<<<<<<< HEAD
    private ArrayList<Goal> goals = getContent();
    private int rows = 0;
    
@@ -17,34 +16,12 @@ public class GoalHandler extends ObjectHandler<Goal>
    {
       int count = 0;
       for(Goal i : goals)
-=======
-      private static GoalHandler instance;
-      private ArrayList<Goal> goals;
-      
-      private GoalHandler()
-      {
-            goals = getContent();
-      }
-      
-      public static GoalHandler getGoalHandler()
-      {
-            if(instance == null)
-            {
-                  GoalHandler gh = new GoalHandler();
-                  instance = gh;
-            }
-            return instance;
-      }
-
-      public int goalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
->>>>>>> 9fb006448d2a7e3ccecf7c7f433102113426dc35
       {
          if (i.getGoalScorer() == footballerID)
          {
             count++;
          }
       }
-<<<<<<< HEAD
       return count;
    }
    
@@ -52,10 +29,6 @@ public class GoalHandler extends ObjectHandler<Goal>
    {
       int count = 0;
       for (Goal i : goals)
-=======
-      
-      public int assistsByFootballer (int footballerID)
->>>>>>> 9fb006448d2a7e3ccecf7c7f433102113426dc35
       {
          if (i.getGoalAssistingPlayer() == footballerID)
          {
@@ -156,7 +129,6 @@ public class GoalHandler extends ObjectHandler<Goal>
       
       rows++;
       
-<<<<<<< HEAD
       occurenceGoalscorers = sort(occurenceGoalscorers);
            
       return occurenceGoalscorers;
@@ -165,22 +137,6 @@ public class GoalHandler extends ObjectHandler<Goal>
       public void getTopGoalscorers(int occurenceGoalscorers[][], int topX)
       {     
             for(int i=0;i<topX;i++)
-=======
-      public int getGoalsByClub()
-      {
-            int count = 0;
-            for(Goal i : goals)
-            {
-                  count++;
-            }
-            return count;
-      }
-      
-      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, //Metode til at opdatere et goal objekt vha. set metoder
-      char goalType, int goalAssistingPlayer)
-      {
-            for(Goal i : goals)
->>>>>>> 9fb006448d2a7e3ccecf7c7f433102113426dc35
             {
                         System.out.println(occurenceGoalscorers[i][0] + " " + occurenceGoalscorers[i][1]);                        
             }

@@ -1,27 +1,11 @@
 package handlers;
 import models.Footballer;
-import models.*;
+import models.footballertypes.*;
 import java.util.*;
 
 public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
 {
-      private static FootballerHandler instance;
-      private ArrayList<Footballer> footballers;
-      
-      private FootballerHandler()
-      {
-            footballers = getContent();
-      }
-      
-      public static FootballerHandler getFootballerHandler()
-      {
-            if(instance == null)
-            {
-                  FootballerHandler fh = new FootballerHandler();
-                  instance = fh;
-            }
-            return instance;
-      }     
+      private ArrayList<Footballer> footballers = getContent();
 
       public String getFilePath()
       {
@@ -76,21 +60,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
             return footballers;
       }
       
-      public ArrayList getActiveFootballersArray()
-      {
-            ArrayList<Footballer> activeFootballers = new ArrayList();
-            
-            for(Footballer i : footballers)
-            {
-                  if(i.getFootballerEmployed() == true)
-                  {
-                       activeFootballers.add(i); 
-                  }
-            }
-            return activeFootballers;
-      }
-      
-      public void listFootballers() //printer liste med footballers, skal nok slettes
+      public void listFootballers() //printer liste med footballers
       {           
             for(Footballer i : footballers)
             {
