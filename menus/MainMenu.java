@@ -42,9 +42,7 @@ public class MainMenu
                                     case 4: 
                                                 startMenu();
                                                 break;
-                                    }
-                                          
-                              
+                                    }                             
                               break;  
             }
       }

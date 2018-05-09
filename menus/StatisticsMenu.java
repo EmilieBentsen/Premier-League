@@ -98,7 +98,8 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");
             LocalDate dateEnd = LocalDate.parse(getDate());
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            output.printMatchesPlayedInPeriod(matches);
+            output.printMatchesPlayedInPeriod(matches);//line 130 endbakbutton();
+            int choice = input.getInt(4,5);
       }
       
       public void clubStatisticsMenu()
@@ -135,6 +136,8 @@ public class StatisticsMenu
             output.matchStatisticsMenuEndDate();
             LocalDate dateEnd = LocalDate.parse(getDate());
             
-            matchHandler.matchesInPeriod(dateStart,dateEnd);           
+            ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
+            output.printMatchesPlayedInPeriod(matches);
+            int choice = input.getInt(4,5);         
       }      
 }
