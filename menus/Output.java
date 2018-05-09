@@ -100,7 +100,7 @@ public class Output
                   threeButtons("Cleansheets: " + cleansheets,"Goals scored: " + goals, "Goals assisted: " + assists, 31); 
             }
             emptyLine(2);
-            buttonLeft("(3): Matches played in period", 31);
+            buttonLeft("(3): Matches played in period", 37);
             emptyLine(2);
             bakEndButton(4,5);   
             line();        
