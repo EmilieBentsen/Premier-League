@@ -5,9 +5,25 @@ import models.*;
 
 public class GoalHandler extends ObjectHandler<Goal>
 {
-      private ArrayList<Goal> goals = getContent();
+      private static GoalHandler instance;
+      private ArrayList<Goal> goals;
+      
+      private GoalHandler()
+      {
+            goals = getContent();
+      }
+      
+      public static GoalHandler getGoalHandler()
+      {
+            if(instance == null)
+            {
+                  GoalHandler gh = new GoalHandler();
+                  instance = gh;
+            }
+            return instance;
+      }
 
-      public int GoalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
+      public int goalsByFootballer(int footballerID) //metoden tæller alle mål med matchende footballer id i arrayet og ligger dem sammen.
       {
             int count = 0;
             for(Goal i : goals)
@@ -20,7 +36,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
       
-      public int AssistsByFootballer (int footballerID)
+      public int assistsByFootballer (int footballerID)
       {
             int count = 0;
             for (Goal i : goals)
@@ -108,6 +124,16 @@ public class GoalHandler extends ObjectHandler<Goal>
              goals.add(new Goal(getNewGoalID(), goalMatchID, goalScorer, goalMinuteScored, goalType, goalAssistingPlayer));
              save(goals);
       }   
+      
+      public int getGoalsByClub()
+      {
+            int count = 0;
+            for(Goal i : goals)
+            {
+                  count++;
+            }
+            return count;
+      }
       
       public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, //Metode til at opdatere et goal objekt vha. set metoder
       char goalType, int goalAssistingPlayer)

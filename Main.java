@@ -7,9 +7,14 @@ public class Main
 {
       public static void main(String[]args)
       {
-            MatchHandler mh = new MatchHandler();            
-            //System.out.println(mh.CleanSheetsByClub());
-            System.out.println(mh.CleanSheetsByFootballer("1"));
+<<<<<<< HEAD
+           
 
+=======
+            MatchHandler mh = MatchHandler.getMatchHandler();
+            /*System.out.print(mh.getMatchesPlayedInPeriod(LocalDate.parse("2017-11-01"), LocalDate.parse("2017-12-01"), 12));*/  
+            System.out.print(mh.schedule());          
+            
+>>>>>>> 250bafc25dfeafb6cfac61adcc8f9183cafab51a
       }
 }

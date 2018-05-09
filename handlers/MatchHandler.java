@@ -7,7 +7,23 @@ import java.util.regex.Matcher;
 
 public class MatchHandler extends ObjectHandler<Match> 
 {
-      ArrayList<Match> matches = getContent();
+      private ArrayList<Match> matches;
+      private static MatchHandler instance;
+      
+      private MatchHandler()
+      {
+            matches = getContent();
+      }
+      
+      public static MatchHandler getMatchHandler()
+      {
+            if(instance == null)
+            {
+                  MatchHandler mh = new MatchHandler();
+                  instance = mh;
+            }
+            return instance;
+      }
       
       public String getFilePath()
       {
@@ -66,11 +82,10 @@ public class MatchHandler extends ObjectHandler<Match>
              save(matches);
       }
           
-      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe
+      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe. Efter indførsel af singleton løsning virker dette redundant.
       {
             return matches;
       }
-      
       
       public void listMatches() //metode der printer en liste med objekter
       {           
@@ -81,7 +96,7 @@ public class MatchHandler extends ObjectHandler<Match>
             }
       }
       
-      public boolean CheckStringForItem(String source, String subItem){
+      public boolean checkStringForItem(String source, String subItem){
          String pattern = "\\b"+subItem+"\\b"; //\\b sørger for du kun får match på 1, og ikke på 15, 16, 17 osv. På samme måde fanger den kun husene og ikke huse, ved indtastning af "husene".
          Pattern p=Pattern.compile(pattern); //Pattern laver det mønster vi leder efter. I dette tilfælde subItem.
          Matcher m=p.matcher(source); //Hvis mønsteret vi leder efter findes via Matcher returneres en boolean.
@@ -90,14 +105,19 @@ public class MatchHandler extends ObjectHandler<Match>
          //En alternativ måde at skrive ovenstående på er Pattern.matches(pattern, source); 
       }
       
-      public int CleanSheetsByFootballer(String footballerJersey)
+      public int cleanSheetsByFootballer(String footballerJersey)
       {
             int count = 0;
             for (Match i : matches)
-            {                  
+            {          
+                  if(i.getMatchFormation().equals("0-0-0"))
+                  {
+                        break;
+                  }
+                          
                   if (((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0)) && !i.getMatchFormation().equals("0-0-0"))
                   {                        
-                        if(CheckStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
+                        if(checkStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
                         { 
                               count++;
                         }
@@ -106,18 +126,85 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
-      public int CleanSheetsByClub()
+      public int matchesPlayedByFootballer(String footballerJersey)
+      {
+            int count = 0;
+            for (Match i : matches)
+            {                  
+                                          
+                  if(checkStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
+                  { 
+                        count++;
+                  }
+            }
+            return count;
+      }
+      
+      public int cleanSheetsByClub()
       {
             int count = 0;
             for (Match i : matches)
             {
+                  if(i.getMatchFormation().equals("0-0-0"))
+                  {
+                        break;
+                  }
+                  
                   if ((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0) && !i.getMatchFormation().equals("0-0-0"))
                   {
                         count++;
                   }
             }
             return count;
+      }
+      
+      public int goalsConcededByClub()
+      {
+            int count = 0;
+            for (Match i : matches)
+            {
+                  if(i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() > 0)
+                  {
+                        count += i.getMatchAwayGoals();
+                  }      
+                  else if(i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() > 0)
+                  {
+                        count += i.getMatchHomeGoals();
+                  }
+            }
+            return count;
+      }
+      
+      public String matchesPlayedWonDrawLostByClub()
+      {
+            int countPlayed = 0;
+            int countWon = 0;
+            int countDraw = 0;
+            int countLost = 0;
             
+            for (Match i : matches)
+            {
+                  if(i.getMatchFormation().equals("0-0-0"))
+                  {
+                        break;
+                  }
+                  else countPlayed++;
+                  
+                  if(i.getMatchHomeOrAway() == 'H' && i.getMatchHomeGoals() > i.getMatchAwayGoals() || i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() < i.getMatchAwayGoals())
+                  {
+                        countWon++;
+                  }
+                  else if(i.getMatchHomeGoals() == i.getMatchAwayGoals())
+                  {
+                        countDraw++;
+                  }
+                  else if(i.getMatchHomeOrAway() == 'H' && i.getMatchHomeGoals() < i.getMatchAwayGoals() || i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() > i.getMatchAwayGoals())
+                  {
+                        countLost++;
+                  }
+            }
+            String count = countPlayed + "," + countWon + "," + countDraw + "," + countLost;
+            return count;
       }
       
       public void deleteMatch(int id)
@@ -129,5 +216,64 @@ public class MatchHandler extends ObjectHandler<Match>
       {
             int newID = getNewID(matches);
             return newID;
+      }
+      
+      public ArrayList getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)
+      {
+            ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>(); 
+            ArrayList<Match> matchesInPeriod = matchesInPeriod(startDate, endDate);
+            for(Match i : matchesInPeriod)
+            {
+                        String[] stringArrayLineup = i.getMatchLineup().split("-");
+                        int[] intArrayLineup = new int[stringArrayLineup.length];
+                        for (int j = 0; j < stringArrayLineup.length; j++) 
+                        {
+                        String numberAsString = stringArrayLineup[j];
+                        intArrayLineup[j] = Integer.parseInt(numberAsString);
+                        }
+                        
+                        for(int k : intArrayLineup)
+                        {
+                              if(k == footballerJersey)
+                              {
+                                   matchesPlayedInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                              }
+                        }
+             } 
+            
+            return matchesPlayedInPeriod;
+       }
+           
+      
+      
+      public ArrayList matchesInPeriod(LocalDate startDate, LocalDate endDate)
+      {
+            ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
+            for(Match i : matches)
+            {
+                  if(i.getMatchDate().isAfter(startDate)|| i.getMatchDate().isEqual(startDate) && i.getMatchDate().isBefore(endDate)|| i.getMatchDate().isEqual(endDate))
+                  {
+                                   matchesInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                  }
+            }
+            return matchesInPeriod;
+      } 
+      
+      public ArrayList schedule()
+      {
+            LocalDate now = LocalDate.now();
+            ArrayList<Match> schedule = new ArrayList<Match>(); 
+            for(Match i : matches)
+            {
+                  if(i.getMatchDate().isAfter(now)||i.getMatchDate().isEqual(now))
+                  {
+                                   schedule.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                  }
+            }
+             
+             return schedule;
       }
 }
