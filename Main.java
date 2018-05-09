@@ -8,7 +8,8 @@ public class Main
       public static void main(String[]args)
       {
             MatchHandler mh = MatchHandler.getMatchHandler();
-            System.out.print(mh.getMatchesPlayedInPeriod(LocalDate.parse("2017-11-01"), LocalDate.parse("2017-12-01"), 12));            
+            /*System.out.print(mh.getMatchesPlayedInPeriod(LocalDate.parse("2017-11-01"), LocalDate.parse("2017-12-01"), 12));*/  
+            System.out.print(mh.schedule());          
             
       }
 }

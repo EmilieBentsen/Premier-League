@@ -261,4 +261,19 @@ public class MatchHandler extends ObjectHandler<Match>
             return matchesInPeriod;
       } 
       
+      public ArrayList schedule()
+      {
+            LocalDate now = LocalDate.now();
+            ArrayList<Match> schedule = new ArrayList<Match>(); 
+            for(Match i : matches)
+            {
+                  if(i.getMatchDate().isAfter(now)||i.getMatchDate().isEqual(now))
+                  {
+                                   schedule.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
+                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                  }
+            }
+             
+             return schedule;
+      }
 }
