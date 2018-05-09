@@ -1,7 +1,7 @@
 package handlers;
 import models.*;
 import java.util.*;
-import java.time.*;
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -66,43 +66,20 @@ public class MatchHandler extends ObjectHandler<Match>
              save(matches);
       }
           
-      public ArrayList<Match> getMatchArray()// metode der returnerer et arraylist med kampe
+      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe
       {
             return matches;
       }
       
-      public ArrayList<Integer> getMatchIDInAPeriod(LocalDate startDate, LocalDate endDate)
-      {     
-            ArrayList<Integer> matchesInAPeriod = new ArrayList<Integer>();
-            
-            for(Match i : matches)
-            {
-                  if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate))
-                  {
-                        matchesInAPeriod.add(i.getID());
-                        //System.out.println(i.getID());
-                  }
-            }
-      return matchesInAPeriod;
-      }
       
       public void listMatches() //metode der printer en liste med objekter
       {           
             for(Match i : matches)
             {
-                  System.out.println(
-                  i.getID() + " " + 
-                  i.getMatchDate() + " " + 
-                  i.getMatchOpponentID() + " " + 
-                  i.getMatchHomeOrAway() + " " + 
-                  i.getMatchHomeGoals() + " " + 
-                  i.getMatchAwayGoals()+ " " + 
-                  i.getMatchFormation()+ " " + 
-                  i.getMatchLineup());   
+                  System.out.println(i.getID() + " " + i.getMatchDate() + " " + i.getMatchOpponentID() + " " 
+                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + " " + i.getMatchAwayGoals()+ " " + i.getMatchFormation()+ " " + i.getMatchLineup());   
             }
       }
-      
-      
       
       public boolean CheckStringForItem(String source, String subItem){
          String pattern = "\\b"+subItem+"\\b"; //\\b sørger for du kun får match på 1, og ikke på 15, 16, 17 osv. På samme måde fanger den kun husene og ikke huse, ved indtastning af "husene".
