@@ -38,7 +38,11 @@ public class Output
             emptyLine(2);
             buttonMiddle("Top Three Goal Scorers", 31);
             emptyLine(4);
+<<<<<<< HEAD
+            System.out.println("*  Wich period do you want to see the top three goal scorers for " + whiteSpaces(50) + "*");
+=======
             printLine("  Wich period do you want to se the top three goal scorers for ");
+>>>>>>> 250bafc25dfeafb6cfac61adcc8f9183cafab51a
             emptyLine(1);
             printLine("  Enter start date for the period, the format is yyyy-mm-dd ");
             emptyLine(5);
@@ -282,4 +286,31 @@ public class Output
             }
             return spaces;
       }
+      
+      public void matchStatisticsMenuStartDate()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Match Statistics", 31);
+            emptyLine(4);
+            System.out.println("* Please input the period for which you want matches displayed" + whiteSpaces(52) + "*");
+            emptyLine(1);
+            System.out.println("*  Enter start date for the period, the format is yyyy-mm-dd " + whiteSpaces(53) + "*");
+            emptyLine(5);
+            bakEndButton(4,5);
+            line();
+      }
+      
+      public void matchStatisticsMenuEndDate()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Match Statistics", 31);
+            emptyLine(4);
+            System.out.println("Enter end date for the period, the format is yyyy-mm-dd ");
+            emptyLine(7);
+            bakEndButton(4,5);
+            line();
+      }
+      
 }
