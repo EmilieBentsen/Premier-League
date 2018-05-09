@@ -22,44 +22,44 @@ public class StatisticsMenu
             switch(choice)
             {
                   case 1:     topThreeScorerMenu();
+                              break;
                   
                   case 2:     footballerStatisticsMenu();
+                              break;
                   
                   case 3:     clubStatisticsMenu();
+                              break;
                   
                   case 4:     matchStatisticsMenu();
+                              break;
                   
                   case 5:     mainMenu.startMenu();
+                              break;
             }
       }
       
       public void topThreeScorerMenu()
       {
             output.topThreeScorerMenu();
-            String start = input.getDate();
+                        
+            LocalDate dateStart = LocalDate.parse(getDate());
+            output.endDateOfPeriod("Top Three Goal Scorers");
+            LocalDate dateEnd = LocalDate.parse(getDate());
+      }
+      
+      public String getDate()
+      {
+            String date = input.getDate();
             
-            if(start.equals("5")) 
+            if(date.equals("5")) 
             {
                   mainMenu.startMenu();
             }
-            else if(start.equals("4"))
+            else if(date.equals("4"))
             {
                   statisticsMenu();
             }
-            
-            LocalDate dateStart = LocalDate.parse(start);
-            output.endDateOfPeriod();
-            String end = input.getDate();
-            
-            if(end.equals("5")) 
-            {
-                  mainMenu.startMenu();
-            }
-            else if(start.equals("4"))
-            {
-                  statisticsMenu();
-            }
-            LocalDate dateEnd = LocalDate.parse(end);
+            return date;
       }
       
       public void footballerStatisticsMenu()
@@ -79,19 +79,36 @@ public class StatisticsMenu
             int choice = input.getInt(4,5);
             switch(choice)
             {
-                  case 4 : statisticsMenu();
+                  case 3 :    footballerMatchesPlayed(chosenFootballer);
+                              break;
+            
+                  case 4 :    statisticsMenu();
+                              break;
                   
-                  case 5 : mainMenu.startMenu();
+                  case 5 :    mainMenu.startMenu();
+                              break;
             }                
+      }
+      
+      public void footballerMatchesPlayed(Footballer footballer)
+      {
+            output.footballerMatchesPlayed(footballer);
+            LocalDate dateStart = LocalDate.parse(getDate());
+            output.endDateOfPeriod("Matches played by footballer: ");
+            LocalDate dateEnd = LocalDate.parse(getDate());
+            ArrayList<Match> matches = MatchHandler.MatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
+            output.printMatchesPlayedInPeriod(matches);           
       }
       
       public void clubStatisticsMenu()
       {
-            FourInt clubMatchStatistics = matchHandler.matchesPlayedWonDrawLostByClub();
-            int matchesPlayed = clubMatchStatistics.getPlayed();
-            int matchesWon = clubMatchStatistics.getWon();
-            int matchesDraw = clubMatchStatistics.getDraw();
-            int matchesLost = clubMatchStatistics.getLost();
+            String clubMatchStatistics = matchHandler.matchesPlayedWonDrawLostByClub();
+            String[] components = clubMatchStatistics.split(",");
+            int matchesPlayed = Integer.parseInt(components[0]);
+            int matchesWon = Integer.parseInt(components[1]);
+            int matchesDraw = Integer.parseInt(components[2]);
+            int matchesLost = Integer.parseInt(components[3]);
+            
             int goalsScored = goalHandler.getGoalsByClub();
             int goalsConceded = matchHandler.goalsConcededByClub();
             int cleenSheets = matchHandler.cleanSheetsByClub();
@@ -101,10 +118,12 @@ public class StatisticsMenu
             int choice = input.getInt(4,5);
             switch(choice)
             {
-                  case 4 : statisticsMenu();
-                  
-                  case 5 : mainMenu.startMenu();
-            } 
+                  case 4 :    statisticsMenu();
+                              break;
+                              
+                  case 5 :    mainMenu.startMenu();
+                              break;
+            }
       }
       
       public void matchStatisticsMenu()
