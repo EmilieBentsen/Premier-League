@@ -130,30 +130,10 @@ public class StatisticsMenu
       public void matchStatisticsMenu()
       {
             output.matchStatisticsMenuStartDate();
-            String start = input.getDate();
-            
-            if(start.equals("5")) 
-            {
-                  mainMenu.startMenu();
-            }
-            else if(start.equals("4"))
-            {
-                  statisticsMenu();
-            }
-            
-            LocalDate dateStart = LocalDate.parse(start);
+                        
+            LocalDate dateStart = LocalDate.parse(getDate());
             output.matchStatisticsMenuEndDate();
-            String end = input.getDate();
-            
-            if(end.equals("5")) 
-            {
-                  mainMenu.startMenu();
-            }
-            else if(start.equals("4"))
-            {
-                  statisticsMenu();
-            }
-            LocalDate dateEnd = LocalDate.parse(end);
+            LocalDate dateEnd = LocalDate.parse(getDate());
             
             matchHandler.matchesInPeriod(dateStart,dateEnd);           
       }      
