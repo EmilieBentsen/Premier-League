@@ -108,7 +108,6 @@ public class GoalHandler extends ObjectHandler<Goal>
                   {
                         if(occurenceGoalscorers[i][1]<occurenceGoalscorers[j][1])
                         {
-                              //System.out.println(occurenceGoalscorers[i][0] + "<" + occurenceGoalscorers[j][0] );
                               sortedGoalscorers=occurenceGoalscorers[i];
                               occurenceGoalscorers[i]=occurenceGoalscorers[j];
                               occurenceGoalscorers[j]=sortedGoalscorers;

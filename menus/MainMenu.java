@@ -10,6 +10,7 @@ public class MainMenu
       Output output = new Output();
       Input input = new Input();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
+      OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
             
       public static void main(String[] args)
       {
@@ -34,7 +35,8 @@ public class MainMenu
                               
                   case 3:     
                               ArrayList<Match> schedule = matchHandler.schedule();
-                              output.printSchedule(schedule);
+                              ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
+                              output.printSchedule(schedule, opponents);
                               output.endButton(4);
                               int choiceSchedule = input.getInt(4,4);
                                     

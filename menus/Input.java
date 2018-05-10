@@ -106,16 +106,6 @@ public class Input
             else return false;
       }
       
-      public static String getString(ArrayList<String> options, String error)
-      {
-            while(true)
-            {
-                  String value = getString();
-                  if(options.contains(value)) return value;
-                  else System.out.println(error);
-            }
-      }
-      
       public static String getString()
       {
             Scanner input = new Scanner(System.in);
