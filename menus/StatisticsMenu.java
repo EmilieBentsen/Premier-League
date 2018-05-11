@@ -75,7 +75,6 @@ public class StatisticsMenu
             Footballer chosenFootballer = input.getFootballerByJersey(activeFootballers);
             
             int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());
-            // mit punkt
             int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());
             String jersey = "" + chosenFootballer.getFootballerJersey();
             int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);
