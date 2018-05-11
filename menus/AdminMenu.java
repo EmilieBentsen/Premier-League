@@ -37,8 +37,10 @@ public class AdminMenu
                   
                         adminMenu();
                     }
-                    
-                    output.invalidUser();
+                    else
+                    {
+                        output.invalidUser();
+                    }
                     }
                    
       }
