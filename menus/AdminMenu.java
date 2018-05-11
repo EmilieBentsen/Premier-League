@@ -50,8 +50,8 @@ public class AdminMenu
       }
       public void adminMenu()
       {
-           // output.adminMenu();
-            int choice = input.getInt(1, 3);
+            output.adminMenuUI();
+            int choice = input.getInt(1, 5);
             
             switch(choice)
             {
@@ -61,6 +61,9 @@ public class AdminMenu
                               //adminFootballerMenu.adminFootballerMenu();
                   case 3:
                               adminOpponentMenu.adminOpponentMenu();
+                  case 4:
+                              MainMenu mm = new MainMenu();
+                              mm.startMenu();
             
             }
             

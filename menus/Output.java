@@ -398,20 +398,65 @@ public class Output
       {
             printLine("Wrong password or username, please try again");
       } 
-      public void createFutureMatch()
+      public void promptDate()
       {
-      
+            printLine("Enter date of the new match, the format is yyyy-mm-dd");       
       }
       public void promptOpponent()
       {
-      
+            printLine("Please enter the ID of one the displayed Opponents");
       }
       public void promptHomeAway()
       {
-      
+            printLine("Please enter whether Liverpool is playing as \"Home\" or \"Away\", enter \"H\" for \"Home\" and \"A\" for \"Away\".");
       }
       public void matchCreationConfirmation()
       {
+            printLine("The new match has been created and registered! Good job!");
+      }
+           
+      public void printOpponentList(ArrayList<Opponent> opponents)
+      {
+            for(Opponent i : opponents)
+            {
+                  System.out.println("Opponent ID: " + i.getID() + ", "+"Opponent Name: " + i.getOpponentName()); 
+            }
+      }
       
+      public void adminMenuUI()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Admin Menu", 31);
+            emptyLine(4);
+            threeButtons("1. Manage Matches","2. Manage Footballers ","3. Manage Opponents",31 );
+            emptyLine(7);
+            endButton(4);
+            line();
+      }
+      public void adminMatchMenuUI()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Manage Matches", 31);
+            emptyLine(4);
+            threeButtons("1. Create Future Match","2. Update Match","3. Type in Match Result",31 );
+            emptyLine(7);
+            bakEndButton(4,5);
+            line();
+      }
+      
+      public void printNonRegisteredMatches(ArrayList<Match> schedule)
+      {
+           for(Match i : schedule)
+            {
+                  System.out.println("Match ID: " + i.getID() +  
+                  "Match date: " + i.getMatchDate() +", Home/Away: " + i.getMatchHomeOrAway());
+            }   
+      }
+      
+      public void promptMatchByID()
+      {
+            printLine("Please enter one the \"ID\" of the one of the listed matches.");
       }
 }
