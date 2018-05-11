@@ -2,9 +2,12 @@ package menus;
 
 import java.util.ArrayList;
 import models.*;
+import handlers.*;
 
 public class Output
 {
+      
+      
       public void startMenu()
       {
             header();
@@ -46,6 +49,21 @@ public class Output
             line();
       }
       
+      public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)
+      {
+            FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+            header();
+            emptyLine(3);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[0][1], 42);
+            emptyLine(1);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[1][1], 42);
+            emptyLine(1);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[2][1], 42);
+            emptyLine(3);
+            bakEndButton(4,5);
+            line();
+      }
+      
       public void endDateOfPeriod(String text)
       {
             header();
@@ -66,11 +84,11 @@ public class Output
             }
       }
       
-      public void printSchedule(ArrayList<Match> schedule)
+      public void printSchedule(ArrayList<Match> schedule, ArrayList<Opponent> opponents)
       {
            for(Match i : schedule)
             {
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + i.getMatchOpponentID() + " " 
+                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents) + " " 
                   + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }   
@@ -118,16 +136,40 @@ public class Output
             line();
       }
       
-      public void printMatchesPlayedInPeriod(ArrayList<Match> matches)
+      public void printMatchesPlayedInPeriod(ArrayList<Match> matches, ArrayList<Opponent> opponents)
       {
             for (Match i : matches)
             {
-                  //Opponentname not id, printf. 
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + i.getMatchOpponentID() + " " 
-                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
+                  // printf. 
+                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
+                  + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }
             bakEndButton(4,5);            
+      }
+      
+      public String homeAwayGame(char game)
+      {
+            if(game == 'H')
+            {
+                  return "Home game";
+            }
+            else
+            {
+                  return "Away game";
+            }
+      }
+      
+      public String getOpponent(int matchOpponentID, ArrayList<Opponent> opponents)
+      {
+            for(Opponent i : opponents)
+            {
+                  if(i.getID() == matchOpponentID)
+                  {
+                        return i.getOpponentName();
+                  }
+            }
+            return null;
       }
       
       public void clubStatisticsMenu(int gamesPlayed, int gamesWon, int gamesDraw, int gamesLost, int goalsScored, int goalsConceded, int cleenSheets)
@@ -150,9 +192,9 @@ public class Output
             emptyLine(2);
             buttonMiddle("Match Statistics", 31);
             emptyLine(4);
-            System.out.println("* Please input the period for which you want matches displayed" + whiteSpaces(52) + "*");
+            printLine(" Please input the period for which you want matches displayed");
             emptyLine(1);
-            System.out.println("*  Enter start date for the period, the format is yyyy-mm-dd " + whiteSpaces(53) + "*");
+            printLine(" Enter start date for the period, the format is yyyy-mm-dd ");
             emptyLine(5);
             bakEndButton(4,5);
             line();
@@ -164,7 +206,7 @@ public class Output
             emptyLine(2);
             buttonMiddle("Match Statistics", 31);
             emptyLine(5);
-            System.out.println("Enter end date for the period, the format is yyyy-mm-dd ");
+            printLine(" Enter end date for the period, the format is yyyy-mm-dd ");
             emptyLine(7);
             bakEndButton(4,5);
             line();
@@ -309,5 +351,4 @@ public class Output
       {
             printLine("Wrong password or username, please try again");
       } 
-      
 }

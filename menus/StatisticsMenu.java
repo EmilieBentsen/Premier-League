@@ -47,7 +47,9 @@ public class StatisticsMenu
             output.endDateOfPeriod("Top Three Goal Scorers");
             LocalDate endDate = LocalDate.parse(getDate());
             int[][] doubleArray = goalHandler.getArrayWithGoalFrequencies(goalHandler.getGoalscorerByMatchID(matchHandler.getMatchIDInAPeriod(startDate, endDate)));
-            goalHandler.getTopGoalscorers(doubleArray, 3);
+            int[][] topThreeGoalscorers = goalHandler.getTopGoalscorers(doubleArray, 3);
+            output.printTopThreeGoalScorers(topThreeGoalscorers); 
+            bakEndButtons();        
       }
       
       public String getDate()
@@ -100,7 +102,8 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");
             LocalDate dateEnd = LocalDate.parse(getDate());
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            output.printMatchesPlayedInPeriod(matches);
+            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
+            output.printMatchesPlayedInPeriod(matches, opponents);
             bakEndButtons();
       }
       
@@ -130,7 +133,8 @@ public class StatisticsMenu
             LocalDate dateEnd = LocalDate.parse(getDate());
             
             ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
-            output.printMatchesPlayedInPeriod(matches);
+            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
+            output.printMatchesPlayedInPeriod(matches, opponents);
             bakEndButtons();     
       }  
       
