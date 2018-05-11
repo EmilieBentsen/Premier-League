@@ -1,58 +1,64 @@
-package menus;
-import models.*;
-import handlers.*;
-import java.time.*;
-import java.util.ArrayList;
+package menus;    //vi har flere menu'er samt output og input, som alle er i denne package
 
-public class StatisticsMenu
+import models.*;              //skal have adgang til modelernes get metoder
+import handlers.*;            //Til brug af vores handlers
+import java.time.*;           //til benyttelse af LocalDate
+import java.util.ArrayList;   //Til når vi opretter ArrayList's
+
+public class StatisticsMenu   
 {
+      //objekter af vores handler singleton løsning.
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       GoalHandler goalHandler = GoalHandler.getGoalHandler();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
- 
+      
+      //output og input er ikke statiske hvorfor vin opretter objekter for at tilgå metoderne.
       Output output = new Output();
       Input input = new Input();
-      MainMenu mainMenu = new MainMenu();
       
+      MainMenu mainMenu = new MainMenu(); //For at kunne komme tilbage til startMenu() i MainMenu, hvis brugeren ønsker det.
+      
+      //Statistik hovedmenu
       public void statisticsMenu()
       {
-            output.statisticMenu();
-            int choice = input.getInt(1,5);
+            output.statisticMenu();       //Printer statistik hovedmenuen ud på consolen.
+            int choice = input.getInt(1,5);//kalder getInt() i input der sanitere input således vi kun kan få tallende mellem 1 og 5
             
             switch(choice)
             {
-                  case 1:     topThreeScorerMenu();
+                  case 1:     topThreeScorerMenu();   //til top tre mål scorer menuen
                               break;
                   
-                  case 2:     footballerStatisticsMenu();
+                  case 2:     footballerStatisticsMenu();   //til fodboldspiller statistik menuen
                               break;
                   
-                  case 3:     clubStatisticsMenu();
+                  case 3:     clubStatisticsMenu();   //til club menuen
                               break;
                   
-                  case 4:     matchStatisticsMenu();
+                  case 4:     matchStatisticsMenu();  //til kamp statistik menuen
                               break;
                   
-                  case 5:     mainMenu.startMenu();
+                  case 5:     mainMenu.startMenu();   //Tilbage til startMenu
                               break;
             }
       }
       
-      public void topThreeScorerMenu()
+      //top tre mål scorer menuen
+      public void topThreeScorerMenu()   
       {
-            output.topThreeScorerMenu();
+            output.topThreeScorerMenu();//printer menuen ud på consolen, som beder brugeren om at taste start datoen
                         
-            LocalDate startDate = LocalDate.parse(getDate());
-            output.endDateOfPeriod("Top Three Goal Scorers");
-            LocalDate endDate = LocalDate.parse(getDate());
+            LocalDate startDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            output.endDateOfPeriod("Top Three Goal Scorers");//output metoden endDateOfPeriod, beder brugeren om at taste slut datoen
+            LocalDate endDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             int[][] doubleArray = goalHandler.getArrayWithGoalFrequencies(goalHandler.getGoalscorerByMatchID(matchHandler.getMatchIDInAPeriod(startDate, endDate)));
             int[][] topThreeGoalscorers = goalHandler.getTopGoalscorers(doubleArray, 3);
-            output.printTopThreeGoalScorers(topThreeGoalscorers); 
-            bakEndButtons();        
+            output.printTopThreeGoalScorers(topThreeGoalscorers); //printer de tre top scorere og antal mål.
+            bakEndButtons();// metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
-      public String getDate()
+      public String getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
       {
             String date = input.getDate();
             
@@ -67,40 +73,45 @@ public class StatisticsMenu
             return date;
       }
       
-      public void footballerStatisticsMenu()
+      public void footballerStatisticsMenu()//til fodboldspiller statistik menuen
       {
+            //laver en ArrayList med aktive fodboldspiller for klubben
             ArrayList<Footballer> activeFootballers = footballerHandler.getActiveFootballersArray();
-            output.printActiveFootballers(activeFootballers);
-            output.inputJerseyNumber();            
+            output.printActiveFootballers(activeFootballers);//Printer listen med aktive fodboldspillere
+            output.inputJerseyNumber();//beder brugeren om vælge en fodboldspiller fra listen            
+            //gemmer den valgte spiller i chosenFootballer til senere brug
             Footballer chosenFootballer = input.getFootballerByJersey(activeFootballers);
+                        
+            int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());//henter den valgte fodboldspillers mål.
+            int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());//henter den valgte fodboldspillers assists
+            String jersey = "" + chosenFootballer.getFootballerJersey();//laver fodboldspillerens int trøjenr. om til en String
+            int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);//henter fodboldspillerens noterede cleansheets
+            int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey);//henter antal kampe fodboldspilleren har spillet 
             
-            int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());
-            int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());
-            String jersey = "" + chosenFootballer.getFootballerJersey();
-            int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);
-            int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey); 
-            
+            //printer fodboldspillerens stats ud til consolen
             output.displayFootballerStatistics(chosenFootballer, goals, assists, cleansheets, matchesPlayed);
-            int choice = input.getInt(3,5);
+            
+            int choice = input.getInt(3,5);//sørger for at input fra brugeren er mellem 3 og 5
             switch(choice)
             {
-                  case 3 :    footballerMatchesPlayed(chosenFootballer);
+                  case 3 :    footballerMatchesPlayed(chosenFootballer);//til menuen for de kampe den valgte fodboldspiller har spillet
                               break;
             
-                  case 4 :    statisticsMenu();
+                  case 4 :    statisticsMenu();//tilbage fodboldspiller statistik menuen
                               break;
                   
-                  case 5 :    mainMenu.startMenu();
+                  case 5 :    mainMenu.startMenu();//Tilbage til startMenu
                               break;
             }                
       }
       
       public void footballerMatchesPlayed(Footballer footballer)
       {
-            output.footballerMatchesPlayed(footballer);
-            LocalDate dateStart = LocalDate.parse(getDate());
-            output.endDateOfPeriod("Matches played by footballer: ");
-            LocalDate dateEnd = LocalDate.parse(getDate());
+            output.footballerMatchesPlayed(footballer);//beder brugeren om at indtaste start datoen for den periode kampende skal vises 
+            LocalDate dateStart = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            output.endDateOfPeriod("Matches played by footballer: ");//beder brugeren om at indtaste slut datoen
+            LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            //laver en ArrayList over kampe den valgte fodboldspiller har spillet i den valgte periode
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
