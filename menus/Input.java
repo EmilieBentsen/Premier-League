@@ -159,5 +159,19 @@ public class Input
             }
             
       }
+      public int getMatchIDByList(ArrayList<Match> matches)
+      {
+                  while(true)
+                  {
+                        int input =getInt();
+                        for(Match i : matches)
+                        {
+                              if (i.getID() == input)
+                              {
+                                    return input;
+                              }
+                         } 
+                   }     
+      }
       
 }

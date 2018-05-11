@@ -13,9 +13,8 @@ public class AdminMatchMenu
      
       public void adminMatchMenu()
       {
-           
-           //output.adminMatchMenu();
-           int choice = input.getInt(1,3);
+           output.adminMatchMenuUI();
+           int choice = input.getInt(1,5);
            
            switch(choice)
            {
@@ -25,22 +24,19 @@ public class AdminMatchMenu
                               updateMatch();
                   case 3:
                               typeInResult();
+                  case 4:
+                              AdminMenu am = new AdminMenu();
+                              am.adminMenu();
+                  case 5:
+                              MainMenu mm = new MainMenu();
+                              mm.startMenu();
            } 
-            /* Printer menu header (You'll never walk alone" box + Menu navn/overskift).
-            Printer menu oversigt(1. Create Future Match, 2. Update Match, 3. Opponent).
-            Kører input metode til at få en int i mellem 1-3.
-            Hvis input = 1 : createFutureMatch();            
-            */
       }
       
       public void createFutureMatch()
       {
-            /*Prompt bruger for følgende input: MatchDate(skal være sikker
-            på at datoen ikke ligger i fortiden) , Opponent (print liste),Home or away. Lav ny kamp med de 
-            indtastede parametre.
-            adminMenu();*/
             
-            //output.createFutureMatch();
+            output.promptDate();
             String date = input.getDate();
             LocalDate matchDate = LocalDate.parse(date);
             
@@ -56,15 +52,16 @@ public class AdminMatchMenu
                               adminMatchMenu();
             }
             OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
-            ArrayList<Opponent> opponents = opponentHandler.getActiveOpponentsArray(); 
-            //output.promptOpponent();
+            ArrayList<Opponent> opponents = opponentHandler.getActiveOpponentsArray();
+            output.printOpponentList(opponents); 
+            output.promptOpponent();
             int opponent = input.getOpponentIDByList(opponents);
-            //output.promptHomeAway();
+            output.promptHomeAway();
             char homeAway = input.getHomeAway();
             
             MatchHandler matchHandler = MatchHandler.getMatchHandler();
-            matchHandler.createObject(matchDate, opponent, homeAway, 0, 0, "0-0-0-0", "0-0-0-0-0-0-0-0-0-0-0");
-            //output.matchCreationConfirmation();
+            matchHandler.createObject(matchDate, opponent,Character.toUpperCase(homeAway), 0, 0, "0-0-0-0", "00-00-00-00-00-00-00-00-00-00-00");
+            output.matchCreationConfirmation();
             
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
@@ -98,13 +95,22 @@ public class AdminMatchMenu
       
       public void typeInResult()
       {
-            /* generer liste over endnu ikke spillede kampe, og prompter bruger til at vælge en.
+            /* gennerer liste over endnu ikke spillede kampe, og prompter bruger til at vælge en.
             prompter bruger for at indtaste kampens resultat, Hvis liverpool har scoret mål kaldes 
             userCreateGoal()for hvert mål socret af liverpool.
             prompter for indtastning af formation.
             prompter for indtastning af lineup.
             kampen opdateres med de indtastede informationer.
             adminMenu();*/
+            
+            MatchHandler mh = MatchHandler.getMatchHandler();
+            ArrayList<Match> matches = mh.schedule();
+            output.printNonRegisteredMatches(matches);
+            output.promptMatchByID();
+            int ID = input.getMatchIDByList(matches);
+            
+            //Der mangler at blive inputtet resultat, home goals (hvem og hvornår de er scoret), away goals, formation, lineup.
+            
       }
       
 }
