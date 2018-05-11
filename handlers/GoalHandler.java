@@ -157,10 +157,7 @@ public class GoalHandler extends ObjectHandler<Goal>
                         {
                               getTopScorers[i][1] = getTopScorers[i][1]+1;
                         }
-                        else
-                        {
                         getTopScorers[i][1] = occurenceGoalscorers[i][1] +1;
-                        }
             }
 
       return getTopScorers;
