@@ -103,9 +103,44 @@ public class Input
             else return false;
       }
       
-      public static String getString()
+      public String getString()
       {
             Scanner input = new Scanner(System.in);
             return input.nextLine();
       }
+      public int getOpponentIDByList(ArrayList<Opponent> opponentList)
+      {
+            int input;
+            while (true)
+            {
+                  input = getInt();
+                  for(Opponent i : opponentList)
+                  {
+                        if(input == i.getID())
+                        {
+                              return i.getID();      
+                        }
+                  }
+                  System.out.println("That was not one of the listed opponent ID's. Try again!");
+            }
+      }
+      public char getHomeAway()
+      {
+            String input;
+            while(true)
+            {
+                  input = getString();
+                  if(input.equalsIgnoreCase("H") || input.equalsIgnoreCase("A"))
+                  {
+                       return input.charAt(0);
+                  }
+                  else
+                  {
+                        System.out.println("Wrong input! Please type in H or A for Home/Away");
+                        input = getString();
+                  }
+            }
+            
+      }
+      
 }

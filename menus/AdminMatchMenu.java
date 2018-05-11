@@ -1,9 +1,31 @@
 package menus;
 
+import handlers.*;
+import java.util.*;
+import models.*;
+import java.time.*;
+
 public class AdminMatchMenu
 {
+      
+      Output output = new Output();
+      Input input = new Input();
+     
       public void adminMatchMenu()
       {
+           
+           //output.adminMatchMenu();
+           int choice = input.getInt(1,3);
+           
+           switch(choice)
+           {
+                  case 1: 
+                              createFutureMatch();
+                  case 2: 
+                              updateMatch();
+                  case 3:
+                              typeInResult();
+           } 
             /* Printer menu header (You'll never walk alone" box + Menu navn/overskift).
             Printer menu oversigt(1. Create Future Match, 2. Update Match, 3. Opponent).
             Kører input metode til at få en int i mellem 1-3.
@@ -18,6 +40,32 @@ public class AdminMatchMenu
             indtastede parametre.
             adminMenu();*/
             
+            //output.createFutureMatch();
+            String date = input.getDate();
+            LocalDate matchDate = LocalDate.parse(date);
+            
+            switch(date)
+            {
+                  case "5":
+                              MainMenu mainMenu = new MainMenu();
+                              mainMenu.startMenu();
+                              
+                              
+                  case "4":
+                              AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
+                              adminMatchMenu();
+            }
+            OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
+            ArrayList<Opponent> opponents = opponentHandler.getActiveOpponentsArray(); 
+            //output.promptOpponent();
+            int opponent = input.getOpponentIDByList(opponents);
+            //output.promptHomeAway();
+            char homeAway = input.getHomeAway();
+            
+            MatchHandler matchHandler = MatchHandler.getMatchHandler();
+            matchHandler.createObject(matchDate, opponent, homeAway, 0, 0, "0-0-0-0", "0-0-0-0-0-0-0-0-0-0-0");
+            //output.matchCreationConfirmation();
+            //adminMenu();
 
       }
       
