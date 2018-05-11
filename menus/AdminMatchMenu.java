@@ -65,7 +65,9 @@ public class AdminMatchMenu
             MatchHandler matchHandler = MatchHandler.getMatchHandler();
             matchHandler.createObject(matchDate, opponent, homeAway, 0, 0, "0-0-0-0", "0-0-0-0-0-0-0-0-0-0-0");
             //output.matchCreationConfirmation();
-            //adminMenu();
+            
+            AdminMenu adminMenu = new AdminMenu();
+            adminMenu.adminMenu();
 
       }
       

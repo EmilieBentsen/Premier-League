@@ -372,4 +372,20 @@ public class Output
       {
             printLine("Wrong password or username, please try again");
       } 
+      public void createFutureMatch()
+      {
+      
+      }
+      public void promptOpponent()
+      {
+      
+      }
+      public void promptHomeAway()
+      {
+      
+      }
+      public void matchCreationConfirmation()
+      {
+      
+      }
 }

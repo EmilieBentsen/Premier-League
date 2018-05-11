@@ -18,6 +18,7 @@ public class AdminMenu
               {    
       
               output.promptUsername();
+              String username = input.getString();
               if (username.equalsIgnoreCase("exit"))
               {
                    MainMenu main = new MainMenu();
