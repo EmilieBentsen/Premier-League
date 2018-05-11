@@ -144,19 +144,39 @@ public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer 
              switch(position) //switch case der kigger på position og opretter et nyt objekt 
              {
              case "GK":
-                        footballers.add(new Goalkeeper(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        footballers.add(new Goalkeeper(getNewFootballerID(), 
+                                                            footballerJersey, 
+                                                            fooballerName, 
+                                                            footballerSalary, 
+                                                            footballerEmployed));
                         save(footballers);
              case "FW":
-                        footballers.add(new Forward(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        footballers.add(new Forward(getNewFootballerID(), 
+                                                            footballerJersey, 
+                                                            fooballerName, 
+                                                            footballerSalary, 
+                                                            footballerEmployed));
                         save(footballers);
              case "DF":
-                        footballers.add(new Defender(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        footballers.add(new Defender(getNewFootballerID(), 
+                                                            footballerJersey, 
+                                                            fooballerName, 
+                                                            footballerSalary, 
+                                                            footballerEmployed));
                         save(footballers);
              case "MF":
-                        footballers.add(new Midfielder(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        footballers.add(new Midfielder(getNewFootballerID(), 
+                                                            footballerJersey, 
+                                                            fooballerName, 
+                                                            footballerSalary, 
+                                                            footballerEmployed));
                         save(footballers);
              case "MN":
-                        footballers.add(new Manager(getNewFootballerID(), footballerJersey, fooballerName, footballerSalary, footballerEmployed));
+                        footballers.add(new Manager(getNewFootballerID(), 
+                                                            footballerJersey, 
+                                                            fooballerName, 
+                                                            footballerSalary, 
+                                                            footballerEmployed));
                         save(footballers);
              }
              

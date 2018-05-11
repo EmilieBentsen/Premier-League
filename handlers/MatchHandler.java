@@ -1,4 +1,5 @@
 package handlers;
+
 import models.*;
 import java.util.*;
 import java.time.LocalDate;
@@ -34,29 +35,36 @@ public class MatchHandler extends ObjectHandler<Match>
       {
             return new PersistentObjectHandler<Match>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
             {
-                  public String lineFrom(Match match)//PersistentObjectHandler kræver vi har denne metode, modtager et objekt og laver om til en String
+                  public String lineFrom(Match match) //Fra Match til String
                   {
-                        return match.getID() + "," + match.getMatchDate() + "," + match.getMatchOpponentID() + "," 
-                        + match.getMatchHomeOrAway() + "," + match.getMatchHomeGoals() + "," + match.getMatchAwayGoals() + "," + match.getMatchFormation() + "," + match.getMatchLineup();
+                        return match.getID() 
+                        + "," + match.getMatchDate() 
+                        + "," + match.getMatchOpponentID() 
+                        + "," + match.getMatchHomeOrAway() 
+                        + "," + match.getMatchHomeGoals() 
+                        + "," + match.getMatchAwayGoals() 
+                        + "," + match.getMatchFormation() 
+                        + "," + match.getMatchLineup();
                   }
       
-                  public Match objectFrom(String line)//PersistentObjectHandler kræver vi har denne metode, modtager en String og laver den om til et objekt og returnerer det
+                  public Match objectFrom(String line) // Fra String  til et object
                   {
                         String[] components = line.split(",");
-                        int id = Integer.parseInt(components[0]);//laver strings i arraylisten om til int.
+                        int id = Integer.parseInt(components[0]);
                         LocalDate date = LocalDate.parse(components[1]);
                         int opponentID = Integer.parseInt(components[2]);
                         char homeOrAway = (components[3]).charAt(0);
                         int homeGoals = Integer.parseInt(components[4]);
                         int awayGoals = Integer.parseInt(components[5]);
+                        String formation = components[6];
+                        String lineup = components[7];
                         
-                        return new Match(id, date, opponentID, homeOrAway, homeGoals, awayGoals, components[6], components[7]); //obretter er nyt object af footballer                      
+                        return new Match(id, date, opponentID, homeOrAway, homeGoals, awayGoals, formation, lineup); 
                   }
             };
       }
       
-      public void updateObject(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, 
-      int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup) //Metode til at opdatere kampe med id.
+      public void updateObject(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
             for(Match i : matches)
             {
@@ -73,26 +81,32 @@ public class MatchHandler extends ObjectHandler<Match>
                   }
             }
       }
-      
-      public void createObject(LocalDate matchDate, int matchOpponentID, //metode til at oprette kampe
-      char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
+
+      public void createObject(LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
-             matches.add(new Match(getNewMatchID(), matchDate, matchOpponentID, matchHomeOrAway, matchHomeGoals, 
-             matchAwayGoals, matchFormation, matchLineup));
+             matches.add(new Match(getNewMatchID(), 
+                                    matchDate, 
+                                    matchOpponentID, 
+                                    matchHomeOrAway, 
+                                    matchHomeGoals, 
+                                    matchAwayGoals, 
+                                    matchFormation, 
+                                    matchLineup));
              save(matches);
       }
           
-      public ArrayList getMatchArray()// metode der returnerer et arraylist med kampe. Efter indførsel af singleton løsning virker dette redundant.
-      {
-            return matches;
-      }
-      
       public void listMatches() //metode der printer en liste med objekter
       {           
             for(Match i : matches)
             {
-                  System.out.println(i.getID() + " " + i.getMatchDate() + " " + i.getMatchOpponentID() + " " 
-                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + " " + i.getMatchAwayGoals()+ " " + i.getMatchFormation()+ " " + i.getMatchLineup());   
+                  System.out.println(i.getID() 
+                              + " " + i.getMatchDate() 
+                              + " " + i.getMatchOpponentID() 
+                              + " " + i.getMatchHomeOrAway() 
+                              + " " + i.getMatchHomeGoals() 
+                              + " " + i.getMatchAwayGoals() 
+                              + " " + i.getMatchFormation() 
+                              + " " + i.getMatchLineup());   
             }
       }
       
@@ -138,6 +152,28 @@ public class MatchHandler extends ObjectHandler<Match>
                   }
             }
             return count;
+      }
+      
+      public ArrayList<Match> matchesPlayedByFootballer(LocalDate startDate, LocalDate endDate, int footballerJersey)
+      {
+            String footballerJerseyString = Integer.toString(footballerJersey);
+            ArrayList<Match> matchesPlayedInPeriod = getMatchesInPeriod(startDate, endDate);
+            for(Match i : matchesPlayedInPeriod)
+            {
+                  if(checkStringForItem(i.getMatchLineup(), footballerJerseyString)) //Hvis spilleren var i opstillingen den dag
+                  {
+                        matchesPlayedInPeriod.add(new Match(i.getID(), 
+                                                            i.getMatchDate(), 
+                                                            i.getMatchOpponentID(), 
+                                                            i.getMatchHomeOrAway(), 
+                                                            i.getMatchHomeGoals(), 
+                                                            i.getMatchAwayGoals(), 
+                                                            i.getMatchFormation(), 
+                                                            i.getMatchLineup())); 
+                  }            
+            
+            }
+            return matchesPlayedInPeriod;
       }
       
       public int cleanSheetsByClub()
@@ -218,44 +254,55 @@ public class MatchHandler extends ObjectHandler<Match>
             return newID;
       }
       
-      public ArrayList getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)
+      /*public ArrayList<Match> getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)
       {
             ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>(); 
             ArrayList<Match> matchesInPeriod = matchesInPeriod(startDate, endDate);
+            
             for(Match i : matchesInPeriod)
             {
                         String[] stringArrayLineup = i.getMatchLineup().split("-");
                         int[] intArrayLineup = new int[stringArrayLineup.length];
                         for (int j = 0; j < stringArrayLineup.length; j++) 
                         {
-                        String numberAsString = stringArrayLineup[j];
-                        intArrayLineup[j] = Integer.parseInt(numberAsString);
+                              String numberAsString = stringArrayLineup[j];
+                              intArrayLineup[j] = Integer.parseInt(numberAsString);
                         }
                         
                         for(int k : intArrayLineup)
                         {
                               if(k == footballerJersey)
                               {
-                                   matchesPlayedInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
-                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                                   matchesPlayedInPeriod.add(new Match(i.getID(), 
+                                                                  i.getMatchDate(), 
+                                                                  i.getMatchOpponentID(), 
+                                                                  i.getMatchHomeOrAway(), 
+                                                                  i.getMatchHomeGoals(), 
+                                                                  i.getMatchAwayGoals(), 
+                                                                  i.getMatchFormation(), 
+                                                                  i.getMatchLineup())); 
                               }
                         }
              } 
-            
             return matchesPlayedInPeriod;
-       }
-           
-      
-      
-      public ArrayList matchesInPeriod(LocalDate startDate, LocalDate endDate)
+      }*/
+
+      public ArrayList<Match> getMatchesInPeriod(LocalDate startDate, LocalDate endDate)
       {
             ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
+            
             for(Match i : matches)
             {
-                  if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate)|| i.getMatchDate().isEqual(startDate) || i.getMatchDate().isEqual(endDate))
+                  if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate) || i.getMatchDate().isEqual(startDate) || i.getMatchDate().isEqual(endDate))
                   {
-                                   matchesInPeriod.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
-                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                                   matchesInPeriod.add(new Match(i.getID(), 
+                                                                  i.getMatchDate(), 
+                                                                  i.getMatchOpponentID(), 
+                                                                  i.getMatchHomeOrAway(), 
+                                                                  i.getMatchHomeGoals(), 
+                                                                  i.getMatchAwayGoals(), 
+                                                                  i.getMatchFormation(), 
+                                                                  i.getMatchLineup())); 
                   }
             }
             return matchesInPeriod;
@@ -270,25 +317,29 @@ public class MatchHandler extends ObjectHandler<Match>
                   if(i.getMatchDate().isAfter(startDate) && i.getMatchDate().isBefore(endDate))
                   {
                         matchesInAPeriod.add(i.getID());
-                        //System.out.println(i.getID());
                   }
             }
-      return matchesInAPeriod;
+            return matchesInAPeriod;
       }
 
-      public ArrayList schedule()
+      public ArrayList<Match> schedule()
       {
             LocalDate now = LocalDate.now();
             ArrayList<Match> schedule = new ArrayList<Match>(); 
             for(Match i : matches)
             {
-                  if(i.getMatchDate().isAfter(now)||i.getMatchDate().isEqual(now))
+                  if(i.getMatchDate().isAfter(now) || i.getMatchDate().isEqual(now))
                   {
-                                   schedule.add(new Match(i.getID(), i.getMatchDate(), i.getMatchOpponentID(), i.getMatchHomeOrAway(), i.getMatchHomeGoals(), 
-                                   i.getMatchAwayGoals(), i.getMatchFormation(), i.getMatchLineup())); 
+                                   schedule.add(new Match(i.getID(), 
+                                                            i.getMatchDate(), 
+                                                            i.getMatchOpponentID(), 
+                                                            i.getMatchHomeOrAway(), 
+                                                            i.getMatchHomeGoals(),
+                                                            i.getMatchAwayGoals(), 
+                                                            i.getMatchFormation(), 
+                                                            i.getMatchLineup())); 
                   }
             }
-             
-             return schedule;
+            return schedule;
       }
 }

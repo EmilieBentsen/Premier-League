@@ -111,7 +111,7 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");//beder brugeren om at indtaste slut datoen
             LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             //laver en ArrayList over kampe den valgte fodboldspiller har spillet i den valgte periode
-            ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
+            ArrayList<Match> matches = matchHandler.matchesPlayedByFootballer(dateStart, dateEnd, footballer.getFootballerJersey()); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
             output.bakEndButton(4,5);
@@ -143,7 +143,7 @@ public class StatisticsMenu
             output.matchStatisticsMenuEndDate();
             LocalDate dateEnd = LocalDate.parse(getDate());
             
-            ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
+            ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
             Match chosenMatch = input.getMatchByID(matches);
