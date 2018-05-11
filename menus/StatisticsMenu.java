@@ -52,8 +52,7 @@ public class StatisticsMenu
             LocalDate startDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             output.endDateOfPeriod("Top Three Goal Scorers");//output metoden endDateOfPeriod, beder brugeren om at taste slut datoen
             LocalDate endDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
-            int[][] doubleArray = goalHandler.getArrayWithGoalFrequencies(goalHandler.getGoalscorerByMatchID(matchHandler.getMatchIDInAPeriod(startDate, endDate)));
-            int[][] topThreeGoalscorers = goalHandler.getTopGoalscorers(doubleArray, 3);
+            int[][] topThreeGoalscorers = goalHandler.getTopGoalscorersByDate(3, startDate, endDate);
             output.printTopThreeGoalScorers(topThreeGoalscorers); //printer de tre top scorere og antal mål.
             bakEndButtons();// metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
