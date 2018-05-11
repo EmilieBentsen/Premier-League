@@ -141,7 +141,7 @@ public class Output
             for (Match i : matches)
             {
                   // printf. 
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
+                  System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
                   + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }

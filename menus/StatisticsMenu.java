@@ -135,7 +135,8 @@ public class StatisticsMenu
             ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
-            bakEndButtons();     
+            bakEndButtons(); 
+            //vælg en kamp hvem har scoret hvornår. last menu = 0;    
       }  
       
       public void bakEndButtons()

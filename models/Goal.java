@@ -19,6 +19,7 @@ public class Goal implements Model
             this.goalType = goalType;
             this.goalAssistingPlayer = goalAssistingPlayer;
       }
+      
       public int getGoalScorer()
       {
             return goalScorer;

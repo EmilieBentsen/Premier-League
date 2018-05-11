@@ -38,12 +38,9 @@ public class Input
                         {
                               return i;      
                         }
-                                                
                   }
                   System.out.println("That was not one of the listed jersey numbers. Try again!");
-                  //output.printActiveFootballers(footballerList);
             }
-                  
       }
       
       public String getDate()
