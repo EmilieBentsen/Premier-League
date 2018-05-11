@@ -2,15 +2,14 @@ package models;
 
 public abstract class Footballer implements Model
 {
-      private int footballerID; //bruges til at identificere den enkelte fodboldspiller i forhold til mål og kampe.
+      private int footballerID;
       private int footballerJersey; 
       private String footballerName;  
       private String footballerSalary; 
       private boolean footballerEmployed;
       
-      //kontsruktor til Footballers der indlæses fra fil
-      public Footballer(int footballerID, int footballerJersey, String footballerName,String footballerSalary, 
-      boolean footballerEmployed)
+      //Constructor til Footballer
+      public Footballer(int footballerID, int footballerJersey, String footballerName,String footballerSalary, boolean footballerEmployed)
       {
             this.footballerID = footballerID;
             this.footballerJersey = footballerJersey;
@@ -19,7 +18,7 @@ public abstract class Footballer implements Model
             this.footballerEmployed = footballerEmployed;
       }
             
-      public int getID()//Kræves af interfacet Model
+      public int getID() //Implementering fra superclass.
       {
             return footballerID;
       }
@@ -69,5 +68,5 @@ public abstract class Footballer implements Model
             return footballerJersey + " " + footballerName + " " + footballerSalary + " " + footballerEmployed + " ";
       }
 
-      public abstract String getFootballerPosition(); // alle supclasses skal overskrive denne metode
+      public abstract String getFootballerPosition(); //Alle subclasses skal indeholde denne metode.
 }

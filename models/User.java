@@ -11,7 +11,6 @@ public class User implements Model
             this.userID = userID;
             this.username = username;
             this.password = password;
-            
       }
       
       public int getID()
@@ -23,6 +22,7 @@ public class User implements Model
       {
             return username;
       }
+      
       public String getPassword()
       {
             return password;
