@@ -254,10 +254,10 @@ public class MatchHandler extends ObjectHandler<Match>
             return newID;
       }
       
-      /*public ArrayList<Match> getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)
+      public ArrayList<Match> getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)//kan vi lave denne nemmere
       {
             ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>(); 
-            ArrayList<Match> matchesInPeriod = matchesInPeriod(startDate, endDate);
+            ArrayList<Match> matchesInPeriod = getMatchesInPeriod(startDate, endDate);
             
             for(Match i : matchesInPeriod)
             {
@@ -285,7 +285,7 @@ public class MatchHandler extends ObjectHandler<Match>
                         }
              } 
             return matchesPlayedInPeriod;
-      }*/
+      }
 
       public ArrayList<Match> getMatchesInPeriod(LocalDate startDate, LocalDate endDate)
       {

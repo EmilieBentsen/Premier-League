@@ -112,19 +112,12 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");//beder brugeren om at indtaste slut datoen
             LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             //laver en ArrayList over kampe den valgte fodboldspiller har spillet i den valgte periode
-<<<<<<< HEAD
-            ArrayList<Match> matches = matchHandler.matchesPlayedByFootballer(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
-            output.printMatchesPlayedInPeriod(matches, opponents);
-            output.bakEndButton(4,5);
-            bakEndButtons();
-=======
+
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//får en liste over modstandere.
             output.printMatchesPlayedInPeriod(matches, opponents);//Udskriver en liste over kampe der er spillet i den givne periode
             output.bakEndButton(4,5);//printer en tilbage og en slut knap ud
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
->>>>>>> 3eb2af5be958c5dc11dd7520fe9a2ba1d5c80f56
       }
       
       //Club menuen, printer sæson stats ud for holdet
@@ -156,17 +149,8 @@ public class StatisticsMenu
             output.matchStatisticsMenuEndDate();//beder brugeren om at indtaste en slut dato
             LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             
-<<<<<<< HEAD
-            ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
-            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
-            output.printMatchesPlayedInPeriod(matches, opponents);
-            Match chosenMatch = input.getMatchByID(matches);
-            ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());
-            output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());
-            bakEndButtons();
-=======
             //henter en liste af kampe spillet indenfor den givne periode
-            ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
+            ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//henter en liste over modstandere
             output.printMatchesPlayedInPeriod(matches, opponents);//printer en liste over kampe spillede i perioden.
             //output.promptMatchByID();//beder brugeren vælge en kamp
@@ -174,7 +158,6 @@ public class StatisticsMenu
             ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());//laver en liste med liverpool mål scoret i kampen
             output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());//printer målene ud i consolen
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
->>>>>>> 3eb2af5be958c5dc11dd7520fe9a2ba1d5c80f56
       }  
       
       public void bakEndButtons()//metoden beder brugeren om indput mellem 4 og 5 og vælger menu derefter
