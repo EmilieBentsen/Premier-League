@@ -105,6 +105,7 @@ public class StatisticsMenu
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
+            output.bakEndButton(4,5);
             bakEndButtons();
       }
       
@@ -138,9 +139,8 @@ public class StatisticsMenu
             output.printMatchesPlayedInPeriod(matches, opponents);
             Match chosenMatch = input.getMatchByID(matches);
             ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());
-            output.chosenMatch(chosenMatch, goals);
-            
-            //vælg en kamp hvem har scoret hvornår. end menu = 0;    
+            output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());
+            bakEndButtons();
       }  
       
       public void bakEndButtons()

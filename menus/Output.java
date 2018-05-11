@@ -141,8 +141,7 @@ public class Output
                   System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
                   + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
-            }
-            endButton(0);            
+            }            
       }
       
       public String homeAwayGame(char game)
@@ -209,28 +208,55 @@ public class Output
             line();
       }
       
-      public void chosenMatch(Match match, ArrayList<Goal> goals)
+      public void chosenMatch(Match match, ArrayList<Goal> goals, ArrayList<Footballer> footballers)
       {
             header();
-            emptyLine(1);
-            //printLine(" Match Date: " + match.getMatchDate + " Formation: " + match.getMatchFormation() + " Starting lineup by jersey number:  " + match.getMatchLineup());
+            emptyLine(5);
+            printLine(" Match Date: " + match.getMatchDate() + " Formation: " + match.getMatchFormation() + " Starting lineup by jersey number:  " + match.getMatchLineup());
+            int count = 1;
             for(Goal i : goals)
             {
-                  int count = 1;
-                  //printLine(count + " " + i.getGoalMinuteScored() + " Goal scorer: " + i.getGoalScorer() + " " + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayer(i.GetGoalAssistingPlayer()));
+                  printLine(count + " Minutte scored: " + i.getGoalMinuteScored() + " Goal scorer: " + printGoalScorerName(i.getGoalScorer(), footballers) + " "
+                   + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
+                  count ++;
             }
+            bakEndButton(4,5);
+            emptyLine(5);
+            line();
       }
       
-      public String printAssistingPlayer(int assistingFootballerID)
+      public String printGoalScorerName(int goalScorerFootballerID, ArrayList<Footballer> footballers)
       {
+            String goalScorerName = "";
+            for(Footballer i : footballers)
+            
+            {
+                  if(goalScorerFootballerID == i.getID())
+                  {
+                        goalScorerName = i.getFootballerName();
+                  }
+            }
+            return goalScorerName;
+      }
+      
+      public String printAssistingPlayerName(int assistingFootballerID, ArrayList<Footballer> footballers)
+      {
+            String assistingFootballerName = "";
             if(assistingFootballerID == 00)
             {
                   return "no assist";
             }
             else
             {
-                  return "" + assistingFootballerID;
+                  for(Footballer i : footballers)
+                  {
+                        if(assistingFootballerID == i.getID())
+                        {
+                              assistingFootballerName = i.getFootballerName();
+                        }
+                  }
             }
+            return assistingFootballerName;
       }
       
       public void printLine(String text)

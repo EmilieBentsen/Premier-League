@@ -2,11 +2,11 @@ package models;
 
 public class Opponent implements Model
 {
-      private int opponentID;//bruges til at identificere den enkelte modstaner.
+      private int opponentID;
       private String opponentName;
-      private boolean opponentActive; //Vi sletter ikke modstandere, hvis et hold rykker ned og derfor ikke møder liverpool sættes de til false
+      private boolean opponentActive; //Er modstanderen i Premier League?
 
-      // Kontruktor til at oprette Opponents der læses fra fil
+      //Constructor
       public Opponent(int id, String opponentName, boolean opponentActive)
       {
             this.opponentID = id;
@@ -29,7 +29,7 @@ public class Opponent implements Model
             return opponentName;
       }
       
-      public int getID() // Krav fra interfacet Model
+      public int getID() //Krav fra interfacet Model
       {
             return opponentID;
       }
@@ -39,6 +39,7 @@ public class Opponent implements Model
             return opponentActive;
       }
       
+      @Override
       public String toString()
       {
             String details = this.getID()+ "," + this.getOpponentName() + "," + this.getOpponentActive();
