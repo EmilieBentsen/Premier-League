@@ -50,9 +50,21 @@ public class Goal implements Model
             this.goalMinuteScored = goalMinuteScored;
       }
       
-      public char getGoalType()
+      public String getGoalTypeToString()
       {
-            return goalType;
+            if(goalType == 'R')
+            {
+                  return "In play";
+            }
+            else if(goalType == 'p')
+            {
+                  return "penalty";            
+            }
+            else if(goalType == 'O')
+            {
+                  return "Own goal";
+            }
+            return null;
       }
       
       public void setGoalType(char goalType)

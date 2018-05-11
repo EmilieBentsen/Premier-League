@@ -43,6 +43,23 @@ public class Input
             }
       }
       
+      public Match getMatchByID (ArrayList<Match> matches)
+      {
+            int input;
+            while (true)
+            {
+                  input = getInt();
+                  for(Match i : matches)
+                  {
+                        if(input == i.getID())
+                        {
+                              return i;
+                        }
+                  }
+                  System.out.println("That was not one of the listed matchID's. Try again!");            
+            }
+      }
+      
       public String getDate()
       {
             while(true)

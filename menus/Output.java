@@ -5,9 +5,7 @@ import models.*;
 import handlers.*;
 
 public class Output
-{
-      
-      
+{      
       public void startMenu()
       {
             header();
@@ -140,12 +138,11 @@ public class Output
       {
             for (Match i : matches)
             {
-                  // printf. 
                   System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
                   + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }
-            bakEndButton(4,5);            
+            endButton(0);            
       }
       
       public String homeAwayGame(char game)
@@ -210,6 +207,30 @@ public class Output
             emptyLine(7);
             bakEndButton(4,5);
             line();
+      }
+      
+      public void chosenMatch(Match match, ArrayList<Goal> goals)
+      {
+            header();
+            emptyLine(1);
+            //printLine(" Match Date: " + match.getMatchDate + " Formation: " + match.getMatchFormation() + " Starting lineup by jersey number:  " + match.getMatchLineup());
+            for(Goal i : goals)
+            {
+                  int count = 1;
+                  //printLine(count + " " + i.getGoalMinuteScored() + " Goal scorer: " + i.getGoalScorer() + " " + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayer(i.GetGoalAssistingPlayer()));
+            }
+      }
+      
+      public String printAssistingPlayer(int assistingFootballerID)
+      {
+            if(assistingFootballerID == 00)
+            {
+                  return "no assist";
+            }
+            else
+            {
+                  return "" + assistingFootballerID;
+            }
       }
       
       public void printLine(String text)
