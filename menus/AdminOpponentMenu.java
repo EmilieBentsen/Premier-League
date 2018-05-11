@@ -2,7 +2,7 @@ package menus;
 
 public class AdminOpponentMenu
 {
-      public void adminOpponent menu()
+      public void adminOpponentMenu()
       {
             /* Skal printe menuheader.
             Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent. 

@@ -3,16 +3,16 @@ import java.time.*;
 
 public class Match implements Model
 {
-      private int matchID; //bruges til at identificere den enkelte kamp.
-      private LocalDate matchDate; //opbjekt af LocalDate, dato-system af typen (åååå-mm-dd)
-      private int matchOpponentID; //bruges til at identificere modstanderen af den enkelte kamp
-      private char matchHomeOrAway; //H for hjemme A for ude
-      private int matchHomeGoals; //antal mål scoret af hjemmeholdet
-      private int matchAwayGoals; //antal mål scoret af udeholdet
-      private String matchFormation; //talkombination der beskriver den spillede formation f.eks. 4-4-2
-      private String matchLineup; //liste over de liverpoll spillere deer spillede kampen, sat i formation
+      private int matchID; //Identificere den enkelte kamp.
+      private LocalDate matchDate; //Object af LocalDate. https://docs.oracle.com/javase/10/docs/api/java/time/class-use/LocalDate.html
+      private int matchOpponentID; //Identificere modstanderen af den enkelte kamp
+      private char matchHomeOrAway; //(H)ome / (A)way
+      private int matchHomeGoals;
+      private int matchAwayGoals;
+      private String matchFormation; //Opstillingens form. Format: X-Y-Z eller X-Y-Z-W
+      private String matchLineup; //Startopstillingens spillere. Format: 1-2-3-4-5-6-7-8-9-10-11 Starter med målmand, fra venstre mod højre.
       
-      // Kontruktor til at oprette Match'es der læses fra fil
+      //Constructor
       public Match(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
             this.matchID = matchID;
@@ -25,7 +25,7 @@ public class Match implements Model
             this.matchLineup = matchLineup;
       }
       
-      public int getID()//krav fra interfacet Model
+      public int getID() //Krav fra superclass.
       {
             return matchID;
       }

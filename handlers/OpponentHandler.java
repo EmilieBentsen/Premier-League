@@ -93,5 +93,18 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
       {
              opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));
              save(opponents);
-      }  
+      } 
+     public ArrayList getActiveOpponentsArray()
+      {
+            ArrayList<Opponent> activeOpponents = new ArrayList();
+            
+            for(Opponent i : opponents)
+            {
+                  if(i.getOpponentActive() == true)
+                  {
+                       activeOpponents.add(i); 
+                  }
+            }
+            return activeOpponents;
+      } 
 }
