@@ -35,6 +35,11 @@ public class Goal implements Model
             return goalMatchID;
       }
 
+      public char getGoalType()
+      {
+            return goalType;
+      }
+      
       public String getGoalTypeToString()
       {
             if(goalType == 'R')

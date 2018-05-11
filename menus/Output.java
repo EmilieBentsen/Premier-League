@@ -220,8 +220,8 @@ public class Output
                    + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
                   count ++;
             }
-            bakEndButton(4,5);
             emptyLine(5);
+            bakEndButton(4,5);
             line();
       }
       
