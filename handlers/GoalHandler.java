@@ -265,4 +265,17 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
             return count;
       }
+      
+      public ArrayList<Goal> getGoalsByMatchID(int matchID)
+      {
+            ArrayList<Goal> matchGoals = new ArrayList<Goal>();
+            for(Goal i : goals)
+            {
+                  if (i.getGoalMatchID() == matchID)
+                  {
+                        matchGoals.add(i);
+                  }      
+            }
+            return matchGoals;
+      }
 }
