@@ -153,7 +153,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             for(int i=0;i<topX;i++)
             {
                         getTopScorers[i][0] = occurenceGoalscorers[i][0];
-                        if(getTopScorers[i][1] = 0) //Da vores Array naturligt starter på 0, skal vi lægge en til første gang, for at få det korrekte antal mål.
+                        if(getTopScorers[i][1] == 0) //Da vores Array naturligt starter på 0, skal vi lægge en til første gang, for at få det korrekte antal mål.
                         {
                               getTopScorers[i][1] = getTopScorers[i][1]+1;
                         }
