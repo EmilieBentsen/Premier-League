@@ -75,6 +75,7 @@ public class StatisticsMenu
             Footballer chosenFootballer = input.getFootballerByJersey(activeFootballers);
             
             int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());
+            // mit punkt
             int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());
             String jersey = "" + chosenFootballer.getFootballerJersey();
             int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);
@@ -135,8 +136,11 @@ public class StatisticsMenu
             ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printMatchesPlayedInPeriod(matches, opponents);
-            bakEndButtons(); 
-            //vælg en kamp hvem har scoret hvornår. last menu = 0;    
+            Match chosenMatch = input.getMatchByID(matches);
+            ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());
+            output.chosenMatch(chosenMatch, goals);
+            
+            //vælg en kamp hvem har scoret hvornår. end menu = 0;    
       }  
       
       public void bakEndButtons()
