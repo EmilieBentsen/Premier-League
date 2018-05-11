@@ -7,7 +7,7 @@ import java.util.ArrayList;   //Til når vi opretter ArrayList's
 
 public class StatisticsMenu   
 {
-      //objekter af vores handler singleton løsning.
+      //objekter af vores handlers, singleton løsning.
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       GoalHandler goalHandler = GoalHandler.getGoalHandler();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
