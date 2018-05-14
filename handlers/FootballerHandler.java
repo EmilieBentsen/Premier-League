@@ -3,7 +3,7 @@ import models.Footballer;
 import models.*;
 import java.util.*;
 
-public class FootballerHandler extends ObjectHandler<Footballer> //specifocerer hvilken type objekter vi arbejder med i denne klasse
+public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder med Footballer objects.
 {
       private static FootballerHandler instance;
       private ArrayList<Footballer> footballers;

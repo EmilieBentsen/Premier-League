@@ -6,9 +6,9 @@ import java.io.*;
 
 class FileHandler
 {
-      public static <E extends Object> void save(String path, ArrayList<E> list, 
-            PersistentObjectHandler<E> handler)  //E kan være enhver type af objekter som extender Object klassen
- //metoden tager en FilePath ind og en Arraylist af objekter E som parameter, og skriver ArrayListen til den fil der har filepathen
+      public static <E extends Object> void save(String path, ArrayList<E> list, PersistentObjectHandler<E> handler)  
+           //E kan være enhver type af objekter som extender Object klassen
+           //metoden tager en FilePath ind og en Arraylist af objekter E som parameter, og skriver ArrayListen til den fil der har filepathen
       {
             try
             {
@@ -28,10 +28,9 @@ class FileHandler
             catch(FileNotFoundException e){}
       }
       
-      public static <E extends Object> ArrayList<E> getContent(String path, 
-            PersistentObjectHandler<E> handler)
-//metoden læser fra en fil på placeringen path, klassen PersistentObjectHandler<E> beskriver hvordan objektet skal oprettes.
-//objekterne gemmes i en ArrayList, som returnres
+      public static <E extends Object> ArrayList<E> getContent(String path, PersistentObjectHandler<E> handler)
+            //metoden læser fra en fil på placeringen path, klassen PersistentObjectHandler<E> beskriver hvordan objektet skal oprettes.
+            //objekterne gemmes i en ArrayList, som returnres
       {
             ArrayList<E> list = new ArrayList<E>();
             try
