@@ -21,7 +21,11 @@ public class AdminOpponentMenu
                               break;
                               
                   case 2 :    createNewOpponentMenu();
-                              break;              
+                              break; 
+                              
+                  case 3 :    MainMenu mainMenu = new MainMenu();
+                              mainMenu.startMenu();
+                              break;             
             }
       }
       
@@ -31,41 +35,30 @@ public class AdminOpponentMenu
             output.printOpponentList(opponents);
             output.promptOpponent();           
             Opponent chosenOpponent = input.getOpponentByList(opponents);
-            output.changeOpponentName();
-            int choice = input.getInt(1,2);
             
-            switch(choice)
+            output.printOpponentName(chosenOpponent);
+            output.promptOpponentName();
+            String newOpponentName = input.getString();
+            chosenOpponent.setOpponentName(newOpponentName);
+                       
+            output.promptOpponentActice();
+            int active = input.getInt(1,2);
+            
+            if(active == 1)
             {
-                  case 1 :    output.promptOpponentName();
-                              String newOpponentName = input.getString();
-                              chosenOpponent.setOpponentName(newOpponentName);
-                              break;
-                              
-                  case 2 :    break;                                          
+                  chosenOpponent.setOpponentActive(true);
             }
-            
-            output.changeOpponentActive();
-            int activeChoice = input.getInt(1,2);
-            
-            switch(activeChoice)
+            else
             {
-                  case 1 :    output.promptOpponentActice();
-                              int active = input.getInt(1,2);
-                              if(active == 1)
-                              {
-                                    chosenOpponent.setOpponentActive(true);
-                              }
-                              else
-                              {
-                                    chosenOpponent.setOpponentActive(false);
-                              }
-                              break;
-                              
-                  case 2 :    break;
+                  chosenOpponent.setOpponentActive(false);
             }
-            
+
             output.confirmationOnUpdateOpponent(chosenOpponent);
+<<<<<<< HEAD
             int endMenu = input.getInt(5,5);
+=======
+            int endMenu = input.getInt(3,3);
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
@@ -86,10 +79,13 @@ public class AdminOpponentMenu
             {
                   active = false;
             }
-            
             opponentHandler.createObject(opponentName, active);
             output.confirmationOnCreateOpponent(opponentName, active);
+<<<<<<< HEAD
             input.getInt(5,5);
+=======
+            input.getInt(3,3);
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();           
       }
