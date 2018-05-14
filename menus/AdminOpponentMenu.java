@@ -8,7 +8,6 @@ public class AdminOpponentMenu
 {
       Output output = new Output();
       Input input = new Input();
-      AdminMenu adminMenu = new AdminMenu();
       
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
       
@@ -22,7 +21,11 @@ public class AdminOpponentMenu
                               break;
                               
                   case 2 :    createNewOpponentMenu();
-                              break;              
+                              break; 
+                              
+                  case 3 :    MainMenu mainMenu = new MainMenu();
+                              mainMenu.startMenu();
+                              break;             
             }
       }
       
@@ -44,7 +47,7 @@ public class AdminOpponentMenu
                               
                   case 2 :    break;                                          
             }
-            
+           
             output.changeOpponentActive();
             int activeChoice = input.getInt(1,2);
             
@@ -64,9 +67,9 @@ public class AdminOpponentMenu
                               
                   case 2 :    break;
             }
-            
             output.confirmationOnUpdateOpponent(chosenOpponent);
             int endMenu = input.getInt(5,5);
+            AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
       
@@ -90,6 +93,7 @@ public class AdminOpponentMenu
             opponentHandler.createObject(opponentName, active);
             output.confirmationOnCreateOpponent(opponentName, active);
             input.getInt(5,5);
+            AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();           
       }
 }

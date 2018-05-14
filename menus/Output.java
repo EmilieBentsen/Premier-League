@@ -518,11 +518,11 @@ public class Output
             emptyLine(2);
             buttonMiddle("Manage Opponents", 31);
             emptyLine(4);
-            threeButtons("1. Update opponent ","2. Create opponent Match ","3. Type in Match Result",31 );
+            twoButtons("1. Update opponent ","2. Create opponent ",31 );
             emptyLine(7);
-            bakEndButton(4,5);
-            line();      /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
-      } 
+            endButton(3);
+            line();      
+     } 
       
       public void promptOpponentName()
       {
@@ -559,5 +559,79 @@ public class Output
       public void confirmationOnCreateOpponent(String opponentName, boolean active)
       {
             printLine(" you have created " + opponentName + " and active status is " + active );
+      }
+      
+      public void adminFootballerMenu()
+      {
+            header();
+            emptyLine(2);
+            buttonMiddle("Manage Footballers", 31);
+            emptyLine(4);
+            twoButtons("1. Update Footballer ","2. Create Footballer ",31 );
+            emptyLine(7);
+            endButton(3);
+            line(); 
+      }
+      
+      public void inputJerseyNumber(Footballer footballer)
+      {
+            printLine("Players current jersey number is " + footballer.getFootballerJersey());
+            printLine("Enter the players new jersey number: ");
+      }
+      
+      public void inputFootballerName(Footballer footballer)
+      {
+            printLine("Players current name is " + footballer.getFootballerName());
+            printLine("Enter the players new name: ");
+      }
+      
+      public void inputFootballerSalary(Footballer footballer)
+      {
+            printLine("Players current salary is " + footballer.getFootballerSalary());
+            printLine("Enter the players new salary: ");
+      }
+      
+      public void inputFootballerEmployed(Footballer footballer)
+      {
+            printLine("Players current employment status is " + footballer.getFootballerEmployed());
+            printLine("Enter the players employment status (1) = true, (2) = false ");
+      }
+      
+      public void promptJerseyNumber()
+      {
+            printLine("Enter the new players jersey number ");
+      }
+      
+      public void inputFootballerName()
+      {
+            printLine("Enter the new players namer ");
+      }
+      
+      public void inputFootballerSalary(String salaryOrTeam)
+      {
+            printLine("Input players " + salaryOrTeam);
+      }
+      
+      public void inputFootballerEmployed()
+      {
+            printLine("Enter the players employment status (1) = true, (2) = false ");
+      }
+
+      public void inputFootballerPosition()
+      {
+            printLine("Enter the players employment status (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
+      }
+      
+      public void confirmationUpdateFootballer(Footballer footballer)
+      {
+            printLine("You have updatet the footballer witht footballer id " + footballer.getID() + "his data is now ");
+            printLine(footballer.getFootballerName() + " " + footballer.getFootballerJersey() + " " + footballer.getFootballerSalary()
+            + " " + footballer.getFootballerEmployed() + " " + footballer.getFootballerPosition());
+      }
+      
+      public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position)
+      {
+            printLine("You have created a new footballer witht footballer name " + name);
+            printLine(jerseyNumber + " " + salary + " " + employed + " " + position);
       }
 }
