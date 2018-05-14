@@ -183,7 +183,7 @@ public class Input
                               }
                           
                    }     
-      }
+            }
       }
       
       public int getResult(char homeAway, Match match)
@@ -224,6 +224,57 @@ public class Input
 
             }
             
-      }      
+      }
+      public int getGoalscorer(ArrayList<Footballer> footballers)
+      {
+            int input;
+            while(true)
+            {
+                  input = getInt();
+                  for(Footballer i : footballers)
+                  {
+                        if(input == i.getFootballerJersey())
+                        {
+                              return input;
+                        }
+                  }
+            } 
+      } 
+      public int getGoalMinuteScored()
+      {
+            int input;
+            while(true)
+            {
+                  input = getInt();
+                  if(input <= 100)
+                  {
+                        return input;
+                  }
+                  else
+                  {
+                        System.out.println("Wrong input! please type int minute of goal scored");
+                        input = getInt();
+                  }
+            }
+      }   
+      public char getGoalType()
+      {
+            String input;
+                  while(true)
+                  {
+                        input = getString();
+                        if(input.equalsIgnoreCase("R") || input.equalsIgnoreCase("P") || input.equalsIgnoreCase("O") )
+                        {
+                              return input.charAt(0);
+                        }
+                        else
+                        {
+                              System.out.println("Wrong input! Please type in  R = 'Regular' P = 'Penalty' O = 'Own'");
+                              input = getString();
+                        }
+                  }
+            
+      
+      }  
 
 }

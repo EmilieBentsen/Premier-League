@@ -117,40 +117,52 @@ public class AdminMatchMenu
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             ArrayList<Footballer> footballers = fh.getActiveFootballersArray();
-            for(int i = 0; i <= liverpoolGoals; i++)
-            {
-                  output.printActiveFootballers(footballers);
-                  output.promptGoalscorer();                  
-                  int ID = input.getGoalscorer(match);
-                  output.promptGoalMinuteScored();
-                  int time = input.getGoalMinuteScored();
-                  output.promtGoalType();
-                  char goalType = input.getGoalType();
-                  if(goalType == 'R' || goalType == 'r')
+    
+                  for(int i = 0; i <= liverpoolGoals; i++)
                   {
-                        output.promptForAssistedFootballer();
-                        int assisted = input.getAssistedFootballer();
+                        output.promptGoals(); //fortæller admin at der skal indtastes mål
+                        output.promtGoalType();
+                        char goalType = input.getGoalType();
+                        if(goalType == 'o' || goalType == 'O')
+                        {
+                        //her skal oprettes ny spiller
+                              GoalHandler gh = GoalHandler.getGoalHandler();
+                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assisted);
+                        }
+                        else 
+                        {
+                              output.printActiveFootballers(footballers);
+                              output.promptGoalscorer();                  
+                              int ID = input.getGoalscorer(footballers);
+                              output.promptGoalMinuteScored();
+                              int time = input.getGoalMinuteScored();
+                  
+                              if(goalType == 'R' || goalType == 'r')
+                              {
+                                    output.promptForAssistedFootballer();
+                                    int assisted = input.getAssistedFootballer();
                         
-                  }
-                  else if(!goalType == 'R' || !goalType == 'r')
-                  {
-                        int assisted = 00;
-                  }
+                              }
+                              else if(!goalType == 'R' || !goalType == 'r')
+                              {
+                              int assisted = 00;
+                              }
                   
-                GoalHandler gh = GoalHandler.getGoalHandler();
-                Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assisted);
+                              GoalHandler gh = GoalHandler.getGoalHandler();
+                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assisted);
                   
                   
-            }
-            output.getMatchFormation();
-            input.promptMatchFormation();
-            output.promptMatchLineup();
-            input.getMatLineup();
-            output.typeInResultConfirmation();
+                        }
+                         output.getMatchFormation();
+                         input.promptMatchFormation();
+                         output.promptMatchLineup();
+                         input.getMatLineup();
+                         output.typeInResultConfirmation();
             
             
             //Der mangler at blive inputtet resultat, home goals (hvem og hvornår de er scoret), away goals, formation, lineup.
             
-      }
+                  }
+            }
       
 }

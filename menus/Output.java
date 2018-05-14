@@ -484,6 +484,34 @@ public class Output
       
       public void promptGoalscorer()
       {
-            printLine("please enter \"ID\" of one of the footballers.");
+            printLine("Please enter \"Jersey Nr.\" of the scoring footballer.");
+            
+      }
+      
+      public void promptGoalMinuteScored()
+      {
+            printLine("Please enter what minute the goal was scored");
+      }
+      
+      public void promtGoalType()
+      {
+            printLine("Please enter type of goal R = 'Regular' P = 'Penalty' O = 'Own'");
+            
+      }
+      public void promptForAssistedFootballer()
+      {
+            printLine("please enter ID of assisted player");
+      }
+      public void getMatchFormation()
+      {
+            printLine("please enter match formation by format \"0-0-0-0\" ");
+      }
+      public void promptMatchLineup()
+      {
+            printLine("please enter match lineup by format \"00-00-00-00-00-00-00-00-00-00-00\" ");
+      }
+      public void typeInResultConfirmation()
+      {
+            printLine("Match result has been updated!");
       }
 }
