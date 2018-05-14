@@ -157,8 +157,8 @@ public class MatchHandler extends ObjectHandler<Match>
       public ArrayList<Match> matchesPlayedByFootballer(LocalDate startDate, LocalDate endDate, int footballerJersey)
       {
             String footballerJerseyString = Integer.toString(footballerJersey);
-            ArrayList<Match> matchesPlayedInPeriod = getMatchesInPeriod(startDate, endDate);
-            for(Match i : matchesPlayedInPeriod)
+            ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>();
+            for(Match i : getMatchesInPeriod(startDate, endDate))
             {
                   if(checkStringForItem(i.getMatchLineup(), footballerJerseyString)) //Hvis spilleren var i opstillingen den dag
                   {
@@ -254,39 +254,6 @@ public class MatchHandler extends ObjectHandler<Match>
             return newID;
       }
       
-      public ArrayList<Match> getMatchesPlayedInPeriod(LocalDate startDate, LocalDate endDate, int footballerJersey)//kan vi lave denne nemmere
-      {
-            ArrayList<Match> matchesPlayedInPeriod = new ArrayList<Match>(); 
-            ArrayList<Match> matchesInPeriod = getMatchesInPeriod(startDate, endDate);
-            
-            for(Match i : matchesInPeriod)
-            {
-                        String[] stringArrayLineup = i.getMatchLineup().split("-");
-                        int[] intArrayLineup = new int[stringArrayLineup.length];
-                        for (int j = 0; j < stringArrayLineup.length; j++) 
-                        {
-                              String numberAsString = stringArrayLineup[j];
-                              intArrayLineup[j] = Integer.parseInt(numberAsString);
-                        }
-                        
-                        for(int k : intArrayLineup)
-                        {
-                              if(k == footballerJersey)
-                              {
-                                   matchesPlayedInPeriod.add(new Match(i.getID(), 
-                                                                  i.getMatchDate(), 
-                                                                  i.getMatchOpponentID(), 
-                                                                  i.getMatchHomeOrAway(), 
-                                                                  i.getMatchHomeGoals(), 
-                                                                  i.getMatchAwayGoals(), 
-                                                                  i.getMatchFormation(), 
-                                                                  i.getMatchLineup())); 
-                              }
-                        }
-             } 
-            return matchesPlayedInPeriod;
-      }
-
       public ArrayList<Match> getMatchesInPeriod(LocalDate startDate, LocalDate endDate)
       {
             ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
