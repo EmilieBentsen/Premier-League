@@ -1,15 +1,20 @@
 package menus;
 
+import handlers.*;
+import models.*;
+import java.util.ArrayList;
+
 public class AdminOpponentMenu
 {
       Output output = new Output();
+      Input input = new Input();
       AdminMenu adminMenu = new AdminMenu();
       
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
       
       public void adminOpponentMenu()
       {
-            output.adminOpponentMenu();//ikke lavet
+            output.adminOpponentMenu();
             int choice = input.getInt(1,2);
             switch(choice)
             {
@@ -19,7 +24,6 @@ public class AdminOpponentMenu
                   case 2 :    createNewOpponentMenu();
                               break;              
             }
-            /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
       }
       
       public void updateOpponentMenu()
@@ -27,13 +31,13 @@ public class AdminOpponentMenu
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
             output.printOpponentList(opponents);
             output.promptOpponent();           
-            Opponnent chosenOpponent = input.getOpponentByList(opponents);//ikke lavet
+            Opponent chosenOpponent = input.getOpponentByList(opponents);
             output.changeOpponentName();
             int choice = input.getInt(1,2);
             
             switch(choice)
             {
-                  case 1 :    output.promptOpponentName();//ikke lavet
+                  case 1 :    output.promptOpponentName();
                               String newOpponentName = input.getString();
                               chosenOpponent.setOpponentName(newOpponentName);
                               break;
@@ -41,13 +45,13 @@ public class AdminOpponentMenu
                   case 2 :    break;                                          
             }
             
-            output.changeOpponentActive();//ikke lavet
-            int choice = input.getInt(1,2);
+            output.changeOpponentActive();
+            int activeChoice = input.getInt(1,2);
             
-            switch(choice)
+            switch(activeChoice)
             {
                   case 1 :    output.promptOpponentActice();
-                              int ative = input.getInt(1,2);
+                              int active = input.getInt(1,2);
                               if(active == 1)
                               {
                                     chosenOpponent.setOpponentActive(true);
@@ -61,8 +65,8 @@ public class AdminOpponentMenu
                   case 2 :    break;
             }
             
-            output.confirmationOnUpdateOpponent(chosenOpponent);//ikke lavet
-            input.getInt(5);
+            output.confirmationOnUpdateOpponent(chosenOpponent);
+            int endMenu = input.getInt(5,5);
             adminMenu.adminMenu();
             /* 
             skal Printe liste af alle modstandere.
@@ -78,8 +82,8 @@ public class AdminOpponentMenu
             output.inputOpponentName();
             String opponentName = input.getString();
             output.promptOpponentActice();
-            int isActive = getInt(1,2);
-            boolean active = null;
+            int isActive = input.getInt(1,2);
+            boolean active = true;
             
             if(isActive == 1)
             {
@@ -90,10 +94,9 @@ public class AdminOpponentMenu
                   active = false;
             }
             
-            Opponent newOpponent = new Opponent();
             opponentHandler.createObject(opponentName, active);
             output.confirmationOnUpdateOpponent(opponentName, active);//ikke lavet
-            input.getInt(5);
+            input.getInt(5,5);
             adminMenu.adminMenu();           
       }
 }

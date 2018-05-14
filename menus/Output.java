@@ -305,9 +305,9 @@ public class Output
       
       public void emptyLine(int number)//printer en tom linje per "number"
       {
-            for (int i = 0; i < number; i++)
+            for(int i = 0; i < number; i++)
             {
-                  System.out.println("*" + whiteSpaces(113) + "*");
+                  System.out.printf("%1s %111s %1s \n","*","", "*");
             }
       }
       
@@ -510,5 +510,45 @@ public class Output
       public void typeInResultConfirmation()
       {
             printLine("Match result has been updated!");
+      }
+      
+      public void adminOpponentMenu()
+      {
+            /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
+      } 
+      
+      public void promptOpponentName()
+      {
+            printLine("Enter the new name of the opponent");
+      }
+      
+      public void changeOpponentName()
+      {
+            printLine("Do you want to change the name of the opponent");
+      }
+      
+      public void changeOpponentActive()
+      {
+      
+      }
+      
+      public void promptOpponentActice()
+      {
+      
+      }
+      
+      public void confirmationOnUpdateOpponent(Opponent opponent)
+      {
+      
+      }
+      
+      public void inputOpponentName()
+      {
+            
+      }
+      
+      public void confirmationOnUpdateOpponent(String opponentName, boolean active)
+      {
+      
       }
 }

@@ -149,6 +149,23 @@ public class Input
             }
       }
       
+      public Opponent getOpponentByList(ArrayList<Opponent> opponentList)
+      {
+            int input;
+            while (true)
+            {
+                  input = getInt();
+                  for(Opponent i : opponentList)
+                  {
+                        if(input == i.getID())
+                        {
+                              return i;      
+                        }
+                  }
+                  System.out.println("That was not one of the listed opponent ID's. Try again!");
+            }
+      }
+      
       
       public char getHomeAway()//Sørger for at input er enten H eller A.
       {
