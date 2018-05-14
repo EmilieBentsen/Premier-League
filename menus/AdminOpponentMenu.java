@@ -8,7 +8,6 @@ public class AdminOpponentMenu
 {
       Output output = new Output();
       Input input = new Input();
-      AdminMenu adminMenu = new AdminMenu();
       
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
       
@@ -67,6 +66,7 @@ public class AdminOpponentMenu
             
             output.confirmationOnUpdateOpponent(chosenOpponent);
             int endMenu = input.getInt(5,5);
+            AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
       
@@ -90,6 +90,7 @@ public class AdminOpponentMenu
             opponentHandler.createObject(opponentName, active);
             output.confirmationOnCreateOpponent(opponentName, active);
             input.getInt(5,5);
+            AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();           
       }
 }

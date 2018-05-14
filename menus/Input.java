@@ -2,6 +2,7 @@ package menus;
 import java.util.ArrayList;
 import java.util.Scanner;
 import models.*;
+import handlers.*;
 
 public class Input
 {
@@ -292,6 +293,122 @@ public class Input
                   }
             
       
-      }  
+      } 
+      public int getOpponentID() 
+      {
+            int ID;
+            String input;
+            while(true)
+            {
+                  input = getString();
+                  
+                  if(input.equalsIgnoreCase("Y"))
+                  {
+                        System.out.println("Please enter opponent ID from list");
+                        ID = getInt();
+                        return ID;
+                        
+                  }
+                  else if(input.equalsIgnoreCase("N"))
+                  {
+                        AdminFootballerMenu afm = new AdminFootballerMenu();
+                        afm.createFootballerMenu("Team");
+                        FootballerHandler fh = FootballerHandler.getFootballerHandler();
+                        ArrayList<Footballer> footballers = fh.getFootballerArray();
+                        ID = fh.getNewID(footballers)-1;
+                        return ID;
+                        
+                  }
+            }
+      } 
+      
+     public String promptMatchFormation()
+     {
+            Input input = new Input();
+            int result = 0;
+            while(true)
+            {
+                  String formation = input.getString();
+                  String[] stringArrayLineup = formation.split("-");
+                  int[] intArrayLineup = new int[stringArrayLineup.length];
+                  try{
+                        for (int i = 0; i < stringArrayLineup.length; i++) 
+                        {
+                              String numberAsString = stringArrayLineup[i];
+                              intArrayLineup[i] = Integer.parseInt(numberAsString);
+                              result = result + intArrayLineup[i];
+                        }
+                  }
+                  catch(NumberFormatException e)
+                  {
+                        System.out.println("Invalid formation format.");
+                  }
+                  if(result == 10)
+                  {
+                        System.out.print("Valid formation.");
+                        return formation;
+                  }
+                  else
+                  {
+                        System.out.print("Invalid formation. You've got "+ (result + 1) +" players in your starting formation.");
+                  }
+            }
+     }  
+     
+     public String getMatchLineup()
+     {
+         Input input = new Input();
+            int result = 0;
+            while(true)
+            {
+                  String lineup = input.getString();
+                  String[] stringArrayLineup = lineup.split("-");
+                  int[] intArrayLineup = new int[stringArrayLineup.length];
+                  try{
+                        for (int i = 0; i < stringArrayLineup.length; i++) 
+                        {
+                              String numberAsString = stringArrayLineup[i];
+                              intArrayLineup[i] = Integer.parseInt(numberAsString);
+                              result++;
+                        }
+                  }
+                  catch(NumberFormatException e)
+                  {
+                        System.out.println("Invalid formation format.");
+                  }
+                  if(result == 11)
+                  {
+                        System.out.print("Valid lineup.");
+                        return lineup;
+                  }
+                  else
+                  {
+                        System.out.print("Invalid lineup. You've got "+ (result) +" players in your starting formation, you need 11.");
+                  }
+            }   
+     }  
+     public int getAssistedFootballer(ArrayList<Footballer> footballers) 
+      {
+            int ID;
+            String input;
+            while(true)
+            {
+                  input = getString();
+                  
+                  if(input.equalsIgnoreCase("Y"))
+                  {
+                        System.out.println("Please enter goalscorer ID from list");
+                        ID = getInt();
+                        return ID;
+                        
+                  }
+                  else if(input.equalsIgnoreCase("N"))
+                  {
+                        return 00;
+                        
+                  }
+            }
+      }   
+      
 
 }

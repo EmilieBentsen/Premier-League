@@ -3,23 +3,23 @@ package menus;
 public class AdminFootballerMenu
 {
       Output output = new Output();
-      AdminMenu adminMenu = new AdminMenu();
       
-      FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      
+      //FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
       public void adminFootballerMenu()
       {
-            output.adminFootballerMenu();//ikke lavet
-            int choice = input.getInt(1,2);
+            //output.adminFootballerMenu();//ikke lavet
+            //int choice = input.getInt(1,2);
             
-            switch(choice)
+            /*switch(choice)
             {
                   case 1 :    updateFootballerMenu();
                               break;
                   
                   case 2 :    createFootballerMenu();
                               break;
-            }
+            }*/
       }
       
       public void updateFootballerMenu()
@@ -27,7 +27,7 @@ public class AdminFootballerMenu
             
       }
       
-      public void createFootballerMenu()
+      public void createFootballerMenu(String salaryOrTeam)
       {
             
       }
