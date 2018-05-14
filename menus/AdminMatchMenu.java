@@ -127,7 +127,8 @@ public class AdminMatchMenu
                         char goalType = input.getGoalType();
                         if(goalType == 'o' || goalType == 'O')
                         {
-                              fh.getOpponentFootballersArray();
+                              ArrayList<Footballer> op = fh.getOpponentFootballersArray();
+                              output.printOpponentFootballers(op);
                               output.promptIsOpponentOnList();
                               int ID = input.getOpponentID();
                               output.promptGoalMinuteScored();
@@ -147,7 +148,7 @@ public class AdminMatchMenu
                   
                               if(goalType == 'R' || goalType == 'r')
                               {
-                                    output.printActiveFootballers(footballers);
+                                    
                                     output.promtWasGoalAssisted();
                                     assistedID = input.getAssistedFootballer(footballers);
                         

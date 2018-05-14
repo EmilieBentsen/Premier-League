@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class AdminFootballerMenu
 {
       Output output = new Output();
+<<<<<<< HEAD
       Input input = new Input();
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
@@ -15,6 +16,25 @@ public class AdminFootballerMenu
             output.adminFootballerMenu();
             int choice = input.getInt(1,3);
                         
+=======
+
+      Input input = new Input();
+
+      
+      
+      //FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      
+      public void adminFootballerMenu()
+      {
+
+            //output.adminFootballerMenu();//ikke lavet
+            //int choice = input.getInt(1,2);
+
+            output.adminFootballerMenu();
+            int choice = input.getInt(1,2);
+
+            
+>>>>>>> 4106174b54d3162f3f645641e4beb3ab9babe586
             switch(choice)
             {
                   case 1 :    updateFootballerMenu();
@@ -31,7 +51,8 @@ public class AdminFootballerMenu
       
       public void updateFootballerMenu()
       {
-            ArrayList<Footballer> footballers = footballerHandler.getFootballerArray();
+            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+            ArrayList<Footballer> footballers = fh.getFootballerArray();
             output.printActiveFootballers(footballers);
             output.inputJerseyNumber();        
             Footballer chosenFootballer = input.getFootballerByJersey(footballers);
@@ -98,7 +119,8 @@ public class AdminFootballerMenu
                               break;
             }
             
-            footballerHandler.createObject(jerseyNumber, name, salary, employed, position);
+            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+            fh.createObject(jerseyNumber, name, salary, employed, position);
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position);
             input.getInt(3,3);
             AdminMenu adminMenu = new AdminMenu();
