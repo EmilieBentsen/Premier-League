@@ -2,18 +2,68 @@ package menus;
 
 public class AdminOpponentMenu
 {
+      Output output = new Output();
+      AdminMenu adminMenu = new AdminMenu();
+      
+      OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
+      
       public void adminOpponentMenu()
       {
-            /* Skal printe menuheader.
-            Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent. 
-            Skal tage imod input fra 1-2.
-            Hvis input = 1: kør updateOpponentMenu();
-            Hvis input = 2: kør createNewOpponentMenu();
-            */
+            output.adminOpponentMenu();//ikke lavet
+            input.getInt(1,2);
+            switch
+            {
+                  case 1 :    updateOpponentMenu();
+                              break;
+                              
+                  case 2 :    createNewOpponentMenu();
+                              break;              
+            }
+            /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
       }
       
       public void updateOpponentMenu()
       {
+            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
+            output.printOpponentList(opponents);
+            output.promptOpponent();           
+            Opponnent chosenOpponent = input.getOpponentByList(opponents);//ikke lavet
+            output.changeOpponentName();
+            int choice = input.getInt(1,2);
+            
+            switch(choice)
+            {
+                  case 1 :    output.promptOpponentName();//ikke lavet
+                              String newOpponentName = input.getString();
+                              chosenOpponent.setOpponentName(newOpponentName);
+                              break;
+                              
+                  case 2 :    break;                                          
+            }
+            
+            output.changeOpponentActive();//ikke lavet
+            int choice = input.getInt(1,2);
+            
+            switch(choice)
+            {
+                  case 1 :    output.promptOpponentActice();
+                              int ative = input.getInt(1,2);
+                              if(active == 1)
+                              {
+                                    chosenOpponent.setOpponentActive(true);
+                              }
+                              else
+                              {
+                                    chosenOpponent.setOpponentActive(false);
+                              }
+                              break;
+                              
+                  case 2 :    break;
+            }
+            
+            output.confirmationOnUpdateOpponent(chosenOpponent);//ikke lavet
+            input.getInt(5);
+            adminMenu.adminMenu();
             /* 
             skal Printe liste af alle modstandere.
             skal prompte bruger til at vælge en modstander fra listen.
@@ -25,11 +75,25 @@ public class AdminOpponentMenu
       
       public void createNewOpponentMenu()
       {
-            /*
-            Skal prompte bruger for indtaste navnet på den nye Opponent.
-            Skal prompte om den nye Opponent skal være aktiv.
-            Skal kalde Construktoren med input som parametre.
+            output.inputOpponentName();
+            String opponentName = input.getString();
+            output.promptOpponentActice();
+            int isActive = getInt(1,2);
+            boolean active = null;
             
-            */
+            if(isActive == 1)
+            {
+                  active =true;
+            }
+            else
+            {
+                  active = false;
+            }
+            
+            Opponent newOpponent = new Opponent();
+            opponentHandler.createObject(opponentName, active);
+            output.confirmationOnUpdateOpponent(opponentName, active);//ikke lavet
+            input.getInt(5);
+            adminMenu.adminMenu();           
       }
 }
