@@ -115,6 +115,7 @@ public class AdminMatchMenu
             Match match = input.getMatchIDByList(matches);
             output.promptMatchResult();
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
+            
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             ArrayList<Footballer> footballers = fh.getActiveFootballersArray();
     
@@ -125,9 +126,10 @@ public class AdminMatchMenu
                         char goalType = input.getGoalType();
                         if(goalType == 'o' || goalType == 'O')
                         {
-                        //her skal oprettes ny spiller
+                              fh.getOpponentFootballersArray();
+                              output.printOpponentFootballers();
                               GoalHandler gh = GoalHandler.getGoalHandler();
-                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assisted);
+                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, 00);
                         }
                         else 
                         {
@@ -156,7 +158,7 @@ public class AdminMatchMenu
                          output.getMatchFormation();
                          input.promptMatchFormation();
                          output.promptMatchLineup();
-                         input.getMatLineup();
+                         input.getMatchLineup();
                          output.typeInResultConfirmation();
             
             

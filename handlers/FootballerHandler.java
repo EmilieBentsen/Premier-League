@@ -90,6 +90,20 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return activeFootballers;
       }
       
+      public ArrayList getOpponentFootballersArray()
+      {
+            ArrayList<Footballer> opponentFootballers = new ArrayList<Footballer>();
+            
+            for(Footballer i : footballers)
+            {
+                  if(i.getFootballerEmployed() == false)
+                  {
+                        opponentFootballers.add(i);
+                  }
+            }
+            return opponentFootballers;
+      }
+      
       public void listFootballers() //printer liste med footballers, skal nok slettes
       {           
             for(Footballer i : footballers)
