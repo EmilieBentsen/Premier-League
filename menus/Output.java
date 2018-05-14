@@ -86,6 +86,15 @@ public class Output
             }
       }
       
+      public void printOpponentFootballers(ArrayList<Footballer> opponents)
+      {
+            for(Footballer i : opponents)
+            {
+                  System.out.printf("%3s %20s %5s", "ID", "Name", "Team");
+                  System.out.printf("%3s %20s %5s", i.getID(), i.getFootballerName(), i.getFootballerSalary());
+            }
+      }
+      
       public void printSchedule(ArrayList<Match> schedule, ArrayList<Opponent> opponents)
       {
       //printer det resterende kampprogram for sæsonen.
