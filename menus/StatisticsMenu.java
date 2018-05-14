@@ -7,7 +7,7 @@ import java.util.ArrayList;   //Til når vi opretter ArrayList's
 
 public class StatisticsMenu   
 {
-      //objekter af vores handler singleton løsning.
+      //objekter af vores handlers, singleton løsning.
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       GoalHandler goalHandler = GoalHandler.getGoalHandler();
       MatchHandler matchHandler = MatchHandler.getMatchHandler();
@@ -52,6 +52,7 @@ public class StatisticsMenu
             LocalDate startDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             output.endDateOfPeriod("Top Three Goal Scorers");//output metoden endDateOfPeriod, beder brugeren om at taste slut datoen
             LocalDate endDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            //får et doobelt array med top tre målscorer og antal af deeres mål
             int[][] topThreeGoalscorers = goalHandler.getTopGoalscorersByDate(3, startDate, endDate);
             output.printTopThreeGoalScorers(topThreeGoalscorers); //printer de tre top scorere og antal mål.
             bakEndButtons();// metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
@@ -111,48 +112,55 @@ public class StatisticsMenu
             output.endDateOfPeriod("Matches played by footballer: ");//beder brugeren om at indtaste slut datoen
             LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             //laver en ArrayList over kampe den valgte fodboldspiller har spillet i den valgte periode
+
             ArrayList<Match> matches = matchHandler.getMatchesPlayedInPeriod(dateStart, dateEnd, footballer.getFootballerJersey()); 
-            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
-            output.printMatchesPlayedInPeriod(matches, opponents);
-            output.bakEndButton(4,5);
-            bakEndButtons();
+            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//får en liste over modstandere.
+            output.printMatchesPlayedInPeriod(matches, opponents);//Udskriver en liste over kampe der er spillet i den givne periode
+            output.bakEndButton(4,5);//printer en tilbage og en slut knap ud
+            bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
+      //Club menuen, printer sæson stats ud for holdet
       public void clubStatisticsMenu()
       {
-            String clubMatchStatistics = matchHandler.matchesPlayedWonDrawLostByClub();
-            String[] components = clubMatchStatistics.split(",");
-            int matchesPlayed = Integer.parseInt(components[0]);
+            //laver string (clubMatchStatistics), der gemmer spillede, vundne, uafgjorte og tabte kampe
+            String clubMatchStatistics = matchHandler.matchesPlayedWonDrawLostByClub(); 
+            String[] components = clubMatchStatistics.split(",");//Deler clubMatchStatistics op i et string array
+            int matchesPlayed = Integer.parseInt(components[0]);//gemmer elementerne i array-et i int's
             int matchesWon = Integer.parseInt(components[1]);
             int matchesDraw = Integer.parseInt(components[2]);
             int matchesLost = Integer.parseInt(components[3]);
             
-            int goalsScored = goalHandler.getGoalsByClub();
-            int goalsConceded = matchHandler.goalsConcededByClub();
-            int cleenSheets = matchHandler.cleanSheetsByClub();
+            int goalsScored = goalHandler.getGoalsByClub();//henter antal scorede mål for klubben
+            int goalsConceded = matchHandler.goalsConcededByClub();//henter antal indkaserede mål fro klubben
+            int cleenSheets = matchHandler.cleanSheetsByClub();//henter antal gange liverpool har spillet til nul
             
+            //udskriver statistikerne på consolen
             output.clubStatisticsMenu(matchesPlayed, matchesWon, matchesDraw, matchesLost, goalsScored, goalsConceded, cleenSheets);
-            bakEndButtons();
+            bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
+      //kamp statistik menuen
       public void matchStatisticsMenu()
       {
-            output.matchStatisticsMenuStartDate();
+            output.matchStatisticsMenuStartDate();//Printer menuen ud på consolen, der bedere brugeren om at indtaste en start dato
                         
-            LocalDate dateStart = LocalDate.parse(getDate());
-            output.matchStatisticsMenuEndDate();
-            LocalDate dateEnd = LocalDate.parse(getDate());
+            LocalDate dateStart = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate 
+            output.matchStatisticsMenuEndDate();//beder brugeren om at indtaste en slut dato
+            LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
             
-            ArrayList<Match> matches = matchHandler.matchesInPeriod(dateStart,dateEnd); 
-            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();
-            output.printMatchesPlayedInPeriod(matches, opponents);
-            Match chosenMatch = input.getMatchByID(matches);
-            ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());
-            output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());
-            bakEndButtons();
+            //henter en liste af kampe spillet indenfor den givne periode
+            ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
+            ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//henter en liste over modstandere
+            output.printMatchesPlayedInPeriod(matches, opponents);//printer en liste over kampe spillede i perioden.
+            //output.promptMatchByID();//beder brugeren vælge en kamp
+            Match chosenMatch = input.getMatchByID(matches);//gemmer den valgte kamp i chosenMatch
+            ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());//laver en liste med liverpool mål scoret i kampen
+            output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());//printer målene ud i consolen
+            bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }  
       
-      public void bakEndButtons()
+      public void bakEndButtons()//metoden beder brugeren om indput mellem 4 og 5 og vælger menu derefter
       {
             int choice = input.getInt(4,5);
             switch(choice)

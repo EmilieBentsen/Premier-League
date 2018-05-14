@@ -1,25 +1,25 @@
 package menus;
 
-import java.util.ArrayList;
+import java.util.ArrayList;   //til oprettelse af ArrayList's
 import models.*;
 import handlers.*;
 
 public class Output
 {      
-      public void startMenu()
+      public void startMenu()//Printer start menu billedet
       {
-            header();
-            buttonMiddle("Start Menu", 15);
-            emptyLine(2);
-            buttonLeft("(1). Statistics", 31);
-            emptyLine(2);
-            twoButtons("(2). Login", "(3). Shedule", 31);
+            header();         //Printer overskriften "you vil newer walk alone, liverpool F.C.
+            buttonMiddle("Start Menu", 15);//laver en kanp i midten af skærmen, med teksten "start menu"
+            emptyLine(2);     //to tomme linjer
+            buttonLeft("(1). Statistics", 31);  //laver en knap til højre i skærmbilledet
+            emptyLine(2);     
+            twoButtons("(2). Login", "(3). Shedule", 31);   //to knapper ved siden af hinanden
             emptyLine(7);
-            typeYourInput("1-3");
-            line();
+            typeYourInput("1-3");// printer en besked til brugeren om at de skal taste et tal imellem 1 og 3.
+            line();//linje af *** til at markere slutningen på skærmen
       }
             
-      public void statisticMenu()
+      public void statisticMenu()//Printer statistik menu billdet
       {
             header();
             buttonMiddle("Statistic Menu", 21);
@@ -28,7 +28,7 @@ public class Output
             emptyLine(2);
             twoButtons("(2). Footballer Statistics", "(4). Match Statistics", 31);
             emptyLine(2);
-            endButton(5);
+            endButton(5);     //vider en slut knap nede i højre hjørne
             typeYourInput("1-5");
             line();            
       }
@@ -47,18 +47,21 @@ public class Output
             line();
       }
       
-      public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)
+      public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)//
       {
-            FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+            FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();//objekt af footballhandler, singleton metoden
             header();
             emptyLine(3);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[0][1], 42);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[0][1], 42);//printer den bedste målscorer ud med navn og antal mål 
             emptyLine(1);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[1][1], 42);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[1][1], 42);//printer nummer 2 målscorer ud
             emptyLine(1);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName() + ": Goals scored " + topThreeGoalScorers[2][1], 42);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[2][1], 42);//nr 3 målscorer
             emptyLine(3);
-            bakEndButton(4,5);
+            bakEndButton(4,5);//printer en tilbage og afslut knap nede i højre hjørne 
             line();
       }
       
@@ -76,6 +79,7 @@ public class Output
       
       public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
       {
+      //printer en liste over aktive fodboldspillere.
             for(Footballer i : activeFootballers)
             {
                   System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
@@ -84,6 +88,7 @@ public class Output
       
       public void printSchedule(ArrayList<Match> schedule, ArrayList<Opponent> opponents)
       {
+      //printer det resterende kampprogram for sæsonen.
            for(Match i : schedule)
             {
                   System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents) + " " 
@@ -98,6 +103,7 @@ public class Output
             System.out.println("input the footballers jersey number to choose");
       }
       
+      //printer stats us for den enkelte fodboldspiller
       public void displayFootballerStatistics(Footballer footballer, int goals, int assists, int cleansheets, int matchesPlayed)
       {
             header();
@@ -111,6 +117,7 @@ public class Output
             {
                   twoButtons("Goals scored: " + goals, "Goals assisted: " + assists, 31);
             }
+            //hvis fodboldspilleren er forsvarer eller målmand, skal vi printe antallet af clean sheets med
             else if( footballer instanceof Defender || footballer instanceof Goalkeeper)
             {
                   threeButtons("Cleansheets: " + cleansheets,"Goals scored: " + goals, "Goals assisted: " + assists, 31); 
@@ -122,6 +129,7 @@ public class Output
             line();        
       }
       
+      //printer menu'en for hvilke kampe fodboldspilleren har spillet
       public void footballerMatchesPlayed(Footballer footballer)
       {
             header();
@@ -134,6 +142,7 @@ public class Output
             line();
       }
       
+      //printer en liste af de kampe der er spillet i en periode ud
       public void printMatchesPlayedInPeriod(ArrayList<Match> matches, ArrayList<Opponent> opponents)
       {
             for (Match i : matches)
@@ -144,7 +153,7 @@ public class Output
             }            
       }
       
-      public String homeAwayGame(char game)
+      public String homeAwayGame(char game)//Laver et H om til Home game og A om til Away game 
       {
             if(game == 'H')
             {
@@ -156,6 +165,7 @@ public class Output
             }
       }
       
+      //finder modstander navnet ud fra deres modstander id og returnerer det
       public String getOpponent(int matchOpponentID, ArrayList<Opponent> opponents)
       {
             for(Opponent i : opponents)
@@ -168,6 +178,7 @@ public class Output
             return null;
       }
       
+      //Printer holdets statistikker ud for sæsonen
       public void clubStatisticsMenu(int gamesPlayed, int gamesWon, int gamesDraw, int gamesLost, int goalsScored, int goalsConceded, int cleenSheets)
       {
             header();
@@ -182,6 +193,7 @@ public class Output
             line();
       }
       
+      //printer en menu ud, der beder brugeren om at taste en start dato for en periode
       public void matchStatisticsMenuStartDate()
       {
             header();
@@ -196,6 +208,7 @@ public class Output
             line();
       }
       
+      //printer en menu ud, der beder brugeren om at taste en slut dato for en periode
       public void matchStatisticsMenuEndDate()
       {
             header();
@@ -208,13 +221,15 @@ public class Output
             line();
       }
       
+      //printer statistik omrking en enkelt kamp, kampdato, spillet formation, startopstilling, hvilke mål Liverpool har scoret
+      //målscorer, tidspunkt i kampen målet er scoret, om målet er scoret på straffe osv samt hvem der lagde op til målet
       public void chosenMatch(Match match, ArrayList<Goal> goals, ArrayList<Footballer> footballers)
       {
             header();
             emptyLine(5);
             printLine(" Match Date: " + match.getMatchDate() + " Formation: " + match.getMatchFormation() + " Starting lineup by jersey number:  " + match.getMatchLineup());
             int count = 1;
-            for(Goal i : goals)
+            for(Goal i : goals)//printer listen af mål
             {
                   printLine(count + " Minutte scored: " + i.getGoalMinuteScored() + " Goal scorer: " + printGoalScorerName(i.getGoalScorer(), footballers) + " "
                    + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
@@ -225,6 +240,7 @@ public class Output
             line();
       }
       
+      //Finder en fodboldspillers navn ud fra et fodboldspiller id og returnerer navnet
       public String printGoalScorerName(int goalScorerFootballerID, ArrayList<Footballer> footballers)
       {
             String goalScorerName = "";
@@ -239,6 +255,7 @@ public class Output
             return goalScorerName;
       }
       
+      //finder oplægeren til målet udfra assistingFootballerID og returnrer navnet, hvis der ikke er lagt op til målet returneres no assist
       public String printAssistingPlayerName(int assistingFootballerID, ArrayList<Footballer> footballers)
       {
             String assistingFootballerName = "";
@@ -259,12 +276,12 @@ public class Output
             return assistingFootballerName;
       }
       
-      public void printLine(String text)
+      public void printLine(String text)//bruges til at printe en linje tekst med * som ramme
       {
             System.out.println("*" + text + whiteSpaces(113 - text.length()) + "*");
       }
       
-      public void header()
+      public void header()//Laver overskriften på vores menu'er
       {
             line();
             System.out.println("*" + " __   __                     _ _ _                                             _ _            _                  " + "*");
@@ -281,12 +298,12 @@ public class Output
             System.out.println("*" + whiteSpaces(32) + "                    |_|                           " + whiteSpaces(31) + "*");
       }
       
-      public void typeYourInput(String range)
+      public void typeYourInput(String range)//bruges til at bede brugeren om at taste input ind, range er det tilladte fra og til
       {
             System.out.println("*" + "  Type your input here; " + range + whiteSpaces(89 - range.length()) + "*");
       }
       
-      public void emptyLine(int number)
+      public void emptyLine(int number)//printer en tom linje per "number"
       {
             for (int i = 0; i < number; i++)
             {
@@ -294,7 +311,7 @@ public class Output
             }
       }
       
-      public void line()
+      public void line()//printer en linje *******
       {
             for(int i = 0; i < 115; i++)
             {
@@ -303,21 +320,21 @@ public class Output
             System.out.println();
       }
       
-      public void endButton(int number)
+      public void endButton(int number)//laver en slut knap nede i højre hjørne
       {
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " End Program",19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
       }
       
-      public void bakEndButton(int bakNumber, int endNumber)
+      public void bakEndButton(int bakNumber, int endNumber)//laver en tilbage knap og en slut knap
       {
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " End Program",19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
       }
       
-      public void twoButtons(String textButtonOne, String textButtonTwo, int length)
+      public void twoButtons(String textButtonOne, String textButtonTwo, int length)//laver to knapper
       {
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(textButtonOne, length) + whiteSpaces((113 - 2*length)/ 3)
@@ -325,7 +342,7 @@ public class Output
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
       }
       
-      public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)
+      public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)//laver 3 knapper
       {
             System.out.println("*" + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length)
              + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
@@ -341,21 +358,21 @@ public class Output
              + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) + "*");
       }
       
-      public void buttonLeft(String text, int length)
+      public void buttonLeft(String text, int length)//laver en knap i venstre side
       {
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((2*113 - length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(text, length) + whiteSpaces((2*113 - length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((2*113 - length)/ 3) + "*");
       }
       
-      public void buttonMiddle(String text, int length)
+      public void buttonMiddle(String text, int length)//laver en kanp i midten af skærmen
       {
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonHead(length) + whiteSpaces((113 - length)/2) + "*");
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonBody(text,length) + whiteSpaces((113 - length)/2) + "*");
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonHead(length) + whiteSpaces((113 - length)/2) + "*");            
       }
       
-      public String buttonBody(String text, int length)
+      public String buttonBody(String text, int length)//bruges til at kroppen af knapperne
       {
             String head = "";
             head += "|" + whiteSpaces(length/8) + text;
@@ -364,7 +381,7 @@ public class Output
             return head;
       }
       
-      public String buttonHead(int length)
+      public String buttonHead(int length)//bruges til at printe linjerne i toppen og bunden af knappen
       {
             String top = "";
             for(int i = 0; i < length; i++)
@@ -374,7 +391,7 @@ public class Output
             return top;
       }
       
-      public String whiteSpaces(int number)
+      public String whiteSpaces(int number)//laver number antal mellemrum
       {
             String spaces = "";
             for(int i = 0; i < number; i++)
