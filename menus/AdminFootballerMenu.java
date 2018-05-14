@@ -7,25 +7,15 @@ import java.util.ArrayList;
 public class AdminFootballerMenu
 {
       Output output = new Output();
-<<<<<<< HEAD
-=======
       Input input = new Input();
->>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
-      
-      
-      //FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
       public void adminFootballerMenu()
       {
-<<<<<<< HEAD
-            //output.adminFootballerMenu();//ikke lavet
-            //int choice = input.getInt(1,2);
-=======
             output.adminFootballerMenu();
-            int choice = input.getInt(1,2);
->>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
-            
-            /*switch(choice)
+            int choice = input.getInt(1,3);
+                        
+            switch(choice)
             {
                   case 1 :    updateFootballerMenu();
                               break;
@@ -36,7 +26,7 @@ public class AdminFootballerMenu
                   case 3 :    MainMenu mainMenu = new MainMenu();
                               mainMenu.startMenu();
                               break;
-            }*/
+            }
       }
       
       public void updateFootballerMenu()
@@ -71,11 +61,11 @@ public class AdminFootballerMenu
       
       public void createFootballerMenu(String salaryOrTeam)
       {
-            output.inputJerseyNumber();//informerer om trøjenummeret, og beder om at intaste det nye.
+            output.setJerseyNumber();
             int jerseyNumber = input.getInt();
-            output.inputFootballerName();//informerer om navnet, og beder om at intaste det nye
+            output.inputFootballerName();
             String name = input.getString();
-            output.inputFootballerSalary(salaryOrTeam);// beder om at intaste den nye løn
+            output.inputFootballerSalary(salaryOrTeam);
             String salary = input.getString();
             output.inputFootballerEmployed();
             

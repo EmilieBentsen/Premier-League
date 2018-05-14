@@ -149,7 +149,6 @@ public class AdminMatchMenu
                               {
                                     output.printActiveFootballers(footballers);
                                     output.promtWasGoalAssisted();
-                                    i
                                     assistedID = input.getAssistedFootballer(footballers);
                         
                               }

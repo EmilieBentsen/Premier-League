@@ -629,28 +629,34 @@ public class Output
 
       public void inputFootballerPosition()
       {
-            printLine("Enter the players employment status (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
+            printLine("Enter the players position (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
       }
       
       public void confirmationUpdateFootballer(Footballer footballer)
       {
             printLine("You have updatet the footballer witht footballer id " + footballer.getID() + "his data is now ");
-            printLine(footballer.getFootballerName() + " " + footballer.getFootballerJersey() + " " + footballer.getFootballerSalary()
-            + " " + footballer.getFootballerEmployed() + " " + footballer.getFootballerPosition());
+            printLine(footballer.getFootballerName() + " Jersey Number: " + footballer.getFootballerJersey() + " Salary: " + footballer.getFootballerSalary()
+            + " Employment Status: " + footballer.getFootballerEmployed() + " Position " + footballer.getFootballerPosition());
       }
       
       public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position)
       {
             printLine("You have created a new footballer witht footballer name " + name);
-            printLine(jerseyNumber + " " + salary + " " + employed + " " + position);
+            printLine(" Jesey number: " + jerseyNumber + " Salary: " + salary + " Employment staus: " + employed + " position: " + position);
       }
+      
       public void promptGoals(int homeGoals)
       {
             printLine("You now have to fill in information about " + homeGoals + " goals");
       }
+      
       public void promptIsOpponentOnList()
       {
             printLine("Is the scoring opponent on the list? yes \"Y\" or no \"N\"");
       } 
-     
+      
+      public void setJerseyNumber()
+      {
+            printLine("What is the new players jersey number ");
+      }
 }
