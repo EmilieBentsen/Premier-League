@@ -481,4 +481,9 @@ public class Output
       {
             printLine("Please enter match result. The home team Goals is the first ciffer \"2-3\" ");
       }
+      
+      public void promptGoalscorer()
+      {
+            printLine("please enter \"ID\" of one of the footballers.");
+      }
 }

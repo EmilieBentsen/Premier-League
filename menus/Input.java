@@ -168,29 +168,24 @@ public class Input
             }
             
       }
-<<<<<<< HEAD
-      public Match getMatchIDByList(ArrayList<Match> matches)
-=======
-      
-      //tjekker om det indtastede id findes i listen af kampe
-      public int getMatchIDByList(ArrayList<Match> matches)
->>>>>>> ade88f03b193f3266a51492e21179ebfca9d448c
+
+      public Match getMatchIDByList(ArrayList<Match> matches) //tjekker om det indtastede id findes i listen af kampe
       {
             while(true)
             {
-                  int input =getInt();
+                  int input = getInt();
                   for(Match i : matches)
-                  {
-                        if (i.getID() == input)
-                        {
-<<<<<<< HEAD
+                  {                        
                               if (i.getID() == input)
                               {
+                                    
                                     return i;
                               }
-                         } 
+                          
                    }     
       }
+      }
+      
       public int getResult(char homeAway, Match match)
       {
             String input;
@@ -202,15 +197,15 @@ public class Input
                         String [] components = input.split("-");
                         int homeTeamGoals = Integer.parseInt(components[0]);
                         int awayTeamGoals = Integer.parseInt(components[1]);
+                        match.setMatchHomeGoals(homeTeamGoals);
+                        match.setMatchAwayGoals(awayTeamGoals);
                        
                   if(Character.toString(homeAway).equals("H"))
                   {
-                        match.setMatchHomeGoals(homeTeamGoals);
                         return homeTeamGoals;
                   }
                   else if (Character.toString(homeAway).equals("A"))
                   {
-                        match.setMatchAwayGoals(awayTeamGoals);
                         return awayTeamGoals;      
                   }
                   else 
@@ -226,18 +221,9 @@ public class Input
                         input = getString();
                         
                   }
-                             
-                 
-                  
-             
+
             }
-      }
-      
-=======
-                              return input;
-                        }
-                  } 
-            }     
+            
       }      
->>>>>>> ade88f03b193f3266a51492e21179ebfca9d448c
+
 }
