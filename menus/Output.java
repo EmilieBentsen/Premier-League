@@ -504,6 +504,10 @@ public class Output
             printLine("Please enter type of goal R = 'Regular' P = 'Penalty' O = 'Own'");
       }
       
+      public void promtWasGoalAssisted()
+      {
+            printLine("Was the goal assisted? yes \"Y\" or no \"N\"");
+      }
       public void promptForAssistedFootballer()
       {
             printLine("please enter ID of assisted player");
@@ -640,4 +644,13 @@ public class Output
             printLine("You have created a new footballer witht footballer name " + name);
             printLine(jerseyNumber + " " + salary + " " + employed + " " + position);
       }
+      public void promptGoals(int homeGoals)
+      {
+            printLine("You now have to fill in information about " + homeGoals + " goals");
+      }
+      public void promptIsOpponentOnList()
+      {
+            printLine("Is the scoring opponent on the list? yes \"Y\" or no \"N\"");
+      } 
+     
 }

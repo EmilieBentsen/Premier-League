@@ -7,16 +7,25 @@ import java.util.ArrayList;
 public class AdminFootballerMenu
 {
       Output output = new Output();
+<<<<<<< HEAD
+=======
       Input input = new Input();
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
       
-      FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      
+      //FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
       public void adminFootballerMenu()
       {
+<<<<<<< HEAD
+            //output.adminFootballerMenu();//ikke lavet
+            //int choice = input.getInt(1,2);
+=======
             output.adminFootballerMenu();
             int choice = input.getInt(1,2);
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
             
-            switch(choice)
+            /*switch(choice)
             {
                   case 1 :    updateFootballerMenu();
                               break;
@@ -27,7 +36,7 @@ public class AdminFootballerMenu
                   case 3 :    MainMenu mainMenu = new MainMenu();
                               mainMenu.startMenu();
                               break;
-            }
+            }*/
       }
       
       public void updateFootballerMenu()

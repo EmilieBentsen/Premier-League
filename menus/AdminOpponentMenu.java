@@ -54,7 +54,11 @@ public class AdminOpponentMenu
             }
 
             output.confirmationOnUpdateOpponent(chosenOpponent);
+<<<<<<< HEAD
+            int endMenu = input.getInt(5,5);
+=======
             int endMenu = input.getInt(3,3);
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
@@ -77,7 +81,11 @@ public class AdminOpponentMenu
             }
             opponentHandler.createObject(opponentName, active);
             output.confirmationOnCreateOpponent(opponentName, active);
+<<<<<<< HEAD
+            input.getInt(5,5);
+=======
             input.getInt(3,3);
+>>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();           
       }

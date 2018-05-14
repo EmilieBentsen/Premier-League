@@ -17,8 +17,8 @@ public class AdminMenu
               while(validUser == false)
               {    
       
-              output.promptUsername();
-              String username = input.getString();
+                  output.promptUsername();
+                  String username = input.getString();
               if (username.equalsIgnoreCase("exit"))
               {
                    MainMenu main = new MainMenu();
@@ -56,14 +56,21 @@ public class AdminMenu
             switch(choice)
             {
                   case 1:
-                              adminMatchMenu.adminMatchMenu();   
+                              adminMatchMenu.adminMatchMenu();
+                              break;
                   case 2:
                               adminFootballerMenu.adminFootballerMenu();
+<<<<<<< HEAD
+=======
+                              break;
+>>>>>>> f555cea693825ee783da817913d24c2b3f00164d
                   case 3:
                               adminOpponentMenu.adminOpponentMenu();
+                              break;
                   case 4:
                               MainMenu mm = new MainMenu();
                               mm.startMenu();
+                              break;
             
             }
             
