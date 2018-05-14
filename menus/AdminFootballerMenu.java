@@ -39,11 +39,11 @@ public class AdminFootballerMenu
             
             output.inputJerseyNumber(chosenFootballer); 
             chosenFootballer.setFootballerJersey(input.getInt());
-            output.inputFootballerName(chosenFootballer);//findes ikke informerer om navnet, og beder om at intaste det nye
+            output.inputFootballerName(chosenFootballer);//informerer om navnet, og beder om at intaste det nye
             chosenFootballer.setFootballerName(input.getString());
-            output.inputFootballerSalary(chosenFootballer);//findes ikke informerer om lønen, og beder om at intaste den nye løn
+            output.inputFootballerSalary(chosenFootballer);//informerer om lønen, og beder om at intaste den nye løn
             chosenFootballer.setFootballerSalary(input.getString());
-            output.inputFootballerEmployed(chosenFootballer);//findes ikke informerer om fodboldspilleren er ansat, og beder om at intaste den nye status
+            output.inputFootballerEmployed(chosenFootballer);//informerer om fodboldspilleren er ansat, og beder om at intaste den nye status
             
             int active = input.getInt(1,2);
                               if(active == 1)
@@ -54,20 +54,19 @@ public class AdminFootballerMenu
                               {
                                     chosenFootballer.setFootballerEmployed(false);
                               }
-            output.confirmationUpdateFootballer(chosenFootballer);//ikke lavet
-            
-            int endMenu = input.getInt(5,5);
+            output.confirmationUpdateFootballer(chosenFootballer);            
+            int endMenu = input.getInt(3,3);
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
       
       public void createFootballerMenu(String salaryOrTeam)
       {
-            output.inputJerseyNumber();//findes ikke, informerer om trøjenummeret, og beder om at intaste det nye.
+            output.inputJerseyNumber();//informerer om trøjenummeret, og beder om at intaste det nye.
             int jerseyNumber = input.getInt();
-            output.inputFootballerName();//findes ikke informerer om navnet, og beder om at intaste det nye
+            output.inputFootballerName();//informerer om navnet, og beder om at intaste det nye
             String name = input.getString();
-            output.inputFootballerSalary(salaryOrTeam);//findes ikke informerer om lønen, og beder om at intaste den nye løn
+            output.inputFootballerSalary(salaryOrTeam);// beder om at intaste den nye løn
             String salary = input.getString();
             output.inputFootballerEmployed();
             
@@ -102,7 +101,7 @@ public class AdminFootballerMenu
             
             footballerHandler.createObject(jerseyNumber, name, salary, employed, position);
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position);
-            input.getInt(5,5);
+            input.getInt(3,3);
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }

@@ -58,7 +58,7 @@ public class AdminMenu
                   case 1:
                               adminMatchMenu.adminMatchMenu();   
                   case 2:
-                              //adminFootballerMenu.adminFootballerMenu();
+                              adminFootballerMenu.adminFootballerMenu();
                   case 3:
                               adminOpponentMenu.adminOpponentMenu();
                   case 4:
