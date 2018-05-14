@@ -531,21 +531,16 @@ public class Output
             emptyLine(7);
             endButton(3);
             line();      
-     } 
+      } 
+      
+      public void printOpponentName(Opponent opponent)
+      {
+            printLine("current opponent name: " + opponent.getOpponentName());
+      }
       
       public void promptOpponentName()
       {
             printLine("Enter the new name of the opponent");
-      }
-      
-      public void changeOpponentName()
-      {
-            printLine("Do you want to change the name of the opponent");
-      }
-      
-      public void changeOpponentActive()
-      {
-            printLine("Do you want to change the active status of the opponent");
       }
       
       public void promptOpponentActice()
@@ -558,6 +553,7 @@ public class Output
       {
             printLine("You have updatet the opponent with the id " + opponent.getID() + " to: " + opponent.getOpponentName()
              + " and active status is " + opponent.getOpponentActive());
+            printLine("enter 3 to get back to admin menu "); 
       }
       
       public void inputOpponentName()
@@ -568,6 +564,7 @@ public class Output
       public void confirmationOnCreateOpponent(String opponentName, boolean active)
       {
             printLine(" you have created " + opponentName + " and active status is " + active );
+            printLine(" enter 3 to return to admin menu ");
       }
       
       public void adminFootballerMenu()
