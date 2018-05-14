@@ -20,16 +20,21 @@ public class AdminMatchMenu
            {
                   case 1: 
                               createFutureMatch();
+                              break;
                   case 2: 
                               updateMatch();
+                              break;
                   case 3:
                               typeInResult();
+                              break;
                   case 4:
                               AdminMenu am = new AdminMenu();
                               am.adminMenu();
+                              break;
                   case 5:
                               MainMenu mm = new MainMenu();
                               mm.startMenu();
+                              break;
            } 
       }
       
@@ -107,8 +112,9 @@ public class AdminMatchMenu
             ArrayList<Match> matches = mh.schedule();
             output.printNonRegisteredMatches(matches);
             output.promptMatchByID();
-            int ID = input.getMatchIDByList(matches);
-            
+            Match match = input.getMatchIDByList(matches);
+            output.promptMatchResult();
+            int homeGoals = input.getResult(match.getMatchHomeOrAway(), match);
             //Der mangler at blive inputtet resultat, home goals (hvem og hvornår de er scoret), away goals, formation, lineup.
             
       }

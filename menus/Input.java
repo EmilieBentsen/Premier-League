@@ -159,7 +159,7 @@ public class Input
             }
             
       }
-      public int getMatchIDByList(ArrayList<Match> matches)
+      public Match getMatchIDByList(ArrayList<Match> matches)
       {
                   while(true)
                   {
@@ -168,10 +168,51 @@ public class Input
                         {
                               if (i.getID() == input)
                               {
-                                    return input;
+                                    return i;
                               }
                          } 
                    }     
+      }
+      public int getResult(char homeAway, Match match)
+      {
+            String input;
+            while(true)
+            {
+                  input = getString();
+                  try
+                  {
+                        String [] components = input.split("-");
+                        int homeTeamGoals = Integer.parseInt(components[0]);
+                        int awayTeamGoals = Integer.parseInt(components[1]);
+                       
+                  if(Character.toString(homeAway).equals("H"))
+                  {
+                        match.setMatchHomeGoals(homeTeamGoals);
+                        return homeTeamGoals;
+                  }
+                  else if (Character.toString(homeAway).equals("A"))
+                  {
+                        match.setMatchAwayGoals(awayTeamGoals);
+                        return awayTeamGoals;      
+                  }
+                  else 
+                  {
+                        System.out.println("Wrong input! ");
+                        input = getString();
+                  }
+       
+                  }
+                  catch(Exception e)
+                  {
+                        System.out.println("Wrong input! ");
+                        input = getString();
+                        
+                  }
+                             
+                 
+                  
+             
+            }
       }
       
 }

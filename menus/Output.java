@@ -457,6 +457,11 @@ public class Output
       
       public void promptMatchByID()
       {
-            printLine("Please enter one the \"ID\" of the one of the listed matches.");
+            printLine("Please enter \"ID\" of one of the listed matches.");
+      }
+      
+      public void promptMatchResult()
+      {
+            printLine("Please enter match result. The home team Goals is the first ciffer \"2-3\" ");
       }
 }
