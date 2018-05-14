@@ -68,13 +68,6 @@ public class AdminOpponentMenu
             output.confirmationOnUpdateOpponent(chosenOpponent);
             int endMenu = input.getInt(5,5);
             adminMenu.adminMenu();
-            /* 
-            skal Printe liste af alle modstandere.
-            skal prompte bruger til at vælge en modstander fra listen.
-            Prompter bruger om man vil ændre Opponent Name(Ja/Nej)Hvis input = Ja: Prompt for nyt navn.
-            Prompter bruger for om man vil ændre "Active Status"(Ja/nej) Hvis input = Ja, ændre værdi af valgt
-            opponents boolean, evt. kunne den nye status blive printet så brugeren kan se at der sker noget.
-            */
       }
       
       public void createNewOpponentMenu()
@@ -95,7 +88,7 @@ public class AdminOpponentMenu
             }
             
             opponentHandler.createObject(opponentName, active);
-            output.confirmationOnUpdateOpponent(opponentName, active);//ikke lavet
+            output.confirmationOnCreateOpponent(opponentName, active);
             input.getInt(5,5);
             adminMenu.adminMenu();           
       }

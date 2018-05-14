@@ -502,8 +502,8 @@ public class Output
       public void promtGoalType()
       {
             printLine("Please enter type of goal R = 'Regular' P = 'Penalty' O = 'Own'");
-            
       }
+      
       public void promptForAssistedFootballer()
       {
             printLine("please enter ID of assisted player");
@@ -523,7 +523,14 @@ public class Output
       
       public void adminOpponentMenu()
       {
-            /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
+            header();
+            emptyLine(2);
+            buttonMiddle("Manage Opponents", 31);
+            emptyLine(4);
+            threeButtons("1. Update opponent ","2. Create opponent Match ","3. Type in Match Result",31 );
+            emptyLine(7);
+            bakEndButton(4,5);
+            line();      /*Skal print menuoversigt: 1. Update Opponent Information, 2.Create Opponent*/
       } 
       
       public void promptOpponentName()
@@ -538,26 +545,28 @@ public class Output
       
       public void changeOpponentActive()
       {
-      
+            printLine("Do you want to change the active status of the opponent");
       }
       
       public void promptOpponentActice()
       {
-      
+            printLine("Enter if the opponent is active");
+            printLine("1 for active, 2 for inactive");
       }
       
       public void confirmationOnUpdateOpponent(Opponent opponent)
       {
-      
+            printLine("You have updatet the opponent with the id " + opponent.getID() + " to: " + opponent.getOpponentName()
+             + " and active status is " + opponent.getOpponentActive());
       }
       
       public void inputOpponentName()
       {
-            
+            printLine("Enter the opponents name");
       }
       
-      public void confirmationOnUpdateOpponent(String opponentName, boolean active)
+      public void confirmationOnCreateOpponent(String opponentName, boolean active)
       {
-      
+            printLine(" you have created " + opponentName + " and active status is " + active );
       }
 }
