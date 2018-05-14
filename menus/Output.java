@@ -313,10 +313,7 @@ public class Output
       
       public void line()//printer en linje *******
       {
-            for(int i = 0; i < 115; i++)
-            {
-                  System.out.print("*");
-            }
+            System.out.print("*******************************************************************************************************************");
             System.out.println();
       }
       

@@ -10,8 +10,8 @@ public class AdminOpponentMenu
       public void adminOpponentMenu()
       {
             output.adminOpponentMenu();//ikke lavet
-            input.getInt(1,2);
-            switch
+            int choice = input.getInt(1,2);
+            switch(choice)
             {
                   case 1 :    updateOpponentMenu();
                               break;
