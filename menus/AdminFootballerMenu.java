@@ -24,7 +24,7 @@ public class AdminFootballerMenu
             int choice = input.getInt(1,2);
 
             
-            /*switch(choice)
+            switch(choice)
             {
                   case 1 :    updateFootballerMenu();
                               break;
@@ -35,7 +35,7 @@ public class AdminFootballerMenu
                   case 3 :    MainMenu mainMenu = new MainMenu();
                               mainMenu.startMenu();
                               break;
-            }*/
+            }
       }
       
       public void updateFootballerMenu()
