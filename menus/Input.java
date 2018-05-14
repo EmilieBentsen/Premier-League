@@ -6,6 +6,7 @@ import handlers.*;
 
 public class Input
 {
+      Output output = new Output();
       public int getInt(int min, int max)
       {
             while(true)
@@ -397,9 +398,18 @@ public class Input
                   
                   if(input.equalsIgnoreCase("Y"))
                   {
+                        output.printActiveFootballers(footballers);
                         System.out.println("Please enter goalscorer ID from list");
                         ID = getInt();
-                        return ID;
+                        for(Footballer i : footballers)
+                        {
+                              if(ID == i.getFootballerJersey())
+                              {
+                                    return i.getID();
+                                    
+                              }
+                        }
+                        
                         
                   }
                   else if(input.equalsIgnoreCase("N"))

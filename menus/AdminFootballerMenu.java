@@ -7,23 +7,22 @@ import java.util.ArrayList;
 public class AdminFootballerMenu
 {
       Output output = new Output();
-<<<<<<< HEAD
-=======
+
       Input input = new Input();
->>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
+
       
       
       //FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
       public void adminFootballerMenu()
       {
-<<<<<<< HEAD
+
             //output.adminFootballerMenu();//ikke lavet
             //int choice = input.getInt(1,2);
-=======
+
             output.adminFootballerMenu();
             int choice = input.getInt(1,2);
->>>>>>> 13b1d8f3ca988e98701b8fecf9f51ffead01bcec
+
             
             /*switch(choice)
             {
@@ -41,7 +40,8 @@ public class AdminFootballerMenu
       
       public void updateFootballerMenu()
       {
-            ArrayList<Footballer> footballers = footballerHandler.getFootballerArray();
+            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+            ArrayList<Footballer> footballers = fh.getFootballerArray();
             output.printActiveFootballers(footballers);
             output.inputJerseyNumber();        
             Footballer chosenFootballer = input.getFootballerByJersey(footballers);
@@ -109,7 +109,8 @@ public class AdminFootballerMenu
                               break;
             }
             
-            footballerHandler.createObject(jerseyNumber, name, salary, employed, position);
+            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+            fh.createObject(jerseyNumber, name, salary, employed, position);
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position);
             input.getInt(5,5);
             AdminMenu adminMenu = new AdminMenu();
