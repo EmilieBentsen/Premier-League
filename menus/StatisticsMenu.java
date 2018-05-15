@@ -81,7 +81,7 @@ public class StatisticsMenu
             //laver en ArrayList med aktive fodboldspiller for klubben
             ArrayList<Footballer> activeFootballers = footballerHandler.getActiveFootballersArray();
             output.printActiveFootballers(activeFootballers);//Printer listen med aktive fodboldspillere
-            output.inputJerseyNumber();//beder brugeren om vælge en fodboldspiller fra listen            
+            output.promptJerseyNumberFootballerStatistics();//beder brugeren om vælge en fodboldspiller fra listen            
             //gemmer den valgte spiller i chosenFootballer til senere brug
             Footballer chosenFootballer = input.getFootballerByJersey(activeFootballers);
                         

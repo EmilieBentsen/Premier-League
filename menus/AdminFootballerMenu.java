@@ -4,20 +4,20 @@ import handlers.*;
 import models.*;
 import java.util.ArrayList;
 
-public class AdminFootballerMenu
+public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Footballer Menu i programmet
 {
       Output output = new Output();
       Input input = new Input();
       FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
       
-      public void adminFootballerMenu()
+      public void adminFootballerMenu() 
       {
             output.adminFootballerMenu();
-            int choice = input.getInt(1,3);
+            int choice = input.getInt(1,3); 
                         
             switch(choice)
             {
-                  case 1 :    updateFootballerMenu();
+                  case 1 :    updateFootballerMenu(); 
                               break;
                   
                   case 2 :    createFootballerMenu("salary");
@@ -33,21 +33,21 @@ public class AdminFootballerMenu
             }
       }
       
-      public void updateFootballerMenu()
+      public void updateFootballerMenu() //Menuen er til for at kunne opdatere oplysninger om en eksisterende footballer
       {
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             ArrayList<Footballer> footballers = fh.getFootballerArray();
-            output.printActiveFootballers(footballers);
-            output.inputJerseyNumber();        
+            output.printActiveFootballers(footballers); //printer en liste af aktive footballers
+            output.promptJerseyNumber(); 
             Footballer chosenFootballer = input.getFootballerByJersey(footballers);
             
-            output.inputJerseyNumber(chosenFootballer); 
+            output.promptNewJerseyNumber(chosenFootballer); 
             chosenFootballer.setFootballerJersey(input.getInt());
-            output.inputFootballerName(chosenFootballer);//informerer om navnet, og beder om at intaste det nye
+            output.promptFootballerName(chosenFootballer);//informerer om navnet, og beder om at intaste det nye
             chosenFootballer.setFootballerName(input.getString());
-            output.inputFootballerSalary(chosenFootballer);//informerer om lønen, og beder om at intaste den nye løn
+            output.promptFootballerSalary(chosenFootballer);//informerer om lønen, og beder om at intaste den nye løn
             chosenFootballer.setFootballerSalary(input.getString());
-            output.inputFootballerEmployed(chosenFootballer);//informerer om fodboldspilleren er ansat, og beder om at intaste den nye status
+            output.promptFootballerEmployed(chosenFootballer);//informerer om fodboldspilleren er ansat, og beder om at intaste den nye status
             
             int active = input.getInt(1,2);
                               if(active == 1)
@@ -68,9 +68,9 @@ public class AdminFootballerMenu
       {
             output.setJerseyNumber();
             int jerseyNumber = input.getInt();
-            output.inputFootballerName();
+            output.promptFootballerName();
             String name = input.getString();
-            output.inputFootballerSalary(salaryOrTeam);
+            output.promptFootballerSalary(salaryOrTeam);
             String salary = input.getString();
             boolean employed = true;
             
@@ -83,7 +83,7 @@ public class AdminFootballerMenu
                   employed = false;
             }
             
-            output.inputFootballerPosition();
+            output.promptFootballerPosition();
             String position = "";
             int choice = input.getInt(1,4);
             switch(choice)

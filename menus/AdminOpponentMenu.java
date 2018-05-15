@@ -61,7 +61,7 @@ public class AdminOpponentMenu
       
       public void createNewOpponentMenu()
       {
-            output.inputOpponentName();
+            output.promptOpponentNameCreateNewOpponent();
             String opponentName = input.getString();
             output.promptOpponentActice();
             int isActive = input.getInt(1,2);

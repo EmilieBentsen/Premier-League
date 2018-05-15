@@ -108,7 +108,7 @@ public class Output
             }   
       }
       
-      public void inputJerseyNumber()
+      public void promptJerseyNumberFootballerStatistics()
       {
             System.out.println("Wich footballer do you want to see");
             System.out.println("input the footballers jersey number to choose");
@@ -569,7 +569,7 @@ public class Output
             printLine("Input 3 to return to menu."); 
       }
       
-      public void inputOpponentName()
+      public void promptOpponentNameCreateNewOpponent()
       {
             printLine("Enter opponent name:");
       }
@@ -592,25 +592,25 @@ public class Output
             line(); 
       }
       
-      public void inputJerseyNumber(Footballer footballer)
+      public void promptNewJerseyNumber(Footballer footballer)
       {
             printLine("Players current jersey number is " + footballer.getFootballerJersey());
             printLine("Enter the players new jersey number: ");
       }
       
-      public void inputFootballerName(Footballer footballer)
+      public void promptFootballerName(Footballer footballer)
       {
             printLine("Players current name is " + footballer.getFootballerName());
             printLine("Enter the players new name: ");
       }
       
-      public void inputFootballerSalary(Footballer footballer)
+      public void promptFootballerSalary(Footballer footballer)
       {
             printLine("Players current salary is " + footballer.getFootballerSalary());
             printLine("Enter the players new salary: ");
       }
       
-      public void inputFootballerEmployed(Footballer footballer)
+      public void promptFootballerEmployed(Footballer footballer)
       {
             printLine("Players current employment status is " + footballer.getFootballerEmployed());
             printLine("Enter the players employment status (1) = true, (2) = false ");
@@ -621,22 +621,22 @@ public class Output
             printLine("Enter the new players jersey number:");
       }
       
-      public void inputFootballerName()
+      public void promptFootballerName()
       {
             printLine("Enter the new players namer:");
       }
       
-      public void inputFootballerSalary(String salaryOrTeam)
+      public void promptFootballerSalary(String salaryOrTeam)
       {
             printLine("Input players " + salaryOrTeam);
       }
       
-      public void inputFootballerEmployed()
+      public void promptFootballerEmployed()
       {
             printLine("Enter the players employment status (1) = true, (2) = false ");
       }
 
-      public void inputFootballerPosition()
+      public void promptFootballerPosition()
       {
             printLine("Enter the players position (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
       }
