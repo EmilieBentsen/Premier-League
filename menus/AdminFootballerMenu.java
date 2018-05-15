@@ -20,7 +20,11 @@ public class AdminFootballerMenu
                   case 1 :    updateFootballerMenu();
                               break;
                   
-                  case 2 :    createFootballerMenu("salary: ");
+                  case 2 :    createFootballerMenu("salary");
+                              int endMenu = input.getInt(3,3);
+                              output.endButton(3);
+                              AdminMenu adminMenu = new AdminMenu();
+                              adminMenu.adminMenu();
                               break;
                               
                   case 3 :    MainMenu mainMenu = new MainMenu();
@@ -68,12 +72,10 @@ public class AdminFootballerMenu
             String name = input.getString();
             output.inputFootballerSalary(salaryOrTeam);
             String salary = input.getString();
-            output.inputFootballerEmployed();
-            
-            int isActive = input.getInt(1,2);
             boolean employed = true;
-            if(isActive == 1)
-            {
+            
+            if(salaryOrTeam.equals("salary"))
+            {     
                   employed =true;
             }
             else
@@ -102,8 +104,5 @@ public class AdminFootballerMenu
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             fh.createObject(jerseyNumber, name, salary, employed, position);
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position);
-            input.getInt(3,3);
-            AdminMenu adminMenu = new AdminMenu();
-            adminMenu.adminMenu();
       }
 }

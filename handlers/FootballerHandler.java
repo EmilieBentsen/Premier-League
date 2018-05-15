@@ -164,6 +164,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                                                             footballerSalary, 
                                                             footballerEmployed));
                         save(footballers);
+                        break;
              case "FW":
                         footballers.add(new Forward(getNewFootballerID(), 
                                                             footballerJersey, 
@@ -171,6 +172,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                                                             footballerSalary, 
                                                             footballerEmployed));
                         save(footballers);
+                        break;
              case "DF":
                         footballers.add(new Defender(getNewFootballerID(), 
                                                             footballerJersey, 
@@ -178,6 +180,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                                                             footballerSalary, 
                                                             footballerEmployed));
                         save(footballers);
+                        break;
              case "MF":
                         footballers.add(new Midfielder(getNewFootballerID(), 
                                                             footballerJersey, 
@@ -185,6 +188,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                                                             footballerSalary, 
                                                             footballerEmployed));
                         save(footballers);
+                        break;
              case "MN":
                         footballers.add(new Manager(getNewFootballerID(), 
                                                             footballerJersey, 
@@ -192,6 +196,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                                                             footballerSalary, 
                                                             footballerEmployed));
                         save(footballers);
+                        break;
              }
              
       }

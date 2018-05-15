@@ -115,7 +115,6 @@ public class AdminMatchMenu
             Match match = input.getMatchIDByList(matches);
             output.promptMatchResult();
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
-            
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             ArrayList<Footballer> footballers = fh.getActiveFootballersArray();
     
@@ -168,7 +167,12 @@ public class AdminMatchMenu
                   String formation = input.promptMatchFormation();
                   output.promptMatchLineup();
                   String lineup = input.getMatchLineup();
+                  MatchHandler matchHandler = MatchHandler.getMatchHandler();
+                  matchHandler.updateObject(match.getID(), match.getMatchDate(), match.getMatchOpponentID(), match.getMatchHomeOrAway(), match.getMatchHomeGoals(), match.getMatchAwayGoals(), formation, lineup);
                   output.typeInResultConfirmation();
+                  
+                  AdminMenu am = new AdminMenu();
+                  am.adminMenu();
             }
       
 }

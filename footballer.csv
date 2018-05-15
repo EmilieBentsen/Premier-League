@@ -35,6 +35,5 @@ ID,Jersey,Name,Position,Salary/week,Employed
 34,3,Eric Bailly,DF,MAU,false
 35,0,Jürgen Klopp,MN,0,true
 36,78,Fin Holger,FW,100,true
-37,78,Fin Holger,DF,100,true
-38,78,Fin Holger,MF,100,true
-39,78,Fin Holger,MN,100,true
+42,57,Erik Pilverdier,MN,ALBE,false
+43,60,Erik P,GK,ALBELOL,false

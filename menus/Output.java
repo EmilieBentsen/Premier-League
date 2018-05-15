@@ -88,11 +88,13 @@ public class Output
       
       public void printOpponentFootballers(ArrayList<Footballer> opponents)
       {
+            
+            System.out.printf("%3s %20s %5s \n", "ID", "Name", "Team");
             for(Footballer i : opponents)
             {
-                  System.out.printf("%3s %20s %5s", "ID", "Name", "Team");
-                  System.out.printf("%3s %20s %5s", i.getID(), i.getFootballerName(), i.getFootballerSalary());
+                  System.out.printf("%3s %20s %5s \n", i.getID(), i.getFootballerName(), i.getFootballerSalary());
             }
+            System.out.println();
       }
       
       public void printSchedule(ArrayList<Match> schedule)
@@ -469,7 +471,7 @@ public class Output
             emptyLine(2);
             buttonMiddle("Manage Matches", 31);
             emptyLine(4);
-            threeButtons("1. Create Future Match","2. Update Match","3. Type in Match Result",31 );
+            threeButtons("1. Create Future Match","2. Update Match (NYI)","3. Type in Match Result",31 );
             emptyLine(7);
             bakEndButton(4,5);
             line();
@@ -491,40 +493,40 @@ public class Output
       
       public void promptMatchResult()
       {
-            printLine("Please enter match result. The home team Goals is the first ciffer \"2-3\" ");
+            printLine("Please enter match result. (Home-Away) ");
       }
       
       public void promptGoalscorer()
       {
-            printLine("Please enter \"Jersey Nr.\" of the scoring footballer.");
+            printLine("Please enter scoring footballers jersey number:");
             
       }
       
       public void promptGoalMinuteScored()
       {
-            printLine("Please enter what minute the goal was scored");
+            printLine("What minute was the goal scored?");
       }
       
       public void promtGoalType()
       {
-            printLine("Please enter type of goal R = 'Regular' P = 'Penalty' O = 'Own'");
+            printLine("Please enter type of goal. (R = 'Regular' P = 'Penalty' O = 'Own')");
       }
       
       public void promtWasGoalAssisted()
       {
-            printLine("Was the goal assisted? yes \"Y\" or no \"N\"");
+            printLine("Was the goal assisted? (Y/N)");
       }
       public void promptForAssistedFootballer()
       {
-            printLine("please enter ID of assisted player");
+            printLine("Please enter jersey number of assisting player:");
       }
       public void getMatchFormation()
       {
-            printLine("please enter match formation by format \"0-0-0-0\" ");
+            printLine("Enter starting formation. (0-0-0 or 0-0-0-0) ");
       }
       public void promptMatchLineup()
       {
-            printLine("please enter match lineup by format \"00-00-00-00-00-00-00-00-00-00-00\" ");
+            printLine("Enter starting lineup: (00-00-00-00-00-00-00-00-00-00-00) ");
       }
       public void typeInResultConfirmation()
       {
@@ -545,36 +547,37 @@ public class Output
       
       public void printOpponentName(Opponent opponent)
       {
-            printLine("current opponent name: " + opponent.getOpponentName());
+            printLine("Current opponent name: " + opponent.getOpponentName());
       }
       
       public void promptOpponentName()
       {
-            printLine("Enter the new name of the opponent");
+            printLine("New opponent name:");
       }
       
       public void promptOpponentActice()
       {
-            printLine("Enter if the opponent is active");
-            printLine("1 for active, 2 for inactive");
+            printLine("Is the opponent currently in Premier League?");
+            printLine("1 for Yes, 2 for No");
       }
       
       public void confirmationOnUpdateOpponent(Opponent opponent)
       {
-            printLine("You have updatet the opponent with the id " + opponent.getID() + " to: " + opponent.getOpponentName()
-             + " and active status is " + opponent.getOpponentActive());
-            printLine("enter 3 to get back to admin menu "); 
+            printLine("You have updated the opponent.");
+            System.out.printf("%3s %20s %5s", "ID", "Name", "Active");
+            System.out.printf("%3s %20s %5s", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
+            printLine("Input 3 to return to menu."); 
       }
       
       public void inputOpponentName()
       {
-            printLine("Enter the opponents name");
+            printLine("Enter opponent name:");
       }
       
       public void confirmationOnCreateOpponent(String opponentName, boolean active)
       {
-            printLine(" you have created " + opponentName + " and active status is " + active );
-            printLine(" enter 3 to return to admin menu ");
+            printLine("You have created" + opponentName + ". Their current status is:" + active );
+            printLine("Input 3 to return to menu.");
       }
       
       public void adminFootballerMenu()
@@ -615,12 +618,12 @@ public class Output
       
       public void promptJerseyNumber()
       {
-            printLine("Enter the new players jersey number ");
+            printLine("Enter the new players jersey number:");
       }
       
       public void inputFootballerName()
       {
-            printLine("Enter the new players namer ");
+            printLine("Enter the new players namer:");
       }
       
       public void inputFootballerSalary(String salaryOrTeam)
@@ -640,29 +643,29 @@ public class Output
       
       public void confirmationUpdateFootballer(Footballer footballer)
       {
-            printLine("You have updatet the footballer witht footballer id " + footballer.getID() + "his data is now ");
-            printLine(footballer.getFootballerName() + " Jersey Number: " + footballer.getFootballerJersey() + " Salary: " + footballer.getFootballerSalary()
-            + " Employment Status: " + footballer.getFootballerEmployed() + " Position " + footballer.getFootballerPosition());
+            printLine("You have updated "+footballer.getFootballerName());
+            System.out.printf("%3s %3s %8s %5s %3s", "ID", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
+            System.out.printf("%3s %3s %8s %5s %3s", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
       }
       
       public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position)
       {
-            printLine("You have created a new footballer witht footballer name " + name);
-            printLine(" Jesey number: " + jerseyNumber + " Salary: " + salary + " Employment staus: " + employed + " position: " + position);
+            printLine("You have created a new footballer: " + name);
+            printLine("Jersey number: " + jerseyNumber + ", Salary: " + salary + ", Employment staus: " + employed + ", Position: " + position);
       }
       
       public void promptGoals(int homeGoals)
       {
-            printLine("You now have to fill in information about " + homeGoals + " goals");
+            printLine("Goals left to update: " + homeGoals);
       }
       
       public void promptIsOpponentOnList()
       {
-            printLine("Is the scoring opponent on the list? yes \"Y\" or no \"N\"");
+            printLine("Is the scoring opponent on the list? (Y/N)");
       } 
       
       public void setJerseyNumber()
       {
-            printLine("What is the new players jersey number ");
+            printLine("Players jersey number:");
       }
 }

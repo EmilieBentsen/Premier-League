@@ -200,26 +200,26 @@ public class Input
                         int awayTeamGoals = Integer.parseInt(components[1]);
                         match.setMatchHomeGoals(homeTeamGoals);
                         match.setMatchAwayGoals(awayTeamGoals);
-                       
-                  if(Character.toString(homeAway).equals("H"))
-                  {
-                        return homeTeamGoals;
-                  }
-                  else if (Character.toString(homeAway).equals("A"))
-                  {
-                        return awayTeamGoals;      
-                  }
-                  else 
-                  {
-                        System.out.println("Wrong input!");
-                  }
-       
-                  }
-                  catch(Exception e)
-                  {
-                        System.out.println("Wrong input! ");                        
-                  }
-
+                        
+                        
+                        if(Character.toString(homeAway).equals("H"))
+                        {
+                              return homeTeamGoals;
+                        }
+                        else if (Character.toString(homeAway).equals("A"))
+                        {
+                              return awayTeamGoals;      
+                        }
+                        else 
+                        {
+                              System.out.println("Wrong input!");
+                        }
+             
+                        }
+                        catch(Exception e)
+                        {
+                              System.out.println("Wrong input! ");                        
+                        }
             }
             
       }
@@ -292,7 +292,7 @@ public class Input
                   else if(input.equalsIgnoreCase("N"))
                   {
                         AdminFootballerMenu afm = new AdminFootballerMenu();
-                        afm.createFootballerMenu("Team");
+                        afm.createFootballerMenu("team");
                         FootballerHandler fh = FootballerHandler.getFootballerHandler();
                         ArrayList<Footballer> footballers = fh.getFootballerArray();
                         ID = fh.getNewID(footballers)-1;
@@ -337,10 +337,10 @@ public class Input
      
      public String getMatchLineup()
      {
-         Input input = new Input();
-            int result = 0;
+            Input input = new Input();
             while(true)
             {
+                  int result = 0;
                   String lineup = input.getString();
                   String[] stringArrayLineup = lineup.split("-");
                   int[] intArrayLineup = new int[stringArrayLineup.length];
@@ -369,7 +369,7 @@ public class Input
      }  
      public int getAssistedFootballer(ArrayList<Footballer> footballers) 
       {
-            int ID;
+            int jersey;
             String input;
             while(true)
             {
@@ -378,11 +378,11 @@ public class Input
                   if(input.equalsIgnoreCase("Y"))
                   {
                         output.printActiveFootballers(footballers);
-                        System.out.println("Please enter goalscorer ID from list");
-                        ID = getInt();
+                        System.out.println("Please enter assisting footballers jersey number:");
+                        jersey = getInt();
                         for(Footballer i : footballers)
                         {
-                              if(ID == i.getFootballerJersey())
+                              if(jersey == i.getFootballerJersey())
                               {
                                     return i.getID();
                                     
@@ -398,7 +398,7 @@ public class Input
                   }
                   else
                   {
-                        System.out.println("Wrong input.");
+                        System.out.println("Wrong input. (Y/N)");
                   }
             }
       }   

@@ -14,7 +14,7 @@ public class AdminOpponentMenu
       public void adminOpponentMenu()
       {
             output.adminOpponentMenu();
-            int choice = input.getInt(1,2);
+            int choice = input.getInt(1,3);
             switch(choice)
             {
                   case 1 :    updateOpponentMenu();

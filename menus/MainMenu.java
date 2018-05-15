@@ -11,12 +11,6 @@ public class MainMenu
       
       MatchHandler matchHandler = MatchHandler.getMatchHandler();//objekter af vores handlers, singleton løsning.
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
-            
-      public static void main(String[] args)//Skal slettes, kun til test
-      {
-            MainMenu main = new MainMenu();
-            main.startMenu();            
-      }
       
       public void startMenu()//Start skærmen, hvor brugeren vælger menu
       {
