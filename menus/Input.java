@@ -211,16 +211,13 @@ public class Input
                   }
                   else 
                   {
-                        System.out.println("Wrong input! ");
-                        input = getString();
+                        System.out.println("Wrong input!");
                   }
        
                   }
                   catch(Exception e)
                   {
-                        System.out.println("Wrong input! ");
-                        input = getString();
-                        
+                        System.out.println("Wrong input! ");                        
                   }
 
             }
@@ -398,6 +395,10 @@ public class Input
                   {
                         return 00;
                         
+                  }
+                  else
+                  {
+                        System.out.println("Wrong input.");
                   }
             }
       }   

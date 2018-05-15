@@ -69,7 +69,7 @@ public class Output
       {
             header();
             emptyLine(2);
-            buttonMiddle(text, 31);
+            buttonMiddle(text, 41);
             emptyLine(4);
             printLine(" Enter end date for the period, the format is yyyy-mm-dd ");
             emptyLine(7);
@@ -159,7 +159,11 @@ public class Output
             {
                   System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
             }
-            System.out.println("Enter id:");
+      }
+      
+      public void printAskForID()
+      {
+            System.out.println("Enter ID:");
       }
       
       public String homeAwayGame(char game)//Laver et H om til Home game og A om til Away game 

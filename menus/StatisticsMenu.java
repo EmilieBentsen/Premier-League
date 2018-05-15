@@ -118,7 +118,7 @@ public class StatisticsMenu
 
             ArrayList<Match> matches = matchHandler.matchesPlayedByFootballer(dateStart, dateEnd, footballer.getFootballerJersey()); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//får en liste over modstandere.
-            output.printMatchesPlayedInPeriod(matches, opponents);//Udskriver en liste over kampe der er spillet i den givne periode
+            output.printMatchesPlayedInPeriod(matches);//Udskriver en liste over kampe der er spillet i den givne periode
             output.bakEndButton(4,5);//printer en tilbage og en slut knap ud
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
@@ -155,12 +155,13 @@ public class StatisticsMenu
             //henter en liste af kampe spillet indenfor den givne periode
             ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//henter en liste over modstandere
-            output.printMatchesPlayedInPeriod(matches, opponents);//printer en liste over kampe spillede i perioden.
-            //output.promptMatchByID();//beder brugeren vælge en kamp
+            output.printMatchesPlayedInPeriod(matches);//printer en liste over kampe spillede i perioden.
+            output.printAskForID();
             Match chosenMatch = input.getMatchByID(matches);//gemmer den valgte kamp i chosenMatch
             ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());//laver en liste med liverpool mål scoret i kampen
             output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());//printer målene ud i consolen
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
+            
       }  
       
       public void bakEndButtons()//metoden beder brugeren om indput mellem 4 og 5 og vælger menu derefter
