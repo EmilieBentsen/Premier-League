@@ -4,6 +4,7 @@ import models.*;              //skal have adgang til modelernes get metoder
 import handlers.*;            //Til brug af vores handlers
 import java.time.*;           //til benyttelse af LocalDate
 import java.util.ArrayList;   //Til når vi opretter ArrayList's
+import java.time.format.DateTimeParseException;
 
 public class StatisticsMenu   
 {
@@ -49,17 +50,18 @@ public class StatisticsMenu
       {
             output.topThreeScorerMenu();//printer menuen ud på consolen, som beder brugeren om at taste start datoen
                         
-            LocalDate startDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            LocalDate startDate = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate
             output.endDateOfPeriod("Top Three Goal Scorers");//output metoden endDateOfPeriod, beder brugeren om at taste slut datoen
-            LocalDate endDate = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            LocalDate endDate = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate
             //får et doobelt array med top tre målscorer og antal af deeres mål
             int[][] topThreeGoalscorers = goalHandler.getTopGoalscorersByDate(3, startDate, endDate);
             output.printTopThreeGoalScorers(topThreeGoalscorers); //printer de tre top scorere og antal mål.
             bakEndButtons();// metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
-      public String getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
-      {
+      public LocalDate getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
+      {     
+            
             String date = input.getDate();
             
             if(date.equals("5")) 
@@ -70,7 +72,8 @@ public class StatisticsMenu
             {
                   statisticsMenu();
             }
-            return date;
+            LocalDate l = LocalDate.parse(date);
+            return l;
       }
       
       public void footballerStatisticsMenu()//til fodboldspiller statistik menuen
@@ -108,9 +111,9 @@ public class StatisticsMenu
       public void footballerMatchesPlayed(Footballer footballer)
       {
             output.footballerMatchesPlayed(footballer);//beder brugeren om at indtaste start datoen for den periode kampende skal vises 
-            LocalDate dateStart = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            LocalDate dateStart = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate
             output.endDateOfPeriod("Matches played by footballer: ");//beder brugeren om at indtaste slut datoen
-            LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            LocalDate dateEnd = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate
             //laver en ArrayList over kampe den valgte fodboldspiller har spillet i den valgte periode
 
             ArrayList<Match> matches = matchHandler.matchesPlayedByFootballer(dateStart, dateEnd, footballer.getFootballerJersey()); 
@@ -145,9 +148,9 @@ public class StatisticsMenu
       {
             output.matchStatisticsMenuStartDate();//Printer menuen ud på consolen, der bedere brugeren om at indtaste en start dato
                         
-            LocalDate dateStart = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate 
+            LocalDate dateStart = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate 
             output.matchStatisticsMenuEndDate();//beder brugeren om at indtaste en slut dato
-            LocalDate dateEnd = LocalDate.parse(getDate());//kalder getDate() og laver String(datoen) om til en LocalDate
+            LocalDate dateEnd = getDate();//kalder getDate() og laver String(datoen) om til en LocalDate
             
             //henter en liste af kampe spillet indenfor den givne periode
             ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 

@@ -109,7 +109,7 @@ public class AdminMatchMenu
             adminMenu();*/
             
             MatchHandler mh = MatchHandler.getMatchHandler();
-            ArrayList<Match> matches = mh.schedule();
+            ArrayList<Match> matches = mh.getMatchesWithoutResult();
             output.printNonRegisteredMatches(matches);
             output.promptMatchByID();
             Match match = input.getMatchIDByList(matches);

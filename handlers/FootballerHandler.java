@@ -71,14 +71,14 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             };
       }
       
-      public ArrayList getFootballerArray() //returnerer ArrayList footballers
+      public ArrayList<Footballer> getFootballerArray() //returnerer ArrayList footballers
       {
             return footballers;
       }
       
-      public ArrayList getActiveFootballersArray()
+      public ArrayList<Footballer> getActiveFootballersArray()
       {
-            ArrayList<Footballer> activeFootballers = new ArrayList();
+            ArrayList<Footballer> activeFootballers = new ArrayList<Footballer>();
             
             for(Footballer i : footballers)
             {
@@ -90,7 +90,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return activeFootballers;
       }
       
-      public ArrayList getOpponentFootballersArray()
+      public ArrayList<Footballer> getOpponentFootballersArray()
       {
             ArrayList<Footballer> opponentFootballers = new ArrayList<Footballer>();
             

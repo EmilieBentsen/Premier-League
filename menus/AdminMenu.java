@@ -61,10 +61,6 @@ public class AdminMenu
                   case 2:
                               adminFootballerMenu.adminFootballerMenu();
                               break;
-<<<<<<< HEAD
-=======
-
->>>>>>> 4106174b54d3162f3f645641e4beb3ab9babe586
                   case 3:
                               adminOpponentMenu.adminOpponentMenu();
                               break;
