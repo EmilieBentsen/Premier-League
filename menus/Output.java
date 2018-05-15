@@ -157,14 +157,7 @@ public class Output
             System.out.printf("%3s %11s %35s %10s %5s %10s \n", "ID", "Date", "Opponent", "Home/Away", "Score", "Formation");
             for (Match i : matches)
             {
-<<<<<<< HEAD
-                  System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID())
-=======
-                  System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID(), opponents), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
-                  /*System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
->>>>>>> 137189dbdba97f4dad827bf3fcca6ae05ebbc051
-                  + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
-                  + " Formation played: " + i.getMatchFormation());*/
+                  System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
             }
             System.out.println("Enter id:");
       }
@@ -173,11 +166,11 @@ public class Output
       {
             if(game == 'H')
             {
-                  return "Home game";
+                  return "Home";
             }
             else
             {
-                  return "Away game";
+                  return "Away";
             }
       }
       
@@ -483,7 +476,7 @@ public class Output
             System.out.printf("%3s %10s %10s \n", "ID", "Date", "Home/Away");
             for(Match i : schedule)
             {
-                  System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), /**/getOpponentName(i.getMatchOpponent()));
+                  System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
             }   
       }
       
@@ -549,11 +542,6 @@ public class Output
       public void printOpponentName(Opponent opponent)
       {
             printLine("current opponent name: " + opponent.getOpponentName());
-      }
-      
-      public String getOpponentName(int opponentID)
-      {
-            /*Input opponent ID, get opponentName.*/
       }
       
       public void promptOpponentName()
