@@ -44,7 +44,11 @@ public class AdminMatchMenu
             output.promptDate();
             String date = input.getDate();
             LocalDate matchDate = LocalDate.parse(date);
-            
+            if(matchDate.isBefore(LocalDate.now()))
+            {
+                  System.out.println("Date has to be after today.");
+                  createFutureMatch();
+            }
             switch(date)
             {
                   case "5":
