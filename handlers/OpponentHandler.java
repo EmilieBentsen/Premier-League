@@ -66,7 +66,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             deleteObject(opponents, id);
       }
       
-      public ArrayList getOpponentArray()//Metoden der returnerer et ArrayList opponents
+      public ArrayList<Opponent> getOpponentArray()//Metoden der returnerer et ArrayList opponents
       {
             return opponents;
       }

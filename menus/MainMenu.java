@@ -36,10 +36,10 @@ public class MainMenu
                                     
                               switch(choiceSchedule)
                               {
-                              case 4: 
-                              startMenu();// kaldder start menuen igen.
-                              break;
-                              }                             
+                                    case 4: 
+                                    startMenu();// kalder start menuen igen.
+                                    break;
+                              }                            
                               break;  
             }
       }
