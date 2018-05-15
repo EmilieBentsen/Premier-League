@@ -54,13 +54,7 @@ public class AdminOpponentMenu
             }
 
             output.confirmationOnUpdateOpponent(chosenOpponent);
-<<<<<<< HEAD
             int endMenu = input.getInt(3,3);
-=======
-
-            int endMenu = input.getInt(3,3);
-
->>>>>>> 4106174b54d3162f3f645641e4beb3ab9babe586
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }

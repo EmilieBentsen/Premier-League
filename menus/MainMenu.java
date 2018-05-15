@@ -40,12 +40,12 @@ public class MainMenu
                               output.endButton(4);//printer en slut knap
                               int choiceSchedule = input.getInt(4,4);//tager kun 4 som gyldigt input
                                     
-                                    switch(choiceSchedule)
-                                    {
-                                    case 4: 
-                                                startMenu();// kaldder start menuen igen.
-                                                break;
-                                    }                             
+                              switch(choiceSchedule)
+                              {
+                              case 4: 
+                              startMenu();// kaldder start menuen igen.
+                              break;
+                              }                             
                               break;  
             }
       }

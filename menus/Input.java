@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import models.*;
 import handlers.*;
+import java.time.format.*;
+import java.time.*;
 
 public class Input
 {
@@ -90,41 +92,21 @@ public class Input
       //sørger for at formatet af den strimg vi modtager er åååå-mm-dd, metoden fanger dog ikke fejlen i 2018-30-51
       public boolean isLocalDate(String line)
       {
-            char c ='0';
-            if(line.length() == 10)
+            try
             {
-                  for(int i = 0; i < 4; i++)
-                  {
-                        c = line.charAt(i);
-                        if(Character.isDigit(c))
-                        {}
-                        else return false;
-                  }
-                  c = line.charAt(4);
-                  if(c == '-')
-                  {}
-                  else return false;
-                  for(int i = 5; i < 7; i++)
-                  {
-                        c = line.charAt(i);
-                        if(Character.isDigit(c))
-                        {}
-                        else return false;
-                  }
-                  c = line.charAt(7);
-                  if(c == '-')
-                  {}
-                  else return false; 
-                  for(int i = 8; i < 9; i++)
-                  {
-                        c = line.charAt(i);
-                        if(Character.isDigit(c))
-                        {}
-                        else return false;
-                  }
-                  return true;
+                  LocalDate matchDate = LocalDate.parse(line);
             }
-            else return false;
+            catch(DateTimeParseException e)
+            {
+                  System.out.println("Date Format Error");
+                  return false;
+            }
+            catch(NullPointerException e)
+            {
+                  System.out.println("Could not read format.");
+                  return false;      
+            }
+      return true;
       }
       
       public String getString()//tager en string in fra consolen og returnerer den

@@ -119,8 +119,8 @@ public class Output
             emptyLine(1);
             buttonMiddle(footballer.getFootballerName()+ " (" + footballer.getFootballerPosition() + ")", 41);
             emptyLine(1);
-            twoButtons("Jersey number: "+footballer.getFootballerJersey(), "Salary: " 
-            + footballer.getFootballerSalary(), 31);
+            twoButtons("Jersey number: "+footballer.getFootballerJersey(), "Salary/week: " 
+            + footballer.getFootballerSalary() + "£", 31);
             
             if (footballer instanceof Forward || footballer instanceof Midfielder)
             {
@@ -154,12 +154,15 @@ public class Output
       //printer en liste af de kampe der er spillet i en periode ud
       public void printMatchesPlayedInPeriod(ArrayList<Match> matches, ArrayList<Opponent> opponents)
       {
+            System.out.printf("%3s %11s %35s %10s %5s %10s \n", "ID", "Date", "Opponent", "Home/Away", "Score", "Formation");
             for (Match i : matches)
             {
-                  System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
+                  System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID(), opponents), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
+                  /*System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
                   + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
-                  + " Formation played: " + i.getMatchFormation());
-            }            
+                  + " Formation played: " + i.getMatchFormation());*/
+            }
+            System.out.println("Enter id:");
       }
       
       public String homeAwayGame(char game)//Laver et H om til Home game og A om til Away game 
@@ -329,14 +332,14 @@ public class Output
       public void endButton(int number)//laver en slut knap nede i højre hjørne
       {
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
-            System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " End Program",19) + " *");
+            System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
       }
       
       public void bakEndButton(int bakNumber, int endNumber)//laver en tilbage knap og en slut knap
       {
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
-            System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " End Program",19) + " *");
+            System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
       }
       
@@ -471,10 +474,10 @@ public class Output
       
       public void printNonRegisteredMatches(ArrayList<Match> schedule)
       {
-           for(Match i : schedule)
+            System.out.printf("%3s %10s %10s \n", "ID", "Date", "Home/Away");
+            for(Match i : schedule)
             {
-                  System.out.println("Match ID: " + i.getID() +  
-                  "Match date: " + i.getMatchDate() +", Home/Away: " + i.getMatchHomeOrAway());
+                  System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), /**/getOpponentName(i.getMatchOpponent()));
             }   
       }
       
@@ -540,6 +543,11 @@ public class Output
       public void printOpponentName(Opponent opponent)
       {
             printLine("current opponent name: " + opponent.getOpponentName());
+      }
+      
+      public String getOpponentName(int opponentID)
+      {
+            /*Input opponent ID, get opponentName.*/
       }
       
       public void promptOpponentName()

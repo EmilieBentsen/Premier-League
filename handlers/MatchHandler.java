@@ -154,6 +154,28 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      public ArrayList<Match> getMatchesWithoutResult()
+      {
+            String formation = "0-0-0";
+            ArrayList<Match> matchesWithoutResult = new ArrayList<Match>();
+            
+            for(Match i : matches)
+            {
+                  if(i.getMatchFormation().equals(formation))
+                  {
+                        matchesWithoutResult.add(new Match(i.getID(), 
+                                                            i.getMatchDate(), 
+                                                            i.getMatchOpponentID(), 
+                                                            i.getMatchHomeOrAway(), 
+                                                            i.getMatchHomeGoals(), 
+                                                            i.getMatchAwayGoals(), 
+                                                            i.getMatchFormation(), 
+                                                            i.getMatchLineup()));
+                  }
+            }
+            return matchesWithoutResult;
+      }
+      
       public ArrayList<Match> matchesPlayedByFootballer(LocalDate startDate, LocalDate endDate, int footballerJersey)
       {
             String footballerJerseyString = Integer.toString(footballerJersey);
