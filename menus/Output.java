@@ -95,12 +95,12 @@ public class Output
             }
       }
       
-      public void printSchedule(ArrayList<Match> schedule, ArrayList<Opponent> opponents)
+      public void printSchedule(ArrayList<Match> schedule)
       {
       //printer det resterende kampprogram for sæsonen.
            for(Match i : schedule)
             {
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents) + " " 
+                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID()) + " " 
                   + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }   
@@ -152,11 +152,11 @@ public class Output
       }
       
       //printer en liste af de kampe der er spillet i en periode ud
-      public void printMatchesPlayedInPeriod(ArrayList<Match> matches, ArrayList<Opponent> opponents)
+      public void printMatchesPlayedInPeriod(ArrayList<Match> matches)
       {
             for (Match i : matches)
             {
-                  System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID(), opponents)
+                  System.out.println("ID: " + i.getID() + " Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID())
                   + " " + homeAwayGame(i.getMatchHomeOrAway()) + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
                   + " Formation played: " + i.getMatchFormation());
             }            
@@ -175,8 +175,10 @@ public class Output
       }
       
       //finder modstander navnet ud fra deres modstander id og returnerer det
-      public String getOpponent(int matchOpponentID, ArrayList<Opponent> opponents)
+      public String getOpponent(int matchOpponentID)
       {
+            OpponentHandler oh = OpponentHandler.getOpponentHandler();
+            ArrayList<Opponent> opponents = oh.getContent();
             for(Opponent i : opponents)
             {
                   if(i.getID() == matchOpponentID)
