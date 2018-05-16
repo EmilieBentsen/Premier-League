@@ -156,7 +156,7 @@ public class StatisticsMenu
             ArrayList<Match> matches = matchHandler.getMatchesInPeriod(dateStart,dateEnd); 
             ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//henter en liste over modstandere
             output.printMatchesPlayedInPeriod(matches);//printer en liste over kampe spillede i perioden.
-            output.printAskForID();
+            output.promptForID();
             Match chosenMatch = input.getMatchByID(matches);//gemmer den valgte kamp i chosenMatch
             ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());//laver en liste med liverpool mål scoret i kampen
             output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());//printer målene ud i consolen

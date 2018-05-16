@@ -17,10 +17,10 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                         
             switch(choice)
             {
-                  case 1 :    updateFootballerMenu(); 
+                  case 1 :    updateFootballerMenu(); //Menuen til at opdatere en footballer
                               break;
                   
-                  case 2 :    createFootballerMenu("salary");
+                  case 2 :    createFootballerMenu("salary"); //Menuen til at skabe en footballer
                               int endMenu = input.getInt(3,3);
                               output.endButton(3);
                               AdminMenu adminMenu = new AdminMenu();
@@ -38,10 +38,10 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
             ArrayList<Footballer> footballers = fh.getFootballerArray();
             output.printActiveFootballers(footballers); //printer en liste af aktive footballers
-            output.promptJerseyNumber(); 
-            Footballer chosenFootballer = input.getFootballerByJersey(footballers);
+            output.promptJerseyNumber(); //beder om Jersey nr. på den spiller der ønskes opdateret
+            Footballer chosenFootballer = input.getFootballerByJersey(footballers); 
             
-            output.promptNewJerseyNumber(chosenFootballer); 
+            output.promptNewJerseyNumber(chosenFootballer); //informerer om jersey nr., og beder om at indtaste det nye
             chosenFootballer.setFootballerJersey(input.getInt());
             output.promptFootballerName(chosenFootballer);//informerer om navnet, og beder om at intaste det nye
             chosenFootballer.setFootballerName(input.getString());
@@ -52,13 +52,13 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
             int active = input.getInt(1,2);
                               if(active == 1)
                               {
-                                    chosenFootballer.setFootballerEmployed(true);
+                                    chosenFootballer.setFootballerEmployed(true); //sætter den nye status til aktiv
                               }
                               else
                               {
-                                    chosenFootballer.setFootballerEmployed(false);
+                                    chosenFootballer.setFootballerEmployed(false);//sætter den nye status til aktiv 
                               }
-            output.confirmationUpdateFootballer(chosenFootballer);            
+            output.confirmationUpdateFootballer(chosenFootballer); //giver en bekræftelse af opdateringen af footballer så brugeren ved den er opdateret            
             int endMenu = input.getInt(3,3);
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
@@ -66,15 +66,15 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
       
       public void createFootballerMenu(String salaryOrTeam)
       {
-            output.setJerseyNumber();
-            int jerseyNumber = input.getInt();
-            output.promptFootballerName();
+            output.setJerseyNumber(); //Beder om et Jersey number
+            int jerseyNumber = input.getInt(); 
+            output.promptFootballerName(); //Beder om footballer name
             String name = input.getString();
-            output.promptFootballerSalary(salaryOrTeam);
+            output.promptFootballerSalary(salaryOrTeam); //Beder om en footballers løn eller hold
             String salary = input.getString();
             boolean employed = true;
             
-            if(salaryOrTeam.equals("salary"))
+            if(salaryOrTeam.equals("salary")) //Hvis salaryOrTeam er lige med "Salary" sættes employed til true ellers til false.
             {     
                   employed =true;
             }
@@ -83,10 +83,10 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                   employed = false;
             }
             
-            output.promptFootballerPosition();
+            output.promptFootballerPosition(); //beder footballerens position 
             String position = "";
             int choice = input.getInt(1,4);
-            switch(choice)
+            switch(choice)    
             {
                   case 1 :    position = "GK";
                               break;
@@ -102,7 +102,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
             }
             
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
-            fh.createObject(jerseyNumber, name, salary, employed, position);
-            output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position);
+            fh.createObject(jerseyNumber, name, salary, employed, position); //Opretter den nye footballer og gemmer den i footballers
+            output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position); //Brugeren får en bekræftelse på at der er oprettet en ny spiller
       }
 }

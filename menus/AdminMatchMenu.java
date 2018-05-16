@@ -167,7 +167,7 @@ public class AdminMatchMenu
                         }
             
                   }
-                  output.getMatchFormation();
+                  output.promptMatchFormation();
                   String formation = input.promptMatchFormation();
                   output.promptMatchLineup();
                   String lineup = input.getMatchLineup();
