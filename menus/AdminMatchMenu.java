@@ -19,16 +19,16 @@ public class AdminMatchMenu
            switch(choice)
            {
                   case 1: 
-                              createFutureMatch();
+                              createFutureMatch(); //Metode til at oprette en fremtidig Liverpool kamp
                               break;
                   case 2: 
-                              updateMatch();
+                              updateMatch(); //Metode til at opdatere en fremtidig Liverpool kamp
                               break;
                   case 3:
-                              typeInResult();
+                              typeInResult(); //Metode til at indtaste resultatet på en spillet kamp
                               break;
                   case 4:
-                              AdminMenu am = new AdminMenu();
+                              AdminMenu am = new AdminMenu(); 
                               am.adminMenu();
                               break;
                   case 5:
@@ -38,13 +38,13 @@ public class AdminMatchMenu
            } 
       }
       
-      public void createFutureMatch()
+      public void createFutureMatch() //til at oprette en kamp
       {
             
-            output.promptDate();
+            output.promptDate(); //beder om dato på den fremtidige kamp
             String date = input.getDate();
             LocalDate matchDate = LocalDate.parse(date);
-            if(matchDate.isBefore(LocalDate.now()))
+            if(matchDate.isBefore(LocalDate.now())) //Tjekker om datoen ligger efter dags dato
             {
                   System.out.println("Date has to be after today.");
                   createFutureMatch();
@@ -61,16 +61,16 @@ public class AdminMatchMenu
                               adminMatchMenu();
             }
             OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
-            ArrayList<Opponent> opponents = opponentHandler.getActiveOpponentsArray();
-            output.printOpponentList(opponents); 
-            output.promptOpponent();
+            ArrayList<Opponent> opponents = opponentHandler.getActiveOpponentsArray(); //henter aktive modstander array
+            output.printOpponentList(opponents); //printer liste af aktive modstandere
+            output.promptOpponent(); //beder om modstander fra liste
             int opponent = input.getOpponentIDByList(opponents);
-            output.promptHomeAway();
+            output.promptHomeAway(); //spørg om det er en ude eller hjemmekamp
             char homeAway = input.getHomeAway();
             
             MatchHandler matchHandler = MatchHandler.getMatchHandler();
             matchHandler.createObject(matchDate, opponent,Character.toUpperCase(homeAway), 0, 0, "0-0-0", "00-00-00-00-00-00-00-00-00-00-00");
-            output.matchCreationConfirmation();
+            output.matchCreationConfirmation(); //Bekræftelse på at kampen er oprettet
             
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
@@ -113,28 +113,28 @@ public class AdminMatchMenu
             adminMenu();*/
             
             MatchHandler mh = MatchHandler.getMatchHandler();
-            ArrayList<Match> matches = mh.getMatchesWithoutResult();
-            output.printNonRegisteredMatches(matches);
-            output.promptMatchByID();
+            ArrayList<Match> matches = mh.getMatchesWithoutResult(); //henter liste af kampe der er spillede, men uden resultat
+            output.printNonRegisteredMatches(matches); //printer listen
+            output.promptMatchByID(); //Beder om match ID til kampen der ønskes at indtaste resultat for
             Match match = input.getMatchIDByList(matches);
-            output.promptMatchResult();
+            output.promptMatchResult(); //Beder om kampens resultat
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
             FootballerHandler fh = FootballerHandler.getFootballerHandler();
-            ArrayList<Footballer> footballers = fh.getActiveFootballersArray();
+            ArrayList<Footballer> footballers = fh.getActiveFootballersArray(); //henter liste af aktive spillere
     
-                  for(int i = 0; i < liverpoolGoals; i++)
+                  for(int i = 0; i < liverpoolGoals; i++) //for loppet kører for så mange mål der er scoret af LP og der registreres hvem der målscore
                   {
                         int assistedID = 0;
                         output.printGoals(liverpoolGoals-i); 
-                        output.promtGoalType();
+                        output.promtGoalType(); //spørger om måltypen
                         char goalType = input.getGoalType();
-                        if(goalType == 'o' || goalType == 'O')
+                        if(goalType == 'o' || goalType == 'O') //hvis målet er et selvmål, hentes modstander liste og der vælges et ID på spilleren
                         {
                               ArrayList<Footballer> op = fh.getOpponentFootballersArray();
-                              output.printOpponentFootballers(op);
-                              output.promptIsOpponentOnList();
+                              output.printOpponentFootballers(op); //printer liste med modstandere
+                              output.promptIsOpponentOnList(); //beder om modstander fra liste
                               int ID = input.getOpponentID();
-                              output.promptGoalMinuteScored();
+                              output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
                               int time = input.getGoalMinuteScored();
                               
                               
@@ -144,19 +144,19 @@ public class AdminMatchMenu
                         else
                         {
                               output.printActiveFootballers(footballers);
-                              output.promptGoalscorer();                  
+                              output.promptGoalscorer(); //Beder om målscoren                  
                               int ID = input.getGoalscorer(footballers);
-                              output.promptGoalMinuteScored();
+                              output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
                               int time = input.getGoalMinuteScored();
                   
-                              if(goalType == 'R' || goalType == 'r')
+                              if(goalType == 'R' || goalType == 'r') //hvis målet er et regular mål, spørger det var assisted
                               {
                                     
-                                    output.promtWasGoalAssisted();
+                                    output.promtWasGoalAssisted(); //Spørger om målet var assisted
                                     assistedID = input.getAssistedFootballer(footballers);
                         
                               }
-                              else if(goalType != 'R' || goalType != 'r')
+                              else if(goalType != 'R' || goalType != 'r') //Hvis målet ikke er reguler, sættes assist til 00
                               {
                                     assistedID = 00;
                               }
@@ -167,13 +167,13 @@ public class AdminMatchMenu
                         }
             
                   }
-                  output.promptMatchFormation();
+                  output.promptMatchFormation(); //Beder om kamp formationen
                   String formation = input.promptMatchFormation();
-                  output.promptMatchLineup();
+                  output.promptMatchLineup(); //beder om kampens lineup
                   String lineup = input.getMatchLineup();
                   MatchHandler matchHandler = MatchHandler.getMatchHandler();
                   matchHandler.updateObject(match.getID(), match.getMatchDate(), match.getMatchOpponentID(), match.getMatchHomeOrAway(), match.getMatchHomeGoals(), match.getMatchAwayGoals(), formation, lineup);
-                  output.typeInResultConfirmation();
+                  output.typeInResultConfirmation(); //bekræftelse af opdateringen af kampens resultater
                   
                   AdminMenu am = new AdminMenu();
                   am.adminMenu();

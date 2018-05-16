@@ -10,45 +10,45 @@ public class AdminMenu
       
       Output output = new Output();
       Input input = new Input();
-      public void login()
+      public void login() //Login metode der bedere admin indtaste brugernavn og password og validerer om det er gyldigt login
       {
               boolean validUser = false;
                   
               while(validUser == false)
               {    
-      
-                  output.promptUsername();
-                  String username = input.getString();
-              if (username.equalsIgnoreCase("exit"))
-              {
-                   MainMenu main = new MainMenu();
-                   main.startMenu();
-                   
-              }
-                  output.promptPassword();
-                  String password = input.getString();
-              if (password.equalsIgnoreCase("exit"))
-              {
-                   MainMenu main = new MainMenu();
-                   main.startMenu();
-                   
-              }
-                  UserHandler uh = UserHandler.getUserHandler();
-                  validUser = uh.verifyAdmin(username, password);
-                    
-                    if(validUser == true)
+            
+                    output.promptUsername(); //beder om brugernavn
+                    String username = input.getString();
+                    if (username.equalsIgnoreCase("exit"))
                     {
-                  
-                        adminMenu();
+                         MainMenu main = new MainMenu(); //hvis admin vil tilbage til main menu indtastes exit
+                         main.startMenu();
+                         
                     }
-                    else
+                        output.promptPassword(); //beder om password
+                        String password = input.getString();
+                    if (password.equalsIgnoreCase("exit")) //hvis admin vil tilbage til main menu indtastes exit
                     {
-                        output.invalidUser();
+                         MainMenu main = new MainMenu();
+                         main.startMenu();
+                         
                     }
+                        UserHandler uh = UserHandler.getUserHandler();
+                        validUser = uh.verifyAdmin(username, password); //tjekker om admin login oplysninger kan valideres 
+                          
+                          if(validUser == true)
+                          {
+                        
+                              adminMenu();
+                          }
+                          else
+                          {
+                              output.invalidUser(); //Giver besked om at brugernavn eller password ikke findes
+                          }
                     }
                    
       }
-      public void adminMenu()
+      public void adminMenu() //menu for admin brugere
       {
             output.adminMenuUI();
             int choice = input.getInt(1, 5);
@@ -56,16 +56,16 @@ public class AdminMenu
             switch(choice)
             {
                   case 1:
-                              adminMatchMenu.adminMatchMenu();
+                              adminMatchMenu.adminMatchMenu(); //Admin match menu
                               break;
                   case 2:
-                              adminFootballerMenu.adminFootballerMenu();
+                              adminFootballerMenu.adminFootballerMenu(); //Admin footballer menu
                               break;
                   case 3:
-                              adminOpponentMenu.adminOpponentMenu();
+                              adminOpponentMenu.adminOpponentMenu(); //admin modstander menu
                               break;
                   case 4:
-                              MainMenu mm = new MainMenu();
+                              MainMenu mm = new MainMenu(); //tilbage til main mennu
                               mm.startMenu();
                               break;
             

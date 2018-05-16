@@ -108,8 +108,8 @@ public class Input
             }
       return true;
       }
-      
-      public String getString()//tager en string in fra consolen og returnerer den
+      //tager en string in fra consolen og returnerer den
+      public String getString()
       {
             Scanner input = new Scanner(System.in);
             return input.nextLine();
@@ -132,7 +132,7 @@ public class Input
                   System.out.println("That was not one of the listed opponent ID's. Try again!");
             }
       }
-      
+      //tjekker om det indtastede id findes på listen og returnere en modstander
       public Opponent getOpponentByList(ArrayList<Opponent> opponentList)
       {
             int input;
@@ -150,8 +150,8 @@ public class Input
             }
       }
       
-      
-      public char getHomeAway()//Sørger for at input er enten H eller A.
+      //Sørger for at input er enten H eller A.
+      public char getHomeAway()
       {
             String input;
             while(true)
@@ -169,8 +169,8 @@ public class Input
             }
             
       }
-
-      public Match getMatchIDByList(ArrayList<Match> matches) //tjekker om det indtastede id findes i listen af kampe
+      //tjekker om det indtastede id findes i listen af kampe
+      public Match getMatchIDByList(ArrayList<Match> matches)
       {
             while(true)
             {
@@ -186,7 +186,7 @@ public class Input
                    }     
             }
       }
-      
+      //Tager imod et resultat og splitter det i H/A goals, tjekker om kampen er ude eller hjemme og returnerer LP mål
       public int getResult(char homeAway, Match match)
       {
             String input;
@@ -223,6 +223,7 @@ public class Input
             }
             
       }
+      //Tjekker om footballerjersey er på listen af footballers
       public int getGoalscorer(ArrayList<Footballer> footballers)
       {
             int input;
@@ -238,6 +239,7 @@ public class Input
                   }
             } 
       } 
+      //tager imod tiden et mål er scoret og tjekker at det er mindre end 100 og returner tiden
       public int getGoalMinuteScored()
       {
             int input;
@@ -255,6 +257,7 @@ public class Input
                   }
             }
       }   
+      //tager imod en måltype og tjekker om typen er enten R P eller O og returnerer typen
       public char getGoalType()
       {
             String input;
@@ -274,6 +277,7 @@ public class Input
             
       
       } 
+      //tager imod et svar på om en modstander findes på listen ellers beder den brugeren indtaste modstanderen. Returnerer ID på modstander.
       public int getOpponentID() 
       {
             int ID;
@@ -301,8 +305,8 @@ public class Input
                   }
             }
       } 
-      
-     public String promptMatchFormation()
+     //Tager imod en formation, deler den op i int og tjekker at den er på det korrekte format. Returnerer formationen 
+     public String promptMatchFormation() 
      {
             Input input = new Input();
             int result = 0;
@@ -334,8 +338,8 @@ public class Input
                   }
             }
      }  
-     
-     public String getMatchLineup()
+     //Tager imod et lineup og splitter den i 11 jersey numre. Hvis result når op på 11 i for løkken returneres lineuppet
+     public String getMatchLineup() 
      {
             Input input = new Input();
             while(true)
@@ -367,6 +371,7 @@ public class Input
                   }
             }   
      }  
+     //tager imod et svar på om et mål var assistede. Hvis ja indtastes ID på spiller hvis nej returneres ID = 00
      public int getAssistedFootballer(ArrayList<Footballer> footballers) 
       {
             int jersey;

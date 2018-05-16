@@ -64,7 +64,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
             adminMenu.adminMenu();
       }
       
-      public void createFootballerMenu(String salaryOrTeam)
+      public void createFootballerMenu(String salaryOrTeam) //menu til at oprette en footballer
       {
             output.promptForJerseyNumber(); //Beder om et Jersey number
             int jerseyNumber = input.getInt(); 
