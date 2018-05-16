@@ -8,14 +8,14 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
       private static FootballerHandler instance;
       private ArrayList<Footballer> footballers;
       
-      private FootballerHandler()
+      private FootballerHandler() //Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getFootballerHandler, i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. Footballers ArrayList fyldes op med obejkter lavet fra filen footballer.csv
       {
-            footballers = getContent();
+            footballers = getContent(); //metode nedarvet fra ObjectHandler, der 
       }
       
-      public static FootballerHandler getFootballerHandler()
+      public static FootballerHandler getFootballerHandler() //metode der returnerer en instans af FootballerHandler
       {
-            if(instance == null)
+            if(instance == null) //tjekker om der er lavet en instans af klassen 
             {
                   FootballerHandler fh = new FootballerHandler();
                   instance = fh;
@@ -23,12 +23,12 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return instance;
       }     
 
-      public String getFilePath()
+      public String getFilePath() //filen vi gemmer vores footballere i
       {
             return "footballer.csv";
       }
       
-      public PersistentObjectHandler<Footballer> getHandler()//Returnerer en persistentObjectHandler med objectet Hamster
+      public PersistentObjectHandler<Footballer> getHandler()//Returnerer en persistentObjectHandler med objectet Footballer
       {
             return new PersistentObjectHandler<Footballer>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
             {
@@ -41,7 +41,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
                   public Footballer objectFrom(String line)//PersistentObjectHandler kræver vi har denne metode, modtager en String og laver den om til et objekt og returnerer det
                   {
                         String[] components = line.split(",");
-                        int id = Integer.parseInt(components[0]);//laver strings i arraylisten om til int.
+                        int id = Integer.parseInt(components[0]);
                         int jerseyNumber = Integer.parseInt(components[1]);
                         String name = components[2];
                         String salary = components[4];
@@ -76,7 +76,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return footballers;
       }
       
-      public ArrayList<Footballer> getActiveFootballersArray()
+      public ArrayList<Footballer> getActiveFootballersArray() //Laver en liste af aktive spillere og returnerer det
       {
             ArrayList<Footballer> activeFootballers = new ArrayList<Footballer>();
             
@@ -90,7 +90,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return activeFootballers;
       }
       
-      public ArrayList<Footballer> getOpponentFootballersArray()
+      public ArrayList<Footballer> getOpponentFootballersArray() //Laver en liste af inaktive modstandere og returnerer den
       {
             ArrayList<Footballer> opponentFootballers = new ArrayList<Footballer>();
             
