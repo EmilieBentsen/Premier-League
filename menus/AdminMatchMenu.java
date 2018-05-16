@@ -125,7 +125,7 @@ public class AdminMatchMenu
                   for(int i = 0; i < liverpoolGoals; i++)
                   {
                         int assistedID = 0;
-                        output.promptGoals(liverpoolGoals-i); 
+                        output.printGoals(liverpoolGoals-i); 
                         output.promtGoalType();
                         char goalType = input.getGoalType();
                         if(goalType == 'o' || goalType == 'O')

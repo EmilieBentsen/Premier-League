@@ -7,14 +7,13 @@ import handlers.*;
 public class Output
 {    
       //**HJÆLPE METODER:**  
-      
-          
-      public void printLine(String text)//bruges til at printe en linje tekst med * som ramme
+      //bruges til at printe en linje tekst med * som ramme
+      public void printLine(String text)
       {
             System.out.println("*" + text + whiteSpaces(113 - text.length()) + "*");
       }
-      
-      public void header()//Laver overskriften på vores menu'er
+      //Laver overskriften på vores menu'er
+      public void header()
       {
             line();
             System.out.println("*" + " __   __                     _ _ _                                             _ _            _                  " + "*");
@@ -30,49 +29,49 @@ public class Output
             System.out.println("*" + whiteSpaces(32) + " |____|_|\\_/\\___|_| | .__/\\___/\\___/_| |_(_)___(_)" + whiteSpaces(31) + "*");
             System.out.println("*" + whiteSpaces(32) + "                    |_|                           " + whiteSpaces(31) + "*");
       }
-      
-      public void typeYourInput(String range)//bruges til at bede brugeren om at taste input ind, range er det tilladte fra og til
+      //bruges til at bede brugeren om at taste input ind, range er det tilladte fra og til
+      public void typeYourInput(String range)
       {
             System.out.println("*" + "  Type your input here; " + range + whiteSpaces(89 - range.length()) + "*");
       }
-      
-      public void emptyLine(int number)//printer en tom linje per "number"
+      //printer en tom linje per "number"
+      public void emptyLine(int number)
       {
             for(int i = 0; i < number; i++)
             {
                   System.out.printf("%1s %111s %1s \n","*","", "*");
             }
       }
-      
-      public void line()//printer en linje *******
+      //printer en linje *******
+      public void line()
       {
             System.out.print("*******************************************************************************************************************");
             System.out.println();
       }
-      
-      public void endButton(int number)//laver en slut knap nede i højre hjørne
+      //laver en slut knap nede i højre hjørne
+      public void endButton(int number)
       {
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
       }
-      
-      public void bakEndButton(int bakNumber, int endNumber)//laver en tilbage knap og en slut knap
+      //laver en tilbage knap og en slut knap
+      public void bakEndButton(int bakNumber, int endNumber)
       {
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
       }
-      
-      public void twoButtons(String textButtonOne, String textButtonTwo, int length)//laver to knapper
+      //laver to knapper
+      public void twoButtons(String textButtonOne, String textButtonTwo, int length)
       {
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(textButtonOne, length) + whiteSpaces((113 - 2*length)/ 3)
             + buttonBody(textButtonTwo, length) + whiteSpaces((113 - 2*length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
       }
-      
-      public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)//laver 3 knapper
+      //laver 3 knapper
+      public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)
       {
             System.out.println("*" + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length)
              + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
@@ -87,22 +86,22 @@ public class Output
              + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
              + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) + "*");
       }
-      
-      public void buttonLeft(String text, int length)//laver en knap i venstre side
+      //laver en knap i venstre side
+      public void buttonLeft(String text, int length)
       {
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((2*113 - length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(text, length) + whiteSpaces((2*113 - length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((2*113 - length)/ 3) + "*");
       }
-      
-      public void buttonMiddle(String text, int length)//laver en kanp i midten af skærmen
+      //laver en kanp i midten af skærmen
+      public void buttonMiddle(String text, int length)
       {
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonHead(length) + whiteSpaces((113 - length)/2) + "*");
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonBody(text,length) + whiteSpaces((113 - length)/2) + "*");
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonHead(length) + whiteSpaces((113 - length)/2) + "*");            
       }
-      
-      public String buttonBody(String text, int length)//bruges til at kroppen af knapperne
+      //bruges til at kroppen af knapperne
+      public String buttonBody(String text, int length)
       {
             String head = "";
             head += "|" + whiteSpaces(length/8) + text;
@@ -110,8 +109,8 @@ public class Output
             head += whiteSpaces(number) + "|";
             return head;
       }
-      
-      public String buttonHead(int length)//bruges til at printe linjerne i toppen og bunden af knappen
+      //bruges til at printe linjerne i toppen og bunden af knappen
+      public String buttonHead(int length)
       {
             String top = "";
             for(int i = 0; i < length; i++)
@@ -120,8 +119,8 @@ public class Output
             }
             return top;
       }
-      
-      public String whiteSpaces(int number)//laver number antal mellemrum
+      //laver number antal mellemrum
+      public String whiteSpaces(int number)
       {
             String spaces = "";
             for(int i = 0; i < number; i++)
@@ -130,7 +129,8 @@ public class Output
             }
             return spaces;
       } 
-      public String homeAwayGame(char game)//Laver et H om til Home game og A om til Away game 
+      //Laver et H om til Home game og A om til Away game 
+      public String homeAwayGame(char game)
       {
             if(game == 'H')
             {
@@ -141,7 +141,6 @@ public class Output
                   return "Away";
             }
       }
-      
       //finder modstander navnet ud fra deres modstander id og returnerer det
       public String getOpponent(int matchOpponentID)
       {
@@ -157,7 +156,7 @@ public class Output
             return null;
       }
       //Finder en fodboldspillers navn ud fra et fodboldspiller id og returnerer navnet
-      public String printGoalScorerName(int goalScorerFootballerID, ArrayList<Footballer> footballers)
+      public String getGoalScorerName(int goalScorerFootballerID, ArrayList<Footballer> footballers)
       {
             String goalScorerName = "";
             for(Footballer i : footballers)
@@ -169,10 +168,9 @@ public class Output
                   }
             }
             return goalScorerName;
-      }
-            
+      } 
       //finder oplægeren til målet udfra assistingFootballerID og returnrer navnet, hvis der ikke er lagt op til målet returneres no assist
-      public String printAssistingPlayerName(int assistingFootballerID, ArrayList<Footballer> footballers)
+      public String getAssistingPlayerName(int assistingFootballerID, ArrayList<Footballer> footballers)
       {
             String assistingFootballerName = "";
             if(assistingFootballerID == 00)
@@ -191,10 +189,9 @@ public class Output
             }
             return assistingFootballerName;
       }
-     
       //**MENU'ER:**
-     
-      public void startMenu()//Printer start menu billedet
+     //Printer start menuen hvorfra du kan vælge statisk, admin menu eller schedule.
+      public void startMenu()
       {
             header();         //Printer overskriften "you vil newer walk alone, liverpool F.C.
             buttonMiddle("Start Menu", 15);//laver en kanp i midten af skærmen, med teksten "start menu"
@@ -206,7 +203,7 @@ public class Output
             typeYourInput("1-3");// printer en besked til brugeren om at de skal taste et tal imellem 1 og 3.
             line();//linje af *** til at markere slutningen på skærmen
       }
-            
+      //printer statisik menuen for alle brugere der giver mulighed for at tilgå statistik om footballere og kampe.       
       public void statisticMenu()//Printer statistik menu billdet
       {
             header();
@@ -273,54 +270,8 @@ public class Output
             emptyLine(7);
             bakEndButton(4,5);
             line();
-      }
-      
-      //**TOP 3 MENU:**
-      
-      public void topThreeScorerMenu()
-      {
-            header();
-            emptyLine(2);
-            buttonMiddle("Top Three Goal Scorers", 31);
-            emptyLine(4);
-            printLine("  Wich period do you want to se the top three goal scorers for ");
-            emptyLine(1);
-            printLine("  Enter start date for the period, the format is yyyy-mm-dd ");
-            emptyLine(5);
-            bakEndButton(4,5);
-            line();
-      }
-         
-      public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)//
-      {
-            FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();//objekt af footballhandler, singleton metoden
-            header();
-            emptyLine(3);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[0][1], 42);//printer den bedste målscorer ud med navn og antal mål 
-            emptyLine(1);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[1][1], 42);//printer nummer 2 målscorer ud
-            emptyLine(1);
-            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[2][1], 42);//nr 3 målscorer
-            emptyLine(3);
-            bakEndButton(4,5);//printer en tilbage og afslut knap nede i højre hjørne 
-            line();
-      }
-      
-      public void endDateOfPeriod(String text)
-      {
-            header();
-            emptyLine(2);
-            buttonMiddle(text, 41);
-            emptyLine(4);
-            printLine(" Enter end date for the period, the format is yyyy-mm-dd ");
-            emptyLine(7);
-            bakEndButton(4,5);
-            line();
-      }
-      
+      }      
+      //Printer oplysninger om en spiller med mulighed for at se hvilke kampe han har spillet
       public void displayFootballerStatistics(Footballer footballer, int goals, int assists, int cleansheets, int matchesPlayed)
       {
             header();
@@ -344,8 +295,7 @@ public class Output
             emptyLine(2);
             bakEndButton(4,5);   
             line();        
-      }
-      
+      }   
       //printer statistik omrking en enkelt kamp, kampdato, spillet formation, startopstilling, hvilke mål Liverpool har scoret
       //målscorer, tidspunkt i kampen målet er scoret, om målet er scoret på straffe osv samt hvem der lagde op til målet
       public void chosenMatch(Match match, ArrayList<Goal> goals, ArrayList<Footballer> footballers)
@@ -356,15 +306,15 @@ public class Output
             int count = 1;
             for(Goal i : goals)//printer listen af mål
             {
-                  printLine(count + " Minutte scored: " + i.getGoalMinuteScored() + " Goal scorer: " + printGoalScorerName(i.getGoalScorer(), footballers) + " "
-                   + i.getGoalTypeToString() + " Asisted by: " + printAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
+                  printLine(count + " Minutte scored: " + i.getGoalMinuteScored() + " Goal scorer: " + getGoalScorerName(i.getGoalScorer(), footballers) + " "
+                   + i.getGoalTypeToString() + " Asisted by: " + getAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
                   count ++;
             }
             emptyLine(5);
             bakEndButton(4,5);
             line();
       }
-      
+      //Printer Menuen til at administrator menuen
       public void adminMenuUI()
       {
             header();
@@ -376,6 +326,7 @@ public class Output
             endButton(4);
             line();
       }
+      //Printer Menuen til at administrere matches
       public void adminMatchMenuUI()
       {
             header();
@@ -387,191 +338,7 @@ public class Output
             bakEndButton(4,5);
             line();
       }
-      
-      //**PRINT LISTER:**
-      
-      public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
-      {
-      //printer en liste over aktive fodboldspillere.
-            for(Footballer i : activeFootballers)
-            {
-                  System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
-            }
-      }
-      
-       //printer stats us for den enkelte fodboldspiller
-      public void printOpponentFootballers(ArrayList<Footballer> opponents)
-      {
-            
-            System.out.printf("%3s %20s %5s \n", "ID", "Name", "Team");
-            for(Footballer i : opponents)
-            {
-                  System.out.printf("%3s %20s %5s \n", i.getID(), i.getFootballerName(), i.getFootballerSalary());
-            }
-            System.out.println();
-      }
-      
-      public void printSchedule(ArrayList<Match> schedule)
-      {
-      //printer det resterende kampprogram for sæsonen.
-           for(Match i : schedule)
-            {
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID()) + " " 
-                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
-                  + " Formation played: " + i.getMatchFormation());
-            }   
-      }
-      
-      //printer en liste af de kampe der er spillet i en periode ud
-      public void printMatchesPlayedInPeriod(ArrayList<Match> matches)
-      {
-            System.out.printf("%3s %11s %35s %10s %5s %10s \n", "ID", "Date", "Opponent", "Home/Away", "Score", "Formation");
-            for (Match i : matches)
-            {
-                  System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
-            }
-      }
-      
- 
-      public void printOpponentList(ArrayList<Opponent> opponents)
-      {
-            for(Opponent i : opponents)
-            {
-                  System.out.println("Opponent ID: " + i.getID() + ", "+"Opponent Name: " + i.getOpponentName()); 
-            }
-      }
-            
-      public void printNonRegisteredMatches(ArrayList<Match> schedule)
-      {
-            System.out.printf("%3s %10s %10s \n", "ID", "Date", "Home/Away");
-            for(Match i : schedule)
-            {
-                  System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
-            }   
-      }
-      
-      //**PRINT**
-         
-
-      public void matchCreationConfirmation()
-      {
-            printLine("The new match has been created and registered! Good job!");
-      }
-      public void typeInResultConfirmation()
-      {
-            printLine("Match result has been updated!");
-      }
-           
-
-      
-      
-     //**PROMPT:**
-     
-      public void promptJerseyNumberFootballerStatistics()
-      {
-            System.out.println("Wich footballer do you want to see");
-            System.out.println("input the footballers jersey number to choose");
-      }
-      
-      public void promptForID()
-      {
-            System.out.println("Enter ID:");
-      }
-            
-      public void promptUsername()
-      {
-            printLine("Please type in username (Enter exit if you want to return to main menu)");      
-      }  
-      
-      public void promptPassword()
-      {
-            printLine("Please type in password (Enter exit if you want to return to main menu)");      
-      } 
-      
-      public void invalidUser()
-      {
-            printLine("Wrong password or username, please try again");
-      } 
-      public void promptDate()
-      {
-            printLine("Enter date of the new match, the format is yyyy-mm-dd");       
-      }
-      
-      public void promptOpponent()
-      {
-            printLine("Please enter the ID of one the displayed Opponents");
-      }
-      public void promptHomeAway()
-      {
-            printLine("Please enter whether Liverpool is playing as \"Home\" or \"Away\", enter \"H\" for \"Home\" and \"A\" for \"Away\".");
-      }
-         
-      public void promptMatchByID()
-      {
-            printLine("Please enter \"ID\" of one of the listed matches.");
-      }
-      
-      public void promptMatchResult()
-      {
-            printLine("Please enter match result. (Home-Away) ");
-      }
-      
-      public void promptGoalscorer()
-      {
-            printLine("Please enter scoring footballers jersey number:");
-            
-      }
-      
-      public void promptGoalMinuteScored()
-      {
-            printLine("What minute was the goal scored?");
-      }
-      
-      public void promtGoalType()
-      {
-            printLine("Please enter type of goal. (R = 'Regular' P = 'Penalty' O = 'Own')");
-      }
-      
-      public void promtWasGoalAssisted()
-      {
-            printLine("Was the goal assisted? (Y/N)");
-      }
-      public void promptForAssistedFootballer()
-      {
-            printLine("Please enter jersey number of assisting player:");
-      }
-      public void promptMatchFormation()
-      {
-            printLine("Enter starting formation. (0-0-0 or 0-0-0-0) ");
-      }
-      public void promptMatchLineup()
-      {
-            printLine("Enter starting lineup: (00-00-00-00-00-00-00-00-00-00-00) ");
-      }
-      
-
-    
-      
-  
-      
-
-      
-
-      
-
-      
- 
-      
-
-      
-
-
-
-
-
-   
-    
-      
+      //Printer Menuen til at administrere modstandere
       public void adminOpponentMenu()
       {
             header();
@@ -583,42 +350,7 @@ public class Output
             endButton(3);
             line();      
       } 
-      
-      public void printOpponentName(Opponent opponent)
-      {
-            printLine("Current opponent name: " + opponent.getOpponentName());
-      }
-      
-      public void promptOpponentName()
-      {
-            printLine("New opponent name:");
-      }
-      
-      public void promptOpponentActice()
-      {
-            printLine("Is the opponent currently in Premier League?");
-            printLine("1 for Yes, 2 for No");
-      }
-      
-      public void confirmationOnUpdateOpponent(Opponent opponent)
-      {
-            printLine("You have updated the opponent.");
-            System.out.printf("%3s %20s %5s", "ID", "Name", "Active");
-            System.out.printf("%3s %20s %5s", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
-            printLine("Input 3 to return to menu."); 
-      }
-      
-      public void promptOpponentNameCreateNewOpponent()
-      {
-            printLine("Enter opponent name:");
-      }
-      
-      public void confirmationOnCreateOpponent(String opponentName, boolean active)
-      {
-            printLine("You have created" + opponentName + ". Their current status is:" + active );
-            printLine("Input 3 to return to menu.");
-      }
-      
+      //Printer Menuen til at administrere footballers
       public void adminFootballerMenu()
       {
             header();
@@ -629,82 +361,320 @@ public class Output
             emptyLine(7);
             endButton(3);
             line(); 
-      }
-      
-      public void promptNewJerseyNumber(Footballer footballer)
+      }      
+      //**TOP 3 MENU:**
+      //menu der beder brugeren om at vælge en dato for starten af den periode de ønsker at se top 3 målscorere
+      public void topThreeScorerMenu() 
       {
-            printLine("Players current jersey number is " + footballer.getFootballerJersey());
-            printLine("Enter the players new jersey number: ");
+            header();
+            emptyLine(2);
+            buttonMiddle("Top Three Goal Scorers", 31);
+            emptyLine(4);
+            printLine("  Wich period do you want to se the top three goal scorers for ");
+            emptyLine(1);
+            printLine("  Enter start date for the period, the format is yyyy-mm-dd ");
+            emptyLine(5);
+            bakEndButton(4,5);
+            line();
       }
-      
-      public void promptFootballerName(Footballer footballer)
+      //Metode der printer top 3 målscorer i sæsonen
+      public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)
       {
-            printLine("Players current name is " + footballer.getFootballerName());
-            printLine("Enter the players new name: ");
+            FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();//objekt af footballhandler, singleton metoden
+            header();
+            emptyLine(3);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[0][1], 42);//printer den bedste målscorer ud med navn og antal mål 
+            emptyLine(1);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[1][1], 42);//printer nummer 2 målscorer ud
+            emptyLine(1);
+            buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName()
+             + ": Goals scored " + topThreeGoalScorers[2][1], 42);//nr 3 målscorer
+            emptyLine(3);
+            bakEndButton(4,5);//printer en tilbage og afslut knap nede i højre hjørne 
+            line();
       }
-      
-      public void promptFootballerSalary(Footballer footballer)
+      //Menuvalg, brugeren vælger en slut dato for perioden de vil se spillede kampe fra
+      public void endDateOfPeriod(String text)
       {
-            printLine("Players current salary is " + footballer.getFootballerSalary());
-            printLine("Enter the players new salary: ");
+            header();
+            emptyLine(2);
+            buttonMiddle(text, 41);
+            emptyLine(4);
+            printLine(" Enter end date for the period, the format is yyyy-mm-dd ");
+            emptyLine(7);
+            bakEndButton(4,5);
+            line();
       }
-      
-      public void promptFootballerEmployed(Footballer footballer)
+      //**PRINT LISTER:**
+      //printer en liste over aktive fodboldspillere.
+      public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
       {
-            printLine("Players current employment status is " + footballer.getFootballerEmployed());
-            printLine("Enter the players employment status (1) = true, (2) = false ");
-      }
       
-      public void promptJerseyNumber()
-      {
-            printLine("Enter the new players jersey number:");
+            for(Footballer i : activeFootballers)
+            {
+                  System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
+            }
       }
-      
-      public void promptFootballerName()
+      //printer en liste af stats us for oppnents
+      public void printOpponentFootballers(ArrayList<Footballer> opponents)
       {
-            printLine("Enter the new players namer:");
+            
+            System.out.printf("%3s %20s %5s \n", "ID", "Name", "Team");
+            for(Footballer i : opponents)
+            {
+                  System.out.printf("%3s %20s %5s \n", i.getID(), i.getFootballerName(), i.getFootballerSalary());
+            }
+            System.out.println();
       }
-      
-      public void promptFootballerSalary(String salaryOrTeam)
+      //printer det resterende kampprogram for sæsonen
+      public void printSchedule(ArrayList<Match> schedule)
       {
-            printLine("Input players " + salaryOrTeam);
-      }
-      
-      public void promptFootballerEmployed()
+     
+           for(Match i : schedule)
+            {
+                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID()) + " " 
+                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
+                  + " Formation played: " + i.getMatchFormation());
+            }   
+      }      
+      //printer en liste af de kampe der er spillet i en periode ud
+      public void printMatchesPlayedInPeriod(ArrayList<Match> matches)
       {
-            printLine("Enter the players employment status (1) = true, (2) = false ");
-      }
-
-      public void promptFootballerPosition()
+            System.out.printf("%3s %11s %35s %10s %5s %10s \n", "ID", "Date", "Opponent", "Home/Away", "Score", "Formation");
+            for (Match i : matches)
+            {
+                  System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
+            }
+      }      
+      //Printer en liste over modstandere
+      public void printOpponentList(ArrayList<Opponent> opponents)
       {
-            printLine("Enter the players position (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
+            for(Opponent i : opponents)
+            {
+                  System.out.println("Opponent ID: " + i.getID() + ", "+"Opponent Name: " + i.getOpponentName()); 
+            }
+      }      
+      //Printer en liste overkampe som ikke er registreret endnu      
+      public void printNonRegisteredMatches(ArrayList<Match> matches)
+      {
+            System.out.printf("%3s %10s %10s \n", "ID", "Date", "Home/Away");
+            for(Match i : matches)
+            {
+                  System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
+            }   
       }
-      
+      //**PRINT**         
+      //Bekræftelse på at en match er blevet oprettet
+      public void matchCreationConfirmation()
+      {
+            printLine("The new match has been created and registered! Good job!");
+      }
+      //Bekræftelse på at en kamps resultater er blevet opdateret
+      public void typeInResultConfirmation()
+      {
+            printLine("Match result has been updated!");
+      }
+      //Printer navnet ud på på en nuværende modstander
+      public void printOpponentName(Opponent opponent)
+      {
+            printLine("Current opponent name: " + opponent.getOpponentName());
+      }
+      //Giver en bekræftelse på at der er opdateret en spiller, samt viser de nye oplysninger om spilleren
       public void confirmationUpdateFootballer(Footballer footballer)
       {
             printLine("You have updated "+footballer.getFootballerName());
             System.out.printf("%3s %3s %8s %5s %3s", "ID", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
             System.out.printf("%3s %3s %8s %5s %3s", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
       }
-      
-      public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position)
+      //Giver ern bekræftelse, samt viser oplysniner om nyoprettet footballer
+      public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position) 
       {
             printLine("You have created a new footballer: " + name);
             printLine("Jersey number: " + jerseyNumber + ", Salary: " + salary + ", Employment staus: " + employed + ", Position: " + position);
       }
-      
-      public void promptGoals(int homeGoals)
+      //Giver en bekræftelse, samt viser oplysninger om en nyoprettet modstander
+      public void confirmationOnCreateOpponent(String opponentName, boolean active) 
+      {
+            printLine("You have created" + opponentName + ". Their current status is:" + active );
+            printLine("Input 3 to return to menu.");
+      }
+      //Giver en bekræftelse med de opdaterede oplysninger når en modstander er opdateret
+      public void confirmationOnUpdateOpponent(Opponent opponent)
+      {
+            printLine("You have updated the opponent.");
+            System.out.printf("%3s %20s %5s", "ID", "Name", "Active");
+            System.out.printf("%3s %20s %5s", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
+            printLine("Input 3 to return to menu."); 
+      }
+      //Giver en meddelelses om hvor mange mål admin mangler at indtaste data for
+      public void printGoals(int homeGoals) 
       {
             printLine("Goals left to update: " + homeGoals);
       }
-      
-      public void promptIsOpponentOnList()
+      //Fejlmeddelelse hvis brugeren har indtastet forkert brugernavn eller password
+      public void invalidUser() 
       {
-            printLine("Is the scoring opponent on the list? (Y/N)");
+            printLine("Wrong password or username, please try again");
       } 
-      
-      public void setJerseyNumber()
+
+     //**PROMPT:**
+     //Beder om en spillers jersey number
+      public void promptForJerseyNumber() 
       {
             printLine("Players jersey number:");
+      }  
+      //Beder om et Jersey nr.
+      public void promptJerseyNumberFootballerStatistics()  
+      {
+            System.out.println("Wich footballer do you want to see");
+            System.out.println("input the footballers jersey number to choose");
+      }
+      //Beder om et ID 
+      public void promptForID() 
+      {
+            System.out.println("Enter ID:");
+      }
+      //Beder om et Username til en admin der forsøger at logge ind      
+      public void promptUsername() 
+      {
+            printLine("Please type in username (Enter exit if you want to return to main menu)");      
+      }  
+      //Beder om et password til en admin der forsøger at logge ind
+      public void promptPassword() 
+      {
+            printLine("Please type in password (Enter exit if you want to return to main menu)");      
+      } 
+      //Beder om en dato på en ny oprettet kamp
+      public void promptDate() 
+      {
+            printLine("Enter date of the new match, the format is yyyy-mm-dd");       
+      }
+      //Beder om et ID på en modstander fra en liste af modstandere
+      public void promptOpponent() 
+      {
+            printLine("Please enter the ID of one the displayed Opponents");
+      }
+      //Spørger om Liverpool har spillet ude eller hjemme
+      public void promptHomeAway() 
+      {
+            printLine("Please enter whether Liverpool is playing as \"Home\" or \"Away\", enter \"H\" for \"Home\" and \"A\" for \"Away\".");
+      }
+      //Beder om et ID på en kamp fra en liste af kampe   
+      public void promptMatchByID() 
+      {
+            printLine("Please enter \"ID\" of one of the listed matches.");
+      }
+      //beder om resultatet på en kamp
+      public void promptMatchResult() 
+      {
+            printLine("Please enter match result. (Home-Away) ");
+      }
+      //Beder om en footballers jersey nr
+      public void promptGoalscorer() 
+      {
+            printLine("Please enter scoring footballers jersey number:");
+            
+      }
+      //Spørger i hvilket minut af kampen et mål er blevet scoret
+      public void promptGoalMinuteScored() 
+      {
+            printLine("What minute was the goal scored?");
+      }
+      //Beder bruger om at indtaste typen på et mål
+      public void promtGoalType() 
+      {
+            printLine("Please enter type of goal. (R = 'Regular' P = 'Penalty' O = 'Own')");
+      }
+      //Spørger om et mål var assisted
+      public void promtWasGoalAssisted() 
+      {
+            printLine("Was the goal assisted? (Y/N)");
+      }
+      //beder om assisterende spiller til et mål
+      public void promptForAssistedFootballer() 
+      {
+            printLine("Please enter jersey number of assisting player:");
+      }
+      //Beder om et holds formation
+      public void promptMatchFormation() 
+      {
+            printLine("Enter starting formation. (0-0-0 or 0-0-0-0) ");
+      }
+      //Beder om et holds startopstilling
+      public void promptMatchLineup() 
+      {
+            printLine("Enter starting lineup: (00-00-00-00-00-00-00-00-00-00-00) ");
+      }
+      //Spørger om den scorende modstander er på listen over modstandere
+      public void promptIsOpponentOnList() 
+      {
+            printLine("Is the scoring opponent on the list? (Y/N)");
+      }
+      //beder om en spillers nye jersey nr.
+      public void promptNewJerseyNumber(Footballer footballer) 
+      {
+            printLine("Players current jersey number is " + footballer.getFootballerJersey());
+            printLine("Enter the players new jersey number: ");
+      }
+      //beder om en spillers nye navn
+      public void promptFootballerName(Footballer footballer) 
+      {
+            printLine("Players current name is " + footballer.getFootballerName());
+            printLine("Enter the players new name: ");
+      }
+      //beder om en spillers nye løn
+      public void promptFootballerSalary(Footballer footballer) 
+      {
+            printLine("Players current salary is " + footballer.getFootballerSalary());
+            printLine("Enter the players new salary: ");
+      }
+      //Beder om spillers status aktiv/inaktiv
+      public void promptFootballerEmployed(Footballer footballer)
+      {
+            printLine("Players current employment status is " + footballer.getFootballerEmployed());
+            printLine("Enter the players employment status (1) = true, (2) = false ");
+      }
+      //beder om en spillers jersey nr.
+      public void promptJerseyNumber() 
+      {
+            printLine("Enter the new players jersey number:");
+      }
+      //Beder om en spillers navn
+      public void promptFootballerName() 
+      {
+            printLine("Enter the new players namer:");
+      }
+      //beder om spilleres løn eller hold afhængigt af en string.
+      public void promptFootballerSalary(String salaryOrTeam) 
+      {
+            printLine("Input players " + salaryOrTeam);
+      }
+      //beder brugeren indtaste om spilleren er aktiv eller ej
+      public void promptFootballerEmployed() 
+      {
+            printLine("Enter the players employment status (1) = true, (2) = false ");
+      }
+      //Beder om footballers position
+      public void promptFootballerPosition() 
+      {
+            printLine("Enter the players position (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
+      } 
+      //Beder om modstanderen
+      public void promptOpponentNameCreateNewOpponent() 
+      {
+            printLine("Enter opponent name:");
+      }
+      //Beder om modstanderens nye navn
+      public void promptOpponentName() 
+      {
+            printLine("New opponent name:");
+      }
+      //Spørger om modstander er i PL, til at afgøre om modstanderen er aktiv
+      public void promptOpponentActice() 
+      {
+            printLine("Is the opponent currently in Premier League?");
+            printLine("1 for Yes, 2 for No");
       }
 }
