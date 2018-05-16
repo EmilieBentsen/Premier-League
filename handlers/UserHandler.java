@@ -8,14 +8,17 @@ public class UserHandler extends ObjectHandler<User>
       private static UserHandler instance;
       private ArrayList<User> users;
       
-      private UserHandler()
+      private UserHandler()/*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
+      Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getUerHandler, 
+      i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. users ArrayList fyldes op med 
+      obejkter lavet fra filen users.csv*/
       {
             users = getContent();
       }
       
-      public static UserHandler getUserHandler()
+      public static UserHandler getUserHandler()//metode der returnerer en instans af FootballerHandler
       {
-            if(instance == null)
+            if(instance == null)//tjekker om der er lavet en instans af klassen
             {
                   UserHandler uh = new UserHandler();
                   instance = uh;
@@ -23,7 +26,7 @@ public class UserHandler extends ObjectHandler<User>
             return instance;
       }
       
-      public String getFilePath()
+      public String getFilePath() //filen vi gemmer brugere i
       {
             return "user.csv";
       }
@@ -49,7 +52,7 @@ public class UserHandler extends ObjectHandler<User>
             };
       }
       
-      public boolean verifyAdmin(String username, String password)
+      public boolean verifyAdmin(String username, String password) //metode til at verificere om en bruger findes
       {
             for(User i : users)
             {

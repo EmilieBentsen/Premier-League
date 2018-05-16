@@ -11,14 +11,17 @@ public class MatchHandler extends ObjectHandler<Match>
       private ArrayList<Match> matches;
       private static MatchHandler instance;
       
-      private MatchHandler()
+      private MatchHandler()/*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
+      Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getMatchHandler, 
+      i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. matches ArrayList fyldes op med 
+      obejkter lavet fra filen match.csv*/
       {
-            matches = getContent();
+            matches = getContent();//metode nedarvet fra ObjectHandler, der fylder et ArrayList med objekter 
       }
       
-      public static MatchHandler getMatchHandler()
+      public static MatchHandler getMatchHandler() //metode der returnerer en instans af MatchHandler
       {
-            if(instance == null)
+            if(instance == null)//tjekker om der er lavet en instans af klassen
             {
                   MatchHandler mh = new MatchHandler();
                   instance = mh;
@@ -26,12 +29,12 @@ public class MatchHandler extends ObjectHandler<Match>
             return instance;
       }
       
-      public String getFilePath()
+      public String getFilePath()//filen vi gemmer vores kampe i
       {
             return "match.csv";
       }
       
-      public PersistentObjectHandler<Match> getHandler()//Returnerer en persistentObjectHandler med objectet Hamster
+      public PersistentObjectHandler<Match> getHandler()//Returnerer en persistentObjectHandler med objectet Match
       {
             return new PersistentObjectHandler<Match>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
             {
@@ -64,6 +67,7 @@ public class MatchHandler extends ObjectHandler<Match>
             };
       }
       
+      //opdatere et kamp objekt 
       public void updateObject(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
             for(Match i : matches)

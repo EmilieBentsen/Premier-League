@@ -14,14 +14,22 @@ public class GoalHandler extends ObjectHandler<Goal>
       private ArrayList<Goal> goals;
       private int rows = 0; //Bruges når der skal oprettes en- og to-dimensionelle arrays til TopX metoden.
 
-      private GoalHandler()
+      private GoalHandler()/*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
+      Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getGoalHandler, 
+      i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. goals ArrayList fyldes op med 
+      obejkter lavet fra filen goals.csv*/
       {
             goals = getContent();
       }
-
-      public static GoalHandler getGoalHandler()
+             
+      public String getFilePath() //filen vi gemmer vores mål i
       {
-            if(instance == null)
+            return "goal.csv";
+      }
+
+      public static GoalHandler getGoalHandler() //metode der returnerer en instans af GoalHandler
+      {
+            if(instance == null) //tjekker om der er lavet en instans af klassen
             {
                   GoalHandler gh = new GoalHandler();
                   instance = gh;
@@ -55,7 +63,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
 
-      public ArrayList<Integer> getGoalscorerByMatchID(ArrayList<Integer> getMatchIDInAPeriod)
+      public ArrayList<Integer> getGoalscorerByMatchID(ArrayList<Integer> getMatchIDInAPeriod)//returnerer et AL af målscorere der har scoret mål i en periode 
       {
             ArrayList<Integer> goalScorers = new ArrayList<Integer>();
 
@@ -168,11 +176,6 @@ public class GoalHandler extends ObjectHandler<Goal>
             MatchHandler mh = MatchHandler.getMatchHandler();
             return getTopGoalscorers(getArrayWithGoalFrequencies(getGoalscorerByMatchID(mh.getMatchIDInAPeriod(startDate, endDate))), topX);
       }
-       
-      public String getFilePath()
-      {
-            return "goal.csv";
-      }
 
       public PersistentObjectHandler<Goal> getHandler()//Returnerer en persistentObjectHandler for Goal.
       { 
@@ -203,27 +206,13 @@ public class GoalHandler extends ObjectHandler<Goal>
                   }
             };
       }
-
-      public void listGoals() 
-      {           
-            for(Goal i : goals)
-            {
-                  System.out.println(
-                  i.getID() + " " + 
-                  i.getGoalScorer() + " " + 
-                  i.getGoalMatchID() + " "+ 
-                  i.getGoalMinuteScored() + " " + 
-                  i.getGoalType() + " " + 
-                  i.getGoalAssistingPlayer());   
-            }
-      }
    
-      public void deleteGoal(int id) 
+      public void deleteGoal(int id) //metode der sletter et mål 
       {
             deleteObject(goals, id);
       }
 
-      public ArrayList<Goal> getGoalArray()
+      public ArrayList<Goal> getGoalArray() //metode der returnerer goals
       {
             return goals;
       }
@@ -233,8 +222,8 @@ public class GoalHandler extends ObjectHandler<Goal>
             int newID = getNewID(goals);
             return newID;
       }
-
-      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      //metode til at oprette et mål
+      public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opretter et nyt mål objekt
       {
             goals.add(new Goal(getNewGoalID(), 
                               goalMatchID, 
@@ -244,8 +233,8 @@ public class GoalHandler extends ObjectHandler<Goal>
                               goalAssistingPlayer));
             save(goals);
       }   
-
-      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer)
+      //metode til at opdatere et mål
+      public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opdaterer et mål objekt
       {
             for(Goal i : goals)
             {
@@ -261,7 +250,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
       }   
 
-      public int getGoalsByClub()
+      public int getGoalsByClub() //metode der tæller hvor mangen mål klubben har scoret ialt
       {
             int count = 0; 
             for(Goal i : goals)
@@ -271,7 +260,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
 
-      public ArrayList<Goal> getGoalsByMatchID(int matchID)
+      public ArrayList<Goal> getGoalsByMatchID(int matchID) //metode der returnerer et AL med de mål der er scoret i en given kamp
       {
             ArrayList<Goal> matchGoals = new ArrayList<Goal>();
             for(Goal i : goals)

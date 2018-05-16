@@ -485,8 +485,8 @@ public class Output
       public void confirmationUpdateFootballer(Footballer footballer)
       {
             printLine("You have updated "+footballer.getFootballerName());
-            System.out.printf("%3s %3s %8s %5s %3s", "ID", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
-            System.out.printf("%3s %3s %8s %5s %3s", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
+            System.out.printf("%3s %3s %8s %5s %3s", "ID\n", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
+            System.out.printf("%3s %3s %8s %5s %3s\n", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
       }
       //Giver ern bekræftelse, samt viser oplysniner om nyoprettet footballer
       public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position) 
@@ -504,8 +504,8 @@ public class Output
       public void confirmationOnUpdateOpponent(Opponent opponent)
       {
             printLine("You have updated the opponent.");
-            System.out.printf("%3s %20s %5s", "ID", "Name", "Active");
-            System.out.printf("%3s %20s %5s", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
+            System.out.printf("%3s %20s %5s\n", "ID", "Name", "Active");
+            System.out.printf("%3s %20s %5s\n", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
             printLine("Input 3 to return to menu."); 
       }
       //Giver en meddelelses om hvor mange mål admin mangler at indtaste data for

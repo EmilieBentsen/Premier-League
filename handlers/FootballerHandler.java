@@ -8,9 +8,12 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
       private static FootballerHandler instance;
       private ArrayList<Footballer> footballers;
       
-      private FootballerHandler() //Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getFootballerHandler, i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. Footballers ArrayList fyldes op med obejkter lavet fra filen footballer.csv
+      private FootballerHandler() /*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
+      Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getFootballerHandler, 
+      i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. Footballers ArrayList fyldes op med 
+      obejkter lavet fra filen footballer.csv*/
       {
-            footballers = getContent(); //metode nedarvet fra ObjectHandler, der 
+            footballers = getContent(); //metode nedarvet fra ObjectHandler, der fylder et ArrayList med objekter 
       }
       
       public static FootballerHandler getFootballerHandler() //metode der returnerer en instans af FootballerHandler

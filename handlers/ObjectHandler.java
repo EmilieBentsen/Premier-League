@@ -8,10 +8,10 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
       public abstract PersistentObjectHandler<T> getHandler(); //metode der skal implemteres af klasser som nedarver fra klassen. Denne medtode returnere et interface      
       
       
-      public void createObject()
+      public void createObject()//laver et nyt object
       {
       
-      } //laver et nyt object
+      } 
       public void updateObject()  //opdaterer et object
       {
       
@@ -30,7 +30,7 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
             }
       }
       
-      public int getNewID(ArrayList<T> list)
+      public int getNewID(ArrayList<T> list)//metode der genererer et nyt ID på baggrund af en liste
       {
             int lastID = 0;
             for(Model i : list)
@@ -49,7 +49,7 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
             return FileHandler.getContent(getFilePath(), getHandler());//Da klassen lover supklasserne har disse to metoder, kan vi kalde dem herfra.
       }
       
-      public void save(ArrayList<T> list) //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer ikke noget. Har en ArrayList med objekter af T der hedder "lis" som parameter.
+      public void save(ArrayList<T> list) //metode der nedarves hvis ikke de overskrives i subklassen. Returnerer ikke noget. Har en ArrayList med objekter af T der hedder "list" som parameter.
       {
             FileHandler.save(getFilePath(), list, getHandler());
       }
