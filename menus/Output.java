@@ -349,7 +349,7 @@ public class Output
             emptyLine(4);
             twoButtons("1. Update opponent ","2. Create opponent ",31 );
             emptyLine(7);
-            endButton(3);
+            bakEndButton(3,4);
             line();      
       } 
       //Printer Menuen til at administrere footballers
@@ -361,7 +361,7 @@ public class Output
             emptyLine(4);
             twoButtons("1. Update Footballer ","2. Create Footballer ",31 );
             emptyLine(7);
-            endButton(3);
+            bakEndButton(3,4);
             line(); 
       }      
       //**TOP 3 MENU:**

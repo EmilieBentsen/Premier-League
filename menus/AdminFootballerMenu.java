@@ -13,7 +13,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
       public void adminFootballerMenu() 
       {
             output.adminFootballerMenu();
-            int choice = input.getInt(1,3); 
+            int choice = input.getInt(1,4); 
                         
             switch(choice)
             {
@@ -27,8 +27,13 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                               adminMenu.adminMenu();
                               break;
                               
-                  case 3 :    MainMenu mainMenu = new MainMenu();
-                              mainMenu.startMenu();
+                  case 3:
+                              AdminMenu am = new AdminMenu(); 
+                              am.adminMenu();
+                              break;
+                  case 4:
+                              MainMenu mm = new MainMenu();
+                              mm.startMenu();
                               break;
             }
       }
