@@ -2,6 +2,7 @@ package handlers;
 import models.*;
 import java.util.ArrayList;
 
+//Erik Pilverdier, Emilie Bentsen
 public abstract class ObjectHandler<T extends Model> //T kan være enhver type af objekter som extender Model klassen 
 {
       public abstract String getFilePath(); //Metode der skal implementeres af klasser som nedarver fra klassen. Denne metode returnerer en String
@@ -29,6 +30,7 @@ public abstract class ObjectHandler<T extends Model> //T kan være enhver type af
             }
       }
       
+      //Erik Pilverdier
       public int getNewID(ArrayList<T> list)//metode der genererer et nyt ID på baggrund af en liste
       {
             int lastID = 0;

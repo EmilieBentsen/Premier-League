@@ -25,7 +25,10 @@ class FileHandler
                         output.print(handler.lineFrom(element));//den medsendte PersistentObjectHandler beskriver hvordan objektet skal skrives til filen
                   }
             }
-            catch(FileNotFoundException e){}
+            catch(FileNotFoundException e)
+            {
+                  System.out.println("File not found.");
+            }
       }
       
       public static <E extends Object> ArrayList<E> getContent(String path, PersistentObjectHandler<E> handler)
@@ -45,7 +48,7 @@ class FileHandler
             }
             catch(FileNotFoundException e)
             {
-            
+                  System.out.println("File not found.");
             }
             return list;
       }

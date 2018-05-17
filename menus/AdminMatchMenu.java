@@ -41,6 +41,7 @@ public class AdminMatchMenu
            } 
       }
       
+      //Emilie Bentsen, Adam Birch
       public void createFutureMatch() //til at oprette en kamp
       {
             
@@ -57,10 +58,12 @@ public class AdminMatchMenu
                   case "5":
                               MainMenu mainMenu = new MainMenu();
                               mainMenu.startMenu();
+                              break;
                               
                   case "4":
                               AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
                               adminMatchMenu();
+                              break;
             }
             
             ArrayList<Opponent> opponents = oh.getActiveOpponentsArray(); //henter aktive modstander array
@@ -102,6 +105,7 @@ public class AdminMatchMenu
             */     
       }
       
+      //Adam Birch, Emilie Bentsen
       public void typeInResult()
       {           
             ArrayList<Match> matches = mh.getMatchesWithoutResult(); //henter liste af kampe der er spillede, men uden resultat
@@ -127,7 +131,6 @@ public class AdminMatchMenu
                               output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
                               int time = input.getGoalMinuteScored();
                               
-                              
                               Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, 00);
                         }
                         else
@@ -139,22 +142,17 @@ public class AdminMatchMenu
                               int time = input.getGoalMinuteScored();
                   
                               if(goalType == 'R' || goalType == 'r') //hvis målet er et regular mål, spørger det var assisted
-                              {
-                                    
+                              {  
                                     output.promtWasGoalAssisted(); //Spørger om målet var assisted
                                     assistedID = input.getAssistedFootballer(footballers);
-                        
                               }
-                              else if(goalType != 'R' || goalType != 'r') //Hvis målet ikke er reguler, sættes assist til 00
+                              else if(goalType != 'R' || goalType != 'r') //Selvmål og straffespark har ikke assist.
                               {
                                     assistedID = 00;
                               }
                   
-                              
                               Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assistedID);
-     
                         }
-            
                   }
                   output.promptMatchFormation(); //Beder om kamp formationen
                   String formation = input.promptMatchFormation();

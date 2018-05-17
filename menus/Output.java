@@ -439,10 +439,10 @@ public class Output
       //printer det resterende kampprogram for sæsonen
       public void printSchedule(ArrayList<Match> schedule)
       {
-           System.out.printf("%10s %20s","Match date", "Opponent");
+           System.out.printf("%10s %20s \n","Match date", "Opponent");
            for(Match i : schedule)
             {
-                  System.out.printf("%10s %20s",i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
+                  System.out.printf("%10s %20s \n",i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
             }   
       }
       

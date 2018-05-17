@@ -13,7 +13,8 @@ public class GoalHandler extends ObjectHandler<Goal>
       private static GoalHandler instance;
       private ArrayList<Goal> goals;
       private int rows = 0; //Bruges når der skal oprettes en- og to-dimensionelle arrays til TopX metoden.
-
+      
+      //Lasse Gustafson, Erik Pilverdier
       private GoalHandler()/*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
       Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getGoalHandler, 
       i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. goals ArrayList fyldes op med 

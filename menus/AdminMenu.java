@@ -11,7 +11,8 @@ public class AdminMenu
       Input input = new Input();
       UserHandler uh = UserHandler.getUserHandler();
       
-      public void login() //Login metode der bedere admin indtaste brugernavn og password og validerer om det er gyldigt login
+      //Emilie Bentsen, Lasse Gustafson
+      public void login() //Login metode der beder admin indtaste brugernavn og password og validerer om det er gyldigt login
       {
               boolean validUser = false;
                   

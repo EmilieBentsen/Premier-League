@@ -89,7 +89,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                   employed = false;
             }
             
-            output.promptFootballerPosition(); //beder footballerens position 
+            output.promptFootballerPosition(); //beder om footballerens position 
             String position = "";
             int choice = input.getInt(1,4);
             switch(choice)    
