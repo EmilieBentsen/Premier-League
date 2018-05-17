@@ -7,14 +7,12 @@ import java.time.*;
 
 public class AdminMatchMenu
 {
-      
       Output output = new Output();
       Input input = new Input();
       OpponentHandler oh = OpponentHandler.getOpponentHandler();
       MatchHandler mh = MatchHandler.getMatchHandler();
       GoalHandler gh = GoalHandler.getGoalHandler();
       FootballerHandler fh = FootballerHandler.getFootballerHandler();
-     
      
       public void adminMatchMenu()
       {
@@ -60,7 +58,6 @@ public class AdminMatchMenu
                               MainMenu mainMenu = new MainMenu();
                               mainMenu.startMenu();
                               
-                              
                   case "4":
                               AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
                               adminMatchMenu();
@@ -78,7 +75,6 @@ public class AdminMatchMenu
             
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
-
       }
       
       public void updateMatch()
@@ -170,5 +166,4 @@ public class AdminMatchMenu
                   AdminMenu am = new AdminMenu();
                   am.adminMenu();
             }
-      
 }
