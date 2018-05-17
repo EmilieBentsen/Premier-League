@@ -133,7 +133,7 @@ public class GoalHandler extends ObjectHandler<Goal>
 
             goalScorers = sort(goalScorers); //Vi bubblesorterer vores 1-dimensionelle liste af målscorere (se metoden ovenfor) 
 
-            occurenceGoalscorers[rows][0] = goalScorers[0]; //Vores 2-dimensionelle array skal være lige så langt som antallet af målscorere
+            occurenceGoalscorers[rows][0] = goalScorers[0]; //På plads nummer "0"(rows=0) indsættes nu værdien af første værdien af goalscorer. 
 
             for(int i=1;i<goalScorers.length;i++) //For hver linje i vores array
             {
@@ -145,6 +145,7 @@ public class GoalHandler extends ObjectHandler<Goal>
                   {
                         rows++;
                         occurenceGoalscorers[rows][0]=goalScorers[i]; //Ellers går vi en række frem og lægger et nyt spiller ID ind i 1. kolonne
+                        occurenceGoalscorers[rows][1]=(occurenceGoalscorers[rows][1]+1); //Et array starter på 0. Men et registreret mål skal tælle for 1.
                   }
             }
             rows++; //Vores array starter på 0, så +1, for at få det rigtige antal gange der skal sorteres i bubblesort.
@@ -161,11 +162,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             for(int i=0;i<topX;i++)
             {
                         getTopScorers[i][0] = occurenceGoalscorers[i][0];
-                        if(getTopScorers[i][1] == 0) //Da vores Array naturligt starter på 0, skal vi lægge en til første gang, for at få det korrekte antal mål.
-                        {
-                              getTopScorers[i][1] = getTopScorers[i][1]+1;
-                        }
-                        getTopScorers[i][1] = occurenceGoalscorers[i][1] +1;
+                        getTopScorers[i][1] = occurenceGoalscorers[i][1];
             }
 
       return getTopScorers;

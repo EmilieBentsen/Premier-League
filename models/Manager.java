@@ -1,5 +1,5 @@
 package models;
-
+//Lasse: Har skrevet denne klasse.
 public class Manager extends Footballer
 {
       
