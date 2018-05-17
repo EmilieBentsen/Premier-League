@@ -44,15 +44,15 @@ public class Goal implements Model
       {
             if(goalType == 'R')
             {
-                  return "From play.";
+                  return "FROM PLAY";
             }
             else if(goalType == 'p')
             {
-                  return "Penalty.";            
+                  return "PENALTY";            
             }
             else if(goalType == 'O')
             {
-                  return "Own Goal.";
+                  return "OWN GOAL";
             }
             return null;
       }

@@ -175,7 +175,7 @@ public class Output
             String assistingFootballerName = "";
             if(assistingFootballerID == 00)
             {
-                  return "no assist";
+                  return "UNASSISTED";
             }
             else
             {
@@ -302,12 +302,14 @@ public class Output
       {
             header();
             emptyLine(5);
-            printLine(" Match Date: " + match.getMatchDate() + " Formation: " + match.getMatchFormation() + " Starting lineup by jersey number:  " + match.getMatchLineup());
+            System.out.printf("%1s %10s %10s %11s %35s %43s \n","*" ,"", "Match Date", "Formation", "Starting Lineup", "*"); 
+            System.out.printf("%1s %10s %10s %11s %35s %43s \n", "*","", match.getMatchDate(), match.getMatchFormation(),match.getMatchLineup(),"*");
             int count = 1;
+            emptyLine(1);
+            System.out.printf("%1s %10s %3s %14s %30s %12s %20s %18s \n","*","","#", "Minute scored", "Goalscorer", "Type", "Assisted", "*");
             for(Goal i : goals)//printer listen af mål
             {
-                  printLine(count + " Minutte scored: " + i.getGoalMinuteScored() + " Goal scorer: " + getGoalScorerName(i.getGoalScorer(), footballers) + " "
-                   + i.getGoalTypeToString() + " Asisted by: " + getAssistingPlayerName(i.getGoalAssistingPlayer(), footballers));
+                  System.out.printf("%1s %10s %3s %14s %30s %12s %20s %18s \n", "*","", count, i.getGoalMinuteScored(), getGoalScorerName(i.getGoalScorer(), footballers), i.getGoalTypeToString(), getAssistingPlayerName(i.getGoalAssistingPlayer(), footballers), "*");
                   count ++;
             }
             emptyLine(5);
