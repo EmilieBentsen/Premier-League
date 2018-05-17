@@ -34,20 +34,20 @@ public class AdminMenu
                          main.startMenu();
                          
                     }
-                        validUser = uh.verifyAdmin(username, password); //tjekker om admin login oplysninger kan valideres 
+                    validUser = uh.verifyAdmin(username, password); //tjekker om admin login oplysninger kan valideres 
                           
-                          if(validUser == true)
-                          {
+                    if(validUser == true)
+                    {
                         
-                              adminMenu();
-                          }
-                          else
-                          {
-                              output.invalidUser(); //Giver besked om at brugernavn eller password ikke findes
-                          }
+                          adminMenu();
                     }
-                   
+                    else
+                    {
+                          output.invalidUser(); //Giver besked om at brugernavn eller password ikke findes
+                    }
+            }
       }
+      
       public void adminMenu() //menu for admin brugere
       {
             output.adminMenuUI();
@@ -68,12 +68,6 @@ public class AdminMenu
                               MainMenu mm = new MainMenu(); //tilbage til main mennu
                               mm.startMenu();
                               break;
-            
             }
-            
-          /* Printer menu header (You'll never walk alone" box + Menu navn/overskift).
-            Printer menu oversigt(1. Match, 2. Footballer, 3. Opponent).
-            Kør input metode der får int i mellem 1 g 3.
-            Kald undermenu metoder baseret på input.*/  
       }
 }

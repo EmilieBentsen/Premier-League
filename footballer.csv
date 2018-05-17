@@ -12,7 +12,7 @@ ID,Jersey,Name,Position,Salary/week,Employed
 11,32,Joel Matip,DF,70000,true
 12,66,Trent Alexander-Arnold,DF,0,true
 13,26,Andrew Robertson,DF,50000,true
-14,4,Virgil van,MN,DF,false
+14,4,Virgil van,MN,DF,true
 15,63,Conor Masterson,DF,0,true
 16,5,Georgino Wijnaldum,MF,90000,true
 17,14,Jordan Henderson,MF,100000,true
@@ -34,6 +34,3 @@ ID,Jersey,Name,Position,Salary/week,Employed
 33,5,Lewis Dunk,DF,BHA,false
 34,3,Eric Bailly,DF,MAU,false
 35,0,Jürgen Klopp,MN,0,true
-36,78,Fin Holger,FW,100,true
-42,57,Erik Pilverdier,MN,ALBE,false
-43,60,Erik P,GK,ALBELOL,false

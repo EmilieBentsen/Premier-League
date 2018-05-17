@@ -107,16 +107,7 @@ public class AdminMatchMenu
       }
       
       public void typeInResult()
-      {
-            /* gennerer liste over endnu ikke spillede kampe, og prompter bruger til at vælge en.
-            prompter bruger for at indtaste kampens resultat, Hvis liverpool har scoret mål kaldes 
-            userCreateGoal()for hvert mål socret af liverpool.
-            prompter for indtastning af formation.
-            prompter for indtastning af lineup.
-            kampen opdateres med de indtastede informationer.
-            adminMenu();*/
-            
-            
+      {           
             ArrayList<Match> matches = mh.getMatchesWithoutResult(); //henter liste af kampe der er spillede, men uden resultat
             output.printNonRegisteredMatches(matches); //printer listen
             output.promptMatchByID(); //Beder om match ID til kampen der ønskes at indtaste resultat for
