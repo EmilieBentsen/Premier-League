@@ -13,7 +13,7 @@ public class AdminOpponentMenu
       public void adminOpponentMenu() //menu til at administrerer modstandere
       {
             output.adminOpponentMenu(); 
-            int choice = input.getInt(1,3);
+            int choice = input.getInt(1,4);
             switch(choice)
             {
                   case 1 :    updateOpponentMenu(); //opdater modstander menu
@@ -21,9 +21,14 @@ public class AdminOpponentMenu
                               
                   case 2 :    createNewOpponentMenu(); //opret modstander menu
                               break; 
-                              
-                  case 3 :    MainMenu mainMenu = new MainMenu(); //Tilbage til main menu
-                              mainMenu.startMenu();
+
+                  case 3:
+                              AdminMenu am = new AdminMenu(); //Tilbage til admin menu
+                              am.adminMenu();
+                              break;
+                  case 4:
+                              MainMenu mm = new MainMenu();  //Tilbage til main menu
+                              mm.startMenu();
                               break;             
             }
       }
