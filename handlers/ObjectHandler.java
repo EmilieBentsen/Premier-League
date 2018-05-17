@@ -2,7 +2,7 @@ package handlers;
 import models.*;
 import java.util.ArrayList;
 
-public abstract class ObjectHandler<T extends Model> //T kan være enhver type af objekter som extender Object klassen "den som findes i forevejen"
+public abstract class ObjectHandler<T extends Model> //T kan være enhver type af objekter som extender Model klassen 
 {
       public abstract String getFilePath(); //Metode der skal implementeres af klasser som nedarver fra klassen. Denne metode returnerer en String
       public abstract PersistentObjectHandler<T> getHandler(); //metode der skal implemteres af klasser som nedarver fra klassen. Denne medtode returnere et interface      

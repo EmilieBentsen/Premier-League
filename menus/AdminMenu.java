@@ -7,9 +7,10 @@ public class AdminMenu
       AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
       AdminOpponentMenu adminOpponentMenu = new AdminOpponentMenu();
       AdminFootballerMenu adminFootballerMenu = new AdminFootballerMenu();
-      
       Output output = new Output();
       Input input = new Input();
+      UserHandler uh = UserHandler.getUserHandler();
+      
       public void login() //Login metode der bedere admin indtaste brugernavn og password og validerer om det er gyldigt login
       {
               boolean validUser = false;
@@ -33,7 +34,6 @@ public class AdminMenu
                          main.startMenu();
                          
                     }
-                        UserHandler uh = UserHandler.getUserHandler();
                         validUser = uh.verifyAdmin(username, password); //tjekker om admin login oplysninger kan valideres 
                           
                           if(validUser == true)

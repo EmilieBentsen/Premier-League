@@ -8,7 +8,6 @@ public class MainMenu
 {
       Output output = new Output();//output og input er ikke statiske hvorfor vin opretter objekter for at tilgå metoderne.
       Input input = new Input();
-      
       MatchHandler matchHandler = MatchHandler.getMatchHandler();//objekter af vores handlers, singleton løsning.
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
       

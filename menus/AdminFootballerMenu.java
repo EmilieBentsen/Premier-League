@@ -8,7 +8,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
 {
       Output output = new Output();
       Input input = new Input();
-      FootballerHandler footballerHandler = FootballerHandler.getFootballerHandler();
+      FootballerHandler fh = FootballerHandler.getFootballerHandler();
       
       public void adminFootballerMenu() 
       {
@@ -34,8 +34,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
       }
       
       public void updateFootballerMenu() //Menuen er til for at kunne opdatere oplysninger om en eksisterende footballer
-      {
-            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+      {            
             ArrayList<Footballer> footballers = fh.getFootballerArray();
             output.printActiveFootballers(footballers); //printer en liste af aktive footballers
             output.promptJerseyNumber(); //beder om Jersey nr. på den spiller der ønskes opdateret
@@ -100,8 +99,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                   case 4 :    position = "FW";
                               break;
             }
-            
-            FootballerHandler fh = FootballerHandler.getFootballerHandler();
+                        
             fh.createObject(jerseyNumber, name, salary, employed, position); //Opretter den nye footballer og gemmer den i footballers
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position); //Brugeren får en bekræftelse på at der er oprettet en ny spiller
       }

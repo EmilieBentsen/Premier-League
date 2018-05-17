@@ -7,8 +7,7 @@ import java.util.ArrayList;
 public class AdminOpponentMenu
 {
       Output output = new Output();
-      Input input = new Input();
-      
+      Input input = new Input();      
       OpponentHandler opponentHandler = OpponentHandler.getOpponentHandler();
       
       public void adminOpponentMenu() //menu til at administrerer modstandere
