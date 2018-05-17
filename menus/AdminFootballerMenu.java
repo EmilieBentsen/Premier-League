@@ -68,6 +68,8 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
             adminMenu.adminMenu();
       }
       
+      
+      //Adam Birch, Erik Pilverdier
       public void createFootballerMenu(String salaryOrTeam) //menu til at oprette en footballer
       {
             output.promptForJerseyNumber(); //Beder om et Jersey number

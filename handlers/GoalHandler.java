@@ -63,6 +63,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
 
+      //Adam Birch
       public ArrayList<Integer> getGoalscorerByMatchID(ArrayList<Integer> getMatchIDInAPeriod)//returnerer et AL af målscorere der har scoret mål i en periode 
       {
             ArrayList<Integer> goalScorers = new ArrayList<Integer>();
@@ -78,6 +79,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return goalScorers;
       } 
 
+      //Adam Birch
       public int[] convertIntegers(List<Integer> integers) //https://stackoverflow.com/questions/718554/how-to-convert-an-arraylist-containing-integers-to-primitive-int-array
       {
             int[] ret = new int[integers.size()]; //Vi opretter et 1-dimensionelt array der er lige så langt (length), som vores ArrayList(size()).
@@ -89,6 +91,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return ret;
       }
 
+      //Adam Birch
       public int[] sort(int goalScorers[]) //1-dimensionel bubblesort metode.
       {
             for(int i=0;i<goalScorers.length;i++) //For alle linjer i vores array
@@ -107,6 +110,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return goalScorers; //Den sorterede liste returneres
       }  
 
+      //Adam Birch
       public int[][] sort(int occurenceGoalscorers[][]) //2-dimensionel bubblesort metode
       {
             int sortedGoalscorers[] = new int[2];
@@ -126,6 +130,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return occurenceGoalscorers; //Den sorterede liste returneres
       }
    
+      //Adam Birch
       public int[][] getArrayWithGoalFrequencies(ArrayList<Integer> importedGoalScorers) //Vi ønsker et 2-dimensionelt array med hhv. målscorerens ID og antallet af mål der er scoret.
       {     
             int[] goalScorers = convertIntegers(importedGoalScorers); //Vores ArrayList med Strings skal konverteres til Ints, før vi kan manipulere dem korrekt.
@@ -155,6 +160,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return occurenceGoalscorers; //Vi returnerer det sorterede 2-dimensionelle array
       }
 
+      //Adam Birch
       public int[][] getTopGoalscorers(int occurenceGoalscorers[][], int topX)
       {     
             int getTopScorers[][] = new int[topX][2];
@@ -168,6 +174,7 @@ public class GoalHandler extends ObjectHandler<Goal>
       return getTopScorers;
       }
       
+      //Adam Birch      
       public int[][] getTopGoalscorersByDate(int topX, LocalDate startDate, LocalDate endDate) //Vi samler metoderne til topX for en periode.
       {
             MatchHandler mh = MatchHandler.getMatchHandler();
@@ -219,6 +226,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             int newID = getNewID(goals);
             return newID;
       }
+      
       //metode til at oprette et mål
       public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opretter et nyt mål objekt
       {
@@ -230,6 +238,7 @@ public class GoalHandler extends ObjectHandler<Goal>
                               goalAssistingPlayer));
             save(goals);
       }   
+      
       //metode til at opdatere et mål
       public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opdaterer et mål objekt
       {
@@ -246,7 +255,8 @@ public class GoalHandler extends ObjectHandler<Goal>
                   }
             }
       }   
-
+      
+      //Erik Pilverdier
       public int getGoalsByClub() //metode der tæller hvor mangen mål klubben har scoret ialt
       {
             int count = 0; 
@@ -256,7 +266,8 @@ public class GoalHandler extends ObjectHandler<Goal>
             }
             return count;
       }
-
+      
+      //Adam Birch
       public ArrayList<Goal> getGoalsByMatchID(int matchID) //metode der returnerer et AL med de mål der er scoret i en given kamp
       {
             ArrayList<Goal> matchGoals = new ArrayList<Goal>();

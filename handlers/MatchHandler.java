@@ -98,22 +98,8 @@ public class MatchHandler extends ObjectHandler<Match>
                                     matchLineup));
              save(matches);
       }
-          
-      public void listMatches() //metode der printer en liste med objekter
-      {           
-            for(Match i : matches)
-            {
-                  System.out.println(i.getID() 
-                              + " " + i.getMatchDate() 
-                              + " " + i.getMatchOpponentID() 
-                              + " " + i.getMatchHomeOrAway() 
-                              + " " + i.getMatchHomeGoals() 
-                              + " " + i.getMatchAwayGoals() 
-                              + " " + i.getMatchFormation() 
-                              + " " + i.getMatchLineup());   
-            }
-      }
       
+      //Adam Birch
       public boolean checkStringForItem(String source, String subItem){
          String pattern = "\\b"+subItem+"\\b"; //\\b sørger for du kun får match på 1, og ikke på 15, 16, 17 osv. På samme måde fanger den kun husene og ikke huse, ved indtastning af "husene".
          Pattern p=Pattern.compile(pattern); //Pattern laver det mønster vi leder efter. I dette tilfælde subItem.
@@ -123,6 +109,7 @@ public class MatchHandler extends ObjectHandler<Match>
          //En alternativ måde at skrive ovenstående på er Pattern.matches(pattern, source); 
       }
       
+      //Adam Birch
       public int cleanSheetsByFootballer(String footballerJersey)
       {
             int count = 0;
@@ -144,6 +131,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      //Adam Birch
       public int matchesPlayedByFootballer(String footballerJersey)
       {
             int count = 0;
@@ -158,6 +146,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      //Emilie Bentsen
       public ArrayList<Match> getMatchesWithoutResult()
       {
             String formation = "0-0-0";
@@ -180,6 +169,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return matchesWithoutResult;
       }
       
+      //Adam Birch
       public ArrayList<Match> matchesPlayedByFootballer(LocalDate startDate, LocalDate endDate, int footballerJersey)
       {
             String footballerJerseyString = Integer.toString(footballerJersey);
@@ -202,6 +192,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return matchesPlayedInPeriod;
       }
       
+      //Erik Pilverdier
       public int cleanSheetsByClub()
       {
             int count = 0;
@@ -220,6 +211,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      //Erik Pilverdier
       public int goalsConcededByClub()
       {
             int count = 0;
@@ -237,6 +229,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      //Erik Pilverdier, Adam Birch
       public String matchesPlayedWonDrawLostByClub()
       {
             int countPlayed = 0;
@@ -280,6 +273,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return newID;
       }
       
+      //Adam Birch
       public ArrayList<Match> getMatchesInPeriod(LocalDate startDate, LocalDate endDate)
       {
             ArrayList<Match> matchesInPeriod = new ArrayList<Match>(); 
@@ -300,7 +294,8 @@ public class MatchHandler extends ObjectHandler<Match>
             }
             return matchesInPeriod;
       } 
-
+      
+      //Adam Birch, Emilie Bentsen
       public ArrayList<Integer> getMatchIDInAPeriod(LocalDate startDate, LocalDate endDate)
       {     
             ArrayList<Integer> matchesInAPeriod = new ArrayList<Integer>();
@@ -314,7 +309,8 @@ public class MatchHandler extends ObjectHandler<Match>
             }
             return matchesInAPeriod;
       }
-
+      
+      //Emilie Bentsen
       public ArrayList<Match> schedule()
       {
             LocalDate now = LocalDate.now();

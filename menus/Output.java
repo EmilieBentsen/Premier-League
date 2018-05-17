@@ -295,7 +295,9 @@ public class Output
             emptyLine(2);
             bakEndButton(4,5);   
             line();        
-      }   
+      }
+      
+      //Adam Birch   
       //printer statistik omrking en enkelt kamp, kampdato, spillet formation, startopstilling, hvilke mål Liverpool har scoret
       //målscorer, tidspunkt i kampen målet er scoret, om målet er scoret på straffe osv samt hvem der lagde op til målet
       public void chosenMatch(Match match, ArrayList<Goal> goals, ArrayList<Footballer> footballers)
@@ -419,6 +421,8 @@ public class Output
                   System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
             }
       }
+      
+      //Adam Birch
       //printer en liste af stats us for oppnents
       public void printOpponentFootballers(ArrayList<Footballer> opponents)
       {
@@ -430,17 +434,19 @@ public class Output
             }
             System.out.println();
       }
+      
+      //Adam Birch
       //printer det resterende kampprogram for sæsonen
       public void printSchedule(ArrayList<Match> schedule)
       {
-     
+           System.out.printf("%10s %20s","Match date", "Opponent");
            for(Match i : schedule)
             {
-                  System.out.println("Match date: " + i.getMatchDate() + " Opponent: " + getOpponent(i.getMatchOpponentID()) + " " 
-                  + i.getMatchHomeOrAway() + " " + i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals()
-                  + " Formation played: " + i.getMatchFormation());
+                  System.out.printf("%10s %20s",i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
             }   
-      }      
+      }
+      
+      //Adam Birch      
       //printer en liste af de kampe der er spillet i en periode ud
       public void printMatchesPlayedInPeriod(ArrayList<Match> matches)
       {
@@ -449,7 +455,8 @@ public class Output
             {
                   System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
             }
-      }      
+      }
+            
       //Printer en liste over modstandere
       public void printOpponentList(ArrayList<Opponent> opponents)
       {
@@ -457,7 +464,9 @@ public class Output
             {
                   System.out.println("Opponent ID: " + i.getID() + ", "+"Opponent Name: " + i.getOpponentName()); 
             }
-      }      
+      }
+      
+      //Adam Birch      
       //Printer en liste overkampe som ikke er registreret endnu      
       public void printNonRegisteredMatches(ArrayList<Match> matches)
       {
@@ -467,6 +476,7 @@ public class Output
                   System.out.printf("%3s %8s %25s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()));
             }   
       }
+      
       //**PRINT**         
       //Bekræftelse på at en match er blevet oprettet
       public void matchCreationConfirmation()
@@ -483,6 +493,8 @@ public class Output
       {
             printLine("Current opponent name: " + opponent.getOpponentName());
       }
+      
+      //Adam Birch
       //Giver en bekræftelse på at der er opdateret en spiller, samt viser de nye oplysninger om spilleren
       public void confirmationUpdateFootballer(Footballer footballer)
       {
@@ -490,18 +502,22 @@ public class Output
             System.out.printf("%3s %3s %8s %5s %3s", "ID\n", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
             System.out.printf("%3s %3s %8s %5s %3s\n", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
       }
+      
       //Giver ern bekræftelse, samt viser oplysniner om nyoprettet footballer
       public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position) 
       {
             printLine("You have created a new footballer: " + name);
             printLine("Jersey number: " + jerseyNumber + ", Salary: " + salary + ", Employment staus: " + employed + ", Position: " + position);
       }
+      
       //Giver en bekræftelse, samt viser oplysninger om en nyoprettet modstander
       public void confirmationOnCreateOpponent(String opponentName, boolean active) 
       {
             printLine("You have created" + opponentName + ". Their current status is:" + active );
             printLine("Input 3 to return to menu.");
       }
+      
+      //Adam Birch
       //Giver en bekræftelse med de opdaterede oplysninger når en modstander er opdateret
       public void confirmationOnUpdateOpponent(Opponent opponent)
       {
@@ -561,17 +577,17 @@ public class Output
       //Spørger om Liverpool har spillet ude eller hjemme
       public void promptHomeAway() 
       {
-            printLine("Please enter whether Liverpool is playing as \"Home\" or \"Away\", enter \"H\" for \"Home\" and \"A\" for \"Away\".");
+            printLine("Please enter wether Liverpool is playing at \"Home\" or \"Away\". (H/A)");
       }
       //Beder om et ID på en kamp fra en liste af kampe   
       public void promptMatchByID() 
       {
-            printLine("Please enter \"ID\" of one of the listed matches.");
+            printLine("Please enter ID of one of the listed matches.");
       }
       //beder om resultatet på en kamp
       public void promptMatchResult() 
       {
-            printLine("Please enter match result. (Home-Away) ");
+            printLine("Please enter match result. (Home-Away)(X-X) ");
       }
       //Beder om en footballers jersey nr
       public void promptGoalscorer() 
@@ -656,12 +672,12 @@ public class Output
       //beder brugeren indtaste om spilleren er aktiv eller ej
       public void promptFootballerEmployed() 
       {
-            printLine("Enter the players employment status (1) = true, (2) = false ");
+            printLine("Enter the players status. (1. Liverpool 2. Other team/former player)");
       }
       //Beder om footballers position
       public void promptFootballerPosition() 
       {
-            printLine("Enter the players position (1) = GK, (2) = DF, (3) = MF, (4) = FW ");
+            printLine("Input number to set players position:  GK(1), DF(2), MF(3), FW(4) ");
       } 
       //Beder om modstanderen
       public void promptOpponentNameCreateNewOpponent() 
@@ -677,6 +693,6 @@ public class Output
       public void promptOpponentActice() 
       {
             printLine("Is the opponent currently in Premier League?");
-            printLine("1 for Yes, 2 for No");
+            printLine("(1. Yes (2. No");
       }
 }
