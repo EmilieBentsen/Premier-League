@@ -1,5 +1,5 @@
 package menus;    //vi har flere menu'er samt output og input, som alle er i denne package
-
+//Lasse: Skrev pseudokode.
 import handlers.*;      //skal have adgang til vores Handlers
 import models.*;        //Skal have adgang til vores modeller
 import java.util.ArrayList;   //til oprettelse af ArrayList's

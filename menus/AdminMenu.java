@@ -1,5 +1,5 @@
 package menus;
-
+// Lasse: Skrev pseudokode.
 import handlers.*;
 import models.*;
 public class AdminMenu
