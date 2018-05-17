@@ -1,5 +1,5 @@
 package models;
-
+//Lasse: Har skrevet dele af koden.
 public abstract class Footballer implements Model
 {
       private int footballerID;

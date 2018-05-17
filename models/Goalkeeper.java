@@ -1,5 +1,5 @@
 package models;
-
+//Lasse: Har skrevet denne klasse
 public class Goalkeeper extends Footballer 
 {
       //Constructor

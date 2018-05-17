@@ -1,5 +1,5 @@
 package models;
-
+//Lasse: Har skrevet dele af koden.
 public class Opponent implements Model
 {
       private int opponentID;

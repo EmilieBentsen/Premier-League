@@ -1,5 +1,5 @@
 package menus;    //vi har flere menu'er samt output og input, som alle er i denne package
-
+//Lasse: Skrev pseudokode over hvad menuen skulle indeholde, og kodede dele af menuen med Erik.
 import models.*;              //skal have adgang til modelernes get metoder
 import handlers.*;            //Til brug af vores handlers
 import java.time.*;           //til benyttelse af LocalDate

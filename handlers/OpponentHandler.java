@@ -30,7 +30,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             return "opponent.csv";
       }
       
-      public PersistentObjectHandler<Opponent> getHandler()//Returnerer en persistentObjectHandler med objectet Hamster
+      public PersistentObjectHandler<Opponent> getHandler()//Returnerer en persistentObjectHandler med objectet Opponent
       {
             return new PersistentObjectHandler<Opponent>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
             {

@@ -1,5 +1,5 @@
 package menus;
-
+//Lasse : Har skrevet pseudokode til indhold af klassen, og kodede dele af menuen med Emilie.
 import handlers.*;
 import java.util.*;
 import models.*;
