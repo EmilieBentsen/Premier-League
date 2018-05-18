@@ -134,7 +134,7 @@ public class AdminMatchMenu
                         {
                               output.printActiveFootballers(footballers);
                               output.promptGoalscorer(); //Beder om målscoren                  
-                              int ID = input.getGoalscorer(footballers);
+                              int goalScorerID = input.getGoalscorer(footballers);
                               output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
                               int time = input.getGoalMinuteScored();
                   
@@ -148,14 +148,11 @@ public class AdminMatchMenu
                               else if(goalType != 'R' || goalType != 'r') //Hvis målet ikke er reguler, sættes assist til 00
                               {
                                     assistedID = 00;
-                              }
-                  
-                              
-                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assistedID);
-     
+                              }                              
+                              gh.createObject(match.getID(), goalScorerID, time, goalType, assistedID);
                         }
-            
                   }
+                  
                   output.promptMatchFormation(); //Beder om kamp formationen
                   String formation = input.promptMatchFormation();
                   output.promptMatchLineup(); //beder om kampens lineup
