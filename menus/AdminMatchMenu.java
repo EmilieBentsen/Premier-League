@@ -48,26 +48,12 @@ public class AdminMatchMenu
       {
             
             output.promptDate(); //beder om dato på den fremtidige kamp
-            String date = input.getDate();
-            LocalDate matchDate = LocalDate.parse(date);
+            LocalDate matchDate = getDate();
             if(matchDate.isBefore(LocalDate.now())) //Tjekker om datoen ligger efter dags dato
             {
                   System.out.println("Date has to be after today.");
                   createFutureMatch();
             }
-            switch(date)
-            {
-                  case "5":
-                              MainMenu mainMenu = new MainMenu();
-                              mainMenu.startMenu();
-                              break;
-                              
-                  case "4":
-                              AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
-                              adminMatchMenu();
-                              break;
-            }
-            
             ArrayList<Opponent> opponents = oh.getActiveOpponentsArray(); //henter aktive modstander array
             output.printOpponentList(opponents); //printer liste af aktive modstandere
             output.promptOpponent(); //beder om modstander fra liste
@@ -80,6 +66,24 @@ public class AdminMatchMenu
             
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
+      }
+      
+      public LocalDate getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
+      {     
+            
+            String date = input.getDate();
+            
+            if(date.equals("5")) 
+            {
+                  MainMenu mainMenu = new MainMenu();
+                  mainMenu.startMenu();
+            }
+            else if(date.equals("4"))
+            {
+                  adminMatchMenu();
+            }
+            LocalDate ld = LocalDate.parse(date);
+            return ld;
       }
       
       public void updateMatch()
