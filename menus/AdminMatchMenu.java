@@ -26,6 +26,8 @@ public class AdminMatchMenu
                               break;
                   case 2: 
                               updateMatch(); //Metode til at opdatere en fremtidig Liverpool kamp
+                              System.out.println("This menu will allow the Admin to update information about a match (NYI)");
+                              adminMatchMenu();
                               break;
                   case 3:
                               typeInResult(); //Metode til at indtaste resultatet på en spillet kamp
@@ -67,7 +69,7 @@ public class AdminMatchMenu
             }
             
             ArrayList<Opponent> opponents = oh.getActiveOpponentsArray(); //henter aktive modstander array
-            output.printOpponentFootballers(opponents); //printer liste af aktive modstandere
+            output.printOpponentList(opponents); //printer liste af aktive modstandere
             output.promptOpponent(); //beder om modstander fra liste
             int opponent = input.getOpponentIDByList(opponents);
             output.promptHomeAway(); //spørg om det er en ude eller hjemmekamp
@@ -115,43 +117,47 @@ public class AdminMatchMenu
             output.promptMatchResult(); //Beder om kampens resultat
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
             ArrayList<Footballer> footballers = fh.getActiveFootballersArray(); //henter liste af aktive spillere
-    
+            
+                  
                   for(int i = 0; i < liverpoolGoals; i++) //for loppet kører for så mange mål der er scoret af LP og der registreres hvem der målscore
                   {
+                        char goalType = 'k';
                         int assistedID = 0;
                         output.printGoals(liverpoolGoals-i); 
                         output.promtGoalType(); //spørger om måltypen
-                        char goalType = input.getGoalType();
-                        if(goalType == 'o' || goalType == 'O') //hvis målet er et selvmål, hentes modstander liste og der vælges et ID på spilleren
+                        while(goalType != 'o' || goalType != 'p' || goalType != 'r')
                         {
-                              ArrayList<Footballer> op = fh.getOpponentFootballersArray();
-                              output.printOpponentFootballers(op); //printer liste med modstandere
-                              output.promptIsOpponentOnList(); //beder om modstander fra liste
-                              int ID = input.getOpponentID();
-                              output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
-                              int time = input.getGoalMinuteScored();
-                              
-                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, 00);
-                        }
-                        else
-                        {
-                              output.printActiveFootballers(footballers);
-                              output.promptGoalscorer(); //Beder om målscoren                  
-                              int goalScorerID = input.getGoalscorer(footballers);
-                              output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
-                              int time = input.getGoalMinuteScored();
-                  
-                              if(goalType == 'R' || goalType == 'r') //hvis målet er et regular mål, spørger det var assisted
-                              {  
-                                    output.promtWasGoalAssisted(); //Spørger om målet var assisted
-                                    assistedID = input.getAssistedFootballer(footballers);
-                              }
-                              else if(goalType != 'R' || goalType != 'r') //Selvmål og straffespark har ikke assist.
+                              goalType = Character.toUpperCase(input.getGoalType());
+                              if(goalType == 'o' || goalType == 'O') //hvis målet er et selvmål, hentes modstander liste og der vælges et ID på spilleren
                               {
-                                    assistedID = 00;
-                              }                              
-                              gh.createObject(match.getID(), goalScorerID, time, goalType, assistedID);
-                        }
+                                    ArrayList<Footballer> op = fh.getOpponentFootballersArray();
+                                    output.printOpponentFootballers(op); //printer liste med modstandere
+                                    output.promptIsOpponentOnList(); //beder om modstander fra liste
+                                    int ID = input.getOpponentID();
+                                    output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
+                                    int time = input.getGoalMinuteScored();
+                                    gh.createObject(match.getID(), ID, time, goalType, 00);
+                              }
+                              else
+                              {
+                                    output.printActiveFootballers(footballers);
+                                    output.promptGoalscorer(); //Beder om målscoren                  
+                                    int goalScorerID = input.getGoalscorer(footballers);
+                                    output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
+                                    int time = input.getGoalMinuteScored();
+                        
+                                    if(goalType == 'R' || goalType == 'r') //hvis målet er et regular mål, spørger det var assisted
+                                    {  
+                                          output.promtWasGoalAssisted(); //Spørger om målet var assisted
+                                          assistedID = input.getAssistedFootballer(footballers);
+                                    }
+                                    else if(goalType != 'R' || goalType != 'r') //Selvmål og straffespark har ikke assist.
+                                    {
+                                          assistedID = 00;
+                                    }                              
+                                    gh.createObject(match.getID(), goalScorerID, time, goalType, assistedID);
+                              }
+                          }    
                   }
                   
                   output.promptMatchFormation(); //Beder om kamp formationen
