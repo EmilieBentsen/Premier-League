@@ -33,10 +33,6 @@ ID,Jersey,Name,Position,Salary/week,Employed
 32,10,Coutinho,FW,BAR,false
 33,5,Lewis Dunk,DF,BHA,false
 34,3,Eric Bailly,DF,MAU,false
-<<<<<<< HEAD
-35,0,Jürgen Klopp,MN,0,true
-=======
 35,0,Jürgen Klopp,MN,0,true
 36,100,Lasse,DF,300,true
 37,101,99,DF,25000,true
->>>>>>> d691c810d8147f3837078b35c227a9463cb19d2a

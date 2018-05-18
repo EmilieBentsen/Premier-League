@@ -58,6 +58,7 @@ public class AdminOpponentMenu
             }
 
             output.confirmationOnUpdateOpponent(chosenOpponent); //bekræftelse på at modstanderen er blevet opdateret
+            
             int endMenu = input.getInt(3,3);
             
             AdminMenu adminMenu = new AdminMenu();
