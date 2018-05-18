@@ -65,7 +65,6 @@ public class StatisticsMenu
       //Adam Birch, Erik Pilverdier
       public LocalDate getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
       {     
-            
             String date = input.getDate();
             
             if(date.equals("5")) 
@@ -169,7 +168,6 @@ public class StatisticsMenu
             ArrayList<Goal> goals = goalHandler.getGoalsByMatchID(chosenMatch.getID());//laver en liste med liverpool mål scoret i kampen
             output.chosenMatch(chosenMatch, goals, footballerHandler.getFootballerArray());//printer målene ud i consolen
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
-            
       }  
       
       //Erik Pilverdier
