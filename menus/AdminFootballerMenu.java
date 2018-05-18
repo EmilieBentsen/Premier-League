@@ -64,7 +64,6 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                                     chosenFootballer.setFootballerEmployed(false);//sætter den nye status til aktiv 
                               }
             output.confirmationUpdateFootballer(chosenFootballer); //giver en bekræftelse af opdateringen af footballer så brugeren ved den er opdateret            
-            int endMenu = input.getInt(3,3);
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
@@ -110,5 +109,7 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                         
             fh.createObject(jerseyNumber, name, salary, employed, position); //Opretter den nye footballer og gemmer den i footballers
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position); //Brugeren får en bekræftelse på at der er oprettet en ny spiller
+            AdminMenu adminMenu = new AdminMenu();
+            adminMenu.adminMenu();
       }
 }
