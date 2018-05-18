@@ -110,10 +110,5 @@ public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Foot
                         
             fh.createObject(jerseyNumber, name, salary, employed, position); //Opretter den nye footballer og gemmer den i footballers
             output.confirmationOnCreateFootballer(jerseyNumber, name, salary, employed, position); //Brugeren får en bekræftelse på at der er oprettet en ny spiller
-<<<<<<< HEAD
-            AdminMenu adminMenu = new AdminMenu();
-            adminMenu.adminMenu();
-=======
->>>>>>> parent of 6737186... adminfootballerhandler finpudsning
       }
 }
