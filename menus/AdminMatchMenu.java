@@ -67,7 +67,7 @@ public class AdminMatchMenu
             }
             
             ArrayList<Opponent> opponents = oh.getActiveOpponentsArray(); //henter aktive modstander array
-            output.printOpponentList(opponents); //printer liste af aktive modstandere
+            output.printOpponentFootballers(opponents); //printer liste af aktive modstandere
             output.promptOpponent(); //beder om modstander fra liste
             int opponent = input.getOpponentIDByList(opponents);
             output.promptHomeAway(); //spørg om det er en ude eller hjemmekamp

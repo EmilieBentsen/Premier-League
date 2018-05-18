@@ -356,10 +356,10 @@ public class Output
             System.out.printf("%1s %10s %10s %11s %35s %43s \n", "*","", match.getMatchDate(), match.getMatchFormation(),match.getMatchLineup(),"*");
             int count = 1;
             emptyLine(1);
-            System.out.printf("%1s %10s %3s %14s %30s %12s %20s %18s \n","*","","#", "Minute scored", "Goalscorer", "Type", "Assisted", "*");
+            System.out.printf("%1s %10s %3s %14s %30s %12s %30s %8s \n","*","","#", "Minute scored", "Goalscorer", "Type", "Assisted", "*");
             for(Goal i : goals)//printer listen af mål
             {
-                  System.out.printf("%1s %10s %3s %14s %30s %12s %20s %18s \n", "*","", count, i.getGoalMinuteScored(), getGoalScorerName(i.getGoalScorer(), footballers), i.getGoalTypeToString(), getAssistingPlayerName(i.getGoalAssistingPlayer(), footballers), "*");
+                  System.out.printf("%1s %10s %3s %14s %30s %12s %30s %8s \n", "*","", count, i.getGoalMinuteScored(), getGoalScorerName(i.getGoalScorer(), footballers), i.getGoalTypeToString(), getAssistingPlayerName(i.getGoalAssistingPlayer(), footballers), "*");
                   count ++;
             }
             emptyLine(5);
@@ -479,24 +479,33 @@ public class Output
       //printer en liste over aktive fodboldspillere.
       public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
       {
-      
+            System.out.printf("%3s %20s %5s \n", "ID", "Name", "Team");
             for(Footballer i : activeFootballers)
             {
-                  System.out.println(i.getFootballerJersey() + " " + i.getFootballerName() + " " + i.getFootballerPosition());
+                  System.out.printf("%3s %5s %20s \n", i.getFootballerJersey(), i.getFootballerPosition(), i.getFootballerName());
             }
+            System.out.println();
       }
       
       //Adam Birch
       //printer en liste af stats us for oppnents
       public void printOpponentFootballers(ArrayList<Footballer> opponents)
-      {
-            
+      {     
             System.out.printf("%3s %20s %5s \n", "ID", "Name", "Team");
             for(Footballer i : opponents)
             {
                   System.out.printf("%3s %20s %5s \n", i.getID(), i.getFootballerName(), i.getFootballerSalary());
             }
             System.out.println();
+      }
+      
+      public void printOpponentList(ArrayList<Opponent> teams)
+      {
+            System.out.printf("%3s %25s %10s \n", "ID", "Name", "Active");
+            for(Opponent i : teams)
+            {
+                  System.out.printf("%3s %25s %10s \n",i.getID(), i.getOpponentName(), i.getOpponentActive());
+            }
       }
       
       //Adam Birch
@@ -518,16 +527,6 @@ public class Output
             for (Match i : matches)
             {
                   System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
-            }
-      }
-      
-      //Erik Pilverdier
-      //Printer en liste over modstandere
-      public void printOpponentList(ArrayList<Opponent> opponents)
-      {
-            for(Opponent i : opponents)
-            {
-                  System.out.println("Opponent ID: " + i.getID() + ", "+"Opponent Name: " + i.getOpponentName()); 
             }
       }
       
