@@ -30,6 +30,7 @@ public class Input
             return input.nextInt();
       }      
       
+      //Erik Pilverdier
       //bruges til at vi kun kan vælge et trøjenummer der er i brug af en af fodboldspillerne
       public Footballer getFootballerByJersey(ArrayList<Footballer> footballerList)
       {
@@ -48,6 +49,7 @@ public class Input
             }
       }
       
+      //Erik Pilverdier
       //samme som med fodboldspillerne, men her det kun de kampe der er i listen der kan vælges
       public Match getMatchByID (ArrayList<Match> matches)
       {
@@ -155,6 +157,7 @@ public class Input
             }
       }
       
+      //Emilie Bentsen
       //Sørger for at input er enten H eller A.
       public char getHomeAway()
       {
@@ -173,24 +176,7 @@ public class Input
                   }
             }
             
-      }
-      //tjekker om det indtastede id findes i listen af kampe
-      public Match getMatchIDByList(ArrayList<Match> matches)
-      {
-            while(true)
-            {
-                  int input = getInt();
-                  for(Match i : matches)
-                  {                        
-                              if (i.getID() == input)
-                              {
-                                    
-                                    return i;
-                              }
-                          
-                   }     
-            }
-      }
+      }         
       
       //Emilie Bentsen, Adam Birch
       //Tager imod et resultat og splitter det i H/A goals, tjekker om kampen er ude eller hjemme og returnerer LP mål
@@ -222,16 +208,15 @@ public class Input
                               System.out.println("Wrong input!");
                         }
              
-                        }
-                        catch(Exception e)
-                        {
-                              System.out.println("Wrong input! ");                        
-                        }
+                  }
+                  catch(Exception e)
+                  {
+                        System.out.println("Wrong input! ");                        
+                  }
             }
-            
       }
       
-      //Erik Pilverdier
+      //Emilie Bentsen
       //Tjekker om footballerjersey er på listen af footballers
       public int getGoalscorer(ArrayList<Footballer> footballers)
       {
@@ -249,7 +234,7 @@ public class Input
             } 
       } 
       
-      //Erik Pilverdier
+      //Emilie Bentsen
       //tager imod tiden et mål er scoret og tjekker at det er mindre end 100 og returner tiden
       public int getGoalMinuteScored()
       {
@@ -269,7 +254,7 @@ public class Input
             }
       }   
       
-      //Erik Pilverdier
+      //Emilie Bentsen
       //tager imod en måltype og tjekker om typen er enten R P eller O og returnerer typen
       public char getGoalType()
       {
@@ -291,7 +276,7 @@ public class Input
       
       } 
       
-      //Erik Pilverdier
+      //Emilie Bentsen
       //tager imod et svar på om en modstander findes på listen ellers beder den brugeren indtaste modstanderen. Returnerer ID på modstander.
       public int getOpponentID() 
       {
@@ -391,7 +376,7 @@ public class Input
             }   
      }
      
-     //Erik Pilverdier
+     //Emilie Bentsen
      //tager imod et svar på om et mål var assistede. Hvis ja indtastes ID på spiller hvis nej returneres ID = 00
      public int getAssistedFootballer(ArrayList<Footballer> footballers) 
       {

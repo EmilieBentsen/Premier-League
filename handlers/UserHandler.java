@@ -3,6 +3,7 @@ package handlers;
 import models.*;
 import java.util.*;
 
+//Emilie Bentsen
 public class UserHandler extends ObjectHandler<User> 
 {
       private static UserHandler instance;
@@ -51,7 +52,6 @@ public class UserHandler extends ObjectHandler<User>
                   }
             };
       }
-      
       
       //Emilie Bentsen, Lasse Gustafson
       public boolean verifyAdmin(String username, String password) //metode til at verificere om en bruger findes

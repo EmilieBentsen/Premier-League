@@ -6,12 +6,15 @@ import handlers.*;
 
 public class Output
 {    
+      //Erik Pilverdier
       //**HJÆLPE METODER:**  
       //bruges til at printe en linje tekst med * som ramme
       public void printLine(String text)
       {
             System.out.println("*" + text + whiteSpaces(113 - text.length()) + "*");
       }
+      
+      //Erik Pilverdier
       //Laver overskriften på vores menu'er
       public void header()
       {
@@ -29,11 +32,15 @@ public class Output
             System.out.println("*" + whiteSpaces(32) + " |____|_|\\_/\\___|_| | .__/\\___/\\___/_| |_(_)___(_)" + whiteSpaces(31) + "*");
             System.out.println("*" + whiteSpaces(32) + "                    |_|                           " + whiteSpaces(31) + "*");
       }
+      
+      //Erik Pilverdier
       //bruges til at bede brugeren om at taste input ind, range er det tilladte fra og til
       public void typeYourInput(String range)
       {
             System.out.println("*" + "  Type your input here; " + range + whiteSpaces(89 - range.length()) + "*");
       }
+      
+      //Adam Birch
       //printer en tom linje per "number"
       public void emptyLine(int number)
       {
@@ -42,12 +49,16 @@ public class Output
                   System.out.printf("%1s %111s %1s \n","*","", "*");
             }
       }
+      
+      //Erik Pilverdier
       //printer en linje *******
       public void line()
       {
             System.out.print("*******************************************************************************************************************");
             System.out.println();
       }
+      
+      //Erik Pilverdier
       //laver en slut knap nede i højre hjørne
       public void endButton(int number)
       {
@@ -55,6 +66,8 @@ public class Output
             System.out.println("*" + whiteSpaces(93) + buttonBody("(" + number +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(93) + buttonHead(19) + " *");
       }
+      
+      //Erik Pilverdier
       //laver en tilbage knap og en slut knap
       public void bakEndButton(int bakNumber, int endNumber)
       {
@@ -62,6 +75,8 @@ public class Output
             System.out.println("*" + whiteSpaces(71) + buttonBody("(" + bakNumber + ")" + " Last Menu ", 19) + whiteSpaces(3) + buttonBody("(" + endNumber +")" + " Main Menu",19) + " *");
             System.out.println("*" + whiteSpaces(71) + buttonHead(19) + whiteSpaces(3) + buttonHead(19) + " *");
       }
+      
+      //Erik Pilverdier
       //laver to knapper
       public void twoButtons(String textButtonOne, String textButtonTwo, int length)
       {
@@ -70,6 +85,8 @@ public class Output
             + buttonBody(textButtonTwo, length) + whiteSpaces((113 - 2*length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((113 - 2*length)/ 3) + "*");
       }
+      
+      //Erik Pilverdier
       //laver 3 knapper
       public void threeButtons(String textButtonOne, String textButtonTwo, String textButtonThree, int length)
       {
@@ -86,6 +103,8 @@ public class Output
              + whiteSpaces((113 - 3*length)/ 4) + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) 
              + buttonHead(length) + whiteSpaces((113 - 3*length)/ 4) + "*");
       }
+      
+      //Erik Pilverdier
       //laver en knap i venstre side
       public void buttonLeft(String text, int length)
       {
@@ -93,6 +112,8 @@ public class Output
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonBody(text, length) + whiteSpaces((2*113 - length)/ 3) + "*");
             System.out.println("*" + whiteSpaces((113 - 2*length)/ 3) + buttonHead(length) + whiteSpaces((2*113 - length)/ 3) + "*");
       }
+      
+      //Erik Pilverdier
       //laver en kanp i midten af skærmen
       public void buttonMiddle(String text, int length)
       {
@@ -100,6 +121,8 @@ public class Output
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonBody(text,length) + whiteSpaces((113 - length)/2) + "*");
             System.out.println("*" + whiteSpaces((113 - length)/2) + buttonHead(length) + whiteSpaces((113 - length)/2) + "*");            
       }
+      
+      //Erik Pilverdier
       //bruges til at kroppen af knapperne
       public String buttonBody(String text, int length)
       {
@@ -109,6 +132,8 @@ public class Output
             head += whiteSpaces(number) + "|";
             return head;
       }
+      
+      //Erik Pilverdier
       //bruges til at printe linjerne i toppen og bunden af knappen
       public String buttonHead(int length)
       {
@@ -119,6 +144,8 @@ public class Output
             }
             return top;
       }
+      
+      //Erik Pilverdier
       //laver number antal mellemrum
       public String whiteSpaces(int number)
       {
@@ -129,6 +156,8 @@ public class Output
             }
             return spaces;
       } 
+      
+      //Erik Pilverdier
       //Laver et H om til Home game og A om til Away game 
       public String homeAwayGame(char game)
       {
@@ -141,6 +170,8 @@ public class Output
                   return "Away";
             }
       }
+      
+      //Erik Pilverdier
       //finder modstander navnet ud fra deres modstander id og returnerer det
       public String getOpponent(int matchOpponentID)
       {
@@ -155,6 +186,8 @@ public class Output
             }
             return null;
       }
+      
+      //Erik Pilverdier
       //Finder en fodboldspillers navn ud fra et fodboldspiller id og returnerer navnet
       public String getGoalScorerName(int goalScorerFootballerID, ArrayList<Footballer> footballers)
       {
@@ -169,6 +202,8 @@ public class Output
             }
             return goalScorerName;
       } 
+      
+      //Adam Birch
       //finder oplægeren til målet udfra assistingFootballerID og returnrer navnet, hvis der ikke er lagt op til målet returneres no assist
       public String getAssistingPlayerName(int assistingFootballerID, ArrayList<Footballer> footballers)
       {
@@ -189,6 +224,8 @@ public class Output
             }
             return assistingFootballerName;
       }
+      
+      //Erik Pilverdier, Lasse Gustavson
       //**MENU'ER:**
      //Printer start menuen hvorfra du kan vælge statisk, admin menu eller schedule.
       public void startMenu()
@@ -203,6 +240,8 @@ public class Output
             typeYourInput("1-3");// printer en besked til brugeren om at de skal taste et tal imellem 1 og 3.
             line();//linje af *** til at markere slutningen på skærmen
       }
+      
+      //Erik Pilverdier, Lasse Gustavson
       //printer statisik menuen for alle brugere der giver mulighed for at tilgå statistik om footballere og kampe.       
       public void statisticMenu()//Printer statistik menu billdet
       {
@@ -218,6 +257,7 @@ public class Output
             line();            
       }
       
+      //Erik Pilverdier
       //printer menu'en for hvilke kampe fodboldspilleren har spillet
       public void footballerMatchesPlayed(Footballer footballer)
       {
@@ -231,6 +271,8 @@ public class Output
             line();
             
       }
+      
+      //Erik Pilverdier
       //Printer holdets statistikker ud for sæsonen
       public void clubStatisticsMenu(int gamesPlayed, int gamesWon, int gamesDraw, int gamesLost, int goalsScored, int goalsConceded, int cleenSheets)
       {
@@ -245,6 +287,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Erik Pilverdier
       //printer en menu ud, der beder brugeren om at taste en start dato for en periode
       public void matchStatisticsMenuStartDate()
       {
@@ -259,6 +303,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Erik Pilverdier
       //printer en menu ud, der beder brugeren om at taste en slut dato for en periode
       public void matchStatisticsMenuEndDate()
       {
@@ -270,7 +316,9 @@ public class Output
             emptyLine(7);
             bakEndButton(4,5);
             line();
-      }      
+      }     
+      
+      //Erik Pilverdier 
       //Printer oplysninger om en spiller med mulighed for at se hvilke kampe han har spillet
       public void displayFootballerStatistics(Footballer footballer, int goals, int assists, int cleansheets, int matchesPlayed)
       {
@@ -318,6 +366,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Emilie Bentsen, Lasse Gustavson
       //Printer Menuen til at administrator menuen
       public void adminMenuUI()
       {
@@ -330,6 +380,8 @@ public class Output
             endButton(4);
             line();
       }
+      
+      //Emilie Bentsen, Lasse Gustavson
       //Printer Menuen til at administrere matches
       public void adminMatchMenuUI()
       {
@@ -342,6 +394,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Erik Pilverdier
       //Printer Menuen til at administrere modstandere
       public void adminOpponentMenu()
       {
@@ -354,6 +408,8 @@ public class Output
             bakEndButton(3,4);
             line();      
       } 
+      
+      //Erik pilverdier
       //Printer Menuen til at administrere footballers
       public void adminFootballerMenu()
       {
@@ -366,6 +422,8 @@ public class Output
             bakEndButton(3,4);
             line(); 
       }      
+      
+      //Erik Pilverdier
       //**TOP 3 MENU:**
       //menu der beder brugeren om at vælge en dato for starten af den periode de ønsker at se top 3 målscorere
       public void topThreeScorerMenu() 
@@ -381,6 +439,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Erik Pilverdier
       //Metode der printer top 3 målscorer i sæsonen
       public void printTopThreeGoalScorers(int[][] topThreeGoalScorers)
       {
@@ -399,6 +459,8 @@ public class Output
             bakEndButton(4,5);//printer en tilbage og afslut knap nede i højre hjørne 
             line();
       }
+      
+      //Erik Pilverdier
       //Menuvalg, brugeren vælger en slut dato for perioden de vil se spillede kampe fra
       public void endDateOfPeriod(String text)
       {
@@ -411,6 +473,8 @@ public class Output
             bakEndButton(4,5);
             line();
       }
+      
+      //Erik Pilverdier
       //**PRINT LISTER:**
       //printer en liste over aktive fodboldspillere.
       public void printActiveFootballers(ArrayList<Footballer> activeFootballers)
@@ -456,7 +520,8 @@ public class Output
                   System.out.printf("%3s %11s %35s %10s %5s %10s \n", i.getID(), i.getMatchDate(), getOpponent(i.getMatchOpponentID()), i.getMatchHomeOrAway(), i.getMatchHomeGoals() + "-" + i.getMatchAwayGoals(), i.getMatchFormation());       
             }
       }
-            
+      
+      //Erik Pilverdier
       //Printer en liste over modstandere
       public void printOpponentList(ArrayList<Opponent> opponents)
       {
@@ -477,17 +542,22 @@ public class Output
             }   
       }
       
+      //Emilie Bentsen
       //**PRINT**         
       //Bekræftelse på at en match er blevet oprettet
       public void matchCreationConfirmation()
       {
             printLine("The new match has been created and registered! Good job!");
       }
+      
+      //Emilie Bentsen
       //Bekræftelse på at en kamps resultater er blevet opdateret
       public void typeInResultConfirmation()
       {
             printLine("Match result has been updated!");
       }
+      
+      //Erik Pilverdier
       //Printer navnet ud på på en nuværende modstander
       public void printOpponentName(Opponent opponent)
       {
@@ -503,6 +573,7 @@ public class Output
             System.out.printf("%3s %3s %8s %5s %3s\n", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
       }
       
+      //Erik Pilverdier
       //Giver ern bekræftelse, samt viser oplysniner om nyoprettet footballer
       public void confirmationOnCreateFootballer(int jerseyNumber, String name, String salary, boolean employed, String position) 
       {
@@ -510,6 +581,7 @@ public class Output
             printLine("Jersey number: " + jerseyNumber + ", Salary: " + salary + ", Employment staus: " + employed + ", Position: " + position);
       }
       
+      //Erik Pilverdier
       //Giver en bekræftelse, samt viser oplysninger om en nyoprettet modstander
       public void confirmationOnCreateOpponent(String opponentName, boolean active) 
       {
@@ -526,18 +598,22 @@ public class Output
             System.out.printf("%3s %20s %5s\n", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
             printLine("Input 3 to return to menu."); 
       }
+      
+      //Emilie Bentsen
       //Giver en meddelelses om hvor mange mål admin mangler at indtaste data for
       public void printGoals(int homeGoals) 
       {
             printLine("Goals left to update: " + homeGoals);
       }
+      
+      //Emilie Bentsen
       //Fejlmeddelelse hvis brugeren har indtastet forkert brugernavn eller password
       public void invalidUser() 
       {
             printLine("Wrong password or username, please try again");
       } 
 
-     //**PROMPT:**
+     //**PROMPT:**  //Alle gruppe medlemmer har produceret flere af disse
      //Beder om en spillers jersey number
       public void promptForJerseyNumber() 
       {

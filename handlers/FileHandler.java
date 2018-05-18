@@ -1,4 +1,4 @@
-package handlers;
+package handlers; //Marcus har lavet et eksempel i undervisningen, hvor det meste af denn klasse er fra
 
 import java.util.ArrayList;
 import java.util.Scanner;

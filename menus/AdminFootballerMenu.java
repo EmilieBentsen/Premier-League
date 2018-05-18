@@ -4,6 +4,7 @@ import handlers.*;
 import models.*;
 import java.util.ArrayList;
 
+//Erik Pilverdier
 public class AdminFootballerMenu //Vi bruger menuen til at navigere i Admin Footballer Menu i programmet
 {
       Output output = new Output();

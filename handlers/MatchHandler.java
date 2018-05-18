@@ -35,6 +35,7 @@ public class MatchHandler extends ObjectHandler<Match>
             return "match.csv";
       }
       
+      //Emilie Bentsen
       public PersistentObjectHandler<Match> getHandler()//Returnerer en persistentObjectHandler med objectet Match
       {
             return new PersistentObjectHandler<Match>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
@@ -68,6 +69,7 @@ public class MatchHandler extends ObjectHandler<Match>
             };
       }
       
+      //Emilie Bentsen
       //opdatere et kamp objekt 
       public void updateObject(int matchID, LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
@@ -86,7 +88,8 @@ public class MatchHandler extends ObjectHandler<Match>
                   }
             }
       }
-
+      
+      //Emilie Bentsen
       public void createObject(LocalDate matchDate, int matchOpponentID, char matchHomeOrAway, int matchHomeGoals, int matchAwayGoals, String matchFormation, String matchLineup)
       {
              matches.add(new Match(getNewMatchID(), 
@@ -267,11 +270,13 @@ public class MatchHandler extends ObjectHandler<Match>
             return count;
       }
       
+      //Emilie Bentsen
       public void deleteMatch(int id)
       {
             deleteObject(matches, id);
       }
       
+      //Emilie Bentsen
       public int getNewMatchID()
       {
             int newID = getNewID(matches);

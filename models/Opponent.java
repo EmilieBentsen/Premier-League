@@ -1,5 +1,5 @@
 package models;
-//Lasse: Har skrevet dele af koden.
+//Adam Birch, Lasse Gustavson.
 public class Opponent implements Model
 {
       private int opponentID;

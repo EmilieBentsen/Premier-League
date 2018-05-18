@@ -38,6 +38,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return instance;
       }
 
+      //Erik Pilverdier
       public int goalsByFootballer(int footballerID) //Fodboldspillerens unikke mål oprettet i goal.csv.
       {
             int count = 0;
@@ -51,6 +52,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             return count;
       }
 
+      //Erik Pilverdier
       public int assistsByFootballer (int footballerID) //Fodboldspillerens unikke assists oprettet i goal.csv
       {
             int count = 0;
@@ -212,22 +214,26 @@ public class GoalHandler extends ObjectHandler<Goal>
             };
       }
    
+      //Erik Pilverdier
       public void deleteGoal(int id) //metode der sletter et mål 
       {
             deleteObject(goals, id);
       }
 
+      //Erik Pilverdier
       public ArrayList<Goal> getGoalArray() //metode der returnerer goals
       {
             return goals;
       }
 
+      //Erik Pilverdier
       public int getNewGoalID() //Når et nyt mål skal oprettes, skal vi have genereret et nyt ID.
       {
             int newID = getNewID(goals);
             return newID;
       }
       
+      //Erik Pilverdier
       //metode til at oprette et mål
       public void createObject(int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opretter et nyt mål objekt
       {
@@ -240,6 +246,7 @@ public class GoalHandler extends ObjectHandler<Goal>
             save(goals);
       }   
       
+      //Erik Pilverdier
       //metode til at opdatere et mål
       public void updateObject(int goalID, int goalMatchID, int goalScorer, int goalMinuteScored, char goalType, int goalAssistingPlayer) //opdaterer et mål objekt
       {

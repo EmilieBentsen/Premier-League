@@ -32,6 +32,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             return "opponent.csv";
       }
       
+      //Emilie Bentsen, Erik Pilverdier
       public PersistentObjectHandler<Opponent> getHandler()//Returnerer en persistentObjectHandler med objectet Opponent
       {
             return new PersistentObjectHandler<Opponent>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
@@ -54,31 +55,27 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
                   }
             };
       }
-      
-      public void listOpponents()//metode printer en liste med opponents
-      {           
-            for(Opponent i : opponents)
-            {
-                  System.out.println(i.getID() + " " + i.getOpponentName() + " " + i.getOpponentActive());   
-            }
-      }
-      
+
+      //Emilie Bentsen, Erik Pilverdier      
       public void deleteOpponent(int id) //Metoden sletter en opponent. Metoden kalder deleteObject i ObjectHandler med ArrayList opponent og et opponentID
       {
             deleteObject(opponents, id);
       }
       
+      //Emilie Bentsen, Erik Pilverdier
       public ArrayList<Opponent> getOpponentArray()//Metoden der returnerer et ArrayList opponents
       {
             return opponents;
       }
       
+      //Emilie Bentsen, Erik Pilverdier
       public int getNewOpponentID()//metode til at generere nyt opponentID. Kalder metoden getNewID i ObjectHandler med ArrayList opponents
       {
             int newID= getNewID(opponents);
             return newID;
       }
       
+      //Emilie Bentsen, Erik Pilverdier
       public void updateObject(int opponentID, String opponentName, boolean opponentActive) //Metode der opdatere en match vha. set metoder.
       {
             for(Opponent i : opponents)
@@ -92,6 +89,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             }
       }
       
+      //Emilie Bentsen, Erik Pilverdier
       public void createObject(String opponentName, boolean opponentActive) //Metode til at oprette en ny opponent. Nyt opponentID bliver autogenereret
       {
              opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));

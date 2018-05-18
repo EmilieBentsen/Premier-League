@@ -32,6 +32,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return "footballer.csv";
       }
       
+      //Erik Pilverdier, Emilie Bentsen
       public PersistentObjectHandler<Footballer> getHandler()//Returnerer en persistentObjectHandler med objectet Footballer
       {
             return new PersistentObjectHandler<Footballer>()//dette er faktisk en klasse der implementerer PersistentObjectHandler der bliver returneret
@@ -75,11 +76,13 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             };
       }
       
+      //Erik pilverdier
       public ArrayList<Footballer> getFootballerArray() //returnerer ArrayList footballers
       {
             return footballers;
       }
       
+      //Erik Pilverdier
       public ArrayList<Footballer> getActiveFootballersArray() //Laver en liste af aktive spillere og returnerer det
       {
             ArrayList<Footballer> activeFootballers = new ArrayList<Footballer>();
@@ -94,6 +97,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return activeFootballers;
       }
       
+      //Adam Birch
       public ArrayList<Footballer> getOpponentFootballersArray() //Laver en liste af inaktive modstandere og returnerer den
       {
             ArrayList<Footballer> opponentFootballers = new ArrayList<Footballer>();
@@ -108,15 +112,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return opponentFootballers;
       }
       
-      public void listFootballers() //printer liste med footballers, skal nok slettes
-      {           
-            for(Footballer i : footballers)
-            {
-                  System.out.println(i.getID() + " " + i.getFootballerJersey() + " " + i.getFootballerName() + " " 
-                  + i.getFootballerPosition() + " " + i.getFootballerSalary() + " " + i.getFootballerEmployed());   
-            }
-      }
-      
+      //Erik Pilverdier
       public Footballer getFootballer(int id) //metode tager imod et footballerID og returnerer den spiller med matchende id
       {
             for(Footballer i : footballers)
@@ -129,17 +125,20 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             return null;
       }
       
+      //Erik Pilverdier
       public int getNewFootballerID()//Metode til at generere nyt footballerID. Metoden kalder getNewID metode i Objekthandler med Arraylist footballers der returnere nyt ID
       {
             int newID= getNewID(footballers);
             return newID;
       }
       
+      //Erik Pilverdier
       public void deleteFootballer(int id) //Metode til at slette footballer. Metoden kalder deleteObject med ArrayList footballers og et footballerID. 
       {
             deleteObject(footballers, id);
       }
       
+      //Erik Pilverdier
       public void updateObject(int footballerID, int footballerJersey, //Metode der opdatere oplysninger om footballer vha. set metoder
       String footballerName,String footballerSalary, boolean footballerEmployed)
       {
@@ -156,6 +155,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
             }
       }   
       
+      //Erik Pilverdier
       public void createObject(int footballerJersey, String fooballerName, String //metode til at oprette nye footballers
       footballerSalary, boolean footballerEmployed, String position)
       {

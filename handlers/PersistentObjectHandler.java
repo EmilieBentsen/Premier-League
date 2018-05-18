@@ -1,4 +1,4 @@
-package handlers;
+package handlers;//Taget fra et eksempel, fra undervisningen
 
 public interface PersistentObjectHandler<T extends Object> //T kan være enhver type af objekter som extender Object klassen 
 {

@@ -111,7 +111,7 @@ public class AdminMatchMenu
             ArrayList<Match> matches = mh.getMatchesWithoutResult(); //henter liste af kampe der er spillede, men uden resultat
             output.printNonRegisteredMatches(matches); //printer listen
             output.promptMatchByID(); //Beder om match ID til kampen der ønskes at indtaste resultat for
-            Match match = input.getMatchIDByList(matches);
+            Match match = input.getMatchByID(matches);
             output.promptMatchResult(); //Beder om kampens resultat
             int liverpoolGoals = input.getResult(match.getMatchHomeOrAway(), match);
             ArrayList<Footballer> footballers = fh.getActiveFootballersArray(); //henter liste af aktive spillere

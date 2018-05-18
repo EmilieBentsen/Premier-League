@@ -1,5 +1,6 @@
 package models;
 
+//Emilie Bentsen
 public class User implements Model
 {
       private int userID;

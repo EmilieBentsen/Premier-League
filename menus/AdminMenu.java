@@ -49,6 +49,7 @@ public class AdminMenu
             }
       }
       
+      //Emilie Bentsen
       public void adminMenu() //menu for admin brugere
       {
             output.adminMenuUI();

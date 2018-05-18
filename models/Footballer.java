@@ -1,5 +1,5 @@
 package models;
-//Lasse: Har skrevet dele af koden.
+//Adam Birch, Lasse Gustavson.
 public abstract class Footballer implements Model
 {
       private int footballerID;
