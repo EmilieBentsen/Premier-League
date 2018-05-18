@@ -448,13 +448,13 @@ public class Output
             header();
             emptyLine(3);
             buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[0][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[0][1], 42);//printer den bedste målscorer ud med navn og antal mål 
+             + ": Goals scored " + topThreeGoalScorers[0][1], 43);//printer den bedste målscorer ud med navn og antal mål 
             emptyLine(1);
             buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[1][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[1][1], 42);//printer nummer 2 målscorer ud
+             + ": Goals scored " + topThreeGoalScorers[1][1], 43);//printer nummer 2 målscorer ud
             emptyLine(1);
             buttonLeft(footballerHandler.getFootballer(topThreeGoalScorers[2][0]).getFootballerName()
-             + ": Goals scored " + topThreeGoalScorers[2][1], 42);//nr 3 målscorer
+             + ": Goals scored " + topThreeGoalScorers[2][1], 43);//nr 3 målscorer
             emptyLine(3);
             bakEndButton(4,5);//printer en tilbage og afslut knap nede i højre hjørne 
             line();
@@ -570,6 +570,7 @@ public class Output
             printLine("You have updated "+footballer.getFootballerName());
             System.out.printf("%3s %3s %8s %5s %3s", "ID\n", "Jersey", "Name", "Salary/week", "Employed", "Position"); 
             System.out.printf("%3s %3s %8s %5s %3s\n", footballer.getID(), footballer.getFootballerJersey(), footballer.getFootballerName(), footballer.getFootballerSalary(), footballer.getFootballerEmployed(), footballer.getFootballerPosition());
+            printLine("Input 3 to return to menu.");
       }
       
       //Erik Pilverdier
@@ -578,6 +579,7 @@ public class Output
       {
             printLine("You have created a new footballer: " + name);
             printLine("Jersey number: " + jerseyNumber + ", Salary: " + salary + ", Employment staus: " + employed + ", Position: " + position);
+            printLine("Input 3 to return to menu.");
       }
       
       //Erik Pilverdier
