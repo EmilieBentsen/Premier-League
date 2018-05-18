@@ -48,26 +48,12 @@ public class AdminMatchMenu
       {
             
             output.promptDate(); //beder om dato på den fremtidige kamp
-            String date = input.getDate();
-            LocalDate matchDate = LocalDate.parse(date);
+            LocalDate matchDate = getDate();
             if(matchDate.isBefore(LocalDate.now())) //Tjekker om datoen ligger efter dags dato
             {
                   System.out.println("Date has to be after today.");
                   createFutureMatch();
             }
-            switch(date)
-            {
-                  case "5":
-                              MainMenu mainMenu = new MainMenu();
-                              mainMenu.startMenu();
-                              break;
-                              
-                  case "4":
-                              AdminMatchMenu adminMatchMenu = new AdminMatchMenu();
-                              adminMatchMenu();
-                              break;
-            }
-            
             ArrayList<Opponent> opponents = oh.getActiveOpponentsArray(); //henter aktive modstander array
             output.printOpponentList(opponents); //printer liste af aktive modstandere
             output.promptOpponent(); //beder om modstander fra liste
@@ -80,6 +66,24 @@ public class AdminMatchMenu
             
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
+      }
+      
+      public LocalDate getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
+      {     
+            
+            String date = input.getDate();
+            
+            if(date.equals("5")) 
+            {
+                  MainMenu mainMenu = new MainMenu();
+                  mainMenu.startMenu();
+            }
+            else if(date.equals("4"))
+            {
+                  adminMatchMenu();
+            }
+            LocalDate ld = LocalDate.parse(date);
+            return ld;
       }
       
       public void updateMatch()
@@ -121,14 +125,12 @@ public class AdminMatchMenu
                   
                   for(int i = 0; i < liverpoolGoals; i++) //for loppet kører for så mange mål der er scoret af LP og der registreres hvem der målscore
                   {
-                        char goalType = 'k';
+                        
                         int assistedID = 0;
                         output.printGoals(liverpoolGoals-i); 
                         output.promtGoalType(); //spørger om måltypen
-                        while(goalType != 'o' || goalType != 'p' || goalType != 'r')
-                        {
-                              goalType = Character.toUpperCase(input.getGoalType());
-                              if(goalType == 'o' || goalType == 'O') //hvis målet er et selvmål, hentes modstander liste og der vælges et ID på spilleren
+                        char goalType = Character.toUpperCase(input.getGoalType());
+                              if(goalType == 'O') //hvis målet er et selvmål, hentes modstander liste og der vælges et ID på spilleren
                               {
                                     ArrayList<Footballer> op = fh.getOpponentFootballersArray();
                                     output.printOpponentFootballers(op); //printer liste med modstandere
@@ -146,18 +148,17 @@ public class AdminMatchMenu
                                     output.promptGoalMinuteScored(); //beder om tiden på målet i min fra kampstart
                                     int time = input.getGoalMinuteScored();
                         
-                                    if(goalType == 'R' || goalType == 'r') //hvis målet er et regular mål, spørger det var assisted
+                                    if(goalType == 'R') //hvis målet er et regular mål, spørger det var assisted
                                     {  
                                           output.promtWasGoalAssisted(); //Spørger om målet var assisted
                                           assistedID = input.getAssistedFootballer(footballers);
                                     }
-                                    else if(goalType != 'R' || goalType != 'r') //Selvmål og straffespark har ikke assist.
+                                    else if(goalType != 'R') //Selvmål og straffespark har ikke assist.
                                     {
                                           assistedID = 00;
                                     }                              
                                     gh.createObject(match.getID(), goalScorerID, time, goalType, assistedID);
-                              }
-                          }    
+                              }   
                   }
                   
                   output.promptMatchFormation(); //Beder om kamp formationen

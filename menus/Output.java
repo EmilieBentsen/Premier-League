@@ -693,12 +693,12 @@ public class Output
       //Beder om et holds formation
       public void promptMatchFormation() 
       {
-            printLine("Enter starting formation. (0-0-0 or 0-0-0-0) ");
+            printLine("Enter starting formation. (0-0-0 or 0-0-0-0)");
       }
       //Beder om et holds startopstilling
       public void promptMatchLineup() 
       {
-            printLine("Enter starting lineup: (00-00-00-00-00-00-00-00-00-00-00) ");
+            printLine("Enter starting lineup: (00-00-00-00-00-00-00-00-00-00-00)");
       }
       //Spørger om den scorende modstander er på listen over modstandere
       public void promptIsOpponentOnList() 

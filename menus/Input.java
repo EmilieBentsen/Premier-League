@@ -76,17 +76,17 @@ public class Input
             while(true)
             {
                   String line = getString();
-                  if(line.equals("5"))
+                  if (line.equals("4"))
                   {
-                        return "5";
-                  } 
-                  else if(line.equals("4"))
+                        return line;
+                  }
+                  else if(line.equals("5"))
                   {
-                        return "4";
+                        return line;
                   }
                   else if(isLocalDate(line) == true)
                   {
-                        return line;
+                        return (line);
                   }
                   else System.out.println("You did not type a correct date. (YYYY-MM-DD)");
             }
@@ -269,7 +269,6 @@ public class Input
                         else
                         {
                               System.out.println("Wrong input! Please type in  R = 'Regular' P = 'Penalty' O = 'Own'");
-                              input = getString();
                         }
                   }
             
@@ -285,26 +284,30 @@ public class Input
             while(true)
             {
                   input = getString();
-                  
-                  if(input.equalsIgnoreCase("Y"))
-                  {
+                 
+                        if(input.equalsIgnoreCase("Y"))
+                        {
                         System.out.println("Please enter opponent ID from list");
                         ID = getInt();
                         return ID;
                         
-                  }
-                  else if(input.equalsIgnoreCase("N"))
-                  {
-                        AdminFootballerMenu afm = new AdminFootballerMenu();
-                        afm.createFootballerMenu("team");
-                        FootballerHandler fh = FootballerHandler.getFootballerHandler();
-                        ArrayList<Footballer> footballers = fh.getFootballerArray();
-                        ID = fh.getNewID(footballers)-1;
-                        return ID;
+                        }
+                        else if(input.equalsIgnoreCase("N"))
+                        {
+                              AdminFootballerMenu afm = new AdminFootballerMenu();
+                              afm.createFootballerMenu("team");
+                              FootballerHandler fh = FootballerHandler.getFootballerHandler();
+                              ArrayList<Footballer> footballers = fh.getFootballerArray();
+                              ID = fh.getNewID(footballers)-1;
+                              return ID;
                         
-                  }
+                        }
+                        
+                        System.out.println("Wrong input try again!");
             }
-     }
+                 
+      }
+     
      
      //Adam Birch  
      //Tager imod en formation, deler den op i int og tjekker at den er på det korrekte format. Returnerer formationen 
@@ -314,6 +317,7 @@ public class Input
             int result = 0;
             while(true)
             {
+                  result = 0;
                   String formation = input.getString();
                   String[] stringArrayLineup = formation.split("-");
                   int[] intArrayLineup = new int[stringArrayLineup.length];
@@ -328,15 +332,16 @@ public class Input
                   catch(NumberFormatException e)
                   {
                         System.out.println("Invalid formation format.");
+                        
                   }
                   if(result == 10)
                   {
-                        System.out.print("Valid formation.");
+                        System.out.println("Valid formation.");
                         return formation;
                   }
                   else
                   {
-                        System.out.print("Invalid formation. You've got "+ (result + 1) +" players in your starting formation.");
+                        System.out.println("Invalid formation. You've got "+ (result + 1) +" players in your starting formation.");
                   }
             }
      }  
