@@ -71,14 +71,22 @@ public class Input
       //Erik Pilverdier
       //da brugeren skal have mulighed for at gå tilbage gemmes input fra brugeren i en String og hvis den er "4" eller "5"
       //returneres det, ellers tjekker metoden om det er en LocalDate og hvis den er det returneres den 
-      public LocalDate getDate() 
+      public String getDate() 
       {
             while(true)
             {
                   String line = getString();
-                  if(isLocalDate(line) == true)
+                  if (line.equals("4"))
                   {
-                        return LocalDate.parse(line);
+                        return line;
+                  }
+                  else if(line.equals("5"))
+                  {
+                        return line;
+                  }
+                  else if(isLocalDate(line) == true)
+                  {
+                        return (line);
                   }
                   else System.out.println("You did not type a correct date. (YYYY-MM-DD)");
             }
