@@ -114,6 +114,9 @@ public class MatchHandler extends ObjectHandler<Match>
       public int cleanSheetsByFootballer(int footballerJersey)
       {
             int count = 0;
+            
+            String jersey = Integer.toString(footballerJersey);
+            
             for (Match i : matches)
             {          
                   if(i.getMatchFormation().equals("0-0-0"))
@@ -123,7 +126,7 @@ public class MatchHandler extends ObjectHandler<Match>
                           
                   if (((i.getMatchHomeOrAway() == 'A' && i.getMatchHomeGoals() == 0) || (i.getMatchHomeOrAway() == 'H' && i.getMatchAwayGoals() == 0)) && !i.getMatchFormation().equals("0-0-0"))
                   {                        
-                        if(checkStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
+                        if(checkStringForItem(i.getMatchLineup(), jersey)) //Hvis spilleren var i opstillingen den dag
                         { 
                               count++;
                         }
@@ -133,13 +136,14 @@ public class MatchHandler extends ObjectHandler<Match>
       }
       
       //Adam Birch
-      public int matchesPlayedByFootballer(String footballerJersey)
+      public int matchesPlayedByFootballer(int footballerJersey)
       {
             int count = 0;
+            String jersey = Integer.toString(footballerJersey);
             for (Match i : matches)
             {                  
                                           
-                  if(checkStringForItem(i.getMatchLineup(), footballerJersey)) //Hvis spilleren var i opstillingen den dag
+                  if(checkStringForItem(i.getMatchLineup(), jersey)) //Hvis spilleren var i opstillingen den dag
                   { 
                         count++;
                   }
