@@ -111,7 +111,7 @@ public class MatchHandler extends ObjectHandler<Match>
       }
       
       //Adam Birch
-      public int cleanSheetsByFootballer(String footballerJersey)
+      public int cleanSheetsByFootballer(int footballerJersey)
       {
             int count = 0;
             for (Match i : matches)

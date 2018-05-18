@@ -91,7 +91,7 @@ public class StatisticsMenu
                         
             int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());//henter den valgte fodboldspillers mål.
             int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());//henter den valgte fodboldspillers assists
-            String jersey = chosenFootballer.getFootballerJersey();//laver fodboldspillerens int trøjenr. om til en String
+            int jersey = chosenFootballer.getFootballerJersey();//laver fodboldspillerens int trøjenr. om til en String
             int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);//henter fodboldspillerens noterede cleansheets
             int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey);//henter antal kampe fodboldspilleren har spillet 
             

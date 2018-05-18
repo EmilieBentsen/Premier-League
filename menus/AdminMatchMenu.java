@@ -149,14 +149,8 @@ public class AdminMatchMenu
                               else if(goalType != 'R' || goalType != 'r') //Selvmål og straffespark har ikke assist.
                               {
                                     assistedID = 00;
-<<<<<<< HEAD
                               }                              
                               gh.createObject(match.getID(), goalScorerID, time, goalType, assistedID);
-=======
-                              }
-                  
-                              Goal goal = new Goal(gh.getNewGoalID(), match.getID(), ID, time, goalType, assistedID);
->>>>>>> 0cda5e09543109047010e9bc5a1de6234d3427bb
                         }
                   }
                   
