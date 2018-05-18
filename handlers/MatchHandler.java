@@ -1,6 +1,7 @@
 package handlers;
 
 import models.*;
+import menus.*;
 import java.util.*;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
@@ -301,6 +302,12 @@ public class MatchHandler extends ObjectHandler<Match>
                                                                   i.getMatchFormation(), 
                                                                   i.getMatchLineup())); 
                   }
+            if(matchesInPeriod.isEmpty())
+            {
+                  System.out.println("The list was empty.");
+                  StatisticsMenu sm = new StatisticsMenu();
+                  sm.statisticsMenu();      
+            }
             }
             return matchesInPeriod;
       } 
@@ -316,6 +323,12 @@ public class MatchHandler extends ObjectHandler<Match>
                   {
                         matchesInAPeriod.add(i.getID());
                   }
+            }
+            if(matchesInAPeriod.isEmpty())
+            {
+                  System.out.println("The list was empty.");
+                  StatisticsMenu sm = new StatisticsMenu();
+                  sm.topThreeScorerMenu();      
             }
             return matchesInAPeriod;
       }
