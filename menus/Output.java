@@ -586,7 +586,7 @@ public class Output
       //Giver en bekræftelse, samt viser oplysninger om en nyoprettet modstander
       public void confirmationOnCreateOpponent(String opponentName, boolean active) 
       {
-            printLine("You have created" + opponentName + ". Their current status is:" + active );
+            printLine("You have created " + opponentName + ". Their current status is: " + active );
             printLine("Input 3 to return to menu.");
       }
       
@@ -596,7 +596,7 @@ public class Output
       {
             printLine("You have updated the opponent.");
             System.out.printf("%3s %20s %5s\n", "ID", "Name", "Active");
-            System.out.printf("%3s %20s %5s\n", opponent.getID(), opponent.getOpponentName(), opponent.getID()); 
+            System.out.printf("%3s %20s %5s\n", opponent.getID(), opponent.getOpponentName(), opponent.getOpponentActive()); 
             printLine("Input 3 to return to menu."); 
       }
       
