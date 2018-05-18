@@ -20,6 +20,7 @@ public class StatisticsMenu
       
       MainMenu mainMenu = new MainMenu(); //For at kunne komme tilbage til startMenu() i MainMenu, hvis brugeren ønsker det.
       
+      //Erik Pilverdier
       //Statistik hovedmenu
       public void statisticsMenu()
       {
@@ -45,6 +46,7 @@ public class StatisticsMenu
             }
       }
       
+      //Erik Pilverdier
       //top tre mål scorer menuen
       public void topThreeScorerMenu()   
       {
@@ -59,6 +61,7 @@ public class StatisticsMenu
             bakEndButtons();// metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
+      //Adam Birch, Erik Pilverdier
       public LocalDate getDate()//beder brugeren om at indtaste en dato, og giver muligheden for at gå tilbage i til forrige menu eller start
       {     
             
@@ -72,10 +75,11 @@ public class StatisticsMenu
             {
                   statisticsMenu();
             }
-            LocalDate l = LocalDate.parse(date);
-            return l;
+            LocalDate ld = LocalDate.parse(date);
+            return ld;
       }
       
+      //Erik Pilverdier
       public void footballerStatisticsMenu()//til fodboldspiller statistik menuen
       {
             //laver en ArrayList med aktive fodboldspiller for klubben
@@ -87,7 +91,7 @@ public class StatisticsMenu
                         
             int goals = goalHandler.goalsByFootballer(chosenFootballer.getID());//henter den valgte fodboldspillers mål.
             int assists = goalHandler.assistsByFootballer (chosenFootballer.getID());//henter den valgte fodboldspillers assists
-            String jersey = "" + chosenFootballer.getFootballerJersey();//laver fodboldspillerens int trøjenr. om til en String
+            String jersey = chosenFootballer.getFootballerJersey();//laver fodboldspillerens int trøjenr. om til en String
             int cleansheets = matchHandler.cleanSheetsByFootballer(jersey);//henter fodboldspillerens noterede cleansheets
             int matchesPlayed = matchHandler.matchesPlayedByFootballer(jersey);//henter antal kampe fodboldspilleren har spillet 
             
@@ -108,6 +112,7 @@ public class StatisticsMenu
             }                
       }
       
+      //Erik Pilverdier
       public void footballerMatchesPlayed(Footballer footballer)
       {
             output.footballerMatchesPlayed(footballer);//beder brugeren om at indtaste start datoen for den periode kampende skal vises 
@@ -123,6 +128,7 @@ public class StatisticsMenu
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
+      //Erik Pilverdier
       //Club menuen, printer sæson stats ud for holdet
       public void clubStatisticsMenu()
       {
@@ -143,6 +149,7 @@ public class StatisticsMenu
             bakEndButtons();//metoden giver brugeren mulighed for at gå tilbage til Statistik hovedmenu, eller tilabge til star menuen
       }
       
+      //Erik Pilverdier
       //kamp statistik menuen
       public void matchStatisticsMenu()
       {
@@ -164,6 +171,7 @@ public class StatisticsMenu
             
       }  
       
+      //Erik Pilverdier
       public void bakEndButtons()//metoden beder brugeren om indput mellem 4 og 5 og vælger menu derefter
       {
             int choice = input.getInt(4,5);

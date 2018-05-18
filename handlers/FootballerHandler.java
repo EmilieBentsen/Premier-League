@@ -8,6 +8,7 @@ public class FootballerHandler extends ObjectHandler<Footballer> //Vi arbejder m
       private static FootballerHandler instance;
       private ArrayList<Footballer> footballers;
       
+      //Lasse Gustafson, Erik Pilverdier
       private FootballerHandler() /*Metoden er til fordi vi gerne vil være sikker på at der kun er en instans af klassen. 
       Derfor har vi overskrevet default konstruktoren med en private konstruktor, som vi kalder i metoden getFootballerHandler, 
       i det tilfælde der ikke allerede findes en instans. Dette er en Singleton løsning. Footballers ArrayList fyldes op med 

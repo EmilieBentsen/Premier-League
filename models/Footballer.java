@@ -63,9 +63,10 @@ public abstract class Footballer implements Model
             this.footballerEmployed = footballerEmployed;
       }
       
+      @Override
       public String toString()
       {
-            return footballerJersey + " " + footballerName + " " + footballerSalary + " " + footballerEmployed + " ";
+            return footballerJersey + " " + footballerName + " " + footballerSalary + " " + footballerEmployed;
       }
 
       public abstract String getFootballerPosition(); //Alle subclasses skal indeholde denne metode.

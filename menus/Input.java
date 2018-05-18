@@ -66,6 +66,7 @@ public class Input
             }
       }
       
+      //Erik Pilverdier
       //da brugeren skal have mulighed for at gå tilbage gemmes input fra brugeren i en String og hvis den er "4" eller "5"
       //returneres det, ellers tjekker metoden om det er en LocalDate og hvis den er det returneres den 
       public String getDate() 
@@ -85,11 +86,11 @@ public class Input
                   {
                         return line;
                   }
-                  else System.out.println("You did not type a correct date, the format is yyyy-mm-dd ");
+                  else System.out.println("You did not type a correct date. (YYYY-MM-DD)");
             }
       }
       
-      //sørger for at formatet af den strimg vi modtager er åååå-mm-dd, metoden fanger dog ikke fejlen i 2018-30-51
+      //Adam Birch
       public boolean isLocalDate(String line)
       {
             try
@@ -108,13 +109,15 @@ public class Input
             }
       return true;
       }
-      //tager en string in fra consolen og returnerer den
+      
+      //tager en string ind via Scanner og returnerer den
       public String getString()
       {
             Scanner input = new Scanner(System.in);
             return input.nextLine();
       }
       
+      //Erik Pilverdier
       //tjekker om det indtastede ID findes i opponenlist
       public int getOpponentIDByList(ArrayList<Opponent> opponentList)
       {
@@ -129,9 +132,11 @@ public class Input
                               return i.getID();      
                         }
                   }
-                  System.out.println("That was not one of the listed opponent ID's. Try again!");
+                  System.out.println("That was not one of the listed opponent ID's. Try again.");
             }
       }
+      
+      //Erik Pilverdier
       //tjekker om det indtastede id findes på listen og returnere en modstander
       public Opponent getOpponentByList(ArrayList<Opponent> opponentList)
       {
@@ -163,7 +168,7 @@ public class Input
                   }
                   else
                   {
-                        System.out.println("Wrong input! Please type in H or A for Home/Away");
+                        System.out.println("Wrong input. Please type in H or A for Home/Away");
                         input = getString();
                   }
             }
@@ -186,6 +191,8 @@ public class Input
                    }     
             }
       }
+      
+      //Emilie Bentsen, Adam Birch
       //Tager imod et resultat og splitter det i H/A goals, tjekker om kampen er ude eller hjemme og returnerer LP mål
       public int getResult(char homeAway, Match match)
       {
@@ -223,6 +230,8 @@ public class Input
             }
             
       }
+      
+      //Erik Pilverdier
       //Tjekker om footballerjersey er på listen af footballers
       public int getGoalscorer(ArrayList<Footballer> footballers)
       {
@@ -239,6 +248,8 @@ public class Input
                   }
             } 
       } 
+      
+      //Erik Pilverdier
       //tager imod tiden et mål er scoret og tjekker at det er mindre end 100 og returner tiden
       public int getGoalMinuteScored()
       {
@@ -257,6 +268,8 @@ public class Input
                   }
             }
       }   
+      
+      //Erik Pilverdier
       //tager imod en måltype og tjekker om typen er enten R P eller O og returnerer typen
       public char getGoalType()
       {
@@ -277,6 +290,8 @@ public class Input
             
       
       } 
+      
+      //Erik Pilverdier
       //tager imod et svar på om en modstander findes på listen ellers beder den brugeren indtaste modstanderen. Returnerer ID på modstander.
       public int getOpponentID() 
       {
@@ -304,7 +319,9 @@ public class Input
                         
                   }
             }
-      } 
+     }
+     
+     //Adam Birch  
      //Tager imod en formation, deler den op i int og tjekker at den er på det korrekte format. Returnerer formationen 
      public String promptMatchFormation() 
      {
@@ -338,6 +355,8 @@ public class Input
                   }
             }
      }  
+     
+     //Adam Birch
      //Tager imod et lineup og splitter den i 11 jersey numre. Hvis result når op på 11 i for løkken returneres lineuppet
      public String getMatchLineup() 
      {
@@ -370,7 +389,9 @@ public class Input
                         System.out.print("Invalid lineup. You've got "+ (result) +" players in your starting formation, you need 11.");
                   }
             }   
-     }  
+     }
+     
+     //Erik Pilverdier
      //tager imod et svar på om et mål var assistede. Hvis ja indtastes ID på spiller hvis nej returneres ID = 00
      public int getAssistedFootballer(ArrayList<Footballer> footballers) 
       {
@@ -392,14 +413,11 @@ public class Input
                                     return i.getID();
                                     
                               }
-                        }
-                        
-                        
+                        }     
                   }
                   else if(input.equalsIgnoreCase("N"))
                   {
                         return 00;
-                        
                   }
                   else
                   {
@@ -407,6 +425,4 @@ public class Input
                   }
             }
       }   
-      
-
 }

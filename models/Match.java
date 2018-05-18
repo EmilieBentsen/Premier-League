@@ -1,6 +1,6 @@
 package models;
 import java.time.*;
-
+//Adam Birch
 public class Match implements Model
 {
       private int matchID; //Identificere den enkelte kamp.

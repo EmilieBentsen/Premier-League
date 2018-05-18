@@ -26,13 +26,11 @@ public class MainMenu
                               am.login();//klader adminstrations menuen i AdminMenu klassen
                               break;
                               
-                  case 3:     
-                              ArrayList<Match> schedule = matchHandler.schedule();//laver en liste med det resterende kamprogram
+                  case 3:     ArrayList<Match> schedule = matchHandler.schedule();//laver en liste med det resterende kamprogram
                               ArrayList<Opponent> opponents = opponentHandler.getOpponentArray();//liste over modstandere
                               output.printSchedule(schedule);//udskriver kamprogrammet
                               output.endButton(4);//printer en slut knap
-                              int choiceSchedule = input.getInt(4,4);//tager kun 4 som gyldigt input
-                                    
+                              int choiceSchedule = input.getInt(4,4);//tager kun 4 som gyldigt input  
                               switch(choiceSchedule)
                               {
                                     case 4: 

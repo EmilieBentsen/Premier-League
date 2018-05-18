@@ -10,11 +10,13 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
       private static OpponentHandler instance;
       private ArrayList<Opponent> opponents; 
       
+      //Lasse Gustafson, Erik Pilverdier
       private OpponentHandler()
       {
             opponents = getContent();
       }
       
+      //Lasse Gustafson, Erik Pilverdier
       public static OpponentHandler getOpponentHandler()
       {
             if(instance == null)
@@ -76,6 +78,7 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
             int newID= getNewID(opponents);
             return newID;
       }
+      
       public void updateObject(int opponentID, String opponentName, boolean opponentActive) //Metode der opdatere en match vha. set metoder.
       {
             for(Opponent i : opponents)
@@ -94,7 +97,10 @@ public class OpponentHandler extends ObjectHandler<Opponent> //specifocerer hvil
              opponents.add(new Opponent(getNewOpponentID(), opponentName, opponentActive));
              save(opponents);
       } 
-     public ArrayList<Opponent> getActiveOpponentsArray()
+      
+      
+      //Adam Birch
+      public ArrayList<Opponent> getActiveOpponentsArray()
       {
             ArrayList<Opponent> activeOpponents = new ArrayList<Opponent>();
             

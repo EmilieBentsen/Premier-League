@@ -1,5 +1,5 @@
 package models;
-//Lasse: Har skrevet dele af koden.
+//Lasse Gustafson, Adam Birch
 public class Goal implements Model
 {
       private int goalID; //Målets unikke ID.

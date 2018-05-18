@@ -21,13 +21,12 @@ public class AdminOpponentMenu
                               
                   case 2 :    createNewOpponentMenu(); //opret modstander menu
                               break; 
-
-                  case 3:
-                              AdminMenu am = new AdminMenu(); //Tilbage til admin menu
+                  
+                  case 3:     AdminMenu am = new AdminMenu(); //Tilbage til admin menu
                               am.adminMenu();
                               break;
-                  case 4:
-                              MainMenu mm = new MainMenu();  //Tilbage til main menu
+                  
+                  case 4:     MainMenu mm = new MainMenu();  //Tilbage til main menu
                               mm.startMenu();
                               break;             
             }
@@ -59,6 +58,7 @@ public class AdminOpponentMenu
 
             output.confirmationOnUpdateOpponent(chosenOpponent); //bekræftelse på at modstanderen er blevet opdateret
             int endMenu = input.getInt(3,3);
+            
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();
       }
@@ -73,15 +73,17 @@ public class AdminOpponentMenu
             
             if(isActive == 1)
             {
-                  active =true;
+                  active = true;
             }
             else
             {
                   active = false;
             }
+            
             opponentHandler.createObject(opponentName, active); //opretter ny opponent 
             output.confirmationOnCreateOpponent(opponentName, active); //bekræftelse på at modstander er oprettet
             input.getInt(3,3);
+            
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.adminMenu();           
       }

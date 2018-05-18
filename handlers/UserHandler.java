@@ -52,6 +52,8 @@ public class UserHandler extends ObjectHandler<User>
             };
       }
       
+      
+      //Emilie Bentsen, Lasse Gustafson
       public boolean verifyAdmin(String username, String password) //metode til at verificere om en bruger findes
       {
             for(User i : users)
@@ -59,9 +61,7 @@ public class UserHandler extends ObjectHandler<User>
                   if(i.getUsername().equals(username) && i.getPassword().equals(password))
                   {
                         return true;
-                        
                   }
-               
             }
             return false;
       }
